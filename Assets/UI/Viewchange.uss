@@ -1,3 +1,15 @@
 :root {
+}
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.boton {
+    margin-left: 72px;
+    margin-right: 72px;
+    margin-top: 360px;
+    margin-bottom: 360px;
 }

@@ -24,8 +24,8 @@ public class ChangeViews : MonoBehaviour
         }
 
         var root = uiDocument.rootVisualElement;
-        LeftView = root.Q<Button>("LeftView");
-        RightView = root.Q<Button>("RightView");
+        LeftView = root.Q<Button>("VistaIzq");
+        RightView = root.Q<Button>("VistaDer");
 
         if (LeftView != null)
             LeftView.clicked += LoadLeftScene;
