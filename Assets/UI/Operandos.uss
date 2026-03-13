@@ -1,11 +1,40 @@
-:root {
-}
-
 .maincontenedor {
     flex-direction: row;
+    flex-grow: 1;
 }
 
-.contenedorNumeros {
-    flex-direction: row;
+.left-panel {
+    width: 50%;
+    justify-content: center;
     align-items: center;
+}
+
+.right-panel {
+    width: 50%;
+}
+
+.dialpad {
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dial-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.dial-button {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    font-size: 24px;
+    -unity-text-align: middle-center;
+}
+
+.dial-spacer {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
 }
