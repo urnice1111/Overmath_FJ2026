@@ -21,7 +21,14 @@ public class DragSelectionManager : MonoBehaviour
 
     public void AgregarNumero(int numero)
     {
-        numerosSeleccionados.Add(numero);
-        Debug.Log("Número agregado: " + numero);
+        if (numerosSeleccionados.Count < 5)
+        {
+           numerosSeleccionados.Add(numero);
+           Debug.Log("Número agregado: " + numero);
+        }
+        else
+        {
+            Debug.Log("No se pueden agregar más números." + numerosSeleccionados.Count);
+        }
     }
 }

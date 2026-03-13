@@ -53,15 +53,14 @@ public class PanelNumerosUI : MonoBehaviour
                 return;
             }
 
-            DragSelectionManager.Instance.AgregarNumero(numero);
-
-            if (NumberSpawner.Instance != null)
+            if(DragSelectionManager.Instance.numerosSeleccionados.Count < 5)
             {
-                NumberSpawner.Instance.SpawnNumero(numero);
-            }
-            else
-            {
-                Debug.LogError("NumberSpawner.Instance es NULL - asegurate de que exista en la escena");
+                DragSelectionManager.Instance.AgregarNumero(numero);
+            
+                if (NumberSpawner.Instance != null)
+                {
+                    NumberSpawner.Instance.SpawnNumero(numero);
+                }
             }
         };
     }
