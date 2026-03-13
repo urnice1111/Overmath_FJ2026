@@ -26,11 +26,21 @@ public class NumberSpawner : MonoBehaviour
 
     public void SpawnNumero(int numero)
     {
+        Debug.Log("NumberSpawner.SpawnNumero llamado con: " + numero);
+
         if (spawnParent == null)
         {
             Debug.LogError("NumberSpawner: spawnParent no asignado.");
             return;
         }
+
+        Canvas canvas = spawnParent.GetComponentInParent<Canvas>();
+        if (canvas == null)
+            Debug.LogError("NumberSpawner: No hay Canvas padre en spawnParent.");
+        else if (canvas.GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
+            Debug.LogError("NumberSpawner: El Canvas NO tiene GraphicRaycaster. El drag no funcionara.");
+        else
+            Debug.Log("NumberSpawner: Canvas y GraphicRaycaster OK.");
 
         var obj = new GameObject(
             "Num_" + numero + "_" + spawnCount,
@@ -52,6 +62,13 @@ public class NumberSpawner : MonoBehaviour
         var text = obj.GetComponent<Text>();
         text.text = numero.ToString();
         text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        if (text.font == null)
+            text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+        if (text.font == null)
+            Debug.LogError("NumberSpawner: No se pudo cargar ninguna fuente. El texto sera invisible.");
+        else
+            Debug.Log("NumberSpawner: Fuente cargada: " + text.font.name);
+
         text.fontSize = fontSize;
         text.color = textColor;
         text.alignment = TextAnchor.MiddleCenter;
@@ -62,6 +79,7 @@ public class NumberSpawner : MonoBehaviour
         var draggable = obj.GetComponent<DraggableNumber>();
         draggable.numero = numero;
 
+        Debug.Log("NumberSpawner: Objeto creado -> " + obj.name + " en " + rt.anchoredPosition);
         spawnCount++;
     }
 }

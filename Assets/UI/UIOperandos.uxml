@@ -24,7 +24,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="ContenedorOperandos" style="flex-grow: 1;">
-            <ui:Button text="Button" name="MesaCreacion"/>
+            <ui:Button text="Button" name="MesaCreacion" class="dial-button"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

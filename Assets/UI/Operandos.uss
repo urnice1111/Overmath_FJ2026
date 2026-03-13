@@ -1,3 +1,7 @@
+* {
+    picking-mode: ignore;
+}
+
 .maincontenedor {
     flex-direction: row;
     flex-grow: 1;
@@ -26,6 +30,7 @@
 }
 
 .dial-button {
+    picking-mode: position;
     width: 80px;
     height: 80px;
     flex-shrink: 0;

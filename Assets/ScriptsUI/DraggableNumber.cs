@@ -1,32 +1,64 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(RectTransform))]
-public class DraggableNumber : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableNumber : MonoBehaviour
 {
     public int numero;
 
     private RectTransform rectTransform;
     private Canvas parentCanvas;
+    private Camera canvasCamera;
+    private bool dragging;
+    private Vector2 dragOffset;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         parentCanvas = GetComponentInParent<Canvas>();
+        if (parentCanvas != null && parentCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
+            canvasCamera = parentCanvas.worldCamera;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    private void Update()
     {
-        transform.SetAsLastSibling();
-    }
+        var mouse = Mouse.current;
+        if (mouse == null) return;
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        rectTransform.anchoredPosition += eventData.delta / parentCanvas.scaleFactor;
-    }
+        Vector2 mousePos = mouse.position.ReadValue();
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
+        if (mouse.leftButton.wasPressedThisFrame)
+        {
+            if (RectTransformUtility.RectangleContainsScreenPoint(
+                    rectTransform, mousePos, canvasCamera))
+            {
+                dragging = true;
+                transform.SetAsLastSibling();
+
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    rectTransform.parent as RectTransform,
+                    mousePos,
+                    canvasCamera,
+                    out Vector2 localMouse);
+
+                dragOffset = rectTransform.anchoredPosition - localMouse;
+            }
+        }
+
+        if (dragging && mouse.leftButton.isPressed)
+        {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                rectTransform.parent as RectTransform,
+                mousePos,
+                canvasCamera,
+                out Vector2 localMouse);
+
+            rectTransform.anchoredPosition = localMouse + dragOffset;
+        }
+
+        if (mouse.leftButton.wasReleasedThisFrame)
+        {
+            dragging = false;
+        }
     }
 }

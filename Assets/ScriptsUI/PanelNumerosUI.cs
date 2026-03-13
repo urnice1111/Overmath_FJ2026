@@ -59,6 +59,10 @@ public class PanelNumerosUI : MonoBehaviour
             {
                 NumberSpawner.Instance.SpawnNumero(numero);
             }
+            else
+            {
+                Debug.LogError("NumberSpawner.Instance es NULL - asegurate de que exista en la escena");
+            }
         };
     }
 }
