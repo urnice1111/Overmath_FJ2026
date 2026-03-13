@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Operandos.uss?fileID=7433441132597879392&amp;guid=db0dfd4c100ab4f4e96c9446b1a41fad&amp;type=3#Operandos"/>
     <ui:VisualElement name="Contenedor" class="maincontenedor" style="flex-grow: 1;">
-        <ui:Button text="Button" name="VistaIzq"/>
+        <ui:Button text="Button" name="VistaIzq" style="background-image: url(&quot;project://database/Assets/Sprites/UISprites/Gemini_Generated_Image_rbzatkrbzatkrbza%20(2).png?fileID=2800000&amp;guid=4f9d009adfd048d4691f10d39e899c79&amp;type=3#Gemini_Generated_Image_rbzatkrbzatkrbza (2)&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); background-color: rgba(188, 188, 188, 0); padding-top: 61px; padding-right: 40px; padding-bottom: 70px; padding-left: 52px; rotate: 180deg; margin-top: 359px; margin-right: -7px; margin-bottom: 328px; margin-left: 2px;"/>
         <ui:VisualElement name="ContenedorNumeros" class="dialpad">
             <ui:VisualElement class="dial-row">
                 <ui:Button text="&#10;" name="Boton1" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_1.png?fileID=2800000&amp;guid=eaf0dad77c1144220aeb90a7bb2bc32d&amp;type=3#bloque_1&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); color: rgba(27, 27, 27, 0); background-color: rgba(188, 188, 188, 0);"/>
@@ -28,6 +28,6 @@
             <ui:Button text="+" name="BotonSuma" class="dial-button" style="background-color: rgb(204, 120, 50); color: rgb(255, 255, 255); font-size: 32px; -unity-font-style: bold;"/>
             <ui:Button text="Button" name="MesaCreacion" class="dial-button" style="background-color: rgb(0, 0, 0);"/>
         </ui:VisualElement>
-        <ui:Button text="Button" name="VistaDer"/>
+        <ui:Button text="Button" name="VistaDer" style="background-image: url(&quot;project://database/Assets/Sprites/UISprites/Gemini_Generated_Image_rbzatkrbzatkrbza%20(2).png?fileID=2800000&amp;guid=4f9d009adfd048d4691f10d39e899c79&amp;type=3#Gemini_Generated_Image_rbzatkrbzatkrbza (2)&quot;); background-color: rgba(188, 188, 188, 0); padding-bottom: 73px; margin-bottom: 328px; margin-top: 359px; margin-left: 2px; margin-right: -7px; padding-top: 56px; padding-right: 40px; padding-left: 52px;"/>
     </ui:VisualElement>
 </ui:UXML>

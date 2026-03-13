@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Viewchange.uss?fileID=7433441132597879392&amp;guid=f5ae56c12ecc4494ab1ca7a2bdde0e5e&amp;type=3#Viewchange"/>
     <ui:VisualElement name="MainContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
-        <ui:Button text="Button" name="VistaIzq" class="boton"/>
-        <ui:Button text="Button" name="VistaDer" class="boton"/>
+        <ui:Button text="Button" name="VistaIzq" class="boton" style="background-image: url(&quot;project://database/Assets/Sprites/UISprites/Gemini_Generated_Image_rbzatkrbzatkrbza%20(2).png?fileID=2800000&amp;guid=4f9d009adfd048d4691f10d39e899c79&amp;type=3#Gemini_Generated_Image_rbzatkrbzatkrbza (2)&quot;); background-color: rgba(0, 255, 0, 0); -unity-background-image-tint-color: rgb(255, 255, 255); rotate: 180deg; padding-top: 9px; margin-top: 334px; margin-bottom: 351px; padding-bottom: 12px; margin-left: -7px; padding-right: 83px; margin-right: 2px; padding-left: 78px;"/>
+        <ui:Button text="Button" name="VistaDer" class="boton" style="background-image: url(&quot;project://database/Assets/Sprites/UISprites/Gemini_Generated_Image_rbzatkrbzatkrbza%20(2).png?fileID=2800000&amp;guid=4f9d009adfd048d4691f10d39e899c79&amp;type=3#Gemini_Generated_Image_rbzatkrbzatkrbza (2)&quot;); margin-left: 7px; margin-right: 2px; padding-right: 81px; background-color: rgba(188, 188, 188, 0); rotate: 0; padding-left: 63px; padding-bottom: 147px; padding-top: 143px; margin-bottom: 325px;"/>
     </ui:VisualElement>
 </ui:UXML>

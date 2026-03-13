@@ -8,8 +8,10 @@
 }
 
 .boton {
-    margin-left: 72px;
+    margin-left: -4px;
     margin-right: 72px;
     margin-top: 360px;
     margin-bottom: 360px;
+    padding-left: 94px;
+    padding-right: 96px;
 }
