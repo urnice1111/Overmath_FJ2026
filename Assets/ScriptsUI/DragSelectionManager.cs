@@ -5,7 +5,15 @@ public class DragSelectionManager : MonoBehaviour
 {
     public static DragSelectionManager Instance { get; private set; }
 
+    public const int MaxItems = 5;
+
     public List<int> numerosSeleccionados = new List<int>();
+    public List<string> operadoresSeleccionados = new List<string>();
+
+    public int TotalSeleccionados => numerosSeleccionados.Count + operadoresSeleccionados.Count;
+
+    public static int Resultado { get; set; }
+    public static string ExpresionTexto { get; set; }
 
     private void Awake()
     {
@@ -19,24 +27,52 @@ public class DragSelectionManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool PuedeAgregar()
+    {
+        return TotalSeleccionados < MaxItems;
+    }
+
     public void AgregarNumero(int numero)
     {
-        if (numerosSeleccionados.Count < 5)
+        if (!PuedeAgregar())
         {
-           numerosSeleccionados.Add(numero);
-           Debug.Log("Número agregado: " + numero);
+            Debug.Log("No se pueden agregar mas items. Total: " + TotalSeleccionados);
+            return;
         }
-        else
-        {
-            Debug.Log("No se pueden agregar más números." + numerosSeleccionados.Count);
-        }
+        numerosSeleccionados.Add(numero);
+        Debug.Log("Numero agregado: " + numero + " | Total: " + TotalSeleccionados);
     }
 
     public void QuitarNumero(int numero)
     {
         if (numerosSeleccionados.Remove(numero))
         {
-            Debug.Log("Número quitado: " + numero + " | Quedan: " + numerosSeleccionados.Count);
+            Debug.Log("Numero quitado: " + numero + " | Total: " + TotalSeleccionados);
         }
+    }
+
+    public void AgregarOperador(string op)
+    {
+        if (!PuedeAgregar())
+        {
+            Debug.Log("No se pueden agregar mas items. Total: " + TotalSeleccionados);
+            return;
+        }
+        operadoresSeleccionados.Add(op);
+        Debug.Log("Operador agregado: " + op + " | Total: " + TotalSeleccionados);
+    }
+
+    public void QuitarOperador(string op)
+    {
+        if (operadoresSeleccionados.Remove(op))
+        {
+            Debug.Log("Operador quitado: " + op + " | Total: " + TotalSeleccionados);
+        }
+    }
+
+    public void LimpiarTodo()
+    {
+        numerosSeleccionados.Clear();
+        operadoresSeleccionados.Clear();
     }
 }

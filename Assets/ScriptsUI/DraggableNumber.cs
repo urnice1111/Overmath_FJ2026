@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class DraggableNumber : MonoBehaviour
 {
     public int numero;
+    public bool esOperador;
+    public string simboloOperador;
 
     [SerializeField] private float doubleClickTime = 0.3f;
 
@@ -15,12 +17,22 @@ public class DraggableNumber : MonoBehaviour
     private Vector2 dragOffset;
     private float lastClickTime;
 
+    private Vector2 posicionOriginal;
+    private Transform parentOriginal;
+    private DropSlot slotActual;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         parentCanvas = GetComponentInParent<Canvas>();
         if (parentCanvas != null && parentCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
             canvasCamera = parentCanvas.worldCamera;
+    }
+
+    private void Start()
+    {
+        posicionOriginal = rectTransform.anchoredPosition;
+        parentOriginal = transform.parent;
     }
 
     private void Update()
@@ -44,10 +56,16 @@ public class DraggableNumber : MonoBehaviour
                     return;
                 }
 
-                OnSingleClick();
                 lastClickTime = Time.time;
 
+                if (slotActual != null)
+                {
+                    slotActual.Liberar();
+                    slotActual = null;
+                }
+
                 dragging = true;
+                transform.SetParent(parentOriginal, true);
                 transform.SetAsLastSibling();
 
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -71,21 +89,52 @@ public class DraggableNumber : MonoBehaviour
             rectTransform.anchoredPosition = localMouse + dragOffset;
         }
 
-        if (mouse.leftButton.wasReleasedThisFrame)
+        if (mouse.leftButton.wasReleasedThisFrame && dragging)
         {
             dragging = false;
+            IntentarColocarEnSlot(mousePos);
         }
     }
 
-    private void OnSingleClick()
+    private void IntentarColocarEnSlot(Vector2 screenPos)
     {
-        Debug.Log("Click en: " + gameObject.name);
+        DropSlot[] slots = FindObjectsByType<DropSlot>(FindObjectsSortMode.None);
+
+        foreach (var slot in slots)
+        {
+            RectTransform slotRT = slot.GetComponent<RectTransform>();
+            if (slotRT == null) continue;
+
+            if (!RectTransformUtility.RectangleContainsScreenPoint(slotRT, screenPos, canvasCamera))
+                continue;
+
+            if (!slot.PuedeAceptar(this))
+                continue;
+
+            slot.Colocar(this);
+            slotActual = slot;
+
+            transform.SetParent(slot.transform, false);
+            rectTransform.anchoredPosition = Vector2.zero;
+
+            return;
+        }
+
+        rectTransform.anchoredPosition = posicionOriginal;
     }
 
     private void OnDoubleClick()
     {
+        if (slotActual != null)
+            slotActual.Liberar();
+
         if (DragSelectionManager.Instance != null)
-            DragSelectionManager.Instance.QuitarNumero(numero);
+        {
+            if (esOperador)
+                DragSelectionManager.Instance.QuitarOperador(simboloOperador);
+            else
+                DragSelectionManager.Instance.QuitarNumero(numero);
+        }
 
         Destroy(gameObject);
     }
