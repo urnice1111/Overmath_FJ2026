@@ -6,8 +6,8 @@ public class ChangeViews : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
 
-    [SerializeField] private string leftSceneName = "PrimerEscena";
-    [SerializeField] private string rightSceneName = "OperandosEnterosEscena";
+    [SerializeField] private string leftSceneName = "SampleScene";
+    [SerializeField] private string rightSceneName = "OperandosEnterosScene";
 
     private Button LeftView;
     private Button RightView;

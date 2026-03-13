@@ -24,6 +24,7 @@ public class NumberSpawner : MonoBehaviour
         Instance = this;
     }
 
+
     public void SpawnNumero(int numero)
     {
         Debug.Log("NumberSpawner.SpawnNumero llamado con: " + numero);
