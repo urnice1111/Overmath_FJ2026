@@ -3,23 +3,23 @@
     <ui:VisualElement name="Contenedor" class="maincontenedor" style="flex-grow: 1;">
         <ui:VisualElement name="ContenedorNumeros" class="dialpad">
             <ui:VisualElement class="dial-row">
-                <ui:Button text="1" class="dial-button"/>
-                <ui:Button text="2" class="dial-button"/>
-                <ui:Button text="3" class="dial-button"/>
+                <ui:Button text="1" name="Boton1" class="dial-button"/>
+                <ui:Button text="2" name="Boton2" class="dial-button"/>
+                <ui:Button text="3" name="Boton3" class="dial-button"/>
             </ui:VisualElement>
             <ui:VisualElement class="dial-row">
-                <ui:Button text="4" class="dial-button"/>
-                <ui:Button text="5" class="dial-button"/>
-                <ui:Button text="6" class="dial-button"/>
+                <ui:Button text="4" name="Boton4" class="dial-button"/>
+                <ui:Button text="5" name="Boton5" class="dial-button"/>
+                <ui:Button text="6" name="Boton6" class="dial-button"/>
             </ui:VisualElement>
             <ui:VisualElement class="dial-row">
-                <ui:Button text="7" class="dial-button"/>
-                <ui:Button text="8" class="dial-button"/>
-                <ui:Button text="9" class="dial-button"/>
+                <ui:Button text="7" name="Boton7" class="dial-button"/>
+                <ui:Button text="8" name="Boton8" class="dial-button"/>
+                <ui:Button text="9" name="Boton9" class="dial-button"/>
             </ui:VisualElement>
             <ui:VisualElement class="dial-row">
                 <ui:VisualElement class="dial-spacer"/>
-                <ui:Button text="0" class="dial-button"/>
+                <ui:Button text="0" name="Boton0" class="dial-button"/>
                 <ui:VisualElement class="dial-spacer"/>
             </ui:VisualElement>
         </ui:VisualElement>
