@@ -3,28 +3,28 @@
     <ui:VisualElement name="Contenedor" class="maincontenedor" style="flex-grow: 1;">
         <ui:VisualElement name="ContenedorNumeros" class="dialpad">
             <ui:VisualElement class="dial-row">
-                <ui:Button text="1" name="Boton1" class="dial-button"/>
-                <ui:Button text="2" name="Boton2" class="dial-button"/>
-                <ui:Button text="3" name="Boton3" class="dial-button"/>
+                <ui:Button text="&#10;" name="Boton1" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_1.png?fileID=2800000&amp;guid=eaf0dad77c1144220aeb90a7bb2bc32d&amp;type=3#bloque_1&quot;); -unity-background-image-tint-color: rgb(255, 255, 255); color: rgba(27, 27, 27, 0); background-color: rgba(188, 188, 188, 0);"/>
+                <ui:Button text="2" name="Boton2" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_2.png?fileID=2800000&amp;guid=d7d85a36b72734d47889d8474cd87011&amp;type=3#bloque_2&quot;);"/>
+                <ui:Button text="3" name="Boton3" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_3.png?fileID=2800000&amp;guid=b38f268a8114e4f81a3b1c99d3b29c46&amp;type=3#bloque_3&quot;);"/>
             </ui:VisualElement>
             <ui:VisualElement class="dial-row">
-                <ui:Button text="4" name="Boton4" class="dial-button"/>
-                <ui:Button text="5" name="Boton5" class="dial-button"/>
-                <ui:Button text="6" name="Boton6" class="dial-button"/>
+                <ui:Button text="4" name="Boton4" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_4.png?fileID=2800000&amp;guid=7dcf575fdda494bbc9b36bbe77951b62&amp;type=3#bloque_4&quot;);"/>
+                <ui:Button text="5" name="Boton5" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_5.png?fileID=2800000&amp;guid=9de334279cf20469fbe7eaadb7fd1bad&amp;type=3#bloque_5&quot;);"/>
+                <ui:Button text="6" name="Boton6" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_6.png?fileID=2800000&amp;guid=193470079d5a040cc8f7f26f0b4ec849&amp;type=3#bloque_6&quot;);"/>
             </ui:VisualElement>
             <ui:VisualElement class="dial-row">
-                <ui:Button text="7" name="Boton7" class="dial-button"/>
-                <ui:Button text="8" name="Boton8" class="dial-button"/>
-                <ui:Button text="9" name="Boton9" class="dial-button"/>
+                <ui:Button text="7" name="Boton7" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_7.png?fileID=2800000&amp;guid=f69c6b82b8b99413e885849e77825bb0&amp;type=3#bloque_7&quot;);"/>
+                <ui:Button text="8" name="Boton8" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_8.png?fileID=2800000&amp;guid=844c9315e70e24f9c847979a266af42d&amp;type=3#bloque_8&quot;);"/>
+                <ui:Button text="9" name="Boton9" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_9.png?fileID=2800000&amp;guid=c27e450e4c1a949c98cff922ceefe833&amp;type=3#bloque_9&quot;);"/>
             </ui:VisualElement>
             <ui:VisualElement class="dial-row">
                 <ui:VisualElement class="dial-spacer"/>
-                <ui:Button text="0" name="Boton0" class="dial-button"/>
+                <ui:Button text="0" name="Boton0" class="dial-button" style="background-image: url(&quot;project://database/Assets/Sprites/Bloques/bloque_cero.png?fileID=2800000&amp;guid=579d83654779a4b2eb853cf6e64b319c&amp;type=3#bloque_cero&quot;);"/>
                 <ui:VisualElement class="dial-spacer"/>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="ContenedorOperandos" style="flex-grow: 1;">
-            <ui:Button text="Button" name="MesaCreacion" class="dial-button"/>
+        <ui:VisualElement name="ContenedorOperandos" style="flex-grow: 1; justify-content: center;">
+            <ui:Button text="Button" name="MesaCreacion" class="dial-button" style="background-color: rgb(0, 0, 0);"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
