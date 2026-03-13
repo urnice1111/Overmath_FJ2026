@@ -129,6 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 66240741}
   - component: {fileID: 66240740}
+  - component: {fileID: 66240742}
+  - component: {fileID: 66240743}
   m_Layer: 5
   m_Name: UIDocument
   m_TagString: Untagged
@@ -174,6 +176,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &66240742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66240739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def0a3aee3dc349dd89519b653a40843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelNumerosUI
+  uiDocument: {fileID: 66240740}
+--- !u!114 &66240743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66240739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27131fbddae1f49d3b0f14593898c03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActiveMesaCreacion
+  uiDocument: {fileID: 66240740}
+  mesaCreacion: {fileID: 0}
 --- !u!1 &350024157
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +239,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &967259019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967259021}
+  - component: {fileID: 967259020}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &967259020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967259019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd015dd86d8804ca4860ffb59dace9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NumberSpawner
+  spawnParent: {fileID: 1967606792}
+  fontSize: 60
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  tamanoNumero: {x: 80, y: 80}
+--- !u!4 &967259021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967259019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1085736971
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +505,7 @@ GameObject:
   - component: {fileID: 1448535431}
   - component: {fileID: 1448535430}
   - component: {fileID: 1448535429}
+  - component: {fileID: 1448535433}
   m_Layer: 5
   m_Name: MesaCreacionCanva
   m_TagString: Untagged
@@ -518,6 +596,64 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1448535433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448535428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3418fe5d39de144bcc95f1cc5ddc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MesaCreacionScript
+  mesaCreacion: {fileID: 1448535428}
+--- !u!1 &1512679386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512679388}
+  - component: {fileID: 1512679387}
+  m_Layer: 0
+  m_Name: DragSelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1512679387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512679386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f96c2fcee3541bcaf318404ba0cfcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragSelectionManager
+  numerosSeleccionados: 
+--- !u!4 &1512679388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512679386}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1967606791
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,3 +814,5 @@ SceneRoots:
   - {fileID: 66240741}
   - {fileID: 1448535432}
   - {fileID: 1378295148}
+  - {fileID: 967259021}
+  - {fileID: 1512679388}
