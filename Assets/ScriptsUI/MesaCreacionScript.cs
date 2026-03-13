@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class MesaCreacionScript : MonoBehaviour
 {
+    [Tooltip("Arrastra aqui EsqueletoMC (el contenido), NO el Canvas completo")]
     [SerializeField] private GameObject mesaCreacion;
-    [SerializeField] private KeyCode teclaToggle = KeyCode.Escape;
+    // [SerializeField] private KeyCode teclaToggle = KeyCode.Escape;
 
     void Start()
     {
@@ -13,17 +14,21 @@ public class MesaCreacionScript : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(teclaToggle))
-        {
-            ToggleMesaCreacion();
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(teclaToggle))
+    //     {
+    //         ToggleMesaCreacion();
+    //     }
+    // }
 
     // Conecta este metodo al OnClick() de un boton para abrir el Canvas.
     public void AbrirMesaCreacion()
+
+   
     {
+        Debug.Log("Mesa abierta");
+
         if (mesaCreacion != null)
         {
             mesaCreacion.SetActive(true);

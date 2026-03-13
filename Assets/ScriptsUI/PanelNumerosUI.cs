@@ -5,6 +5,10 @@ public class PanelNumerosUI : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
 
+    private MesaCreacionScript mesaCreacion;
+    
+    private Button botonActivatePopUp;
+
     private void OnEnable()
     {
         if (uiDocument == null)
@@ -13,6 +17,9 @@ public class PanelNumerosUI : MonoBehaviour
         }
 
         var root = uiDocument.rootVisualElement;
+
+        botonActivatePopUp = root.Q<Button>("MesaCreacion");
+
 
         ConfigurarBoton(root, "Boton1", 1);
         ConfigurarBoton(root, "Boton2", 2);
