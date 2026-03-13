@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Viewchange.uss?fileID=7433441132597879392&amp;guid=f5ae56c12ecc4494ab1ca7a2bdde0e5e&amp;type=3#Viewchange"/>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="Botones" style="flex-grow: 1;">
+            <ui:Button text="Button" name="RightView" style="width: 150px; height: 100px; top: 462px; left: 1763px;"/>
+            <ui:Button text="Button" name="LeftView" style="width: 150px; height: 100px; top: 359px;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
