@@ -5,21 +5,12 @@ public class PanelNumerosUI : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
 
-    private MesaCreacionScript mesaCreacion;
-    
-    private Button botonActivatePopUp;
-
     private void OnEnable()
     {
         if (uiDocument == null)
-        {
             uiDocument = GetComponent<UIDocument>();
-        }
 
         var root = uiDocument.rootVisualElement;
-
-        botonActivatePopUp = root.Q<Button>("MesaCreacion");
-
 
         ConfigurarBoton(root, "Boton1", 1);
         ConfigurarBoton(root, "Boton2", 2);
@@ -31,37 +22,47 @@ public class PanelNumerosUI : MonoBehaviour
         ConfigurarBoton(root, "Boton8", 8);
         ConfigurarBoton(root, "Boton9", 9);
         ConfigurarBoton(root, "Boton0", 0);
+
+        ConfigurarBotonOperador(root, "BotonSuma", "+");
     }
 
     private void ConfigurarBoton(VisualElement root, string nombreBoton, int numero)
     {
         Button boton = root.Q<Button>(nombreBoton);
-
         if (boton == null)
         {
-            Debug.LogWarning($"No se encontró el botón: {nombreBoton}");
+            Debug.LogWarning("No se encontro el boton: " + nombreBoton);
             return;
         }
 
         boton.clicked += () =>
         {
-            Debug.Log($"Click en {nombreBoton}");
+            if (DragSelectionManager.Instance == null) return;
+            if (!DragSelectionManager.Instance.PuedeAgregar()) return;
 
-            if (DragSelectionManager.Instance == null)
-            {
-                Debug.LogError("DragSelectionManager.Instance es NULL");
-                return;
-            }
+            DragSelectionManager.Instance.AgregarNumero(numero);
+            if (NumberSpawner.Instance != null)
+                NumberSpawner.Instance.SpawnNumero(numero);
+        };
+    }
 
-            if(DragSelectionManager.Instance.numerosSeleccionados.Count < 5)
-            {
-                DragSelectionManager.Instance.AgregarNumero(numero);
-            
-                if (NumberSpawner.Instance != null)
-                {
-                    NumberSpawner.Instance.SpawnNumero(numero);
-                }
-            }
+    private void ConfigurarBotonOperador(VisualElement root, string nombreBoton, string operador)
+    {
+        Button boton = root.Q<Button>(nombreBoton);
+        if (boton == null)
+        {
+            Debug.LogWarning("No se encontro el boton: " + nombreBoton);
+            return;
+        }
+
+        boton.clicked += () =>
+        {
+            if (DragSelectionManager.Instance == null) return;
+            if (!DragSelectionManager.Instance.PuedeAgregar()) return;
+
+            DragSelectionManager.Instance.AgregarOperador(operador);
+            if (NumberSpawner.Instance != null)
+                NumberSpawner.Instance.SpawnOperador(operador);
         };
     }
 }
