@@ -31,7 +31,13 @@ public class MesaCreacionScript : MonoBehaviour
 
         if (mesaCreacion != null)
         {
-            mesaCreacion.SetActive(true);
+            if (mesaCreacion.activeSelf)
+            {
+                mesaCreacion.SetActive(false);
+            } else
+            {
+                mesaCreacion.SetActive(true);
+            }
         }
     }
 
