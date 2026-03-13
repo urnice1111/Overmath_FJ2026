@@ -5,12 +5,23 @@ public class NumberSpawner : MonoBehaviour
 {
     public static NumberSpawner Instance { get; private set; }
 
+    [Header("Contenedor")]
     [Tooltip("RectTransform dentro del Canvas MesaCreacion donde aparecen los numeros")]
     [SerializeField] private RectTransform spawnParent;
 
-    [SerializeField] private int fontSize = 60;
+    [Header("Tarjeta")]
+    [SerializeField] private Vector2 tamanoTarjeta = new Vector2(90, 110);
+    [SerializeField] private Color cardColor = new Color(0.18f, 0.22f, 0.36f, 1f);
+    [Tooltip("Sprite opcional para la tarjeta (dejar vacio = rectangulo solido)")]
+    [SerializeField] private Sprite cardSprite;
+
+    [Header("Texto")]
+    [SerializeField] private int fontSize = 52;
     [SerializeField] private Color textColor = Color.white;
-    [SerializeField] private Vector2 tamanoNumero = new Vector2(80, 80);
+
+    [Header("Sombra")]
+    [SerializeField] private Color shadowColor = new Color(0f, 0f, 0f, 0.4f);
+    [SerializeField] private Vector2 shadowDistance = new Vector2(3f, -3f);
 
     private int spawnCount;
 
@@ -43,60 +54,68 @@ public class NumberSpawner : MonoBehaviour
 
     public void SpawnNumero(int numero)
     {
-        Debug.Log("NumberSpawner.SpawnNumero llamado con: " + numero);
-
         if (spawnParent == null)
         {
             Debug.LogError("NumberSpawner: spawnParent no asignado.");
             return;
         }
 
-        Canvas canvas = spawnParent.GetComponentInParent<Canvas>();
-        if (canvas == null)
-            Debug.LogError("NumberSpawner: No hay Canvas padre en spawnParent.");
-        else if (canvas.GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
-            Debug.LogError("NumberSpawner: El Canvas NO tiene GraphicRaycaster. El drag no funcionara.");
-        else
-            Debug.Log("NumberSpawner: Canvas y GraphicRaycaster OK.");
-
-        var obj = new GameObject(
+        // --- Tarjeta (padre) ---
+        var card = new GameObject(
             "Num_" + numero + "_" + spawnCount,
             typeof(RectTransform),
             typeof(CanvasRenderer),
-            typeof(Text),
+            typeof(Image),
+            typeof(Shadow),
             typeof(DraggableNumber)
         );
+        card.transform.SetParent(spawnParent, false);
 
-        obj.transform.SetParent(spawnParent, false);
+        var cardRT = card.GetComponent<RectTransform>();
+        cardRT.sizeDelta = tamanoTarjeta;
 
-        var rt = obj.GetComponent<RectTransform>();
-        rt.sizeDelta = tamanoNumero;
+        float offsetX = (spawnCount % 5) * (tamanoTarjeta.x + 10f) - 180f;
+        float offsetY = (spawnCount / 5) * -(tamanoTarjeta.y + 10f) + 100f;
+        cardRT.anchoredPosition = new Vector2(offsetX, offsetY);
 
-        float offsetX = (spawnCount % 5) * 90f - 180f;
-        float offsetY = (spawnCount / 5) * -90f + 100f;
-        rt.anchoredPosition = new Vector2(offsetX, offsetY);
+        var cardImg = card.GetComponent<Image>();
+        cardImg.color = cardColor;
+        cardImg.raycastTarget = true;
+        if (cardSprite != null)
+        {
+            cardImg.sprite = cardSprite;
+            cardImg.type = Image.Type.Sliced;
+        }
 
-        var text = obj.GetComponent<Text>();
+        var shadow = card.GetComponent<Shadow>();
+        shadow.effectColor = shadowColor;
+        shadow.effectDistance = shadowDistance;
+
+        // --- Texto (hijo) ---
+        var textObj = new GameObject("Text", typeof(RectTransform), typeof(CanvasRenderer), typeof(Text));
+        textObj.transform.SetParent(card.transform, false);
+
+        var textRT = textObj.GetComponent<RectTransform>();
+        textRT.anchorMin = Vector2.zero;
+        textRT.anchorMax = Vector2.one;
+        textRT.offsetMin = Vector2.zero;
+        textRT.offsetMax = Vector2.zero;
+
+        var text = textObj.GetComponent<Text>();
         text.text = numero.ToString();
         text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         if (text.font == null)
             text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-        if (text.font == null)
-            Debug.LogError("NumberSpawner: No se pudo cargar ninguna fuente. El texto sera invisible.");
-        else
-            Debug.Log("NumberSpawner: Fuente cargada: " + text.font.name);
-
         text.fontSize = fontSize;
         text.color = textColor;
         text.alignment = TextAnchor.MiddleCenter;
         text.horizontalOverflow = HorizontalWrapMode.Overflow;
         text.verticalOverflow = VerticalWrapMode.Overflow;
-        text.raycastTarget = true;
+        text.raycastTarget = false;
 
-        var draggable = obj.GetComponent<DraggableNumber>();
+        var draggable = card.GetComponent<DraggableNumber>();
         draggable.numero = numero;
 
-        Debug.Log("NumberSpawner: Objeto creado -> " + obj.name + " en " + rt.anchoredPosition);
         spawnCount++;
     }
 }
