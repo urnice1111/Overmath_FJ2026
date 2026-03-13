@@ -47,6 +47,11 @@ public class PanelNumerosUI : MonoBehaviour
             }
 
             DragSelectionManager.Instance.AgregarNumero(numero);
+
+            if (NumberSpawner.Instance != null)
+            {
+                NumberSpawner.Instance.SpawnNumero(numero);
+            }
         };
     }
 }
