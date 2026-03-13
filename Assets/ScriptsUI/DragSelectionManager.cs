@@ -31,4 +31,12 @@ public class DragSelectionManager : MonoBehaviour
             Debug.Log("No se pueden agregar más números." + numerosSeleccionados.Count);
         }
     }
+
+    public void QuitarNumero(int numero)
+    {
+        if (numerosSeleccionados.Remove(numero))
+        {
+            Debug.Log("Número quitado: " + numero + " | Quedan: " + numerosSeleccionados.Count);
+        }
+    }
 }

@@ -6,11 +6,14 @@ public class DraggableNumber : MonoBehaviour
 {
     public int numero;
 
+    [SerializeField] private float doubleClickTime = 0.3f;
+
     private RectTransform rectTransform;
     private Canvas parentCanvas;
     private Camera canvasCamera;
     private bool dragging;
     private Vector2 dragOffset;
+    private float lastClickTime;
 
     private void Awake()
     {
@@ -32,6 +35,18 @@ public class DraggableNumber : MonoBehaviour
             if (RectTransformUtility.RectangleContainsScreenPoint(
                     rectTransform, mousePos, canvasCamera))
             {
+                float timeSinceLastClick = Time.time - lastClickTime;
+
+                if (timeSinceLastClick <= doubleClickTime)
+                {
+                    OnDoubleClick();
+                    lastClickTime = 0f;
+                    return;
+                }
+
+                OnSingleClick();
+                lastClickTime = Time.time;
+
                 dragging = true;
                 transform.SetAsLastSibling();
 
@@ -60,5 +75,18 @@ public class DraggableNumber : MonoBehaviour
         {
             dragging = false;
         }
+    }
+
+    private void OnSingleClick()
+    {
+        Debug.Log("Click en: " + gameObject.name);
+    }
+
+    private void OnDoubleClick()
+    {
+        if (DragSelectionManager.Instance != null)
+            DragSelectionManager.Instance.QuitarNumero(numero);
+
+        Destroy(gameObject);
     }
 }
