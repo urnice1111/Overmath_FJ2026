@@ -24,6 +24,22 @@ public class NumberSpawner : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        RestaurarNumeros();
+    }
+
+    public void RestaurarNumeros()
+    {
+        if (DragSelectionManager.Instance == null) return;
+        if (DragSelectionManager.Instance.numerosSeleccionados.Count == 0) return;
+
+        spawnCount = 0;
+        foreach (int num in DragSelectionManager.Instance.numerosSeleccionados)
+        {
+            SpawnNumero(num);
+        }
+    }
 
     public void SpawnNumero(int numero)
     {

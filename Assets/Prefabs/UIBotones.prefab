@@ -70,4 +70,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChangeViews
   uiDocument: {fileID: 6513211325555552666}
   leftSceneName: OperandosEnterosScene
-  rightSceneName: OperandosEnterosEscena
+  rightSceneName: OperandosEnterosScene

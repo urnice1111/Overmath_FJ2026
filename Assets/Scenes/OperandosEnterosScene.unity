@@ -217,8 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeViews
   uiDocument: {fileID: 66240740}
-  leftSceneName: PrimerEscena
-  rightSceneName: OperandosEnterosEscena
+  leftSceneName: SampleScene
+  rightSceneName: OperandosEnterosScene
 --- !u!1 &86600448
 GameObject:
   m_ObjectHideFlags: 0
