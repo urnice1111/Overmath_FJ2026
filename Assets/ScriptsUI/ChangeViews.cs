@@ -12,6 +12,16 @@ public class ChangeViews : MonoBehaviour
     private Button LeftView;
     private Button RightView;
 
+    private void Start()
+    {
+        // Remove auto-added PanelRaycaster so UI Toolkit doesn't block
+        // Physics2DRaycaster events on GameObjects behind the panel.
+        // UI Toolkit buttons still work via their own input handling.
+        var panelRaycaster = GetComponent("UnityEngine.UIElements.PanelRaycaster");
+        if (panelRaycaster != null)
+            Destroy(panelRaycaster);
+    }
+
     private void OnEnable()
     {
         if (uiDocument == null)
@@ -24,6 +34,8 @@ public class ChangeViews : MonoBehaviour
         }
 
         var root = uiDocument.rootVisualElement;
+        root.pickingMode = PickingMode.Ignore;
+
         LeftView = root.Q<Button>("VistaIzq");
         RightView = root.Q<Button>("VistaDer");
 
