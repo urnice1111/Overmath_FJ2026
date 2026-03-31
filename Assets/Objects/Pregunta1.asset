@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16419b319b7f4472c8a00c25ca1f414a, type: 3}
   m_Name: Pregunta1
   m_EditorClassIdentifier: Assembly-CSharp::PreguntaSO
-  textoPregunta: 
-  respuestaCorrecta: 0
+  textoPregunta: Llega el numero 10
+  respuestaCorrecta: 10
