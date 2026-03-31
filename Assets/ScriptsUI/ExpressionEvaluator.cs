@@ -70,12 +70,22 @@ public class ExpressionEvaluator : MonoBehaviour
 
         Debug.Log("Expresion: " + expresion + " = " + resultado);
 
+
+        bool correcto = PreguntaManager.Instance != null
+            && PreguntaManager.Instance.VerificarRespuesta(resultado);
+        if (correcto)
+            Debug.Log("¡Respuesta correcta!");
+        else
+            Debug.Log("Respuesta incorrecta.");
+
         DragSelectionManager.Resultado = resultado;
         DragSelectionManager.ExpresionTexto = expresion + " = " + resultado;
 
         DragSelectionManager.Instance.LimpiarTodo();
 
         SceneManager.LoadScene(escenaResultado);
+
+        PreguntaManager.Instance.CargarPreguntaAleatoria();
     }
 
     private int EvaluarSuma(DropSlot[] slotsOrdenados)
