@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExpressionEvaluator
   escenaResultado: SampleScene
-  slotParent: {fileID: 0}
+  slotParent: {fileID: 706547744}
 --- !u!1 &972430191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,7 +3031,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4950288706755705998, guid: f50bcfbcb28791148a80f8b9543a8178, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3637,7 +3637,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8828209165402128640, guid: 327674214bb696140b0cb921386b0d4d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
