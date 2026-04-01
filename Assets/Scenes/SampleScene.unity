@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 629145027}
   - component: {fileID: 629145026}
   - component: {fileID: 629145029}
+  - component: {fileID: 629145030}
   m_Layer: 0
   m_Name: huerto_assets_0
   m_TagString: Untagged
@@ -463,7 +464,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629145025}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a68e1816b2f84624ab100d40424bb33a, type: 3}
   m_Name: 
@@ -471,6 +472,18 @@ MonoBehaviour:
   animator: {fileID: 629145026}
   triggerCorrecto: CorrectAnsw
   triggerIncorrecto: WrongAnsw
+--- !u!114 &629145030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629145025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35be9ec7e7cad4a01a7a6e88885946f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VillianState
 --- !u!1 &1153293379
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +517,7 @@ MonoBehaviour:
   escenaRetorno: OperandosEnterosScene
   fontSizeResultado: 90
   colorTexto: {r: 1, g: 1, b: 1, a: 1}
+  villianState: {fileID: 629145030}
 --- !u!4 &1153293381
 Transform:
   m_ObjectHideFlags: 0

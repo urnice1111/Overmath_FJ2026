@@ -10,10 +10,16 @@ public class ResultadoDisplay : MonoBehaviour
     [SerializeField] private int fontSizeResultado = 90;
     [SerializeField] private Color colorTexto = Color.white;
 
+    [SerializeField] private VillianState villianState;
+
     private void Start()
     {
         CrearUI();
+        MakeAnimation();
+        
         StartCoroutine(EsperarYVolver());
+
+        
     }
 
     private void CrearUI()
@@ -52,5 +58,16 @@ public class ResultadoDisplay : MonoBehaviour
     {
         yield return new WaitForSeconds(duracionDisplay);
         SceneManager.LoadScene(escenaRetorno);
+    }
+
+    private void MakeAnimation()
+    {
+        if (DragSelectionManager.FueCorrecta)
+        {
+            villianState.MakeAnimationCorrectAnsw();
+        } else
+        {
+            villianState.MakeAnimationWrongAnsw();
+        }
     }
 }

@@ -8,6 +8,8 @@ public class ExpressionEvaluator : MonoBehaviour
 
     [SerializeField] private string escenaResultado = "SampleScene";
     [SerializeField] private RectTransform slotParent;
+
+    [SerializeField] private VillianState villianState;
     [SerializeField] private CorrectoIncorrectoAnimaciones animacionesEnemigo;
 
     private void Awake()
@@ -75,7 +77,11 @@ public class ExpressionEvaluator : MonoBehaviour
         bool correcto = PreguntaManager.Instance != null
             && PreguntaManager.Instance.VerificarRespuesta(resultado);
         if (correcto)
+        {
             Debug.Log("¡Respuesta correcta!");
+            
+        }
+            
         else
             Debug.Log("Respuesta incorrecta.");
             
@@ -91,6 +97,7 @@ public class ExpressionEvaluator : MonoBehaviour
 
         DragSelectionManager.Resultado = resultado;
         DragSelectionManager.ExpresionTexto = expresion + " = " + resultado;
+        DragSelectionManager.FueCorrecta = correcto;
 
         DragSelectionManager.Instance.LimpiarTodo();
 

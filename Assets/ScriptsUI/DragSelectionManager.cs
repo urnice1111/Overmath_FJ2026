@@ -15,6 +15,8 @@ public class DragSelectionManager : MonoBehaviour
     public static int Resultado { get; set; }
     public static string ExpresionTexto { get; set; }
 
+    public static bool FueCorrecta {get; set;}
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

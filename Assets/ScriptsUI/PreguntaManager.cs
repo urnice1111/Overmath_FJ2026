@@ -88,11 +88,11 @@ public class PreguntaManager : MonoBehaviour
 
     public void CargarPreguntaAleatoria()
     {
-        if (preguntasUnity == null || preguntasUnity.Count == 0)
-        {
-            Debug.LogError("PreguntaManager: banco vacío o no asignado.");
-            return;
-        }
+        // if (preguntasUnity == null || preguntasUnity.Count == 0)
+        // {
+        //     Debug.LogError("PreguntaManager: banco vacío o no asignado.");
+        //     return;
+        // }
         
         PreguntaActual = preguntasUnity[Random.Range(0, preguntasUnity.Count)]; 
         
