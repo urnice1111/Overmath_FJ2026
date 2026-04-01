@@ -2282,6 +2282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ExpressionEvaluator
   escenaResultado: SampleScene
   slotParent: {fileID: 706547744}
+  animacionesEnemigo: {fileID: 0}
 --- !u!1 &972430191
 GameObject:
   m_ObjectHideFlags: 0

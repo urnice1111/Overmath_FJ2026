@@ -8,6 +8,7 @@ public class ExpressionEvaluator : MonoBehaviour
 
     [SerializeField] private string escenaResultado = "SampleScene";
     [SerializeField] private RectTransform slotParent;
+    [SerializeField] private CorrectoIncorrectoAnimaciones animacionesEnemigo;
 
     private void Awake()
     {
