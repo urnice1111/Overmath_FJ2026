@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class ExpressionEvaluator : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class ExpressionEvaluator : MonoBehaviour
         DropSlot[] slots = slotParent.GetComponentsInChildren<DropSlot>();
         Debug.Log("ExpressionEvaluator: slots encontrados = " + slots.Length);
 
+
+        // If the user has no selected items and try to evaluate. Maybe change that later to only appear the button when 1 or more slots appeared
         if (slots.Length == 0)
         {
             Debug.LogWarning("ExpressionEvaluator: No hay slots.");
@@ -64,7 +67,7 @@ public class ExpressionEvaluator : MonoBehaviour
             expresion += val;
         }
 
-        int resultado = EvaluarSuma(ordenados);
+        int resultado = EvaluarExpresion(ordenados);
         if (resultado == int.MinValue)
         {
             Debug.LogError("ExpressionEvaluator: expresion invalida -> " + expresion);
@@ -106,11 +109,15 @@ public class ExpressionEvaluator : MonoBehaviour
         PreguntaManager.Instance.CargarPreguntaAleatoria();
     }
 
-    private int EvaluarSuma(DropSlot[] slotsOrdenados)
+    // PEMDAS algorithm to check expression:
+    // Make two lists (numbers and operator) and pass through the array two times to first check for
+    // multiplications and divisions and then substractions and additions.
+    private int EvaluarExpresion(DropSlot[] slotsOrdenados)
     {
-        int acumulado = 0;
-        bool esperaNumero = true;
+        List<int> numeros = new List<int>();
+        List<string> operadores = new List<string>();
 
+        bool esperaNumero = true;
         foreach (var slot in slotsOrdenados)
         {
             DraggableNumber item = slot.itemActual;
@@ -119,19 +126,49 @@ public class ExpressionEvaluator : MonoBehaviour
             if (esperaNumero)
             {
                 if (item.esOperador) return int.MinValue;
-                acumulado += item.numero;
+                numeros.Add(item.numero);
             }
             else
             {
                 if (!item.esOperador) return int.MinValue;
-                // Solo suma por ahora; el operador ya esta validado como "+"
+                operadores.Add(slot.ObtenerValor());
             }
-
             esperaNumero = !esperaNumero;
         }
 
-        if (!esperaNumero) return acumulado;
+        if (esperaNumero) return int.MinValue;
 
-        return int.MinValue;
+        // Pasada 1: resolver * y /
+        for (int i = 0; i < operadores.Count; i++)
+        {
+            if (operadores[i] == "*" || operadores[i] == "/")
+            {
+                int res;
+                if (operadores[i] == "*")
+                    res = numeros[i] * numeros[i + 1];
+                else
+                {
+                    if (numeros[i + 1] == 0) return int.MinValue;
+                    res = numeros[i] / numeros[i + 1];
+                }
+
+                numeros[i] = res;
+                numeros.RemoveAt(i + 1);
+                operadores.RemoveAt(i);
+                i--;
+            }
+        }
+
+        // Pasada 2: resolver + y -
+        int acumulado = numeros[0];
+        for (int i = 0; i < operadores.Count; i++)
+        {
+            if (operadores[i] == "+")
+                acumulado += numeros[i + 1];
+            else if (operadores[i] == "-")
+                acumulado -= numeros[i + 1];
+        }
+
+        return acumulado;
     }
 }

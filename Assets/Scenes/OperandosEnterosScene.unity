@@ -1998,7 +1998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BotonNumeroClick
   numero: 0
   esOperador: 1
-  simboloOperador: "\xF7"
+  simboloOperador: /
 --- !u!95 &803002584
 Animator:
   serializedVersion: 7
@@ -2343,6 +2343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ExpressionEvaluator
   escenaResultado: SampleScene
   slotParent: {fileID: 706547744}
+  villianState: {fileID: 0}
   animacionesEnemigo: {fileID: 0}
 --- !u!1 &972430191
 GameObject:
@@ -2708,7 +2709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BotonNumeroClick
   numero: 0
   esOperador: 1
-  simboloOperador: x
+  simboloOperador: '*'
 --- !u!95 &1196866873
 Animator:
   serializedVersion: 7

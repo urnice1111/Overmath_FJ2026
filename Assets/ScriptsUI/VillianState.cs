@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 
+
+// The purpose of this script is to handle Villian (as a GameObject on SampleScene) from outside classes
+// just like in DisplayResult.cs where it acces its public methods
 public class VillianState : MonoBehaviour
 {
 
