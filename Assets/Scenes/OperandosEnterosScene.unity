@@ -1549,6 +1549,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.16, y: 3.8}
   m_EdgeRadius: 0
+--- !u!1 &481603027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481603029}
+  - component: {fileID: 481603028}
+  m_Layer: 0
+  m_Name: Puntaje_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &481603028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481603027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cc0e337ee876047905d0b4c7fa71a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuntajedePregunta
+  limitePuntos: 100
+  puntosPorAcierto: 5
+--- !u!4 &481603029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481603027}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.23494, y: 1.01177, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &590957172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,7 +3614,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1359338463965365383, guid: 212e7f477e3a48c47b24d9f9dbbeffeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4432,3 +4478,4 @@ SceneRoots:
   - {fileID: 122250925}
   - {fileID: 70323729}
   - {fileID: 1706816388}
+  - {fileID: 481603029}
