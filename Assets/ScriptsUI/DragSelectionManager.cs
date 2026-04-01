@@ -10,6 +10,16 @@ public class DragSelectionManager : MonoBehaviour
     public List<int> numerosSeleccionados = new List<int>();
     public List<string> operadoresSeleccionados = new List<string>();
 
+    // Mapea índice de slot → info del item que contiene
+    public static Dictionary<int, SlotAssignment> asignacionesSlots = new Dictionary<int, SlotAssignment>();
+
+    [System.Serializable]
+    public struct SlotAssignment
+    {
+        public bool esOperador;
+        public int numero;
+        public string simbolo;
+    }
     public int TotalSeleccionados => numerosSeleccionados.Count + operadoresSeleccionados.Count;
 
     public static int Resultado { get; set; }
@@ -76,5 +86,6 @@ public class DragSelectionManager : MonoBehaviour
     {
         numerosSeleccionados.Clear();
         operadoresSeleccionados.Clear();
+        asignacionesSlots.Clear();
     }
 }

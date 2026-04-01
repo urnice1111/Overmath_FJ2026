@@ -123,6 +123,11 @@ public class DraggableNumber : MonoBehaviour
         rectTransform.anchoredPosition = posicionOriginal;
     }
 
+    public void AsignarSlot(DropSlot slot)
+    {
+        slotActual = slot;
+    }
+
     private void OnDoubleClick()
     {
         if (slotActual != null)

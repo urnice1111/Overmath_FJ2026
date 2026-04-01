@@ -37,12 +37,23 @@ public class DropSlot : MonoBehaviour
     {
         itemActual = item;
         ActualizarVisual();
+
+        int slotIndex = transform.GetSiblingIndex();
+        DragSelectionManager.asignacionesSlots[slotIndex] = new DragSelectionManager.SlotAssignment
+        {
+            esOperador = item.esOperador,
+            numero = item.numero,
+            simbolo = item.simboloOperador
+        };
     }
 
     public void Liberar()
     {
         itemActual = null;
         ActualizarVisual();
+
+        int slotIndex = transform.GetSiblingIndex();
+        DragSelectionManager.asignacionesSlots.Remove(slotIndex);
     }
 
     public string ObtenerValor()

@@ -11,7 +11,6 @@ public class ExpressionEvaluator : MonoBehaviour
     [SerializeField] private RectTransform slotParent;
 
     [SerializeField] private VillianState villianState;
-    [SerializeField] private CorrectoIncorrectoAnimaciones animacionesEnemigo;
 
     private void Awake()
     {

@@ -62,15 +62,30 @@ public class NumberSpawner : MonoBehaviour
         spawnCount = 0;
 
         foreach (int num in DragSelectionManager.Instance.numerosSeleccionados)
-            SpawnNumero(num);
+            CrearNumero(num);
 
         foreach (string op in DragSelectionManager.Instance.operadoresSeleccionados)
-            SpawnOperador(op);
+            CrearOperador(op);
 
         CrearSlots();
+        RestaurarAsignaciones();
     }
 
     public void SpawnNumero(int numero)
+    {
+        CrearNumero(numero);
+        CrearSlots();
+        RestaurarAsignaciones();
+    }
+
+    public void SpawnOperador(string operador)
+    {
+        CrearOperador(operador);
+        CrearSlots();
+        RestaurarAsignaciones();
+    }
+
+    private void CrearNumero(int numero)
     {
         if (spawnParent == null) return;
 
@@ -81,10 +96,9 @@ public class NumberSpawner : MonoBehaviour
         draggable.esOperador = false;
 
         spawnCount++;
-        CrearSlots();
     }
 
-    public void SpawnOperador(string operador)
+    private void CrearOperador(string operador)
     {
         if (spawnParent == null) return;
 
@@ -95,7 +109,43 @@ public class NumberSpawner : MonoBehaviour
         draggable.simboloOperador = operador;
 
         spawnCount++;
-        CrearSlots();
+    }
+
+    private void RestaurarAsignaciones()
+    {
+        if (DragSelectionManager.asignacionesSlots.Count == 0) return;
+
+        DropSlot[] slots = slotParent.GetComponentsInChildren<DropSlot>();
+        DraggableNumber[] cards = spawnParent.GetComponentsInChildren<DraggableNumber>();
+
+        foreach (var kvp in new System.Collections.Generic.Dictionary<int, DragSelectionManager.SlotAssignment>(DragSelectionManager.asignacionesSlots))
+        {
+            int slotIdx = kvp.Key;
+            var info = kvp.Value;
+
+            if (slotIdx >= slots.Length) continue;
+
+            DraggableNumber match = null;
+            foreach (var card in cards)
+            {
+                if (card.transform.parent != spawnParent) continue;
+                if (card.esOperador == info.esOperador)
+                {
+                    if (info.esOperador && card.simboloOperador == info.simbolo)
+                        { match = card; break; }
+                    else if (!info.esOperador && card.numero == info.numero)
+                        { match = card; break; }
+                }
+            }
+
+            if (match != null)
+            {
+                slots[slotIdx].Colocar(match);
+                match.transform.SetParent(slots[slotIdx].transform, false);
+                match.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                match.AsignarSlot(slots[slotIdx]);
+            }
+        }
     }
 
     private GameObject CrearTarjetaBase(string nombre, string textoMostrar, Color bgColor)
@@ -157,6 +207,13 @@ public class NumberSpawner : MonoBehaviour
     public void CrearSlots()
     {
         if (slotParent == null) return;
+
+        DropSlot[] oldSlots = slotParent.GetComponentsInChildren<DropSlot>();
+        foreach (var slot in oldSlots)
+        {
+            if (slot.itemActual != null)
+                slot.itemActual.transform.SetParent(spawnParent, false);
+        }
 
         foreach (Transform child in slotParent)
             Destroy(child.gameObject);
