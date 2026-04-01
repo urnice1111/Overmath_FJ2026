@@ -77,6 +77,16 @@ public class ExpressionEvaluator : MonoBehaviour
             Debug.Log("¡Respuesta correcta!");
         else
             Debug.Log("Respuesta incorrecta.");
+            
+
+        if(PuntajedePregunta.Instance != null)
+        {
+            PuntajedePregunta.Instance.RegistrarResultado(correcto);
+        }
+        else
+        {
+            Debug.LogWarning("ExpressionEvaluator: No se encontro PuntajedePregunta en la escena.");
+        }
 
         DragSelectionManager.Resultado = resultado;
         DragSelectionManager.ExpresionTexto = expresion + " = " + resultado;
