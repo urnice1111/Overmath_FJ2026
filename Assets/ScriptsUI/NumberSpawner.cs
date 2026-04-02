@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,8 +29,7 @@ public class NumberSpawner : MonoBehaviour
     [SerializeField] private Vector2 shadowDistance = new Vector2(2f, -2f);
 
     [Header("Slots")]
-    [SerializeField] private Vector2 numSlotSize = new Vector2(140, 170);
-    [SerializeField] private Vector2 opSlotSize = new Vector2(80, 80);
+    [SerializeField] private Vector2 slotSize = new Vector2(100, 120);
     [SerializeField] private Color slotVacioColor = new Color(1f, 1f, 1f, 0.12f);
     [SerializeField] private Color slotOcupadoColor = new Color(1f, 1f, 1f, 0.25f);
 
@@ -39,6 +39,7 @@ public class NumberSpawner : MonoBehaviour
     [SerializeField] private int botonFontSize = 30;
 
     private int spawnCount;
+    private List<DropSlot> slotsActuales = new List<DropSlot>();
 
     private void Awake()
     {
@@ -115,15 +116,14 @@ public class NumberSpawner : MonoBehaviour
     {
         if (DragSelectionManager.asignacionesSlots.Count == 0) return;
 
-        DropSlot[] slots = slotParent.GetComponentsInChildren<DropSlot>();
         DraggableNumber[] cards = spawnParent.GetComponentsInChildren<DraggableNumber>();
 
-        foreach (var kvp in new System.Collections.Generic.Dictionary<int, DragSelectionManager.SlotAssignment>(DragSelectionManager.asignacionesSlots))
+        foreach (var kvp in new Dictionary<int, DragSelectionManager.SlotAssignment>(DragSelectionManager.asignacionesSlots))
         {
             int slotIdx = kvp.Key;
             var info = kvp.Value;
 
-            if (slotIdx >= slots.Length) continue;
+            if (slotIdx >= slotsActuales.Count) continue;
 
             DraggableNumber match = null;
             foreach (var card in cards)
@@ -140,10 +140,10 @@ public class NumberSpawner : MonoBehaviour
 
             if (match != null)
             {
-                slots[slotIdx].Colocar(match);
-                match.transform.SetParent(slots[slotIdx].transform, false);
+                slotsActuales[slotIdx].Colocar(match);
+                match.transform.SetParent(slotsActuales[slotIdx].transform, false);
                 match.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                match.AsignarSlot(slots[slotIdx]);
+                match.AsignarSlot(slotsActuales[slotIdx]);
             }
         }
     }
@@ -208,45 +208,31 @@ public class NumberSpawner : MonoBehaviour
     {
         if (slotParent == null) return;
 
-        DropSlot[] oldSlots = slotParent.GetComponentsInChildren<DropSlot>();
-        foreach (var slot in oldSlots)
+        foreach (var slot in slotsActuales)
         {
-            if (slot.itemActual != null)
+            if (slot != null && slot.itemActual != null)
                 slot.itemActual.transform.SetParent(spawnParent, false);
         }
+        slotsActuales.Clear();
 
         foreach (Transform child in slotParent)
             Destroy(child.gameObject);
 
         if (DragSelectionManager.Instance == null) return;
 
-        int numCount = DragSelectionManager.Instance.numerosSeleccionados.Count;
-        int opCount = DragSelectionManager.Instance.operadoresSeleccionados.Count;
-        int totalSlots = numCount + opCount;
+        int totalSlots = DragSelectionManager.Instance.numerosSeleccionados.Count
+                       + DragSelectionManager.Instance.operadoresSeleccionados.Count;
 
         if (totalSlots == 0) return;
 
-        float totalWidth = 0f;
         float spacing = 15f;
-        for (int i = 0; i < totalSlots; i++)
-        {
-            bool esSlotNumero = (i % 2 == 0);
-            Vector2 size = esSlotNumero ? numSlotSize : opSlotSize;
-            totalWidth += size.x;
-            if (i < totalSlots - 1) totalWidth += spacing;
-        }
-
-        float startX = -totalWidth / 2f;
-        float currentX = startX;
+        float totalWidth = totalSlots * slotSize.x + (totalSlots - 1) * spacing;
+        float currentX = -totalWidth / 2f;
 
         for (int i = 0; i < totalSlots; i++)
         {
-            bool esSlotNumero = (i % 2 == 0);
-            DropSlot.SlotType tipo = esSlotNumero ? DropSlot.SlotType.Number : DropSlot.SlotType.Operator;
-            Vector2 size = esSlotNumero ? numSlotSize : opSlotSize;
-
             var slotObj = new GameObject(
-                "Slot_" + (esSlotNumero ? "Num" : "Op") + "_" + i,
+                "Slot_" + i,
                 typeof(RectTransform),
                 typeof(CanvasRenderer),
                 typeof(Image),
@@ -256,17 +242,18 @@ public class NumberSpawner : MonoBehaviour
             slotObj.transform.SetParent(slotParent, false);
 
             var slotRT = slotObj.GetComponent<RectTransform>();
-            slotRT.sizeDelta = size;
-            slotRT.anchoredPosition = new Vector2(currentX + size.x / 2f, 0f);
+            slotRT.sizeDelta = slotSize;
+            slotRT.anchoredPosition = new Vector2(currentX + slotSize.x / 2f, 0f);
 
             var outline = slotObj.GetComponent<Outline>();
             outline.effectColor = new Color(1f, 1f, 1f, 0.3f);
             outline.effectDistance = new Vector2(2f, -2f);
 
             var slot = slotObj.GetComponent<DropSlot>();
-            slot.Inicializar(tipo, slotVacioColor, slotOcupadoColor);
+            slot.Inicializar(slotVacioColor, slotOcupadoColor);
+            slotsActuales.Add(slot);
 
-            currentX += size.x + spacing;
+            currentX += slotSize.x + spacing;
         }
 
         CrearBotonResolver();
@@ -288,7 +275,7 @@ public class NumberSpawner : MonoBehaviour
 
         var btnRT = btnObj.GetComponent<RectTransform>();
         btnRT.sizeDelta = botonResolverSize;
-        float slotHeight = Mathf.Max(numSlotSize.y, opSlotSize.y);
+        float slotHeight = slotSize.y;
         btnRT.anchoredPosition = new Vector2(0f, -(slotHeight / 2f + botonResolverSize.y / 2f + 20f));
 
         var btnImg = btnObj.GetComponent<Image>();

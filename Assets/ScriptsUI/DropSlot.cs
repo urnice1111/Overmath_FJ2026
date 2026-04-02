@@ -3,18 +3,14 @@ using UnityEngine.UI;
 
 public class DropSlot : MonoBehaviour
 {
-    public enum SlotType { Number, Operator }
-
-    public SlotType tipoSlot;
     public DraggableNumber itemActual;
 
     private Image slotImage;
     private Color colorVacio;
     private Color colorOcupado;
 
-    public void Inicializar(SlotType tipo, Color vacio, Color ocupado)
+    public void Inicializar(Color vacio, Color ocupado)
     {
-        tipoSlot = tipo;
         colorVacio = vacio;
         colorOcupado = ocupado;
         slotImage = GetComponent<Image>();
@@ -25,12 +21,7 @@ public class DropSlot : MonoBehaviour
 
     public bool PuedeAceptar(DraggableNumber item)
     {
-        if (!EstaVacio) return false;
-
-        if (tipoSlot == SlotType.Number && !item.esOperador) return true;
-        if (tipoSlot == SlotType.Operator && item.esOperador) return true;
-
-        return false;
+        return EstaVacio;
     }
 
     public void Colocar(DraggableNumber item)
