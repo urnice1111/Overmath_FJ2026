@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(RectTransform))]
 public class DraggableNumber : MonoBehaviour
 {
+    public int uniqueId;
     public int numero;
     public bool esOperador;
     public string simboloOperador;

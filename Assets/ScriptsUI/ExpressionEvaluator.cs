@@ -44,7 +44,7 @@ public class ExpressionEvaluator : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             string val = slots[i].ObtenerValor();
-            Debug.Log("  Slot[" + i + "] tipo=" + slots[i].tipoSlot + " vacio=" + slots[i].EstaVacio + " valor=" + (val ?? "null"));
+            Debug.Log("  Slot[" + i + "] vacio=" + slots[i].EstaVacio + " valor=" + (val ?? "null"));
         }
 
         foreach (var slot in slots)
@@ -108,34 +108,41 @@ public class ExpressionEvaluator : MonoBehaviour
         PreguntaManager.Instance.CargarPreguntaAleatoria();
     }
 
-    // PEMDAS algorithm to check expression:
-    // Make two lists (numbers and operator) and pass through the array two times to first check for
-    // multiplications and divisions and then substractions and additions.
     private int EvaluarExpresion(DropSlot[] slotsOrdenados)
     {
         List<int> numeros = new List<int>();
         List<string> operadores = new List<string>();
 
-        bool esperaNumero = true;
+        // Tokenize: consecutive numbers are concatenated into multi-digit numbers.
+        // e.g. [5][5][+][3] -> numeros=[55,3], operadores=[+]
+        string numAcumulado = "";
+
         foreach (var slot in slotsOrdenados)
         {
             DraggableNumber item = slot.itemActual;
             if (item == null) return int.MinValue;
 
-            if (esperaNumero)
+            if (!item.esOperador)
             {
-                if (item.esOperador) return int.MinValue;
-                numeros.Add(item.numero);
+                numAcumulado += item.numero.ToString();
             }
             else
             {
-                if (!item.esOperador) return int.MinValue;
-                operadores.Add(slot.ObtenerValor());
+                if (numAcumulado.Length == 0) return int.MinValue;
+
+                if (!int.TryParse(numAcumulado, out int parsed)) return int.MinValue;
+                numeros.Add(parsed);
+                numAcumulado = "";
+
+                operadores.Add(item.simboloOperador);
             }
-            esperaNumero = !esperaNumero;
         }
 
-        if (esperaNumero) return int.MinValue;
+        if (numAcumulado.Length == 0) return int.MinValue;
+        if (!int.TryParse(numAcumulado, out int ultimo)) return int.MinValue;
+        numeros.Add(ultimo);
+
+        if (numeros.Count != operadores.Count + 1) return int.MinValue;
 
         // Pasada 1: resolver * y /
         for (int i = 0; i < operadores.Count; i++)

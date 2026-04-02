@@ -19,6 +19,7 @@ public class DragSelectionManager : MonoBehaviour
         public bool esOperador;
         public int numero;
         public string simbolo;
+        public int cardId;
     }
     public int TotalSeleccionados => numerosSeleccionados.Count + operadoresSeleccionados.Count;
 
