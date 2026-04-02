@@ -93,6 +93,7 @@ public class NumberSpawner : MonoBehaviour
         var card = CrearTarjetaBase("Num_" + numero + "_" + spawnCount, numero.ToString(), cardColor);
 
         var draggable = card.GetComponent<DraggableNumber>();
+        draggable.uniqueId = spawnCount;
         draggable.numero = numero;
         draggable.esOperador = false;
 
@@ -106,6 +107,7 @@ public class NumberSpawner : MonoBehaviour
         var card = CrearTarjetaBase("Op_" + operador + "_" + spawnCount, operador, operadorCardColor);
 
         var draggable = card.GetComponent<DraggableNumber>();
+        draggable.uniqueId = spawnCount;
         draggable.esOperador = true;
         draggable.simboloOperador = operador;
 
@@ -129,13 +131,8 @@ public class NumberSpawner : MonoBehaviour
             foreach (var card in cards)
             {
                 if (card.transform.parent != spawnParent) continue;
-                if (card.esOperador == info.esOperador)
-                {
-                    if (info.esOperador && card.simboloOperador == info.simbolo)
-                        { match = card; break; }
-                    else if (!info.esOperador && card.numero == info.numero)
-                        { match = card; break; }
-                }
+                if (card.uniqueId == info.cardId)
+                    { match = card; break; }
             }
 
             if (match != null)

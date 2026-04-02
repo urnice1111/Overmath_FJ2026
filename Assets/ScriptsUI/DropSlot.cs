@@ -34,7 +34,8 @@ public class DropSlot : MonoBehaviour
         {
             esOperador = item.esOperador,
             numero = item.numero,
-            simbolo = item.simboloOperador
+            simbolo = item.simboloOperador,
+            cardId = item.uniqueId
         };
     }
 
