@@ -9,10 +9,11 @@ public class ControlVillano : MonoBehaviour
     public GameObject pow;
     public GameObject hahaha;
 
-    public float tiempoResultado = 2f; //Tiempo que se muestra la imagen del resultado a la pregunta antes de volver a la imagen base
+    public float tiempoResultado = 1.5f; //Tiempo que se muestra la imagen del resultado a la pregunta antes de volver a la imagen base
 
     void Start()
     {
+        Debug.Log("Control Villano Iniciado");
         MostrarVillanoBase();
     }
     public void MostrarVillanoBase() //Muestra la imagen del villano en su estado base

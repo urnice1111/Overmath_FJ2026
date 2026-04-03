@@ -3,7 +3,7 @@ using UnityEngine;
 public class MovimientoVillanoTae : MonoBehaviour
 {
     public float velocidad = 2f; //Velocidad a la que se mueve el villano
-    public float limite = 4f; //Distancia máxima que el villano se moverá desde su posición inicial antes de cambiar de dirección
+    public float limite = 3f; //Distancia máxima que el villano se moverá desde su posición inicial antes de cambiar de dirección
     private Vector3 posicionInicial; //Almacena la posición inicial del villano para calcular los límites de movimiento
     private int direccion = 1; //Variable para controlar la dirección del movimiento, 1 para derecha y -1 para izquierda
     void Start()

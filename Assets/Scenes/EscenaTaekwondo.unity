@@ -963,6 +963,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1578619919}
+  - component: {fileID: 1578619921}
   - component: {fileID: 1578619920}
   m_Layer: 0
   m_Name: VillanoTae
@@ -1000,11 +1001,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1578619918}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9ea73aa0d7d4a2b9194a5bd0568bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ControlVillano
+  villano1Base: {fileID: 502540799}
+  villano1Golpe: {fileID: 950179323}
+  villano1Risa: {fileID: 978027101}
+  pow: {fileID: 1225773972}
+  hahaha: {fileID: 221579480}
+  tiempoResultado: 2
+--- !u!114 &1578619921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578619918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87fcb7259395c49ea986035e2c18e360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoVillanoTae
-  velocidad: 1
-  limite: 5
+  velocidad: 2
+  limite: 3
 --- !u!1 &1961574494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1129,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2026412789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2026412791}
+  - component: {fileID: 2026412790}
+  m_Layer: 0
+  m_Name: PruebaVillano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2026412790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026412789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6b087518f1d4ad5b5c5ba95bb31f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PruebaVillano
+  controlVillano: {fileID: 1578619920}
+--- !u!4 &2026412791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026412789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.52653, y: 1.4142, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1119,3 +1183,4 @@ SceneRoots:
   - {fileID: 1961574497}
   - {fileID: 759041274}
   - {fileID: 1578619919}
+  - {fileID: 2026412791}
