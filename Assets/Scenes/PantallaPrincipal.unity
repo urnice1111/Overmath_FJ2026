@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 370113169}
   - component: {fileID: 370113171}
   m_Layer: 0
-  m_Name: isla_resta_0
+  m_Name: isla_resta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2207,7 +2207,7 @@ GameObject:
   - component: {fileID: 1346690375}
   - component: {fileID: 1346690376}
   m_Layer: 0
-  m_Name: isla_suma_0
+  m_Name: isla_suma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
