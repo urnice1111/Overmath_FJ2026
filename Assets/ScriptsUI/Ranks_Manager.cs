@@ -20,7 +20,7 @@ public class Ranks_Manager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void RegistrarRespuesta(bool correcta)
+    public void RegistrarRespuesta(bool correcta) //Este método se llama cada vez que el jugador responde correctamente o incorrectamente a una pregunta, y actualiza la racha y el rango
     {
         if (correcta)
         {
@@ -35,7 +35,7 @@ public class Ranks_Manager : MonoBehaviour
         Debug.Log("Ranks_Manager: streak=" + streak + " rank=" + rank);
     }
 
-    public void EvaluarRank()
+    public void EvaluarRank()  //Evalúa el rango del jugador en función de su racha actual (streak) y actualiza la variable rank:
     {
         if (streak >= 10)
         {
