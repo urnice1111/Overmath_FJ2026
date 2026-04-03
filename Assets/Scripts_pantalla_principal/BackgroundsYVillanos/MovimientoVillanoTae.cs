@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MovimientoVillanoTae : MonoBehaviour
 {
-    public float velocidad = 1f;
-    public float limite = 5f;
+    public float velocidad = 2f;
+    public float limite = 3f;
     private Vector3 posicionInicial;
     private int direccion = 1;
     void Start()
