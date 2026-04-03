@@ -23,7 +23,6 @@ public class PreguntaManager : MonoBehaviour
 
     public static PreguntaManager Instance { get; private set; }
 
-    [SerializeField] private BancoPreguntasSO banco; // Not currently used in this script, but left intact
     [SerializeField] private TextMeshProUGUI textoPregunta;
 
     public List<Pregunta> preguntasUnity = new List<Pregunta>();
