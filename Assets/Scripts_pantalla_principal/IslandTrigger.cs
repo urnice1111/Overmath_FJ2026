@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class IslandTrigger : MonoBehaviour
@@ -8,6 +9,9 @@ public class IslandTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
+            // Get and set the island name from the gameobjet name when trigger
+            GameSession.Instance.SetIsla(gameObject.name);
             playButtonUI.SetActive(true);
         }
     }
