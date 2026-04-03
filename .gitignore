@@ -73,3 +73,20 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# macOS Finder metadata
+.DS_Store
+
+# Accidental duplicate files/folders (space + 2)
+/.git 2/
+/.gitattributes 2
+/.gitignore 2
+/.vscode 2/
+/Assets 2/
+/Logs 2/
+/Packages 2/
+/ProjectSettings 2/
+/UIElementsSchema 2/
+/unity-build 2/
+/UserSettings 2/
+/Overmath_FJ2026 2.slnx
