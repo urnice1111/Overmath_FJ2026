@@ -256,7 +256,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12030808}
   m_CullTransparentMesh: 1
---- !u!1 &141483691
+--- !u!1 &172755497
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 141483692}
+  - component: {fileID: 172755498}
   m_Layer: 0
   m_Name: Islands
   m_TagString: Untagged
@@ -272,16 +272,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &141483692
+--- !u!4 &172755498
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141483691}
+  m_GameObject: {fileID: 172755497}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.47535, y: -3.16953, z: 0}
+  m_LocalPosition: {x: 1014.29333, y: 596.7064, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -379,11 +379,11 @@ Transform:
   m_GameObject: {fileID: 370113168}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.70535, y: 12.31953, z: 0}
+  m_LocalPosition: {x: -1012.06335, y: -587.5564, z: 0}
   m_LocalScale: {x: 0.3714993, y: 0.40950853, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 141483692}
+  m_Father: {fileID: 172755498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &370113171
 CircleCollider2D:
@@ -909,11 +909,11 @@ Transform:
   m_GameObject: {fileID: 674425134}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.08535, y: 16.579529, z: 0}
+  m_LocalPosition: {x: -1001.68335, y: -583.29645, z: 0}
   m_LocalScale: {x: 0.43160194, y: 0.43758526, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 141483692}
+  m_Father: {fileID: 172755498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &674425137
 CircleCollider2D:
@@ -1116,11 +1116,11 @@ Transform:
   m_GameObject: {fileID: 823994048}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.38535, y: 1.6995299, z: 0}
+  m_LocalPosition: {x: -997.38336, y: -598.1764, z: 0}
   m_LocalScale: {x: 0.22409691, y: 0.22050348, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 141483692}
+  m_Father: {fileID: 172755498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &823994051
 CircleCollider2D:
@@ -1835,6 +1835,7 @@ GameObject:
   - component: {fileID: 1200030081}
   - component: {fileID: 1200030080}
   - component: {fileID: 1200030084}
+  - component: {fileID: 1200030085}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1938,7 +1939,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f15845a7d3f834c9dcc66ad7af605a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IslandTrigger
-  playButtonUI: {fileID: 0}
+  playButtonUI: {fileID: 1153813430}
+--- !u!114 &1200030085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200030079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964d05bf75c7a43a888ba41339bd948c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultySelector
+  gameSceneName: OperandosEnterosScene
 --- !u!1 &1257539778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,16 +2036,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1521611115}
-        m_TargetAssemblyTypeName: LevelPopupController, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1200030085}
+        m_TargetAssemblyTypeName: DifficultySelector, Assembly-CSharp
+        m_MethodName: OnNormalSelected
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OperandosEnterosScene
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1257539781
@@ -2267,11 +2281,11 @@ Transform:
   m_GameObject: {fileID: 1346690371}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.67535, y: 3.56953, z: 0}
+  m_LocalPosition: {x: -1011.0933, y: -596.3064, z: 0}
   m_LocalScale: {x: 0.23, y: 0.21, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 141483692}
+  m_Father: {fileID: 172755498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1346690374
 CircleCollider2D:
@@ -2441,16 +2455,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1521611115}
-        m_TargetAssemblyTypeName: LevelPopupController, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1200030085}
+        m_TargetAssemblyTypeName: DifficultySelector, Assembly-CSharp
+        m_MethodName: OnDificilSelected
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OperandosEnterosScene
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1440225416
@@ -2784,11 +2798,11 @@ Transform:
   m_GameObject: {fileID: 1570941942}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.065351, y: 9.16953, z: 0}
+  m_LocalPosition: {x: -1002.7033, y: -590.7064, z: 0}
   m_LocalScale: {x: 1.3735, y: 1.2416, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 141483692}
+  m_Father: {fileID: 172755498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1570941946
 CircleCollider2D:
@@ -2898,6 +2912,50 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.045944396, y: -0.9317671}
   m_Radius: 0.99105126
+--- !u!1 &1588734502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588734503}
+  - component: {fileID: 1588734504}
+  m_Layer: 0
+  m_Name: GameSession
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1588734503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588734502}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 762.47864, y: 598.4869, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588734504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588734502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7630a812468f8460fb08be68156979ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameSession
 --- !u!1 &1632114469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2915,7 +2973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1632114470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3061,16 +3119,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1521611115}
-        m_TargetAssemblyTypeName: LevelPopupController, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 1200030085}
+        m_TargetAssemblyTypeName: DifficultySelector, Assembly-CSharp
+        m_MethodName: OnFacilSelected
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OperandosEnterosScene
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1676467713
@@ -3471,11 +3529,11 @@ Transform:
   m_GameObject: {fileID: 2064703001}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.195349, y: 9.8195305, z: 0}
+  m_LocalPosition: {x: -993.57336, y: -590.0564, z: 0}
   m_LocalScale: {x: 0.43699768, y: 0.44543523, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 141483692}
+  m_Father: {fileID: 172755498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2064703004
 CircleCollider2D:
@@ -3524,4 +3582,5 @@ SceneRoots:
   - {fileID: 799370689}
   - {fileID: 1300596451}
   - {fileID: 1521611116}
-  - {fileID: 141483692}
+  - {fileID: 1588734503}
+  - {fileID: 172755498}

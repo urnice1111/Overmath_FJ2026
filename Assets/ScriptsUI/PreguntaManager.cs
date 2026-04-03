@@ -49,7 +49,10 @@ public class PreguntaManager : MonoBehaviour
     }
     IEnumerator GetQuestions()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get("http://localhost:3000"))
+
+        string url = GameSession.Instance.GetEndpoint();
+
+        using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
             yield return www.SendWebRequest();
 
