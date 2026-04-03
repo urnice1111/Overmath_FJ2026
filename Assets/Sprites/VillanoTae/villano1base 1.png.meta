@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc9c0aa981e374fa192d1c95d2f70a18
+guid: 58b6a7a83a3ec47dc8ea9829dabe12e4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6468766611585632888
-    second: villano1base_0
+      213: -35605059588524211
+    second: villano1base 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,10 +49,10 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 79, y: 0, z: 95, w: 56}
+  spriteBorder: {x: 70, y: 0, z: 94, w: 50}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: villano1base_0
+      name: villano1base 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1024
-        height: 924
+        height: 869
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 87a0872d5fca5c950800000000000000
-      internalID: 6468766611585632888
+      spriteID: d47f40f0361818ff0800000000000000
+      internalID: -35605059588524211
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      villano1base_0: 6468766611585632888
+      villano1base 1_0: -35605059588524211
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
