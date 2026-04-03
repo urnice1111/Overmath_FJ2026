@@ -2243,7 +2243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd21f0077f504ccdac8298b151dcdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreguntaManager
-  banco: {fileID: 11400000, guid: 6484a17693c9f4eceaf61da9b8f63372, type: 2}
   textoPregunta: {fileID: 920987024}
   preguntasUnity: []
   PreguntaActual:
@@ -3231,8 +3230,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1851595884}
   - {fileID: 2047329632}
+  - {fileID: 1851595884}
   - {fileID: 183094699}
   - {fileID: 920987023}
   m_Father: {fileID: 184489967}

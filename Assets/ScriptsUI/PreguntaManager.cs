@@ -3,7 +3,6 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Networking;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.Requests;
 
 public class PreguntaManager : MonoBehaviour
 {
