@@ -10,9 +10,10 @@ public class PruebaVillano : MonoBehaviour
         {
             controlVillano.RespuestaCorrecta();
         }
-
+        
         if (Input.GetKeyDown(KeyCode.X))
         {
+            print("Hola papu");
             controlVillano.RespuestaIncorrecta();
         }
     }
