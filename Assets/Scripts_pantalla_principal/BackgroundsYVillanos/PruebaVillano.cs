@@ -13,7 +13,6 @@ public class PruebaVillano : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.X))
         {
-            print("Hola papu");
             controlVillano.RespuestaIncorrecta();
         }
     }
