@@ -7,18 +7,35 @@ public class ResultadoDisplay : MonoBehaviour
 {
     [SerializeField] private float duracionDisplay = 4f;
     [SerializeField] private string escenaRetorno = "OperandosEnterosScene";
+    [SerializeField] private bool volverAutomaticamente = true;
+    [SerializeField] private bool permitirVolverConClick = true;
     [SerializeField] private int fontSizeResultado = 90;
     [SerializeField] private Color colorTexto = Color.white;
 
     [SerializeField] private VillianState villianState;
 
+    private Coroutine coroutineRetorno;
+    private bool retornoEjecutado;
+
     private void Start()
     {
         CrearUI();
         MakeAnimation(); 
-        StartCoroutine(EsperarYVolver());
+        if (volverAutomaticamente)
+            coroutineRetorno = StartCoroutine(EsperarYVolver());
 
         
+    }
+
+    private void Update()
+    {
+        if (!permitirVolverConClick || retornoEjecutado)
+            return;
+
+        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+        {
+            CargarEscenaRetorno();
+        }
     }
 
     private void CrearUI()
@@ -56,6 +73,34 @@ public class ResultadoDisplay : MonoBehaviour
     private IEnumerator EsperarYVolver()
     {
         yield return new WaitForSeconds(duracionDisplay);
+        CargarEscenaRetorno();
+    }
+
+    public void CargarEscenaRetorno()
+    {
+        if (retornoEjecutado)
+            return;
+
+        if (string.IsNullOrWhiteSpace(escenaRetorno))
+        {
+            Debug.LogError("[ResultadoDisplay] escenaRetorno esta vacia.");
+            return;
+        }
+
+        if (!Application.CanStreamedLevelBeLoaded(escenaRetorno))
+        {
+            Debug.LogError($"[ResultadoDisplay] No se puede cargar la escena '{escenaRetorno}'. Verifica que este en Build Settings.");
+            return;
+        }
+
+        retornoEjecutado = true;
+
+        if (coroutineRetorno != null)
+        {
+            StopCoroutine(coroutineRetorno);
+            coroutineRetorno = null;
+        }
+
         SceneManager.LoadScene(escenaRetorno);
     }
 
