@@ -15,8 +15,7 @@ public class ResultadoDisplay : MonoBehaviour
     private void Start()
     {
         CrearUI();
-        MakeAnimation();
-        
+        MakeAnimation(); 
         StartCoroutine(EsperarYVolver());
 
         

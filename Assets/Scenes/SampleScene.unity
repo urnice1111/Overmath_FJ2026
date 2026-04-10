@@ -351,7 +351,6 @@ GameObject:
   - component: {fileID: 629145028}
   - component: {fileID: 629145027}
   - component: {fileID: 629145026}
-  - component: {fileID: 629145029}
   - component: {fileID: 629145030}
   m_Layer: 0
   m_Name: huerto_assets_0
@@ -453,25 +452,9 @@ Transform:
   m_LocalPosition: {x: -0.0631, y: 0.8181, z: 0}
   m_LocalScale: {x: 2.8573837, y: 2.6305864, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1847793682}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &629145029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629145025}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68e1816b2f84624ab100d40424bb33a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorrectoIncorrectoAnimaciones
-  animator: {fileID: 629145026}
-  triggerCorrecto: CorrectAnsw
-  triggerIncorrecto: WrongAnsw
 --- !u!114 &629145030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +499,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ranks_Display
   animator: {fileID: 790266102}
+  layerIndex: 0
+  rankStates:
+  - rank: D
+    triggerName: RangoD
+  - rank: C
+    triggerName: RangoC
+  - rank: B
+    triggerName: RangoB
+  - rank: A
+    triggerName: RangoA
+  - rank: OverMath
+    triggerName: RangoMax
 --- !u!95 &790266102
 Animator:
   serializedVersion: 7
@@ -661,53 +656,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1847793681
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1847793682}
-  - component: {fileID: 1847793683}
-  m_Layer: 0
-  m_Name: CorrectoIncorrectoAnimaciones
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1847793682
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847793681}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004689606, y: -0.24365671, z: 0}
-  m_LocalScale: {x: 0.34997052, y: 0.3801434, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 629145028}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1847793683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847793681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68e1816b2f84624ab100d40424bb33a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CorrectoIncorrectoAnimaciones
-  animator: {fileID: 0}
-  triggerCorrecto: CorrectAnsw
-  triggerIncorrecto: WrongAnsw
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
