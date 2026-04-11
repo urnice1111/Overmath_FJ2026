@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OperandosEnterosScene.unity
     guid: a4bb6d5e5eb774c5d980fb56c588dbec
+  - enabled: 1
+    path: Assets/Scenes/PantallaPrincipal.unity
+    guid: bcf1dc167979cd94cb41678c2027ad91
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
