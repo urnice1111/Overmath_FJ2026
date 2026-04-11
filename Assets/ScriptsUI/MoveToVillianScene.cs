@@ -18,7 +18,9 @@ public class MoveToVillianScene : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-      SceneManager.LoadScene(sceneName);  
+            // If the pause menu triggers scene change, resume time first.
+            pauseController.SetPause(false);
+            SceneManager.LoadScene(sceneName);  
     }
 
 
