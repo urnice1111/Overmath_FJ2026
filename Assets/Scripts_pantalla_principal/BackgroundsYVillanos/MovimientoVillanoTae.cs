@@ -9,6 +9,8 @@ public class MovimientoVillanoTae : MonoBehaviour
     void Start()
     {
         posicionInicial = transform.position; //Guarda la posición inicial del villano al comenzar el juego, para usarla como referencia para los límites de movimiento
+        limiteIzquierdo = posicionInicial.x - limite; //Calcula el límite izquierdo
+        limiteDerecho = posicionInicial.x + limite; //Calcula el límite derecho
     }
 
     void Update()
