@@ -772,6 +772,8 @@ MonoBehaviour:
   numero: 5
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &187314683
 Animator:
   serializedVersion: 7
@@ -995,6 +997,8 @@ MonoBehaviour:
   numero: 2
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &194026553
 Animator:
   serializedVersion: 7
@@ -1682,6 +1686,8 @@ MonoBehaviour:
   numero: 0
   esOperador: 1
   simboloOperador: /
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &952618199
 Animator:
   serializedVersion: 7
@@ -2294,6 +2300,8 @@ MonoBehaviour:
   numero: 3
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &982450569
 Animator:
   serializedVersion: 7
@@ -2682,6 +2690,8 @@ MonoBehaviour:
   numero: 0
   esOperador: 1
   simboloOperador: '*'
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1156213027
 Animator:
   serializedVersion: 7
@@ -2905,6 +2915,8 @@ MonoBehaviour:
   numero: 4
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1238253238
 Animator:
   serializedVersion: 7
@@ -3352,6 +3364,8 @@ MonoBehaviour:
   numero: 0
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1366280530
 Animator:
   serializedVersion: 7
@@ -3562,6 +3576,8 @@ MonoBehaviour:
   numero: 0
   esOperador: 1
   simboloOperador: +
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1384868811
 Animator:
   serializedVersion: 7
@@ -4221,6 +4237,8 @@ MonoBehaviour:
   numero: 9
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1695728670
 Animator:
   serializedVersion: 7
@@ -4398,6 +4416,8 @@ MonoBehaviour:
   numero: 1
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1777096323
 Animator:
   serializedVersion: 7
@@ -4783,6 +4803,8 @@ MonoBehaviour:
   numero: 7
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1908935881
 Animator:
   serializedVersion: 7
@@ -4960,6 +4982,8 @@ MonoBehaviour:
   numero: 6
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1923485707
 Animator:
   serializedVersion: 7
@@ -5137,6 +5161,8 @@ MonoBehaviour:
   numero: 8
   esOperador: 0
   simboloOperador: 
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &1946272579
 Animator:
   serializedVersion: 7
@@ -5524,6 +5550,8 @@ MonoBehaviour:
   numero: 0
   esOperador: 1
   simboloOperador: '-'
+  shrinkDuration: 0
+  growDuration: 0
 --- !u!95 &2111644267
 Animator:
   serializedVersion: 7
