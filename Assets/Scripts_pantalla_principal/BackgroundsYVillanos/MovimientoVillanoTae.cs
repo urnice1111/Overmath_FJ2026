@@ -9,20 +9,26 @@ public class MovimientoVillanoTae : MonoBehaviour
     void Start()
     {
         posicionInicial = transform.position; //Guarda la posición inicial del villano al comenzar el juego, para usarla como referencia para los límites de movimiento
+        limiteIzquierdo = posicionInicial.x - limite; //Calcula el límite izquierdo
+        limiteDerecho = posicionInicial.x + limite; //Calcula el límite derecho
     }
 
     void Update()
     {
-        transform.Translate(Vector3.right * direccion * velocidad * Time.deltaTime); //Mueve el villano en la dirección actual, para que el movimiento sea suave
+        Vector3 nuevaPosicion = transform.position; //Crea una variable para almacenar la nueva posición del villano.
+        nuevaPosicion.x += direccion * velocidad * Time.deltaTime; //Calcula la nueva posición del villano en el eje x.
 
-        if (transform.position.x >= posicionInicial.x + limite) //Si la posición del villano es mayor o igual a su posición inicial más el límite, significa que ha alcanzado el límite derecho de su movimiento
+        if (transform.position.x >= limiteDerecho) //Si el villano alcanza o supera el límite derecho, cambia la dirección a la izquierda
         {
+            nuevaPosicion.x = limiteDerecho;
             direccion = -1; //Cambia la dirección a la izquierda
         }
 
-        else if (transform.position.x <= posicionInicial.x - limite)
+        else if (transform.position.x <= limiteIzquierdo)
         {
+            nuevaPosicion.x = limiteIzquierdo;
             direccion = 1; //Cambia la dirección a derecha
         }
+        transform.position = nuevaPosicion;
     }
 }
