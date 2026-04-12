@@ -7,6 +7,7 @@ public class MoverBarco : MonoBehaviour
 {
     [SerializeField]
     private InputAction accionMover;
+
     private Rigidbody2D rb;
 
     [SerializeField]
@@ -15,7 +16,9 @@ public class MoverBarco : MonoBehaviour
     // Referencia al joystick 
     [SerializeField]
     private Joystick joystick;
+
     private Vector2 input;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +42,7 @@ public class MoverBarco : MonoBehaviour
         {
             inputTouch = joystick.GetInput();
         }
+
         // Combinar ambos inputs
         input = inputTeclado + inputTouch;
         // Evitar que sea mayor a 1 (normalizar)
@@ -49,4 +53,3 @@ public class MoverBarco : MonoBehaviour
         rb.linearVelocity = input * velocidadMovimiento;
     }
 }
-
