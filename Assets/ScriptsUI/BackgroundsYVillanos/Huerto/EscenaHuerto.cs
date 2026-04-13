@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class EscenaHuerto : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float velocidad = 2f;
+    private float ancho;
+
     void Start()
     {
-        
+        ancho = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.position += Vector3.left * velocidad * Time.deltaTime;
+        if (transform.position.x <= -ancho)
+        {
+            transform.position += new Vector3(ancho * 2f, 0f, 0f);
+        }
     }
 }
