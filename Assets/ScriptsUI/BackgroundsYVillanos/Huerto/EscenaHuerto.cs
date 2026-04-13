@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EscenaHuerto : MonoBehaviour
 {
-    public float velocidad = 2f;
+    public float velocidad = 0.05f;
     private float ancho;
 
     void Start()

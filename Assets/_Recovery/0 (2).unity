@@ -205,11 +205,11 @@ Transform:
   m_GameObject: {fileID: 408461494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.8762, y: 0.0076000094, z: 0}
+  m_LocalPosition: {x: 3.1939297, y: -0.33519, z: 0}
   m_LocalScale: {x: 3.467154, y: 3.5032647, z: 3.4643824}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1697949682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &408461497
 MonoBehaviour:
@@ -1066,11 +1066,11 @@ Transform:
   m_GameObject: {fileID: 1387735889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.33, y: 0.0076000094, z: 0}
+  m_LocalPosition: {x: 38.64773, y: -0.33519, z: 0}
   m_LocalScale: {x: 3.467154, y: 3.5032647, z: 3.4643824}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1697949682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1387735892
 MonoBehaviour:
@@ -1085,6 +1085,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscenaHuerto
   velocidad: 2
+--- !u!1 &1697949681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697949682}
+  m_Layer: 0
+  m_Name: HUerto
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1697949682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697949681}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.68227, y: 0.34279, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 408461496}
+  - {fileID: 1387735891}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2035390017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,5 +1282,4 @@ SceneRoots:
   - {fileID: 2035390019}
   - {fileID: 1330877346}
   - {fileID: 689857362}
-  - {fileID: 408461496}
-  - {fileID: 1387735891}
+  - {fileID: 1697949682}
