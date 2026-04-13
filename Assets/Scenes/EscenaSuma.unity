@@ -251,8 +251,8 @@ Transform:
   m_GameObject: {fileID: 137215051}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.8696, y: -4.6283994, z: 0}
-  m_LocalScale: {x: 2.164305, y: 0.0936, z: 1}
+  m_LocalPosition: {x: 24.3436, y: -4.6283994, z: 0}
+  m_LocalScale: {x: 3.0148768, y: 0.0936, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579691578a687496a9e0329cddb85e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscenaTaekwondo
-  speed: 0.5
+  velocidad: 0.5
 --- !u!212 &759041273
 SpriteRenderer:
   serializedVersion: 2
@@ -675,8 +675,8 @@ Transform:
   m_GameObject: {fileID: 759041271}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.93, y: -0.0149, z: 0}
-  m_LocalScale: {x: 0.7375, y: 0.7375, z: 1}
+  m_LocalPosition: {x: 0.0044, y: -0.0149, z: 0}
+  m_LocalScale: {x: 0.74539125, y: 0.7375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1201,8 +1201,8 @@ Transform:
   m_GameObject: {fileID: 1800611106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.51, y: 0.21, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 17.9, y: 0.4434, z: 0}
+  m_LocalScale: {x: 0.984417, y: 0.96740395, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579691578a687496a9e0329cddb85e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscenaTaekwondo
-  speed: 0.5
+  velocidad: 0.5
 --- !u!1 &1961574494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579691578a687496a9e0329cddb85e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscenaTaekwondo
-  speed: 0.5
+  velocidad: 0.5
 --- !u!212 &1961574496
 SpriteRenderer:
   serializedVersion: 2
