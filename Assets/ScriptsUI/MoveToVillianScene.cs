@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class MoveToVillianScene : MonoBehaviour, IPointerDownHandler
 {
@@ -20,7 +19,16 @@ public class MoveToVillianScene : MonoBehaviour, IPointerDownHandler
     {
             // If the pause menu triggers scene change, resume time first.
             pauseController.SetPause(false);
-            SceneManager.LoadScene(sceneName);  
+
+            if (ScreenFadereManager.Instance != null)
+            {
+                ScreenFadereManager.Instance.ChangeScene(sceneName);
+            }
+            else
+            {
+                Debug.LogWarning("ScreenFadereManager no encontrado. Cargando escena sin transición.");
+                UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            }
     }
 
 
