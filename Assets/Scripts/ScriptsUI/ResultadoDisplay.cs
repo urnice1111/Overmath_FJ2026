@@ -20,9 +20,9 @@ public class ResultadoDisplay : MonoBehaviour
     private void Start()
     {
         CrearUI();
-        MakeAnimation(); 
-        if (volverAutomaticamente)
-            coroutineRetorno = StartCoroutine(EsperarYVolver());
+        // MakeAnimation(); 
+        // if (volverAutomaticamente)
+        //     coroutineRetorno = StartCoroutine(EsperarYVolver());
 
         
     }
@@ -70,11 +70,11 @@ public class ResultadoDisplay : MonoBehaviour
         text.verticalOverflow = VerticalWrapMode.Overflow;
     }
 
-    private IEnumerator EsperarYVolver()
-    {
-        yield return new WaitForSeconds(duracionDisplay);
-        CargarEscenaRetorno();
-    }
+    // private IEnumerator EsperarYVolver()
+    // {
+    //     yield return new WaitForSeconds(duracionDisplay);
+    //     CargarEscenaRetorno();
+    // }
 
     public void CargarEscenaRetorno()
     {
