@@ -4,7 +4,7 @@ public class TiempoJuego : MonoBehaviour
 {
     public Transform barTransform;
     public float maxTime = 100f;
-    public float decreaseRate = 5f;
+    public float decreaseRate = 0.5f;
     private float currentTime;
     private Vector3 initialScale;
 
