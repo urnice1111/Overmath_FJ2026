@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class TiempoJuego : MonoBehaviour
 {
-    public Transform barTransform;
-    public float maxTime = 100f;
-    public float decreaseRate = 0.5f;
+    private Transform barTransform;
+    public float maxTime = 100;
+    public float decreaseRate = 5;
     private float currentTime;
     private Vector3 initialScale;
 
     void Start()
     {
+        // Obtiene el Transform del mismo objeto
+        barTransform = GetComponent<Transform>();
+
         currentTime = maxTime;
         initialScale = barTransform.localScale;
     }
@@ -20,8 +23,6 @@ public class TiempoJuego : MonoBehaviour
         currentTime = Mathf.Clamp(currentTime, 0, maxTime);
 
         float percent = currentTime / maxTime;
-
-        // Escala solo hacia la derecha (si el pivote está a la izquierda)
         barTransform.localScale = new Vector3(initialScale.x * percent, initialScale.y, initialScale.z);
     }
 }
