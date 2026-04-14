@@ -1,3 +1,4 @@
+// This script performs an animations for the button "Jugar"
 using UnityEngine;
 using UnityEngine.EventSystems;
 
