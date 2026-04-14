@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class TiempoJuego : MonoBehaviour
 {
+    [SerializeField]
     private Transform barTransform;
     public float maxTime = 100;
     public float decreaseRate = 5;
+    [SerializeField]
     private float currentTime;
+    [SerializeField]
     private Vector3 initialScale;
 
     void Start()
@@ -24,5 +27,11 @@ public class TiempoJuego : MonoBehaviour
 
         float percent = currentTime / maxTime;
         barTransform.localScale = new Vector3(initialScale.x * percent, initialScale.y, initialScale.z);
+    }
+    
+    public void AjustarTiempo(float cantidad)
+    {
+        currentTime -= cantidad; // restar o sumar tiempo
+        currentTime = Mathf.Clamp(currentTime, 0, maxTime);
     }
 }
