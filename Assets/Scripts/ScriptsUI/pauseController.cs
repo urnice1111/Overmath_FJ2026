@@ -1,3 +1,4 @@
+//Controls de pause menu
 using UnityEngine;
 
 public class pauseController : MonoBehaviour

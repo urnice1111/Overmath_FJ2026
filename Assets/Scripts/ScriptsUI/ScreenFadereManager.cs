@@ -1,5 +1,5 @@
+// Manages the screen fade in and fade out effect when changing scenes
 using UnityEngine;
-using System.Threading.Tasks;
 using System.Collections;
 using UnityEngine.SceneManagement;
 

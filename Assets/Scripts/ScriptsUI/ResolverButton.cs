@@ -1,3 +1,4 @@
+// For the "resolver" button in the crafting table .
 using UnityEngine;
 using UnityEngine.InputSystem;
 

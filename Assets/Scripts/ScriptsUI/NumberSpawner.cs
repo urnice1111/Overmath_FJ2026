@@ -1,3 +1,4 @@
+// Generates an appends child to the spawn parent for every draggable number and/or operator 
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

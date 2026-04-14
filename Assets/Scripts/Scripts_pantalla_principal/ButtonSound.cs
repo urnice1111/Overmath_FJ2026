@@ -1,3 +1,4 @@
+// This script plays a sound when the button "Jugar" is pressed
 using UnityEngine;
 
 public class ButtonSound : MonoBehaviour

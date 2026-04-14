@@ -1,3 +1,4 @@
+// This script is for the operators and numbers buttons.
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;

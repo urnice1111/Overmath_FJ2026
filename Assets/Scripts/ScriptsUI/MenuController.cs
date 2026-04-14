@@ -1,3 +1,4 @@
+//If fro controlling canvas menu -> esc (keyboard)
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;

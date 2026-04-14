@@ -1,5 +1,6 @@
+// Manages the questions, including fetching them from the Lambda function.
 using UnityEngine;
-using TMPro;
+using TMPro;  
 using System.Collections;
 using UnityEngine.Networking;
 using System.Collections.Generic;

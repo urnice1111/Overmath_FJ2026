@@ -1,3 +1,4 @@
+// This script manages the joystick and updates barquito position.
 using UnityEngine;
 using UnityEngine.EventSystems;
 

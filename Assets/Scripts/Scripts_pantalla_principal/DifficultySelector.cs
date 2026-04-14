@@ -1,3 +1,4 @@
+// Manges the difficulty for each game.
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
