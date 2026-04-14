@@ -1,3 +1,4 @@
+// The script controls the time bar. 
 using UnityEngine;
 
 public class TiempoJuego : MonoBehaviour

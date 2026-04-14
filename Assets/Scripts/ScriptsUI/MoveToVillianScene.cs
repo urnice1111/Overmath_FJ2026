@@ -1,4 +1,4 @@
-using System.Collections;
+// This script controls the transition to the villain scene (effect)
 using UnityEngine;
 using UnityEngine.EventSystems;
 

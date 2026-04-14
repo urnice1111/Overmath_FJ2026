@@ -1,4 +1,4 @@
-using System.Collections;
+// Displays the result 
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

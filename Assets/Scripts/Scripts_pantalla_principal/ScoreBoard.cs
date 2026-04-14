@@ -1,3 +1,4 @@
+//Get to show n top players in the score board. Reference to a text and reload. 
 using System.Collections;
 using TMPro;
 using UnityEngine;

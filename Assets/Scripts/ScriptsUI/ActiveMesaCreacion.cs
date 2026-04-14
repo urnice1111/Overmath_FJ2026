@@ -1,7 +1,6 @@
-using System;
+// This script activates the crafting table 
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class ActiveMesaCreacion : MonoBehaviour, IPointerDownHandler
 {
