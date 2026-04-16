@@ -19,6 +19,8 @@ public class GameSession : MonoBehaviour
 
     public string IslaActual {get; private set;} = "isla_suma";
 
+    public bool IsTutorial { get; set; }
+
 
     private void Awake()
     {

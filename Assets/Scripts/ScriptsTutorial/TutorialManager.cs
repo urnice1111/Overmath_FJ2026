@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TutorialManager : MonoBehaviour
@@ -9,22 +9,24 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager Instance { get; private set; }
     public static bool TutorialActivo { get; private set; }
 
-    [Header("Pasos del tutorial (en orden)")]
+    [Header("Steps (in order)")]
     [SerializeField] private List<TutorialStep> pasos;
 
-    [Header("UI del tutorial")]
-    [SerializeField] private GameObject panelTutorial;
-    [SerializeField] private TextMeshProUGUI textoTitulo;
-    [SerializeField] private TextMeshProUGUI textoBody;
-    [SerializeField] private GameObject botonSiguiente;
+    [Header("Dialogue UI")]
+    [SerializeField] private GameObject panelDialogue;
+    [SerializeField] private TextMeshProUGUI textoDialogue;
 
-    [Header("Bloqueador de input (pantalla completa, sortOrder alto)")]
-    [SerializeField] private CanvasGroup bloqueador;
+    [Header("Spotlight overlay")]
+    [SerializeField] private TutorialSpotlight spotlight;
+
+    [Header("Return scene after tutorial ends")]
+    [SerializeField] private string escenaMapa = "PantallaPrincipal";
 
     private int pasoActual = -1;
     private TutorialStep stepActivo;
-    private TutorialHighlight highlightActivo;
     private bool esperandoTap;
+    private bool esperandoEvaluacion;
+    private bool ultimaRespuestaCorrecta;
     private Coroutine coroutineAvance;
 
     private void Awake()
@@ -39,15 +41,13 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.DeleteKey("TutorialCompletado");
-        
-        bool yaCompletado = PlayerPrefs.GetInt("TutorialCompletado", 0) == 1;
-        if (yaCompletado)
+        if (GameSession.Instance == null || !GameSession.Instance.IsTutorial)
         {
-            panelTutorial.SetActive(false);
-            bloqueador.gameObject.SetActive(false);
+            panelDialogue.SetActive(false);
+            enabled = false;
             return;
         }
+
         IniciarTutorial();
     }
 
@@ -55,6 +55,7 @@ public class TutorialManager : MonoBehaviour
     {
         TutorialActivo = true;
         pasoActual = -1;
+        panelDialogue.SetActive(false);
         SiguientePaso();
     }
 
@@ -70,47 +71,21 @@ public class TutorialManager : MonoBehaviour
         }
 
         stepActivo = pasos[pasoActual];
-        MostrarTexto(stepActivo.titulo, stepActivo.texto);
-        ResaltarObjetivo(stepActivo.highlightTargetName);
+
+        MostrarTexto(stepActivo.texto);
+
+        if (!string.IsNullOrEmpty(stepActivo.highlightTargetName))
+            spotlight.Show(stepActivo.highlightTargetName);
+        else
+            spotlight.Show(null);
+
         ConfigurarAvance(stepActivo);
     }
 
-    private void MostrarTexto(string titulo, string cuerpo)
+    private void MostrarTexto(string texto)
     {
-        panelTutorial.SetActive(true);
-        textoTitulo.text = titulo;
-        textoBody.text = cuerpo;
-    }
-
-    private void ResaltarObjetivo(string targetName)
-    {
-        if (string.IsNullOrEmpty(targetName)) return;
-
-        var obj = GameObject.Find(targetName);
-        if (obj == null)
-        {
-            Debug.LogWarning("TutorialManager: no se encontro el objeto '" + targetName + "' para resaltar.");
-            return;
-        }
-
-        highlightActivo = obj.GetComponent<TutorialHighlight>();
-        if (highlightActivo == null)
-            highlightActivo = obj.AddComponent<TutorialHighlight>();
-
-        highlightActivo.Activar();
-    }
-
-    private void BloquearTodo()
-    {
-        bloqueador.gameObject.SetActive(true);
-        bloqueador.blocksRaycasts = true;
-        bloqueador.alpha = 0.6f;
-    }
-
-    private void DesbloquearTodo()
-    {
-        bloqueador.blocksRaycasts = false;
-        bloqueador.alpha = 0f;
+        panelDialogue.SetActive(true);
+        textoDialogue.text = texto;
     }
 
     private void ConfigurarAvance(TutorialStep step)
@@ -118,51 +93,68 @@ public class TutorialManager : MonoBehaviour
         switch (step.advanceMode)
         {
             case TutorialAdvanceMode.TapToContinue:
-                BloquearTodo();
-                botonSiguiente.SetActive(true);
                 esperandoTap = true;
                 break;
 
             case TutorialAdvanceMode.WaitForSeconds:
-                BloquearTodo();
-                botonSiguiente.SetActive(false);
                 coroutineAvance = StartCoroutine(EsperarYAvanzar(step.waitSeconds));
                 break;
 
             case TutorialAdvanceMode.WaitForSelection:
-                DesbloquearTodo();
-                botonSiguiente.SetActive(false);
                 coroutineAvance = StartCoroutine(EsperarSeleccion(step.seleccionesRequeridas));
                 break;
 
             case TutorialAdvanceMode.WaitForMesaOpen:
-                DesbloquearTodo();
-                botonSiguiente.SetActive(false);
                 coroutineAvance = StartCoroutine(EsperarMesaAbierta());
                 break;
 
             case TutorialAdvanceMode.WaitForSlotsReady:
-                DesbloquearTodo();
-                botonSiguiente.SetActive(false);
                 coroutineAvance = StartCoroutine(EsperarSlotsLlenos());
                 break;
 
             case TutorialAdvanceMode.WaitForEvaluate:
-                DesbloquearTodo();
-                botonSiguiente.SetActive(false);
+                esperandoEvaluacion = true;
                 break;
 
-            case TutorialAdvanceMode.WaitForResult:
-                BloquearTodo();
-                botonSiguiente.SetActive(false);
-                coroutineAvance = StartCoroutine(EsperarYAvanzar(3f));
+            case TutorialAdvanceMode.WaitForCorrectAnswer:
+                esperandoEvaluacion = true;
                 break;
+        }
+    }
 
-            case TutorialAdvanceMode.AutoRelease:
-                DesbloquearTodo();
-                botonSiguiente.SetActive(false);
-                coroutineAvance = StartCoroutine(EsperarYAvanzar(2f));
-                break;
+    private void Update()
+    {
+        if (!esperandoTap) return;
+        if (Input.GetMouseButtonDown(0)
+            || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+        {
+            esperandoTap = false;
+            SiguientePaso();
+        }
+    }
+
+    public void NotificarEvaluacion(bool correcta)
+    {
+        if (!TutorialActivo || !esperandoEvaluacion) return;
+
+        if (stepActivo.advanceMode == TutorialAdvanceMode.WaitForEvaluate)
+        {
+            esperandoEvaluacion = false;
+            SiguientePaso();
+            return;
+        }
+
+        if (stepActivo.advanceMode == TutorialAdvanceMode.WaitForCorrectAnswer)
+        {
+            if (correcta)
+            {
+                esperandoEvaluacion = false;
+                SiguientePaso();
+            }
+            else
+            {
+                textoDialogue.text = "Almost! Try again, you can do it!";
+            }
         }
     }
 
@@ -184,12 +176,11 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator EsperarMesaAbierta()
     {
-        // ActiveMesaCreacion activa su hijo[0] al hacer click
         ActiveMesaCreacion mesa = null;
         while (true)
         {
             if (mesa == null)
-                mesa = FindAnyObjectByType<ActiveMesaCreacion>();
+                mesa = Object.FindAnyObjectByType<ActiveMesaCreacion>();
 
             if (mesa != null && mesa.transform.childCount > 0
                 && mesa.transform.GetChild(0).gameObject.activeSelf)
@@ -212,36 +203,18 @@ public class TutorialManager : MonoBehaviour
                     var slots = slotParent.GetComponentsInChildren<DropSlot>();
                     if (slots != null && slots.Length > 0)
                     {
-                        bool todosLlenos = true;
+                        bool allFilled = true;
                         foreach (var s in slots)
                         {
-                            if (s.EstaVacio) { todosLlenos = false; break; }
+                            if (s.EstaVacio) { allFilled = false; break; }
                         }
-                        if (todosLlenos) break;
+                        if (allFilled) break;
                     }
                 }
             }
             yield return null;
         }
         SiguientePaso();
-    }
-
-    public void NotificarEvaluacion()
-    {
-        if (!TutorialActivo) return;
-        if (stepActivo != null && stepActivo.advanceMode == TutorialAdvanceMode.WaitForEvaluate)
-            SiguientePaso();
-    }
-
-    private void Update()
-    {
-        if (!esperandoTap) return;
-        if (Input.GetMouseButtonDown(0)
-            || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
-        {
-            esperandoTap = false;
-            SiguientePaso();
-        }
     }
 
     private void LimpiarPasoActual()
@@ -252,23 +225,24 @@ public class TutorialManager : MonoBehaviour
             coroutineAvance = null;
         }
         esperandoTap = false;
-        botonSiguiente.SetActive(false);
-
-        if (highlightActivo != null)
-        {
-            highlightActivo.Desactivar();
-            highlightActivo = null;
-        }
+        esperandoEvaluacion = false;
     }
 
     private void TerminarTutorial()
     {
         TutorialActivo = false;
-        panelTutorial.SetActive(false);
-        DesbloquearTodo();
-        bloqueador.gameObject.SetActive(false);
+        panelDialogue.SetActive(false);
+        spotlight.Hide();
+
         PlayerPrefs.SetInt("TutorialCompletado", 1);
         PlayerPrefs.Save();
-        Debug.Log("TutorialManager: Tutorial completado.");
+
+        if (GameSession.Instance != null)
+            GameSession.Instance.IsTutorial = false;
+
+        if (ScreenFadereManager.Instance != null)
+            ScreenFadereManager.Instance.ChangeScene(escenaMapa);
+        else
+            SceneManager.LoadScene(escenaMapa);
     }
 }

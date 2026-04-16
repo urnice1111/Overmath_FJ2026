@@ -8,19 +8,17 @@ public enum TutorialAdvanceMode
     WaitForMesaOpen,
     WaitForSlotsReady,
     WaitForEvaluate,
-    WaitForResult,
-    AutoRelease
+    WaitForCorrectAnswer
 }
 
 [CreateAssetMenu(fileName = "TutorialStep", menuName = "Overmath/Tutorial Step")]
 public class TutorialStep : ScriptableObject
 {
-    public string titulo;
-    [TextArea(2, 4)] public string texto;
+    [TextArea(2, 5)] public string texto;
     public TutorialAdvanceMode advanceMode;
     public float waitSeconds = 2f;
     public int seleccionesRequeridas = 0;
 
-    [Tooltip("Nombre del GameObject en la escena que se debe resaltar (dejar vacio si no aplica)")]
+    [Tooltip("Name of the GameObject in the scene to spotlight (leave empty for no spotlight)")]
     public string highlightTargetName;
 }
