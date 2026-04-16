@@ -33,12 +33,15 @@ public class PuntajedePregunta : MonoBehaviour
     //Registra el resultado de una pregunta, sumando puntos solo si la respuesta es correcta
     public void RegistrarResultado(bool respuestaCorrecta)
     {
-        if(!respuestaCorrecta)
+        if (respuestaCorrecta)
         {
-            return;
+            SumarPuntos(puntosPorAcierto);
+            TiempoJuego.Instance?.AjustarTiempo(10f);
         }
-
-        SumarPuntos(puntosPorAcierto);
+        else
+        {
+            TiempoJuego.Instance?.AjustarTiempo(30f);
+        }
     }
 
     //Reinicia el puntaje actual a cero y guarda el cambio

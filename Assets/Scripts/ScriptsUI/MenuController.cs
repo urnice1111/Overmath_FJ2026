@@ -1,9 +1,10 @@
 //If fro controlling canvas menu -> esc (keyboard)
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class MenuController : MonoBehaviour
+public class MenuController : MonoBehaviour, IPointerDownHandler
 {
     public GameObject BotonMenu;
     public Button Reanudar; // Asigna el botón desde el Inspector
@@ -46,6 +47,11 @@ public class MenuController : MonoBehaviour
         {
             ToggleMenu();
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        ToggleMenu();
     }
     
     private void ToggleMenu()
