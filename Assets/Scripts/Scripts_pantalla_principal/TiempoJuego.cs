@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class TiempoJuego : MonoBehaviour
 {
+    public static TiempoJuego Instance { get; private set; }
+
     [SerializeField]
     private Transform barTransform;
     public float maxTime = 100;
@@ -19,6 +21,17 @@ public class TiempoJuego : MonoBehaviour
 
         currentTime = maxTime;
         initialScale = barTransform.localScale;
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
     void Update()

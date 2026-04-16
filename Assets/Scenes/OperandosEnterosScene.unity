@@ -190,7 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def0a3aee3dc349dd89519b653a40843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PanelNumerosUI
-  uiDocument: {fileID: 66240740}
 --- !u!114 &66240743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3378,8 +3377,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb567f9b9cfe0a499aaf6fd4481de8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TiempoJuego
+  barTransform: {fileID: 0}
   maxTime: 100
   decreaseRate: 5
+  currentTime: 0
+  initialScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1357078181
 GameObject:
   m_ObjectHideFlags: 0
@@ -4262,7 +4264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc8bb04e11c66443ba74662e062f4fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuController
-  BotonMenu: {fileID: 439659622}
+  BotonMenu: {fileID: 1296453375}
   Reanudar: {fileID: 1357078183}
   botonMenuObjectName: BotonMenu
 --- !u!1 &1658332794
@@ -4280,7 +4282,7 @@ GameObject:
   m_Layer: 0
   m_Name: BotonMenu
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4411,7 +4413,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658332794}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc8bb04e11c66443ba74662e062f4fe, type: 3}
   m_Name: 
