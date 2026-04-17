@@ -1,5 +1,0 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:Image name="MesadeCreacion" style="padding-left: 34px; padding-right: 16px; padding-top: 703px; margin-bottom: 46px; margin-top: 74px; padding-bottom: -2px; margin-left: 265px; margin-right: 127px; background-image: url(&quot;project://database/Assets/Backgrounds/Background_mesa.png?fileID=2800000&amp;guid=74a239ec9729149bfbaa0ca0bdc989a4&amp;type=3#Background_mesa&quot;); border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; height: 815px; width: 1036px;"/>
-    </ui:VisualElement>
-</ui:UXML>
