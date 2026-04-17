@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_02_Problem
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: '"Look at the top! That''s the math problem you need to solve."'
-  advanceMode: 0
+  texto: "\xA1Mira arriba! Ese es el problema matematico que tienes que resolver."
+  advanceMode: 3
   waitSeconds: 2
   seleccionesRequeridas: 0
-  highlightTargetName: Numeros
+  highlightTargetName: MCBoton Assets_0

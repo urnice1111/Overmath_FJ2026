@@ -185,6 +185,7 @@ public class TutorialManager : MonoBehaviour
             if (mesa != null && mesa.transform.childCount > 0
                 && mesa.transform.GetChild(0).gameObject.activeSelf)
                 break;
+    
 
             yield return null;
         }
@@ -234,8 +235,8 @@ public class TutorialManager : MonoBehaviour
         panelDialogue.SetActive(false);
         spotlight.Hide();
 
-        PlayerPrefs.SetInt("TutorialCompletado", 1);
-        PlayerPrefs.Save();
+        // PlayerPrefs.SetInt("TutorialCompletado", 1);
+        // PlayerPrefs.Save();
 
         if (GameSession.Instance != null)
             GameSession.Instance.IsTutorial = false;

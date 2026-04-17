@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_01_Welcome
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: '"Welcome to Overmath! Let me show you how to play. Tap to continue."'
+  texto: "Bienvenido a Overmath! \nAprendamos como jugar"
   advanceMode: 0
   waitSeconds: 2
   seleccionesRequeridas: 0
-  highlightTargetName: 
+  highlightTargetName: ChangeView
