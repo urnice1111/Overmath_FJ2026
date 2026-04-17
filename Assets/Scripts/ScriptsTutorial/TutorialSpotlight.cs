@@ -330,6 +330,12 @@ public class TutorialSpotlight : MonoBehaviour, ICanvasRaycastFilter
         }
     }
 
+    public void SetBlocksRaycasts(bool blocks)
+    {
+        EnsureInitialized();
+        dimmerImage.raycastTarget = blocks;
+    }
+
     public bool IsRaycastLocationValid(Vector2 screenPoint, Camera eventCamera)
     {
         if (activeHoleViewport.x < 0) return true;

@@ -28,6 +28,7 @@ public class TutorialManager : MonoBehaviour
     private bool esperandoEvaluacion;
     private bool ultimaRespuestaCorrecta;
     private Coroutine coroutineAvance;
+    public bool isGoBackButtonPressed = false;
 
     private void Awake()
     {
@@ -79,6 +80,8 @@ public class TutorialManager : MonoBehaviour
         else
             spotlight.Show(null);
 
+        spotlight.SetBlocksRaycasts(!stepActivo.allowWorldClicks);
+
         ConfigurarAvance(stepActivo);
     }
 
@@ -94,6 +97,10 @@ public class TutorialManager : MonoBehaviour
         {
             case TutorialAdvanceMode.TapToContinue:
                 esperandoTap = true;
+                break;
+
+            case TutorialAdvanceMode.GoBack:
+                coroutineAvance = StartCoroutine(RegresarYMoverCamara());
                 break;
 
             case TutorialAdvanceMode.WaitForSeconds:
@@ -164,6 +171,24 @@ public class TutorialManager : MonoBehaviour
         SiguientePaso();
     }
 
+
+    private IEnumerator RegresarYMoverCamara()
+    {
+        isGoBackButtonPressed = false;
+        while (!isGoBackButtonPressed)
+            yield return null;
+
+        isGoBackButtonPressed = false;
+
+        Transform cam = Camera.main.transform;
+        Vector3 end = new Vector3(0.0f,0.0f,-10.0f);
+
+        cam.position = end;
+
+        SiguientePaso();
+    }
+
+
     private IEnumerator EsperarSeleccion(int requeridos)
     {
         while (DragSelectionManager.Instance == null
@@ -227,6 +252,7 @@ public class TutorialManager : MonoBehaviour
         }
         esperandoTap = false;
         esperandoEvaluacion = false;
+        spotlight.SetBlocksRaycasts(true);
     }
 
     private void TerminarTutorial()
