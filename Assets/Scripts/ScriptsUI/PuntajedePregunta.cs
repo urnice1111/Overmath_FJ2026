@@ -36,11 +36,11 @@ public class PuntajedePregunta : MonoBehaviour
         if (respuestaCorrecta)
         {
             SumarPuntos(puntosPorAcierto);
-            TiempoJuego.AjustarTiempo(10f);
+            //TiempoJuego.AjustarTiempo(10f);
         }
         else
         {
-            TiempoJuego.AjustarTiempo(30f);
+            //TiempoJuego.AjustarTiempo(30f);
         }
     }
 
