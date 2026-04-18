@@ -38,10 +38,11 @@ public class PuntajedePregunta : MonoBehaviour
             SumarPuntos(puntosPorAcierto);
             //TiempoJuego.AjustarTiempo(10f);
         }
-        else
+        /*else
         {
             //TiempoJuego.AjustarTiempo(30f);
-        }
+            //TiempoJuego.Instance?.AjustarTiempo(10f);
+        }*/
     }
 
     //Reinicia el puntaje actual a cero y guarda el cambio

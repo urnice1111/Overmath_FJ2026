@@ -79,32 +79,25 @@ public class ExpressionEvaluator : MonoBehaviour
         bool correcto = PreguntaManager.Instance != null
             && PreguntaManager.Instance.VerificarRespuesta(resultado);
         if (correcto)
-        {
-            Debug.Log("¡Respuesta correcta!");
-            
-        }
-            
+            Debug.Log("Respuesta correcta!");
         else
             Debug.Log("Respuesta incorrecta.");
-            
 
-        if(PuntajedePregunta.Instance != null)
+        bool isTutorial = GameSession.Instance != null && GameSession.Instance.IsTutorial;
+
+        if (isTutorial)
         {
+            DragSelectionManager.Instance.LimpiarTodo();
+            if (TutorialManager.Instance != null)
+                TutorialManager.Instance.NotificarEvaluacion(correcto);
+            return;
+        }
+
+        if (PuntajedePregunta.Instance != null)
             PuntajedePregunta.Instance.RegistrarResultado(correcto);
-        }
-        else
-        {
-            Debug.LogWarning("ExpressionEvaluator: No se encontro PuntajedePregunta en la escena.");
-        }
 
         if (Ranks_Manager.Instance != null)
-        {
             Ranks_Manager.Instance.RegistrarRespuesta(correcto);
-        }
-        else
-        {
-            Debug.LogWarning("ExpressionEvaluator: No se encontro Ranks_Manager en la escena.");
-        }
 
         DragSelectionManager.Resultado = resultado;
         DragSelectionManager.ExpresionTexto = expresion + " = " + resultado;
