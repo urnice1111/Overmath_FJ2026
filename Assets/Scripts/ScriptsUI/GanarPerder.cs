@@ -1,9 +1,5 @@
 using UnityEngine;
 
-public class GanarPerder : MonoBehaviour
-{
-using UnityEngine;
-
 public class GameFlow : MonoBehaviour
 {
     [SerializeField] private GameObject winPopup;
@@ -45,4 +41,4 @@ public class GameFlow : MonoBehaviour
     }
 }
 
-}
+
