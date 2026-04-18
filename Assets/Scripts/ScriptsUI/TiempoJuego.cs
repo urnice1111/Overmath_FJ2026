@@ -4,6 +4,7 @@ using UnityEngine;
 public class TiempoJuego : MonoBehaviour
 {
     public static TiempoJuego Instance { get; private set; }
+    
 
     [SerializeField]
     private Transform barTransform;
@@ -13,6 +14,8 @@ public class TiempoJuego : MonoBehaviour
     private float currentTime;
     [SerializeField]
     private Vector3 initialScale;
+    
+    public float TiempoRestante => currentTime;
 
     void Start()
     {
