@@ -9,6 +9,9 @@ public class GoBack : MonoBehaviour, IPointerDownHandler
 
     private float shrinkDuration = 0.08f;
 
+    private Vector3 operandosPosition = new Vector3(0.0f, 0.0f, -20f);
+    private Vector3 villianPosition = new Vector3(0.0f, -19.9f, -20f);
+
     private float growDuration = 0.12f;
 
     private void Start()
@@ -28,6 +31,14 @@ public class GoBack : MonoBehaviour, IPointerDownHandler
         Debug.Log("This button was pressed");
 
         StartCoroutine(PulseScale());
+
+        Transform cam = Camera.main.transform;
+
+        if (cam.position == operandosPosition){
+            cam.position = villianPosition;
+        } else {
+            cam.position = operandosPosition;
+        }
     }
 
     IEnumerator PulseScale()

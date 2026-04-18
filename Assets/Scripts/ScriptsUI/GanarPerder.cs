@@ -1,44 +1,57 @@
-using UnityEngine;
+/*
+// using UnityEngine;
 
+<<<<<<< HEAD
 public class GameFlow : MonoBehaviour
 {
     [SerializeField] private GameObject winPopup;
     [SerializeField] private GameObject losePopup;
+=======
+// // public class GanarPerder : MonoBehaviour
+// // {
+// // using UnityEngine;
 
-    public int totalPreguntas = 20;
-    private int preguntasRespondidas = 0;
+// public class GameFlow : MonoBehaviour
+// {
+//     [SerializeField] private GameObject winPopup;
+//     [SerializeField] private GameObject losePopup;
+>>>>>>> 9f3802eb2e7f231794611a4ce9a69bcd7a00f6ab
 
-    void Update()
-    {
-        // Derrota por tiempo
-        if (TiempoJuego.Instance != null && TiempoJuego.Instance.TiempoRestante <= 0)
-        {
-            losePopup.SetActive(true);
-            Time.timeScale = 0f;
-        }
-    }
+//     public int totalPreguntas = 20;
+//     private int preguntasRespondidas = 0;
 
-    public void RegistrarPregunta(bool respuestaCorrecta)
-    {
-        preguntasRespondidas++;
+//     void Update()
+//     {
+//         // Derrota por tiempo
+//         if (TiempoJuego.Instance != null && TiempoJuego.Instance.TiempoRestante <= 0)
+//         {
+//             losePopup.SetActive(true);
+//             Time.timeScale = 0f;
+//         }
+//     }
 
-        // Cuando se terminan las preguntas
-        if (preguntasRespondidas >= totalPreguntas)
-        {
-            if (PuntajedePregunta.Instance.PuntosActuales >= 100)
-            {
-                // Victoria
-                winPopup.SetActive(true);
-            }
-            else
-            {
-                // Derrota por puntaje insuficiente
-                losePopup.SetActive(true);
-            }
+//     public void RegistrarPregunta(bool respuestaCorrecta)
+//     {
+//         preguntasRespondidas++;
 
-            Time.timeScale = 0f; // Pausar juego
-        }
-    }
-}
+//         // Cuando se terminan las preguntas
+//         if (preguntasRespondidas >= totalPreguntas)
+//         {
+//             if (PuntajedePregunta.Instance.PuntosActuales >= 100)
+//             {
+//                 // Victoria
+//                 winPopup.SetActive(true);
+//             }
+//             else
+//             {
+//                 // Derrota por puntaje insuficiente
+//                 losePopup.SetActive(true);
+//             }
+
+//             Time.timeScale = 0f; // Pausar juego
+//         }
+//     }
+// }
+*/
 
 
