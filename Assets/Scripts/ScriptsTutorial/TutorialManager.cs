@@ -181,7 +181,7 @@ public class TutorialManager : MonoBehaviour
         isGoBackButtonPressed = false;
 
         Transform cam = Camera.main.transform;
-        Vector3 end = new Vector3(0.0f,0.0f,-10.0f);
+        Vector3 end = new Vector3(0.0f,0.0f,-0.0f);
 
         cam.position = end;
 
