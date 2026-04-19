@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_05_ShowNumeros
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: "Este es el panel donde podras\nseleccionar los numeros \nen tus operaciones"
+  texto: 'Estos son tus numeros.
+
+    Tocalos para usarlos'
   advanceMode: 0
   waitSeconds: 2
   seleccionesRequeridas: 0
   highlightTargetName: Numeros
   allowWorldClicks: 0
   cameraTargetPos: {x: 0, y: 0}
+  hideDimmer: 0

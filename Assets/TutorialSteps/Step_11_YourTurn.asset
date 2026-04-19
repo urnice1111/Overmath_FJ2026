@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_11_YourTurn
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: Now solve this one all by yourself. You can do it!
+  texto: '!Ahora te toca a ti!
+
+    Resuelvelo tu solo, tu puedes!'
   advanceMode: 7
   waitSeconds: 2
   seleccionesRequeridas: 0

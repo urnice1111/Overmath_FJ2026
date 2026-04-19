@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_12_Finish
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: "\xA1Eso es todo!\n\xA1Tienes todo para recuperar\na las islas OverMath!"
+  texto: '!Muy bien, lo lograste!
+
+    !Ya puedes salvar las islas OverMath!'
   advanceMode: 0
   waitSeconds: 10
   seleccionesRequeridas: 0

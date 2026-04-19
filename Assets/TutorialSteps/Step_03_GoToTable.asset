@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_03_GoToTable
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: "\xA1Vayamos a resolverlo!\nPresiona este boton para cambiar\nde vista."
+  texto: '!Vamos a resolverlo!
+
+    Toca este boton para ver la mesa'
   advanceMode: 1
   waitSeconds: 2
   seleccionesRequeridas: 1
   highlightTargetName: GoBackButton
   allowWorldClicks: 0
   cameraTargetPos: {x: 0, y: 0}
+  hideDimmer: 0
