@@ -9,8 +9,8 @@ public class GoBack : MonoBehaviour, IPointerDownHandler
 
     private float shrinkDuration = 0.08f;
 
-    private Vector3 operandosPosition = new Vector3(0.0f, 0.0f, -20f);
-    private Vector3 villianPosition = new Vector3(0.0f, -19.9f, -20f);
+    private Vector3 operandosPosition = new Vector3(0.0f, 0.0f, -100f);
+    private Vector3 villianPosition = new Vector3(0.0f, -19.9f, -100f);
 
     private float growDuration = 0.12f;
 

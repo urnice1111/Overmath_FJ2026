@@ -75,7 +75,9 @@ public class TutorialManager : MonoBehaviour
 
         MostrarTexto(stepActivo.texto);
 
-        if (!string.IsNullOrEmpty(stepActivo.highlightTargetName))
+        if (stepActivo.hideDimmer)
+            spotlight.Hide();
+        else if (!string.IsNullOrEmpty(stepActivo.highlightTargetName))
             spotlight.Show(stepActivo.highlightTargetName);
         else
             spotlight.Show(null);
@@ -125,6 +127,8 @@ public class TutorialManager : MonoBehaviour
 
             case TutorialAdvanceMode.WaitForCorrectAnswer:
                 esperandoEvaluacion = true;
+                if (PreguntaManager.Instance != null)
+                    PreguntaManager.Instance.CargarPreguntaTutorial(1);
                 break;
         }
     }
@@ -180,10 +184,10 @@ public class TutorialManager : MonoBehaviour
 
         isGoBackButtonPressed = false;
 
-        Transform cam = Camera.main.transform;
-        Vector3 end = new Vector3(0.0f,0.0f,-0.0f);
+        // Transform cam = Camera.main.transform;
+        // Vector3 end = new Vector3(0.0f,0.0f,-0.0f);
 
-        cam.position = end;
+        // cam.position = end;
 
         SiguientePaso();
     }
@@ -191,8 +195,12 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator EsperarSeleccion(int requeridos)
     {
-        while (DragSelectionManager.Instance == null
-            || DragSelectionManager.Instance.TotalSeleccionados < requeridos)
+        while (DragSelectionManager.Instance == null)
+            yield return null;
+
+        int baseline = DragSelectionManager.Instance.TotalSeleccionados;
+
+        while (DragSelectionManager.Instance.TotalSeleccionados < baseline + requeridos)
         {
             yield return null;
         }
@@ -221,22 +229,15 @@ public class TutorialManager : MonoBehaviour
     {
         while (true)
         {
-            if (ExpressionEvaluator.Instance != null)
+            DropSlot[] slots = FindObjectsOfType<DropSlot>();
+            if (slots.Length > 0)
             {
-                var slotParent = ExpressionEvaluator.Instance.GetComponentInChildren<RectTransform>();
-                if (slotParent != null)
+                bool allFilled = true;
+                foreach (var s in slots)
                 {
-                    var slots = slotParent.GetComponentsInChildren<DropSlot>();
-                    if (slots != null && slots.Length > 0)
-                    {
-                        bool allFilled = true;
-                        foreach (var s in slots)
-                        {
-                            if (s.EstaVacio) { allFilled = false; break; }
-                        }
-                        if (allFilled) break;
-                    }
+                    if (s.EstaVacio) { allFilled = false; break; }
                 }
+                if (allFilled) break;
             }
             yield return null;
         }

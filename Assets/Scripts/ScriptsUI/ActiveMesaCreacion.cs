@@ -10,4 +10,9 @@ public class ActiveMesaCreacion : MonoBehaviour, IPointerDownHandler
         Debug.Log("Clicked");
     }
 
+    public void Cerrar()
+    {
+        if (transform.childCount > 0)
+            transform.GetChild(0).gameObject.SetActive(false);
+    }
 }

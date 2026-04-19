@@ -129,7 +129,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 484406521760601847, guid: debeda85fa584436cbe00f8caa03ddad, type: 3}
       propertyPath: m_Name
-      value: GoBackButton
+      value: GoBackButtonOperandos
       objectReference: {fileID: 0}
     - target: {fileID: 5405900360619219276, guid: debeda85fa584436cbe00f8caa03ddad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6111,6 +6111,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 26f6a41cbd7814d2ca914be571769c9e, type: 2}
   - {fileID: 11400000, guid: c7b5a86ae3f1043fb8998f6c4f09f52f, type: 2}
   - {fileID: 11400000, guid: c6ce93580fc634284ab25a96f6841af9, type: 2}
+  - {fileID: 11400000, guid: d11199c7fa8e74cb99dda42066cbb05d, type: 2}
+  - {fileID: 11400000, guid: b5e5ba2a6212d4fc18b07e84bc089230, type: 2}
+  - {fileID: 11400000, guid: 4d45e899787b24e559d7c48681f97366, type: 2}
+  - {fileID: 11400000, guid: 90605f130429c4927a815c7f9a130bb7, type: 2}
+  - {fileID: 11400000, guid: 7566c9dd28baa445daae363873c51c49, type: 2}
   panelDialogue: {fileID: 1118339380}
   textoDialogue: {fileID: 1827083562}
   spotlight: {fileID: 1327552522}

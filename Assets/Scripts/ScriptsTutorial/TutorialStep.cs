@@ -29,4 +29,6 @@ public class TutorialStep : ScriptableObject
 
     [Tooltip("Target camera position (used by GoBack mode)")]
     public Vector2 cameraTargetPos;
+
+    public bool hideDimmer;
 }

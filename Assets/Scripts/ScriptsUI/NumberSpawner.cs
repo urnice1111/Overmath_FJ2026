@@ -42,6 +42,20 @@ public class NumberSpawner : MonoBehaviour
     private int spawnCount;
     private List<DropSlot> slotsActuales = new List<DropSlot>();
 
+    public void LimpiarVisual()
+    {
+        slotsActuales.Clear();
+        spawnCount = 0;
+
+        if (spawnParent != null)
+            foreach (Transform child in spawnParent)
+                Destroy(child.gameObject);
+
+        if (slotParent != null)
+            foreach (Transform child in slotParent)
+                Destroy(child.gameObject);
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

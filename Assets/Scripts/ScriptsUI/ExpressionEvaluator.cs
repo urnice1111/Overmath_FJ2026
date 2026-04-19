@@ -8,6 +8,8 @@ public class ExpressionEvaluator : MonoBehaviour
     public static ExpressionEvaluator Instance { get; private set; }
 
     [SerializeField] private string escenaResultado = "SampleScene";
+
+
     [SerializeField] private RectTransform slotParent;
 
     [SerializeField] private VillianState villianState;
@@ -22,6 +24,18 @@ public class ExpressionEvaluator : MonoBehaviour
         Instance = this;
     }
 
+    public void CleanChildren()
+    {
+        GameObject Parent = GameObject.Find("Parent");
+        GameObject SlotContainer = GameObject.Find("SlotContainer");
+
+        foreach (Transform child in Parent.transform)
+            Destroy(child.gameObject);
+
+        foreach (Transform child in SlotContainer.transform)
+            Destroy(child.gameObject);
+        
+    }
     public void IntentarEvaluar()
     {
         if (slotParent == null)
@@ -85,9 +99,29 @@ public class ExpressionEvaluator : MonoBehaviour
 
         bool isTutorial = GameSession.Instance != null && GameSession.Instance.IsTutorial;
 
+        Transform cam = Camera.main.transform;
+        Vector3 villianPosition = new Vector3(0.0f, -19.9f, -100f);
+        
+
         if (isTutorial)
         {
             DragSelectionManager.Instance.LimpiarTodo();
+
+            // Destroy all children appended to numbers and slots containers
+            CleanChildren();
+            
+            // Only deactivates the MesaCreacion
+            GameObject mesaCanva = GameObject.Find("MesaCreacionCanva");
+            if (mesaCanva != null)
+                mesaCanva.SetActive(false);
+
+
+            
+
+
+            // Move to the position
+            cam.position = villianPosition;
+
             if (TutorialManager.Instance != null)
                 TutorialManager.Instance.NotificarEvaluacion(correcto);
             return;
@@ -105,9 +139,10 @@ public class ExpressionEvaluator : MonoBehaviour
 
         DragSelectionManager.Instance.LimpiarTodo();
 
-        SceneManager.LoadScene(escenaResultado);
 
-        PreguntaManager.Instance.CargarPreguntaAleatoria();
+        CleanChildren();
+        //Mover la posicion de la camara
+        cam.position = villianPosition;
     }
 
     private int EvaluarExpresion(DropSlot[] slotsOrdenados)

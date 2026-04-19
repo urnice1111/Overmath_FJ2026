@@ -32,7 +32,7 @@ public class PreguntaManager : MonoBehaviour
 
     private static readonly Pregunta[] preguntasTutorial = new Pregunta[]
     {
-        new Pregunta { problema = "2 + 3", respuesta_correcta = 5 },
+        new Pregunta { problema = "2 + 3", respuesta_correcta = 7 },
         new Pregunta { problema = "4 + 1", respuesta_correcta = 5 },
         new Pregunta { problema = "3 * 4", respuesta_correcta = 12 },
     };
