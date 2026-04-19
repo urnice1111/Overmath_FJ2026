@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_07_Add_Operand
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: 'Ahora selecciona el
-
-    operador de suma'
+  texto: '!Genial! Ahora toca el signo +'
   advanceMode: 3
   waitSeconds: 2
   seleccionesRequeridas: 1
   highlightTargetName: operadores Assets_6
   allowWorldClicks: 0
   cameraTargetPos: {x: 0, y: 0}
+  hideDimmer: 0

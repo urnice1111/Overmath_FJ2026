@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_08_OpenMesaCreacion
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: Abre la mesa de creacion
+  texto: '!Abre la mesa para armar tu ataque!'
   advanceMode: 4
   waitSeconds: 2
   seleccionesRequeridas: 0
   highlightTargetName: MCBoton Assets_0
   allowWorldClicks: 0
   cameraTargetPos: {x: 0, y: 0}
+  hideDimmer: 0

@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_04_ShowTable
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: "\xA1Este es el lugar donde convertiras\nlas operaciones en ataques! "
+  texto: 'Aqui creas tus ataques
+
+    con operaciones'
   advanceMode: 0
   waitSeconds: 0
   seleccionesRequeridas: 0
   highlightTargetName: 
   allowWorldClicks: 0
   cameraTargetPos: {x: 0, y: 0}
+  hideDimmer: 0

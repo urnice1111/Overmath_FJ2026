@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862c2f2dc3e774badbaa4db244ea88b1, type: 3}
   m_Name: Step_10_Evaluator
   m_EditorClassIdentifier: Assembly-CSharp::TutorialStep
-  texto: Now tap the Solve button to check your answer!
+  texto: '!Toca el boton Resolver
+
+    para ver si es correcto!'
   advanceMode: 6
   waitSeconds: 2
   seleccionesRequeridas: 0
   highlightTargetName: BotonResolver
   allowWorldClicks: 0
   cameraTargetPos: {x: 0, y: 0}
+  hideDimmer: 0
