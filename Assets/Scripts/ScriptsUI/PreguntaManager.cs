@@ -4,9 +4,12 @@ using TMPro;
 using System.Collections;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class PreguntaManager : MonoBehaviour
 {
+    [SerializeField] private UIDocument questionUIDocument;
+    private Label questionLabel;
     [System.Serializable]
     public struct Pregunta
     {
@@ -32,8 +35,7 @@ public class PreguntaManager : MonoBehaviour
 
     private static readonly Pregunta[] preguntasTutorial = new Pregunta[]
     {
-        new Pregunta { problema = "2 + 3", respuesta_correcta = 7 },
-        new Pregunta { problema = "4 + 1", respuesta_correcta = 5 },
+        new Pregunta { problema = "2 + 5", respuesta_correcta = 7 },
         new Pregunta { problema = "3 * 4", respuesta_correcta = 12 },
     };
 
@@ -45,6 +47,9 @@ public class PreguntaManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        if (questionUIDocument != null)
+            questionLabel = questionUIDocument.rootVisualElement.Q<Label>("question-label");
     }
 
     private void Start()
@@ -105,22 +110,20 @@ public class PreguntaManager : MonoBehaviour
 
     public void CargarPreguntaAleatoria()
     {
-        // if (preguntasUnity == null || preguntasUnity.Count == 0)
-        // {
-        //     Debug.LogError("PreguntaManager: banco vacío o no asignado.");
-        //     return;
-        // }
-        
         PreguntaActual = preguntasUnity[Random.Range(0, preguntasUnity.Count)]; 
-        
+
+        if (questionLabel != null)
+            questionLabel.text = PreguntaActual.problema;
+
         if (textoPregunta != null)
-        {
             textoPregunta.text = PreguntaActual.problema;
-        }
     }
 
     public bool VerificarRespuesta(int resultado)
     {
+        Debug.Log("VerificarRespuesta: resultado=" + resultado
+            + " esperado=" + PreguntaActual.respuesta_correcta
+            + " problema='" + PreguntaActual.problema + "'");
         if (string.IsNullOrEmpty(PreguntaActual.problema)) return false;
         return resultado == PreguntaActual.respuesta_correcta;
     }
@@ -138,7 +141,10 @@ public class PreguntaManager : MonoBehaviour
         tutorialIndex = Mathf.Clamp(index, 0, preguntasTutorial.Length - 1);
         PreguntaActual = preguntasTutorial[tutorialIndex];
 
+        if (questionLabel != null)
+            questionLabel.text = PreguntaActual.respuesta_correcta.ToString();
+
         if (textoPregunta != null)
-            textoPregunta.text = PreguntaActual.problema;
+            textoPregunta.text = PreguntaActual.respuesta_correcta.ToString();
     }
 }

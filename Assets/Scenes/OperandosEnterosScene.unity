@@ -2199,6 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bd21f0077f504ccdac8298b151dcdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PreguntaManager
+  questionUIDocument: {fileID: 1554483268}
   textoPregunta: {fileID: 920987024}
   preguntasUnity: []
   PreguntaActual:
@@ -4943,6 +4944,7 @@ GameObject:
   - component: {fileID: 1554483269}
   - component: {fileID: 1554483268}
   - component: {fileID: 1554483270}
+  - component: {fileID: 1554483271}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -5000,6 +5002,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2d32624c456948c6b10b07d0cd0cf7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIDocumentPassthrough
+--- !u!114 &1554483271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554483267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beb7e8a10ed7d455b8aee06473e682c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionUI
 --- !u!1 &1658332794
 GameObject:
   m_ObjectHideFlags: 0
@@ -6175,6 +6189,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d45e899787b24e559d7c48681f97366, type: 2}
   - {fileID: 11400000, guid: 90605f130429c4927a815c7f9a130bb7, type: 2}
   - {fileID: 11400000, guid: 7566c9dd28baa445daae363873c51c49, type: 2}
+  - {fileID: 11400000, guid: b6457be77a42a47e78037e64f02d936a, type: 2}
   panelDialogue: {fileID: 1118339380}
   textoDialogue: {fileID: 1827083562}
   spotlight: {fileID: 1327552522}
