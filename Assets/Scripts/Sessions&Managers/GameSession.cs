@@ -21,6 +21,10 @@ public class GameSession : MonoBehaviour
 
     public bool IsTutorial { get; set; }
 
+    public int sessionId {get; set;}
+
+    public int userId {get; set;}
+
 
     private void Awake()
     {
