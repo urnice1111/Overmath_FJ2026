@@ -24,7 +24,6 @@ public class CambiaAnimacion : MonoBehaviour
         bool mueveArriba = velocidad.y > 0.1f;
         bool mueveAbajo = velocidad.y < -0.1f;
         
-
         
 
         animator.SetBool("idle", estaQuieto);
