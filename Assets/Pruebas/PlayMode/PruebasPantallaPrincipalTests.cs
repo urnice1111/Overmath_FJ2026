@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
@@ -10,9 +11,9 @@ public class PruebasPantallaPrincipalTests
     private GameObject islandObject;
     private GameObject difficultySelectorObject;
 
-    private GameSession gameSession;
-    private IslandTrigger islandTrigger;
-    private DifficultySelector difficultySelector;
+    private Component gameSession;
+    private Component islandTrigger;
+    private Component difficultySelector;
     private Collider2D playerCollider;
 
     [SetUp]
@@ -21,7 +22,7 @@ public class PruebasPantallaPrincipalTests
         ResetGameSessionSingleton();
 
         gameSessionObject = new GameObject("GameSession");
-        gameSession = gameSessionObject.AddComponent<GameSession>();
+        gameSession = gameSessionObject.AddComponent(GetRuntimeType("GameSession"));
 
         playerObject = new GameObject("Player");
         playerObject.tag = "Player";
@@ -32,11 +33,11 @@ public class PruebasPantallaPrincipalTests
 
         islandObject = new GameObject("isla_suma");
         islandObject.AddComponent<BoxCollider2D>().isTrigger = true;
-        islandTrigger = islandObject.AddComponent<IslandTrigger>();
-        islandTrigger.playButtonUI = playButtonObject;
+        islandTrigger = islandObject.AddComponent(GetRuntimeType("IslandTrigger"));
+        SetField(islandTrigger, "playButtonUI", playButtonObject);
 
         difficultySelectorObject = new GameObject("DifficultySelector");
-        difficultySelector = difficultySelectorObject.AddComponent<DifficultySelector>();
+        difficultySelector = difficultySelectorObject.AddComponent(GetRuntimeType("DifficultySelector"));
     }
 
     [Test]
@@ -45,7 +46,7 @@ public class PruebasPantallaPrincipalTests
         InvokePrivate(islandTrigger, "OnTriggerEnter2D", playerCollider);
 
         Assert.IsTrue(playButtonObject.activeSelf, "El boton de jugar no se activo al entrar en la isla");
-        Assert.AreEqual("isla_suma", gameSession.IslaActual, "La isla no se registro en GameSession");
+        Assert.AreEqual("isla_suma", GetPropertyValue(gameSession, "IslaActual")?.ToString(), "La isla no se registro en GameSession");
     }
 
     [Test]
@@ -60,9 +61,9 @@ public class PruebasPantallaPrincipalTests
     [Test]
     public void AlElegirFacil_ActualizaLaDificultad()
     {
-        difficultySelector.OnFacilSelected();
+        InvokePrivate(difficultySelector, "OnFacilSelected");
 
-        Assert.AreEqual(Dificultad.Facil, gameSession.DificultadActual, "La dificultad no cambio a Facil");
+        Assert.AreEqual("Facil", GetPropertyValue(gameSession, "DificultadActual")?.ToString(), "La dificultad no cambio a Facil");
     }
 
     [TearDown]
@@ -78,17 +79,56 @@ public class PruebasPantallaPrincipalTests
 
     private static void ResetGameSessionSingleton()
     {
-        FieldInfo instanceField = typeof(GameSession).GetField("<Instance>k__BackingField", BindingFlags.Static | BindingFlags.NonPublic);
+        Type gameSessionType = GetRuntimeType("GameSession");
+        FieldInfo instanceField = gameSessionType.GetField("<Instance>k__BackingField", BindingFlags.Static | BindingFlags.NonPublic);
         if (instanceField != null)
         {
             instanceField.SetValue(null, null);
         }
     }
 
+    private static Type GetRuntimeType(string typeName)
+    {
+        foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+        {
+            Type type = assembly.GetType(typeName);
+            if (type != null)
+            {
+                return type;
+            }
+        }
+
+        Assert.Fail($"No se encontro el tipo runtime {typeName}.");
+        return null;
+    }
+
+    private static object GetPropertyValue(object target, string propertyName)
+    {
+        Type targetType = target.GetType();
+        BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+        PropertyInfo propertyInfo = targetType.GetProperty(propertyName, flags);
+        Assert.IsNotNull(propertyInfo, $"No se encontro la propiedad {propertyName} en {targetType.Name}");
+        return propertyInfo.GetValue(target);
+    }
+
+    private static void SetField(object target, string fieldName, object value)
+    {
+        Type targetType = target.GetType();
+        BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+        FieldInfo fieldInfo = targetType.GetField(fieldName, flags);
+        Assert.IsNotNull(fieldInfo, $"No se encontro el campo {fieldName} en {targetType.Name}");
+        fieldInfo.SetValue(target, value);
+    }
+
     private static void InvokePrivate(object target, string methodName, params object[] arguments)
     {
-        MethodInfo method = target.GetType().GetMethod(methodName, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
-        Assert.IsNotNull(method, $"No se encontro el metodo {methodName} en {target.GetType().Name}");
+        Type targetType = target.GetType();
+        BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+
+        MethodInfo method = targetType.GetMethod(methodName, flags);
+        Assert.IsNotNull(method, $"No se encontro el metodo {methodName} en {targetType.Name}");
         method.Invoke(target, arguments);
     }
 }
