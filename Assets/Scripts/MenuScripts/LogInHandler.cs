@@ -1,0 +1,115 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.iOS;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+
+public class LogInHandler : MonoBehaviour
+{
+    [System.Serializable]
+    public class LoginData
+    {
+        public string email;
+        public string password;
+
+        public string deviceType;
+    }
+    
+    [System.Serializable]
+    public class LoginResponse
+    {
+        public string message;
+        public UserData user;
+    }
+
+    [System.Serializable]
+    public class UserData
+    {
+        public int id;
+        public string email;
+    }
+
+    private TextField emailEntry;
+    private TextField passwordEntry;
+    private Label resultMessage;
+
+    void OnEnable()
+    {
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+        emailEntry = root.Q<TextField>("EmailField");
+        passwordEntry = root.Q<TextField>("PasswordField");
+        resultMessage = root.Q<Label>("Response");
+
+        Button loginButton = root.Q<Button>("BtnIniciar");
+        loginButton.clicked += ConfirmCredentials;
+    }
+
+    private void ConfirmCredentials()
+    {
+        string email = emailEntry.value;
+        string password = passwordEntry.value;
+        string type = SystemInfo.deviceType.ToString();
+
+
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        {
+            ShowMessage("Please enter both email and password.", Color.red);
+            return;
+        }
+
+        StartCoroutine(PostRequestLogin(email, password, type));
+    }
+
+    IEnumerator PostRequestLogin(string email, string password, string deviceType)
+    {
+        LoginData loginData = new LoginData
+        {
+            email = email,
+            password = password,
+            deviceType = deviceType
+        };
+
+        string jsonBody = JsonUtility.ToJson(loginData);
+
+        using UnityWebRequest www = UnityWebRequest.Post("https://q623ldzsbzpk3j6nktpzcvqi7y0qrpsr.lambda-url.us-east-1.on.aws/login", jsonBody, "application/json");
+
+
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.LogError("Login request failed: " + www.error);
+            ShowMessage("Unable to contact server. Try again later.", Color.red);
+            yield break;
+        }
+
+        if (www.responseCode == 201)
+        {
+            Debug.Log(www.responseCode);
+            ShowMessage("Login successful! Loading game...", Color.green);
+            SceneManager.LoadScene("PantallaPrincipal");
+            // StartCoroutine(RegisterSessionInDB(response.user.id));
+        }
+        else if (www.responseCode == 401 || www.responseCode == 403)
+        {
+            ShowMessage("Email or password is incorrect.", Color.red);
+        }
+        else
+        {
+            Debug.LogWarning("Unexpected login response: " + www.responseCode + " - " + www.downloadHandler.text);
+            ShowMessage("Login failed. Please try again.", Color.red);
+        }
+    }
+    
+    
+    private void ShowMessage(string text, Color color)
+    {
+        if (resultMessage != null)
+        {
+            resultMessage.text = text;
+            resultMessage.style.color = color;
+            resultMessage.style.opacity = 1;
+        }
+    }
+}
