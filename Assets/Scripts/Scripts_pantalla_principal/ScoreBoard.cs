@@ -16,8 +16,8 @@ public class ScoreBoard : MonoBehaviour
     [System.Serializable]
     public struct Jugador
     {
-        public string nombre_usuario;
         public int score_global;
+        public string nombre_usuario;
     }
 
     [SerializeField] TextMeshProUGUI text;
@@ -37,7 +37,7 @@ public class ScoreBoard : MonoBehaviour
     private IEnumerator GetTopPlayers()
     {
 
-        string url = "http://localhost:3000/get_scoreboard";
+        string url = "https://q623ldzsbzpk3j6nktpzcvqi7y0qrpsr.lambda-url.us-east-1.on.aws/get_scoreboard";
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
@@ -52,7 +52,11 @@ public class ScoreBoard : MonoBehaviour
 
                 string textoPlano = www.downloadHandler.text;
 
+                textoPlano = "{\"top_players\":" + textoPlano + "}";
+                
                 TopJugadores topJugadores = JsonUtility.FromJson<TopJugadores>(textoPlano);
+
+                
 
                 if (topJugadores.top_players != null)
                 {

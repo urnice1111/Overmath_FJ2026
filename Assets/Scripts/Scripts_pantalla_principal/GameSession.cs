@@ -47,7 +47,7 @@ public class GameSession : MonoBehaviour
           _ => "Dificil"  
         };
 
-        return $"http://localhost:3000/get_questions/{IslaActual}/{diff}";
+        return $"https://q623ldzsbzpk3j6nktpzcvqi7y0qrpsr.lambda-url.us-east-1.on.aws/get_questions/{IslaActual}/{diff}";
     }
 
     // Later hp bar logic here:

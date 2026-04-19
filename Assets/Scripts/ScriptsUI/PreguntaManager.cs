@@ -31,6 +31,8 @@ public class PreguntaManager : MonoBehaviour
     public List<Pregunta> preguntasUnity = new List<Pregunta>();
     public Pregunta PreguntaActual;
 
+    private List<int> shuffledIndices = new List<int>();
+    private int shufflePosition;
     private int tutorialIndex;
 
     private static readonly Pregunta[] preguntasTutorial = new Pregunta[]
@@ -82,6 +84,7 @@ public class PreguntaManager : MonoBehaviour
                 string textoPlano = www.downloadHandler.text;
                 Debug.Log("Downloaded JSON: " + textoPlano);
 
+                textoPlano = "{\"items\":" + textoPlano + "}";
                 listaPreguntas preguntasLista = JsonUtility.FromJson<listaPreguntas>(textoPlano);
 
                 // Check if items were actually found to prevent crashes
@@ -110,13 +113,37 @@ public class PreguntaManager : MonoBehaviour
 
     public void CargarPreguntaAleatoria()
     {
-        PreguntaActual = preguntasUnity[Random.Range(0, preguntasUnity.Count)]; 
+        if (preguntasUnity.Count == 0) return;
+
+        if (shufflePosition >= shuffledIndices.Count)
+            ShuffleIndices();
+
+        PreguntaActual = preguntasUnity[shuffledIndices[shufflePosition]];
+        shufflePosition++;
 
         if (questionLabel != null)
-            questionLabel.text = PreguntaActual.problema;
+            questionLabel.text = PreguntaActual.respuesta_correcta.ToString();
 
         if (textoPregunta != null)
-            textoPregunta.text = PreguntaActual.problema;
+            textoPregunta.text = PreguntaActual.respuesta_correcta.ToString();
+    }
+
+    private void ShuffleIndices()
+    {
+        shuffledIndices.Clear();
+        for (int i = 0; i < preguntasUnity.Count; i++)
+            shuffledIndices.Add(i);
+
+        // Fisher-Yates shuffle
+        for (int i = shuffledIndices.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            int tmp = shuffledIndices[i];
+            shuffledIndices[i] = shuffledIndices[j];
+            shuffledIndices[j] = tmp;
+        }
+
+        shufflePosition = 0;
     }
 
     public bool VerificarRespuesta(int resultado)
@@ -142,9 +169,9 @@ public class PreguntaManager : MonoBehaviour
         PreguntaActual = preguntasTutorial[tutorialIndex];
 
         if (questionLabel != null)
-            questionLabel.text = PreguntaActual.respuesta_correcta.ToString();
+            questionLabel.text = PreguntaActual.problema;
 
         if (textoPregunta != null)
-            textoPregunta.text = PreguntaActual.respuesta_correcta.ToString();
+            textoPregunta.text = PreguntaActual.problema;
     }
 }

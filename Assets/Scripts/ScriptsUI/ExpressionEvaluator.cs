@@ -101,7 +101,7 @@ public class ExpressionEvaluator : MonoBehaviour
 
         Transform cam = Camera.main.transform;
         Vector3 villianPosition = new Vector3(0.0f, -19.9f, -100f);
-        
+        GameObject mesaCanva = GameObject.Find("MesaCreacionCanva");
 
         if (isTutorial)
         {
@@ -111,13 +111,8 @@ public class ExpressionEvaluator : MonoBehaviour
             CleanChildren();
             
             // Only deactivates the MesaCreacion
-            GameObject mesaCanva = GameObject.Find("MesaCreacionCanva");
             if (mesaCanva != null)
                 mesaCanva.SetActive(false);
-
-
-            
-
 
             // Move to the position
             cam.position = villianPosition;
@@ -138,11 +133,17 @@ public class ExpressionEvaluator : MonoBehaviour
         DragSelectionManager.FueCorrecta = correcto;
 
         DragSelectionManager.Instance.LimpiarTodo();
-
-
         CleanChildren();
-        //Mover la posicion de la camara
+            
+        // Only deactivates the MesaCreacion
+        if (mesaCanva != null)
+            mesaCanva.SetActive(false);
+
+        // Move to the position
         cam.position = villianPosition;
+
+        if (PreguntaManager.Instance != null)
+            PreguntaManager.Instance.CargarPreguntaAleatoria();
     }
 
     private int EvaluarExpresion(DropSlot[] slotsOrdenados)
