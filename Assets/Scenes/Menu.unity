@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::SignInHandler
   logInDocument: {fileID: 91702820}
+  mainMenuDocument: {fileID: 1293880226}
 --- !u!1 &91702819
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d054931314c4671acff8433fa42e82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::LogInHandler
+  mainMenu: {fileID: 1293880226}
 --- !u!1 &92335547
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class PuntajedePregunta : MonoBehaviour
     [SerializeField] private int limitePuntos = 100;
     [SerializeField] private int puntosPorAcierto = 5;
 
-    private const string PlayerPrefsKey = "PuntajeActual";
+    // private const string PlayerPrefsKey = "PuntajeActual";
 
     public int PuntosActuales{get; private set;}
 
@@ -64,12 +64,12 @@ public class PuntajedePregunta : MonoBehaviour
     //Carga el puntaje actual desde PlayerPrefs
     private void CargarPuntaje()
     {
-        PuntosActuales = Mathf.Clamp(PlayerPrefs.GetInt(PlayerPrefsKey, 0), 0, limitePuntos);
+        PuntosActuales = 0;
     }
 
     private void GuardarPuntaje()
     {
-        PlayerPrefs.SetInt(PlayerPrefsKey, PuntosActuales);//Guarda el puntaje actual en PlayerPrefs
-        PlayerPrefs.Save();
+        // PlayerPrefs.SetInt(PlayerPrefsKey, PuntosActuales);//Guarda el puntaje actual en PlayerPrefs
+        // PlayerPrefs.Save();
     }
 }
