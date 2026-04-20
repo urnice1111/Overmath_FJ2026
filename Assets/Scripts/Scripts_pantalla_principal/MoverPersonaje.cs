@@ -11,7 +11,10 @@ public class MoverPersonaje : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField]    
-    private float velocidadMovimiento = CambiaAnimacionPersonaje.isSwimming ? 3f : 5f; 
+    private float velocidadTierra = 5f;
+    [SerializeField]
+    private float velocidadAgua = 3f;
+    private float velocidadMovimiento;
 
     // Referencia al joystick 
     [SerializeField]
@@ -47,6 +50,8 @@ public class MoverPersonaje : MonoBehaviour
         input = inputTeclado + inputTouch;
         // Evitar que sea mayor a 1 (normalizar)
         input = Vector2.ClampMagnitude(input, 1f);
+        
+        velocidadMovimiento = CambiaAnimacionPersonaje.isSwimming ? velocidadAgua : velocidadTierra;
     }
     void FixedUpdate()
     {

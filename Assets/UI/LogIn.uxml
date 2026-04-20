@@ -1,20 +1,19 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/LogInStyles.uss?fileID=7433441132597879392&amp;guid=936f7aeee05d94110b1f945587b24fb4&amp;type=3#LogInStyles"/>
     <ui:VisualElement name="LogIn" class="login-root">
-        <ui:VisualElement class="login-spacer"/>
-        <ui:VisualElement name="FormPanel" class="login-form-panel" style="margin-left: 770px;">
-            <ui:Label text="OVERMATH" name="Label" class="login-title"/>
-            <ui:Label text="INICIAR SESIÓN" class="login-subtitle"/>
-            <ui:Label text="CORREO ELECTRÓNICO" class="field-label"/>
-            <ui:TextField name="EmailField" class="scroll-textfield"/>
-            <ui:Label text="CONTRASEÑA" class="field-label"/>
-            <ui:TextField name="PasswordField" password="true" class="scroll-textfield"/>
-            <ui:Button text="INICIAR" name="BtnIniciar" class="scroll-button"/>
-            <ui:Label text="Label" enabled="false" name="Response"/>
-            <ui:Label text="¿Olvidaste tu contraseña?" name="LblForgot" class="link-label"/>
+        <ui:VisualElement class="login-spacer" />
+        <ui:VisualElement name="FormPanel" class="login-form-panel">
+            <ui:Label text="OVERMATH" class="login-title" />
+            <ui:Label text="INICIAR SESIÓN" class="login-subtitle" />
+            <ui:Label text="CORREO ELECTRÓNICO" class="field-label" />
+            <ui:TextField name="EmailField" class="scroll-textfield" />
+            <ui:Label text="CONTRASEÑA" class="field-label" />
+            <ui:TextField name="PasswordField" password="true" class="scroll-textfield" />
+            <ui:Button text="INICIAR" name="BtnIniciar" class="scroll-button" />
+            <ui:Label text="¿Olvidaste tu contraseña?" name="LblForgot" class="link-label" />
             <ui:VisualElement class="register-row">
-                <ui:Label text="¿No tienes cuenta?" class="link-label"/>
-                <ui:Label text="Regístrate aquí" name="LblRegistrate" class="link-highlight"/>
+                <ui:Label text="¿No tienes cuenta?" class="link-label" />
+                <ui:Label text="Regístrate aquí" name="LblRegistrate" class="link-highlight" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

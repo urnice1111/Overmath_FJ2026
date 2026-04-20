@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Tests.meta
+guid: 203a68a28c0d1f0438130701a5a5ffad
+========
 guid: 51c1c427d89094dd09679c0a4cac14cf
+>>>>>>>> c3ef7bee5ab73c88b1998a6237fb2389b01dcaca:Assets/Scripts/MenuScripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
