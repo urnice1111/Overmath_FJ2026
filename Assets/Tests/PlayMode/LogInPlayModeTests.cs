@@ -121,10 +121,8 @@ public class LogInPlayModeTests
     [UnityTest]
     public IEnumerator LogIn_ConCredencialesReales_AsignaUserId()
     {
-        // Suprimir errores de SceneManager.LoadScene en contexto de test
         LogAssert.ignoreFailingMessages = true;
 
-        // IMPORTANTE: reemplaza con credenciales de un usuario que YA exista en la BD
         FillLoginForm(logInDoc.rootVisualElement, "test_unity2@correo.com", "TestPass123");
 
         ClickIniciar();
