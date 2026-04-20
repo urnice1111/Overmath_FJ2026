@@ -6,10 +6,9 @@ using TMPro;
 
 namespace DialogueSystem
 {
-    [RequireComponent(typeof(TextMeshProUGUI))]
     public class DialogueLine : DialogueBaseClass
     {
-        private TextMeshProUGUI textHolder;
+        [SerializeField] private TextMeshProUGUI textHolder;
         [SerializeField] private string input;
         [SerializeField] private Color textColor;
         [SerializeField] private TMP_FontAsset textFont;
@@ -17,18 +16,31 @@ namespace DialogueSystem
         [SerializeField] private float delayBetweenLines;
         [SerializeField] private Sprite characterSprite;
         [SerializeField] private Image imageHolder;
+        private Coroutine writingRoutine;
 
-
-        private void OnEnable()
+        private void Awake()
         {
-            StopAllCoroutines(); // Detener cualquier diálogo en curso al activar este objeto   
-
-            textHolder = GetComponent<TextMeshProUGUI>();
+            if (textHolder == null)
+            {
+                textHolder = GetComponent<TextMeshProUGUI>();
+                textHolder.text = ""; // Limpiar el texto antes de escribir
+            }
 
             if (textHolder == null)
             {
-                Debug.LogError("DialogueLine requires a UnityEngine.UI.Text component on the same GameObject.", this);
-                return;
+                textHolder = GetComponentInChildren<TextMeshProUGUI>(true);
+            }
+        }
+
+        private void OnEnable()
+        {
+            Finished = false;
+
+            if (textHolder == null)
+            {
+                textHolder = GetComponent<TextMeshProUGUI>();
+                textHolder.text = ""; // Limpiar el texto antes de escribir
+                Debug.LogError("DialogueLine requires a TextMeshProUGUI component on this object or a child.", this);
             }
 
             if (imageHolder != null && characterSprite != null)
@@ -37,12 +49,25 @@ namespace DialogueSystem
                 imageHolder.preserveAspect = true;
             }
 
-            // Resetear estado y reiniciar el diálogo al activarse
-            Finished = false;
+            textHolder.text = string.Empty;
+
             if (!string.IsNullOrEmpty(input))
             {
-                Debug.Log($"Iniciando diálogo: '{input}'", this);
-                StartCoroutine(WriteTextAndMarkFinished(input, textHolder, textColor, textFont, delay));
+                if (writingRoutine != null)
+                {
+                    StopCoroutine(writingRoutine);
+                }
+
+                writingRoutine = StartCoroutine(WriteTextAndMarkFinished(input, textHolder, textColor, textFont, delay));
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (writingRoutine != null)
+            {
+                StopCoroutine(writingRoutine);
+                writingRoutine = null;
             }
         }
 
@@ -50,7 +75,7 @@ namespace DialogueSystem
         {
             yield return StartCoroutine(WriteText(input, textHolder, textColor, textFont, delay, delayBetweenLines));
             Finished = true;
-            Debug.Log($"Diálogo terminado: '{input}'", this);
+            writingRoutine = null;
         }
     }
 }

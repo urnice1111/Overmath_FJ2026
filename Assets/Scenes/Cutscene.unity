@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 104683618}
   - component: {fileID: 104683620}
   - component: {fileID: 104683619}
+  - component: {fileID: 104683621}
   m_Layer: 5
   m_Name: DialogueHolder
   m_TagString: Untagged
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.38775367, g: 0.8792453, b: 0, a: 1}
+  m_Color: {r: 0.076223314, g: 0.025097746, b: 0.8867924, a: 0.9764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -196,6 +197,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104683617}
   m_CullTransparentMesh: 1
+--- !u!114 &104683621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104683617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf32df277a36fd43a2b86f0cff3fa66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueHolder
 --- !u!1 &292849559
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,10 +260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfa673e8d6d2ec468dca1f4a0d2a6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
+  textHolder: {fileID: 292849562}
   input: Sample
   textColor: {r: 1, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
-  delay: 0.5
+  delay: 0.05
   delayBetweenLines: 5
   characterSprite: {fileID: -96190418, guid: c7dea917e6f58bf49adf7ab71f8b4dd6, type: 3}
   imageHolder: {fileID: 1741108473}
@@ -283,7 +297,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4278190335
   m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -301,8 +315,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -889,10 +903,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfa673e8d6d2ec468dca1f4a0d2a6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
+  textHolder: {fileID: 1315956125}
   input: Text
   textColor: {r: 1, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
-  delay: 0.5
+  delay: 0.1
   delayBetweenLines: 5
   characterSprite: {fileID: -307042850, guid: 1bb9773f42e1a144ab1ad5aeeb14b043, type: 3}
   imageHolder: {fileID: 1214674999}
