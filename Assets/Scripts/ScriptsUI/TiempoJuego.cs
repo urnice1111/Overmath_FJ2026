@@ -8,12 +8,14 @@ public class TiempoJuego : MonoBehaviour
 
     [SerializeField]
     private Transform barTransform;
-    public float maxTime = 100;
-    public float decreaseRate = 5;
     [SerializeField]
+    private float maxTime = 100;
+    [SerializeField]
+    private float decreaseRate = 5;
     private float currentTime;
     [SerializeField]
     private Vector3 initialScale;
+    public float TiempoJugado { get; private set; }
     
     public float TiempoRestante => currentTime;
 
@@ -44,6 +46,11 @@ public class TiempoJuego : MonoBehaviour
 
         float percent = currentTime / maxTime;
         barTransform.localScale = new Vector3(initialScale.x * percent, initialScale.y, initialScale.z);
+        
+        if (currentTime > 0)
+        {
+            TiempoJugado += Time.deltaTime;
+        }
     }
     
     public void AjustarTiempo(float cantidad)
