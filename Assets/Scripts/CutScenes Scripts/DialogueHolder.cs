@@ -5,12 +5,33 @@ namespace  DialogueSystem
 {
     public class DialogueHolder : MonoBehaviour
     {
-        private void Awake()
+        private Coroutine sequenceRoutine;
+
+        private void OnEnable()
         {
-            StartCoroutine(dialogueSequence());
+            if (sequenceRoutine != null)
+            {
+                StopCoroutine(sequenceRoutine);
+            }
+
+            sequenceRoutine = StartCoroutine(dialogueSequence());
         }
+
+        private void OnDisable()
+        {
+            if (sequenceRoutine != null)
+            {
+                StopCoroutine(sequenceRoutine);
+                sequenceRoutine = null;
+            }
+
+            Deactivate();
+        }
+
         private IEnumerator dialogueSequence()
         {
+            Deactivate();
+
             for(int i = 0; i < transform.childCount; i++)
             {
                 Deactivate();
@@ -18,13 +39,11 @@ namespace  DialogueSystem
                 DialogueLine dialogue = transform.GetChild(i).GetComponent<DialogueLine>();
                 if (dialogue != null)
                 {
-                    Debug.Log($"Esperando a que termine diálogo {i}...", dialogue);
                     yield return new WaitUntil(() => dialogue.Finished);
-                    Debug.Log($"Diálogo {i} completado.", dialogue);
 
-                    // Espera un clic fresco para avanzar al siguiente diálogo
-                    yield return new WaitUntil(() => !Input.GetMouseButton(0));
-                    yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+                    // Espera una entrada de avance (mouse/touch/teclado) para pasar a la siguiente línea.
+                    yield return new WaitUntil(AdvancePressed);
+                    yield return new WaitUntil(() => !AdvanceHeld());
                 }
                 else
                 {
@@ -34,7 +53,7 @@ namespace  DialogueSystem
 
             Deactivate();
             gameObject.SetActive(false);
-            Debug.Log("Secuencia de diálogos completada.", this);
+            sequenceRoutine = null;
         }
 
         private void Deactivate()
@@ -43,6 +62,26 @@ namespace  DialogueSystem
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
+        }
+
+        private static bool AdvancePressed()
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+            {
+                return true;
+            }
+
+            return Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
+        }
+
+        private static bool AdvanceHeld()
+        {
+            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Return))
+            {
+                return true;
+            }
+
+            return Input.touchCount > 0;
         }
     }
 }

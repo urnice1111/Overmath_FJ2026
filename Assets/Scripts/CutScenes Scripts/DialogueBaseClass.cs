@@ -28,6 +28,7 @@ namespace DialogueSystem
                 yield return new WaitForSeconds(delay);
             }
             Debug.Log($"Texto completado: '{textHolder.text}'", textHolder);
+
             Finished = true;
         }
     }
