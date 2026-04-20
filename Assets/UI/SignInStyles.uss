@@ -1,5 +1,194 @@
 :root {
 }
 
-.ignore {
+.signin-root {
+    flex-grow: 1;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.signin-spacer {
+    flex-grow: 1;
+}
+
+.signin-form-panel {
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-left: 770px;
+}
+
+.signin-title {
+    font-size: 70px;
+    -unity-font-style: bold;
+    color: white;
+    margin-bottom: 6px;
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgb(20, 50, 90);
+    letter-spacing: 4px;
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+}
+
+.signin-subtitle {
+    font-size: 32px;
+    -unity-font-style: bold;
+    color: white;
+    margin-bottom: 14px;
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: rgb(20, 50, 90);
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+}
+
+.field-label {
+    font-size: 18px;
+    -unity-font-style: bold;
+    color: white;
+    margin-bottom: 2px;
+    margin-top: 4px;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(20, 50, 90);
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-text-align: middle-center;
+}
+
+.field-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 2px;
+}
+
+.field-group {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.scroll-textfield {
+    width: 240px;
+    height: 60px;
+    background-image: url("project://database/Assets/Images/Untitled%2010.png?fileID=2800000&guid=fa1df9d1569d84a6d8a885b3c0eea7c0&type=3#Untitled 10");
+    -unity-background-scale-mode: stretch-to-fill;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 2px;
+}
+
+.scroll-textfield > #unity-text-input {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    color: rgb(36, 36, 36);
+    font-size: 22px;
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-text-align: middle-left;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.date-section-label {
+    font-size: 22px;
+    -unity-font-style: bold;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(20, 50, 90);
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-text-align: middle-center;
+}
+
+.date-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 4px;
+}
+
+.date-group {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.date-label {
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: white;
+    margin-bottom: 2px;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(20, 50, 90);
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-text-align: middle-center;
+}
+
+.date-field {
+    width: 120px;
+    height: 55px;
+    background-image: url("project://database/Assets/Images/Untitled%2010.png?fileID=2800000&guid=fa1df9d1569d84a6d8a885b3c0eea7c0&type=3#Untitled 10");
+    -unity-background-scale-mode: stretch-to-fill;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.date-field > #unity-text-input {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    color: rgb(36, 36, 36);
+    font-size: 22px;
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-text-align: middle-center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.button-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.scroll-button {
+    width: 260px;
+    height: 90px;
+    background-image: url("project://database/Assets/Images/IMG_0076.PNG?fileID=1421100799&guid=1de021de5ac25476baf75c37b5e84f55&type=3#IMG_0076_0");
+    -unity-background-scale-mode: scale-to-fit;
+    border-width: 0;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0;
+    font-size: 30px;
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-style: normal;
+    color: rgb(36, 36, 36);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.link-label {
+    font-size: 18px;
+    color: white;
+    margin-top: 4px;
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+}
+
+.link-highlight {
+    font-size: 18px;
+    color: rgb(255, 200, 60);
+    margin-top: 4px;
+    margin-left: 8px;
+    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+}
+
+.register-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
 }

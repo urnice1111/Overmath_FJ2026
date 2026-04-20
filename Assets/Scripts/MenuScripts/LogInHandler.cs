@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.iOS;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -77,12 +76,12 @@ public class LogInHandler : MonoBehaviour
 
         yield return www.SendWebRequest();
 
-        if (www.result != UnityWebRequest.Result.Success)
-        {
-            Debug.LogError("Login request failed: " + www.error);
-            ShowMessage("Unable to contact server. Try again later.", Color.red);
-            yield break;
-        }
+        // if (www.result != UnityWebRequest.Result.Success)
+        // {
+        //     Debug.LogError("Login request failed: " + www.error);
+        //     ShowMessage("Unable to contact server. Try again later.", Color.red);
+        //     yield break;
+        // }
 
         if (www.responseCode == 201)
         {

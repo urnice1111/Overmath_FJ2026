@@ -1,3 +1,71 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/SignInStyles.uss?fileID=7433441132597879392&amp;guid=47af9032adb4c46d2adda86ada730e61&amp;type=3#SignInStyles"/>
+    <ui:VisualElement name="SignIn" class="signin-root">
+        <ui:VisualElement class="signin-spacer"/>
+        <ui:VisualElement name="FormPanel" class="signin-form-panel">
+            <ui:Label text="OVERMATH" class="signin-title"/>
+            <ui:Label text="CREAR CUENTA" class="signin-subtitle"/>
+
+            <ui:VisualElement class="field-row">
+                <ui:VisualElement class="field-group">
+                    <ui:Label text="CORREO ELECTRÓNICO" class="field-label"/>
+                    <ui:TextField name="EmailField" class="scroll-textfield"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="field-group">
+                    <ui:Label text="**USERNAME**" class="field-label"/>
+                    <ui:TextField name="UsernameField" class="scroll-textfield"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="field-row">
+                <ui:VisualElement class="field-group">
+                    <ui:Label text="CONTRASEÑA" class="field-label"/>
+                    <ui:TextField name="PasswordField" password="true" class="scroll-textfield"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="field-group">
+                    <ui:Label text="CONFIRMAR CONTRASEÑA" class="field-label"/>
+                    <ui:TextField name="ConfirmPasswordField" password="true" class="scroll-textfield"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="field-row">
+                <ui:VisualElement class="field-group">
+                    <ui:Label text="NOMBRE" class="field-label"/>
+                    <ui:TextField name="FirstNameField" class="scroll-textfield"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="field-group">
+                    <ui:Label text="APELLIDOS" class="field-label"/>
+                    <ui:TextField name="LastNameField" class="scroll-textfield"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:Label text="FECHA DE NACIMIENTO" class="date-section-label"/>
+            <ui:VisualElement class="date-row">
+                <ui:VisualElement class="date-group">
+                    <ui:Label text="DÍA" class="date-label"/>
+                    <ui:IntegerField name="DayField" value="1" class="date-field"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="date-group">
+                    <ui:Label text="MES" class="date-label"/>
+                    <ui:IntegerField name="MonthField" value="1" class="date-field"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="date-group">
+                    <ui:Label text="AÑO" class="date-label"/>
+                    <ui:IntegerField name="YearField" value="1990" class="date-field"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="button-row">
+                <ui:Button text="REGRESAR" name="BtnRegresar" class="scroll-button"/>
+                <ui:Button text="REGISTRAR" name="BtnRegistrar" class="scroll-button"/>
+            </ui:VisualElement>
+
+            <ui:Label text="Label" enabled="false" name="Response"/>
+
+            <ui:VisualElement class="register-row">
+                <ui:Label text="¿Ya tienes cuenta?" class="link-label"/>
+                <ui:Label text="Inicia sesión aquí" name="LblIniciarSesion" class="link-highlight"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>

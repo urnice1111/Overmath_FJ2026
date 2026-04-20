@@ -17,12 +17,9 @@ public class SubirBarco : MonoBehaviour
         
         barco.transform.position = puntoSubida.position;
 
-
         personaje.SetActive(false);
 
-    
         barco.SetActive(true);
-
     
         controlPersonaje.enabled = false;
         controlBarco.enabled = true;
