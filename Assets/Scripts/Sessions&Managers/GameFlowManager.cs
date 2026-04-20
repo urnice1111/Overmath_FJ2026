@@ -8,6 +8,14 @@ public class GameFlowManager : MonoBehaviour
 
     private bool gameEnded = false;
 
+    void Start()
+    {
+        WinCanvas.SetActive(false);
+        LoseCanvas.SetActive(false);
+        Time.timeScale = 1f;
+        PuntajedePregunta.Instance.ReiniciarPuntaje();
+    }
+
     void Update()
     {
         if (gameEnded) return;

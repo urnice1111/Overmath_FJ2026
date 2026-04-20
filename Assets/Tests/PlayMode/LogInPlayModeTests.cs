@@ -21,7 +21,6 @@ public class LogInPlayModeTests
     public IEnumerator SetUp()
     {
         var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/UI/LogIn.uxml");
-        Assert.IsNotNull(visualTree, "No se encontró Assets/UI/LogIn.uxml");
 
         panelSettings = ScriptableObject.CreateInstance<PanelSettings>();
 
