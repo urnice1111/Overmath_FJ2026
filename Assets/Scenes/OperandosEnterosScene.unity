@@ -233,9 +233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '00:00
-
-'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -439,7 +437,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128430213}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -449,7 +447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.33776, y: -0.49236}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &168285151
@@ -1706,7 +1704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &317816888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2140,6 +2138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowManager
   WinCanvas: {fileID: 128430213}
   LoseCanvas: {fileID: 317816887}
+  resultadosUI: {fileID: 548135496}
 --- !u!4 &443138341
 Transform:
   m_ObjectHideFlags: 0
@@ -2214,6 +2213,7 @@ GameObject:
   - component: {fileID: 548135493}
   - component: {fileID: 548135495}
   - component: {fileID: 548135494}
+  - component: {fileID: 548135496}
   m_Layer: 5
   m_Name: Marco
   m_TagString: Untagged
@@ -2237,8 +2237,8 @@ RectTransform:
   - {fileID: 172596025}
   - {fileID: 1118868713}
   - {fileID: 377662813}
-  - {fileID: 115969290}
   - {fileID: 1300276769}
+  - {fileID: 115969290}
   - {fileID: 206247354}
   - {fileID: 1046856660}
   m_Father: {fileID: 686308920}
@@ -2286,6 +2286,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548135492}
   m_CullTransparentMesh: 1
+--- !u!114 &548135496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548135492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f569c30305cea46878ba815d3fd793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::resultadosUI
+  puntaje: {fileID: 1300276770}
+  tiempo: {fileID: 115969291}
+  contestadas: {fileID: 206247355}
+  correctas: {fileID: 1046856661}
 --- !u!1 &590957172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2922,7 +2938,7 @@ GameObject:
   - component: {fileID: 856775899}
   - component: {fileID: 856775898}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Reintentar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4717,7 +4733,7 @@ GameObject:
   - component: {fileID: 1141835339}
   - component: {fileID: 1141835338}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Regresar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4786,7 +4802,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1141835339}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 102900000, guid: bcf1dc167979cd94cb41678c2027ad91, type: 3}
+        m_TargetAssemblyTypeName: UnityEditor.SceneAsset, UnityEditor.CoreModule
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1141835339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5765,8 +5793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TiempoJuego
   barTransform: {fileID: 0}
   maxTime: 100
-  decreaseRate: 20
-  currentTime: 0
+  decreaseRate: 5
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!1 &1327552518
 GameObject:

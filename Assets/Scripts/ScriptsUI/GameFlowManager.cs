@@ -27,7 +27,7 @@ public class GameFlowManager : MonoBehaviour
         else if (tiemporestante <= 0 && puntos < 100)
         {
             //MostrarVictoria(puntos, tiempo, contestadas, correctas);
-            MostrarDerrota(puntos, tiempo, contestadas, correctas);
+            MostrarDerrota();
         }
     }
 
@@ -41,12 +41,11 @@ public class GameFlowManager : MonoBehaviour
         resultadosUI.MostrarResultados(puntos, tiempo, contestadas, correctas);
     }
 
-    private void MostrarDerrota(int puntos, float tiempo, int contestadas, int correctas)
+    private void MostrarDerrota()
     {
         gameEnded = true;
         LoseCanvas.SetActive(true);
         Time.timeScale = 0f;
-        resultadosUI.MostrarResultados(puntos, tiempo, contestadas, correctas);
 
     }
 }
