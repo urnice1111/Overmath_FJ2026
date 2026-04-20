@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class GameFlowManager : MonoBehaviour
 {
@@ -52,8 +55,9 @@ public class GameFlowManager : MonoBehaviour
     private void MostrarDerrota()
     {
         gameEnded = true;
-        LoseCanvas.SetActive(true);
+        LoseCanvas.GetComponent<LosePopupUI>().Show();
         Time.timeScale = 0f;
-
+        Debug.Log("perdiste nub");
+        
     }
 }

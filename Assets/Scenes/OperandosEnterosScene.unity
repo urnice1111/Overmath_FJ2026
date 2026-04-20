@@ -1698,6 +1698,8 @@ GameObject:
   - component: {fileID: 317816890}
   - component: {fileID: 317816889}
   - component: {fileID: 317816888}
+  - component: {fileID: 317816892}
+  - component: {fileID: 317816893}
   m_Layer: 5
   m_Name: LoseCanvas
   m_TagString: Untagged
@@ -1788,6 +1790,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &317816892
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317816887}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &317816893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317816887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952c2e04e25466246af68783987dbab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::LosePopupUI
+  popupContent: {fileID: 1631269845}
 --- !u!1 &377662812
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,7 +3149,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &856775899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7335,6 +7362,7 @@ GameObject:
   - component: {fileID: 1631269845}
   - component: {fileID: 1631269847}
   - component: {fileID: 1631269846}
+  - component: {fileID: 1631269849}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -7402,6 +7430,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631269844}
   m_CullTransparentMesh: 1
+--- !u!225 &1631269849
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631269844}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1658332794
 GameObject:
   m_ObjectHideFlags: 0
@@ -8547,7 +8587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::TiempoJuego
   barTransform: {fileID: 1896745689}
   maxTime: 100
-  decreaseRate: 2
+  decreaseRate: 25
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1896745691
 MonoBehaviour:

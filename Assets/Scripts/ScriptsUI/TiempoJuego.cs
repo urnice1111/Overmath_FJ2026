@@ -14,7 +14,7 @@ public class TiempoJuego : MonoBehaviour
     private float decreaseRate = 5;
     private float currentTime;
     [SerializeField]
-    private Vector3 initialScale;
+    private Vector3 initialScale ;
     public float TiempoJugado { get; private set; }
     
     public float TiempoRestante => currentTime;
@@ -26,6 +26,7 @@ public class TiempoJuego : MonoBehaviour
 
         currentTime = maxTime;
         initialScale = barTransform.localScale;
+        barTransform.localScale = new Vector3(initialScale.x, initialScale.y, initialScale.z);
     }
 
     private void Awake()
