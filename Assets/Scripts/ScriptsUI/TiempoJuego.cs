@@ -55,7 +55,7 @@ public class TiempoJuego : MonoBehaviour
     
     public void AjustarTiempo(float cantidad)
     {
-        currentTime -= cantidad; // restar o sumar tiempo
+        currentTime += cantidad; // restar o sumar tiempo
         currentTime = Mathf.Clamp(currentTime, 0, maxTime);
     }
 }
