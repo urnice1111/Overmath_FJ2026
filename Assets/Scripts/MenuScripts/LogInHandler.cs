@@ -6,6 +6,10 @@ using UnityEngine.UIElements;
 
 public class LogInHandler : MonoBehaviour
 {
+
+    [SerializeField] private UIDocument mainMenu;
+
+
     [System.Serializable]
     public class LoginData
     {
@@ -40,6 +44,9 @@ public class LogInHandler : MonoBehaviour
     private TextField emailEntry;
     private TextField passwordEntry;
     private Label resultMessage;
+    
+    private Button logInButton;
+    private Button goBackButton;
 
     void OnEnable()
     {
@@ -48,10 +55,18 @@ public class LogInHandler : MonoBehaviour
         passwordEntry = root.Q<TextField>("PasswordField");
         resultMessage = root.Q<Label>("Response");
 
-        Button loginButton = root.Q<Button>("BtnIniciar");
-        loginButton.clicked += ConfirmCredentials;
+        logInButton = root.Q<Button>("BtnIniciar");
+        logInButton.clicked += ConfirmCredentials;
+
+        goBackButton = root.Q<Button>("BtnRegresar");
+        goBackButton.clicked += GoBack;
     }
 
+    void OnDisable()
+    {
+        logInButton.clicked -= ConfirmCredentials;
+        goBackButton.clicked -= GoBack;
+    }
     private void ConfirmCredentials()
     {
         string email = emailEntry.value;
@@ -127,5 +142,12 @@ public class LogInHandler : MonoBehaviour
             resultMessage.style.color = color;
             resultMessage.style.opacity = 1;
         }
+    }
+
+
+    private void GoBack()
+    {
+        gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
     }
 }

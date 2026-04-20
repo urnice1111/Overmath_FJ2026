@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ using UnityEngine.UIElements;
 public class SignInHandler : MonoBehaviour
 {
     [SerializeField] private UIDocument logInDocument;
+    [SerializeField] private UIDocument mainMenuDocument;
 
     [System.Serializable]
     public class SignInData
@@ -32,6 +34,9 @@ public class SignInHandler : MonoBehaviour
 
     private Label resultMessage;
 
+    private Button goBackButton;
+    private Button signInButton;
+
 
     void OnEnable()
     {
@@ -55,9 +60,17 @@ public class SignInHandler : MonoBehaviour
         Button signInButton = root.Q<Button>("BtnRegistrar");
         signInButton.clicked += ConfirmCredentials;
 
+        Button goBackButton = root.Q<Button>("BtnRegresar");
+        goBackButton.clicked += OnGoBack;
+
 
     }
 
+    void Osable()
+    {
+        signInButton.clicked -= ConfirmCredentials;
+        goBackButton.clicked -= OnGoBack;
+    }
     private void ConfirmCredentials()
     {
         string email = emailEntry.value;
@@ -141,5 +154,11 @@ public class SignInHandler : MonoBehaviour
     {
         gameObject.SetActive(false);
         logInDocument.gameObject.SetActive(true);
+    }
+
+    private void OnGoBack()
+    {
+        gameObject.SetActive(false);
+        mainMenuDocument.gameObject.SetActive(true);
     }
 }

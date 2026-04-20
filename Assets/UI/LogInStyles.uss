@@ -89,6 +89,12 @@
     margin-bottom: 16px;
 }
 
+.buttons-row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .link-label {
     font-size: 20px;
     color: white;
