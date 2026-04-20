@@ -6,6 +6,10 @@ using UnityEngine.UIElements;
 
 public class LogInHandler : MonoBehaviour
 {
+
+    [SerializeField] private UIDocument mainMenu;
+
+
     [System.Serializable]
     public class LoginData
     {
@@ -18,20 +22,31 @@ public class LogInHandler : MonoBehaviour
     [System.Serializable]
     public class LoginResponse
     {
-        public string message;
-        public UserData user;
+        public SignInResult result;
     }
 
     [System.Serializable]
-    public class UserData
+    public class SignInResult
     {
-        public int id;
-        public string email;
+        public bool ok;
+        public UserInfo user;
     }
+
+    [System.Serializable]
+    public class UserInfo{
+        public int id_cuenta;
+        public string correo;
+        
+    }
+
+
 
     private TextField emailEntry;
     private TextField passwordEntry;
     private Label resultMessage;
+    
+    private Button logInButton;
+    private Button goBackButton;
 
     void OnEnable()
     {
@@ -40,10 +55,18 @@ public class LogInHandler : MonoBehaviour
         passwordEntry = root.Q<TextField>("PasswordField");
         resultMessage = root.Q<Label>("Response");
 
-        Button loginButton = root.Q<Button>("BtnIniciar");
-        loginButton.clicked += ConfirmCredentials;
+        logInButton = root.Q<Button>("BtnIniciar");
+        logInButton.clicked += ConfirmCredentials;
+
+        goBackButton = root.Q<Button>("BtnRegresar");
+        goBackButton.clicked += GoBack;
     }
 
+    void OnDisable()
+    {
+        logInButton.clicked -= ConfirmCredentials;
+        goBackButton.clicked -= GoBack;
+    }
     private void ConfirmCredentials()
     {
         string email = emailEntry.value;
@@ -85,6 +108,15 @@ public class LogInHandler : MonoBehaviour
 
         if (www.responseCode == 201)
         {
+
+            Debug.Log("Response text: " + www.downloadHandler.text);
+            Debug.Log("GameSession.Instance is null? " + (GameSession.Instance == null));
+
+            LoginResponse response = JsonUtility.FromJson<LoginResponse>(www.downloadHandler.text);
+            GameSession.Instance.userId = response.result.user.id_cuenta;
+
+            Debug.Log(GameSession.Instance.userId);
+
             Debug.Log(www.responseCode);
             ShowMessage("Login successful! Loading game...", Color.green);
             SceneManager.LoadScene("PantallaPrincipal");
@@ -110,5 +142,12 @@ public class LogInHandler : MonoBehaviour
             resultMessage.style.color = color;
             resultMessage.style.opacity = 1;
         }
+    }
+
+
+    private void GoBack()
+    {
+        gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
     }
 }
