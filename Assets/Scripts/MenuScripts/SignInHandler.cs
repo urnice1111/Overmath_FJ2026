@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 
 public class SignInHandler : MonoBehaviour
 {
+    [SerializeField] private UIDocument logInDocument;
+
     [System.Serializable]
     public class SignInData
     {
@@ -113,7 +115,8 @@ public class SignInHandler : MonoBehaviour
         {
             Debug.Log(www.responseCode);
             ShowMessage("SignIn successful! Loading game...", Color.green);
-            SceneManager.LoadScene("PantallaPrincipal");
+            OnSuccesfullSignIn();
+            
             // StartCoroutine(RegisterSessionInDB(response.user.id));
         } else
         {
@@ -131,5 +134,12 @@ public class SignInHandler : MonoBehaviour
             resultMessage.style.color = color;
             resultMessage.style.opacity = 1;
         }
+    }
+
+
+    private void OnSuccesfullSignIn()
+    {
+        gameObject.SetActive(false);
+        logInDocument.gameObject.SetActive(true);
     }
 }

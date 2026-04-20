@@ -5,7 +5,6 @@
         <ui:VisualElement name="FormPanel" class="signin-form-panel">
             <ui:Label text="OVERMATH" class="signin-title"/>
             <ui:Label text="CREAR CUENTA" class="signin-subtitle"/>
-
             <ui:VisualElement class="field-row">
                 <ui:VisualElement class="field-group">
                     <ui:Label text="CORREO ELECTRÓNICO" class="field-label"/>
@@ -16,7 +15,6 @@
                     <ui:TextField name="UsernameField" class="scroll-textfield"/>
                 </ui:VisualElement>
             </ui:VisualElement>
-
             <ui:VisualElement class="field-row">
                 <ui:VisualElement class="field-group">
                     <ui:Label text="CONTRASEÑA" class="field-label"/>
@@ -27,7 +25,6 @@
                     <ui:TextField name="ConfirmPasswordField" password="true" class="scroll-textfield"/>
                 </ui:VisualElement>
             </ui:VisualElement>
-
             <ui:VisualElement class="field-row">
                 <ui:VisualElement class="field-group">
                     <ui:Label text="NOMBRE" class="field-label"/>
@@ -38,7 +35,6 @@
                     <ui:TextField name="LastNameField" class="scroll-textfield"/>
                 </ui:VisualElement>
             </ui:VisualElement>
-
             <ui:Label text="FECHA DE NACIMIENTO" class="date-section-label"/>
             <ui:VisualElement class="date-row">
                 <ui:VisualElement class="date-group">
@@ -54,14 +50,11 @@
                     <ui:IntegerField name="YearField" value="1990" class="date-field"/>
                 </ui:VisualElement>
             </ui:VisualElement>
-
             <ui:VisualElement class="button-row">
                 <ui:Button text="REGRESAR" name="BtnRegresar" class="scroll-button"/>
                 <ui:Button text="REGISTRAR" name="BtnRegistrar" class="scroll-button"/>
             </ui:VisualElement>
-
             <ui:Label text="Label" enabled="false" name="Response"/>
-
             <ui:VisualElement class="register-row">
                 <ui:Label text="¿Ya tienes cuenta?" class="link-label"/>
                 <ui:Label text="Inicia sesión aquí" name="LblIniciarSesion" class="link-highlight"/>

@@ -18,16 +18,24 @@ public class LogInHandler : MonoBehaviour
     [System.Serializable]
     public class LoginResponse
     {
-        public string message;
-        public UserData user;
+        public SignInResult result;
     }
 
     [System.Serializable]
-    public class UserData
+    public class SignInResult
     {
-        public int id;
-        public string email;
+        public bool ok;
+        public UserInfo user;
     }
+
+    [System.Serializable]
+    public class UserInfo{
+        public int id_cuenta;
+        public string correo;
+        
+    }
+
+
 
     private TextField emailEntry;
     private TextField passwordEntry;
@@ -85,6 +93,15 @@ public class LogInHandler : MonoBehaviour
 
         if (www.responseCode == 201)
         {
+
+            Debug.Log("Response text: " + www.downloadHandler.text);
+            Debug.Log("GameSession.Instance is null? " + (GameSession.Instance == null));
+
+            LoginResponse response = JsonUtility.FromJson<LoginResponse>(www.downloadHandler.text);
+            GameSession.Instance.userId = response.result.user.id_cuenta;
+
+            Debug.Log(GameSession.Instance.userId);
+
             Debug.Log(www.responseCode);
             ShowMessage("Login successful! Loading game...", Color.green);
             SceneManager.LoadScene("PantallaPrincipal");
