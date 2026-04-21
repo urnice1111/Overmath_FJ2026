@@ -8,7 +8,7 @@ public class CambiaAnimacion : MonoBehaviour
 
     private string ultimaDireccion = "down";
 
-    private bool mirandoIzquierda = false; 
+    private bool mirandoIzquierda = false;
 
     void Start()
     {
@@ -24,6 +24,7 @@ public class CambiaAnimacion : MonoBehaviour
         bool mueveHorizontal = Mathf.Abs(velocidad.x) > 0.1f;
         bool mueveArriba = velocidad.y > 0.1f;
         bool mueveAbajo = velocidad.y < -0.1f;
+        bool estaQuieto = velocidad.sqrMagnitude < 0.01f;
 
         if (mueveArriba)
         {
@@ -36,17 +37,46 @@ public class CambiaAnimacion : MonoBehaviour
         else if (mueveHorizontal)
         {
             ultimaDireccion = "horizontal";
-        }
-
-        animator.SetBool("move_up", ultimaDireccion == "up");
-        animator.SetBool("move_down", ultimaDireccion == "down");
-        animator.SetBool("move_horizontal", ultimaDireccion == "horizontal");
-
-        animator.SetBool("idle", false);
-        if (Mathf.Abs(velocidad.x) > 0.1f)
-        {
             mirandoIzquierda = velocidad.x < 0;
         }
+
+        animator.SetBool("move_up", false);
+        animator.SetBool("move_down", false);
+        animator.SetBool("move_horizontal", false);
+        animator.SetBool("idle", false);
+
+        if (estaQuieto)
+        {
+            if (ultimaDireccion == "horizontal")
+            {
+                animator.SetBool("idle", true);
+            }
+            else if (ultimaDireccion == "up")
+            {
+                animator.SetBool("move_up", true);
+            }
+            else if (ultimaDireccion == "down")
+            {
+                animator.SetBool("move_down", true);
+            }
+        }
+        
+        else
+        {
+            if (ultimaDireccion == "up")
+            {
+                animator.SetBool("move_up", true);
+            }
+            else if (ultimaDireccion == "down")
+            {
+                animator.SetBool("move_down", true);
+            }
+            else if (ultimaDireccion == "horizontal")
+            {
+                animator.SetBool("move_horizontal", true);
+            }
+        }
+
         sr.flipX = mirandoIzquierda;
     }
 }
