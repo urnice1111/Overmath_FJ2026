@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - PlayerBarco
+  - Tutorial
   layers:
   - Default
   - TransparentFX

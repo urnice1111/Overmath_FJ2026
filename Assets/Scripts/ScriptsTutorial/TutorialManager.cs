@@ -22,6 +22,8 @@ public class TutorialManager : MonoBehaviour
     [Header("Return scene after tutorial ends")]
     [SerializeField] private string escenaMapa = "PantallaPrincipal";
 
+    [SerializeField] private GameObject DialogueHolder;
+
     private int pasoActual = -1;
     private TutorialStep stepActivo;
     private bool esperandoTap;
@@ -49,7 +51,14 @@ public class TutorialManager : MonoBehaviour
             return;
         }
 
-        IniciarTutorial();
+        if(DialogueHolder != null)
+        {
+            StartCoroutine(EjecutarIntroYEmpezarTutorial());
+        }
+        else
+        {
+            IniciarTutorial();
+        }
     }
 
     public void IniciarTutorial()
@@ -175,6 +184,14 @@ public class TutorialManager : MonoBehaviour
         SiguientePaso();
     }
 
+    private IEnumerator EjecutarIntroYEmpezarTutorial()
+    {
+        DialogueHolder.SetActive(true);
+        while (DialogueHolder.activeSelf)
+            yield return null;
+
+        IniciarTutorial();
+    }
 
     private IEnumerator RegresarYMoverCamara()
     {
