@@ -58,10 +58,14 @@ public class DragSelectionManager : MonoBehaviour
 
     public void QuitarNumero(int numero)
     {
+
         if (numerosSeleccionados.Remove(numero))
         {
             Debug.Log("Numero quitado: " + numero + " | Total: " + TotalSeleccionados);
         }
+
+        
+        
     }
 
     public void AgregarOperador(string op)
@@ -73,6 +77,7 @@ public class DragSelectionManager : MonoBehaviour
         }
         operadoresSeleccionados.Add(op);
         Debug.Log("Operador agregado: " + op + " | Total: " + TotalSeleccionados);
+
     }
 
     public void QuitarOperador(string op)

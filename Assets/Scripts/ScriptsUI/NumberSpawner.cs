@@ -129,7 +129,7 @@ public class NumberSpawner : MonoBehaviour
         spawnCount++;
     }
 
-    private void RestaurarAsignaciones()
+    public void RestaurarAsignaciones()
     {
         if (DragSelectionManager.asignacionesSlots.Count == 0) return;
 
