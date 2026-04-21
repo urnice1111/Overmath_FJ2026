@@ -2214,6 +2214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PuntajedePregunta
   limitePuntos: 100
   puntosPorAcierto: 50
+  bonusPorNumeroUsado: 1
+  bonusPorOperadorUsado: 2
 --- !u!4 &481603029
 Transform:
   m_ObjectHideFlags: 0
