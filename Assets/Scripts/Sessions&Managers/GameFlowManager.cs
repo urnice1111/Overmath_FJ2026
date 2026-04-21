@@ -54,6 +54,12 @@ public class GameFlowManager : MonoBehaviour
 
     private void MostrarDerrota()
     {
+        // Ocultar mesa creacion si activa
+        ActiveMesaCreacion mesa = null;
+        mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
+
+        mesa.Cerrar();
+
         gameEnded = true;
         LoseCanvas.GetComponent<LosePopupUI>().Show();
         Time.timeScale = 0f;

@@ -8110,10 +8110,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bienvenido a Overmath! Aprendamos como jugar
+  m_text: "BIENVENIDO A OVERMATH! \nAPRENDAMOS COMO JUGAR!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
-  m_sharedMaterial: {fileID: -1325551482713556698, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6ac4f2796e4474086813f888f5455834, type: 2}
+  m_sharedMaterial: {fileID: -5954001197432107237, guid: 6ac4f2796e4474086813f888f5455834, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8137,8 +8137,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8851,6 +8851,7 @@ MonoBehaviour:
   textoDialogue: {fileID: 1827083562}
   spotlight: {fileID: 1327552522}
   escenaMapa: PantallaPrincipal
+  DialogueHolder: {fileID: 0}
   isGoBackButtonPressed: 0
 --- !u!4 &1919949654
 Transform:

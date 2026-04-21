@@ -52,7 +52,10 @@ public class TutorialSpotlight : MonoBehaviour, ICanvasRaycastFilter
 
     public void Show(string targetName)
     {
+        EnsureInitialized();
         gameObject.SetActive(true);
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
         dimmerImage.material = matInstance;
 
         if (animCoroutine != null) StopCoroutine(animCoroutine);
@@ -91,6 +94,8 @@ public class TutorialSpotlight : MonoBehaviour, ICanvasRaycastFilter
 
     public void Hide()
     {
+        if (!gameObject.activeSelf) return;
+
         if (animCoroutine != null) StopCoroutine(animCoroutine);
         if (followCoroutine != null) StopCoroutine(followCoroutine);
         if (pulseCoroutine != null) StopCoroutine(pulseCoroutine);

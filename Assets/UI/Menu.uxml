@@ -1,11 +1,11 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Menu.uss?fileID=7433441132597879392&amp;guid=3dea1a9a2cc8c48f5bb016b45ceaf4d2&amp;type=3#Menu"/>
     <ui:VisualElement name="Menu" style="flex-grow: 1; flex-direction: row; background-color: rgba(0, 191, 255, 0);">
-        <ui:VisualElement style="flex-grow: 1;"/>
+        <ui:VisualElement style="flex-grow: 1; -unity-font-definition: url(&quot;project://database/Assets/Font/Pixeled.ttf?fileID=12800000&amp;guid=8fb5217c4f3de4d6590f5f984218537b&amp;type=3#Pixeled&quot;);"/>
         <ui:VisualElement name="Botones" style="flex-grow: 1; justify-content: center; align-items: center; padding-right: 0%; padding-left: -130px; margin-left: 680px; padding-bottom: 91px;">
-            <ui:Label text="OVERMATH" style="font-size: 80px; -unity-font-style: bold; color: white; margin-bottom: 40px; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(20, 50, 90); letter-spacing: 4px; -unity-font-definition: url(&quot;project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&amp;guid=4cc08605ed5d34709ad2e2b3e172fa7b&amp;type=3#Daydream DEMO&quot;);"/>
-            <ui:Button text="INGRESAR" name="BtnIngresar" class="my-background-button"/>
-            <ui:Button text="REGISTRARSE" name="BtnRegistrarse" class="my-background-button"/>
+            <ui:Label text="OVERMATH" style="font-size: 80px; -unity-font-style: bold; color: white; margin-bottom: 40px; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(20, 50, 90); letter-spacing: 4px; -unity-font-definition: url(&quot;project://database/Assets/Font/Pixeled.ttf?fileID=12800000&amp;guid=8fb5217c4f3de4d6590f5f984218537b&amp;type=3#Pixeled&quot;);"/>
+            <ui:Button text="INGRESAR" name="BtnIngresar" class="my-background-button" style="-unity-font-definition: url(&quot;project://database/Assets/Font/Pixeled.ttf?fileID=12800000&amp;guid=8fb5217c4f3de4d6590f5f984218537b&amp;type=3#Pixeled&quot;);"/>
+            <ui:Button text="REGISTRARSE" name="BtnRegistrarse" class="my-background-button" style="-unity-font-definition: url(&quot;project://database/Assets/Font/Pixeled.ttf?fileID=12800000&amp;guid=8fb5217c4f3de4d6590f5f984218537b&amp;type=3#Pixeled&quot;);"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
