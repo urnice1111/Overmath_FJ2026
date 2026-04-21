@@ -1,3 +1,4 @@
+using UnityEditor.Graphs;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -129,10 +130,35 @@ public class DraggableNumber : MonoBehaviour
         slotActual = slot;
     }
 
+    // private void OnDoubleClick()
+    // {
+    //     if (slotActual != null)
+    //     {
+    //         slotActual.Liberar();
+    //         Destroy(slotActual.gameObject);
+    //         slotActual = null;
+    //     }
+            
+            
+
+    //     if (DragSelectionManager.Instance != null)
+    //     {
+    //         if (esOperador)
+    //             DragSelectionManager.Instance.QuitarOperador(simboloOperador);
+    //         else
+    //             DragSelectionManager.Instance.QuitarNumero(numero);
+    //     }
+
+    //     Destroy(gameObject);
+    // }
+
     private void OnDoubleClick()
     {
         if (slotActual != null)
+        {
             slotActual.Liberar();
+            slotActual = null;
+        }
 
         if (DragSelectionManager.Instance != null)
         {
@@ -143,5 +169,11 @@ public class DraggableNumber : MonoBehaviour
         }
 
         Destroy(gameObject);
+
+        if (NumberSpawner.Instance != null)
+        {
+            NumberSpawner.Instance.CrearSlots();
+            NumberSpawner.Instance.RestaurarAsignaciones();
+        }
     }
 }
