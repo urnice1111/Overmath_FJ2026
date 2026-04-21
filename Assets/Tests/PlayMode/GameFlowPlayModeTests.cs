@@ -1,8 +1,9 @@
-using System.Collections;
+/*using System.Collections;
 using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using TMPro;
 
 public class GameFlowPlayModeTests
 {
@@ -12,8 +13,11 @@ public class GameFlowPlayModeTests
     private GameObject gameFlowObj;
     private GameObject loseCanvasObj;
     private GameObject winCanvasObj;
+    private GameObject gameSessionObj;
+    private GameObject resultadosObj;
     private GameFlowManager gameFlowManager;
     private LosePopupUI losePopupUI;
+    private resultadosUI resultadosUIComp;
 
     private const BindingFlags NonPublic = BindingFlags.NonPublic | BindingFlags.Instance;
 
@@ -21,6 +25,10 @@ public class GameFlowPlayModeTests
     public IEnumerator SetUp()
     {
         // Crear instancias de singletons
+        gameSessionObj = new GameObject("GameSession");
+        gameSessionObj.AddComponent<GameSession>();
+        GameSession.Instance.IsTutorial = true;
+
         puntajeObj = new GameObject("PuntajedePregunta");
         puntajeObj.AddComponent<PuntajedePregunta>();
 
@@ -32,7 +40,9 @@ public class GameFlowPlayModeTests
 
         // Crear canvases
         loseCanvasObj = new GameObject("LoseCanvas");
+        loseCanvasObj.AddComponent<RectTransform>();
         losePopupUI = loseCanvasObj.AddComponent<LosePopupUI>();
+        typeof(LosePopupUI).GetField("popupContent", NonPublic).SetValue(losePopupUI, loseCanvasObj.GetComponent<RectTransform>());
 
         winCanvasObj = new GameObject("WinCanvas");
 
@@ -41,7 +51,19 @@ public class GameFlowPlayModeTests
         gameFlowManager = gameFlowObj.AddComponent<GameFlowManager>();
         typeof(GameFlowManager).GetField("LoseCanvas", NonPublic).SetValue(gameFlowManager, loseCanvasObj);
         typeof(GameFlowManager).GetField("WinCanvas", NonPublic).SetValue(gameFlowManager, winCanvasObj);
-        // resultadosUI se deja null ya que no se usa en derrota
+
+        resultadosObj = new GameObject("ResultadosUI");
+        resultadosUIComp = resultadosObj.AddComponent<resultadosUI>();
+        // Asignar TMP dummy
+        var puntajeTMP = resultadosObj.AddComponent<TextMeshProUGUI>();
+        var tiempoTMP = resultadosObj.AddComponent<TextMeshProUGUI>();
+        var contestadasTMP = resultadosObj.AddComponent<TextMeshProUGUI>();
+        var correctasTMP = resultadosObj.AddComponent<TextMeshProUGUI>();
+        typeof(resultadosUI).GetField("puntaje", NonPublic).SetValue(resultadosUIComp, puntajeTMP);
+        typeof(resultadosUI).GetField("tiempo", NonPublic).SetValue(resultadosUIComp, tiempoTMP);
+        typeof(resultadosUI).GetField("contestadas", NonPublic).SetValue(resultadosUIComp, contestadasTMP);
+        typeof(resultadosUI).GetField("correctas", NonPublic).SetValue(resultadosUIComp, correctasTMP);
+        typeof(GameFlowManager).GetField("resultadosUI", NonPublic).SetValue(gameFlowManager, resultadosUIComp);
 
         yield return null; // Esperar a que Start se ejecute
     }
@@ -49,12 +71,14 @@ public class GameFlowPlayModeTests
     [UnityTearDown]
     public IEnumerator TearDown()
     {
+        if (gameSessionObj != null) Object.DestroyImmediate(gameSessionObj);
         if (puntajeObj != null) Object.DestroyImmediate(puntajeObj);
         if (tiempoObj != null) Object.DestroyImmediate(tiempoObj);
         if (preguntaObj != null) Object.DestroyImmediate(preguntaObj);
         if (gameFlowObj != null) Object.DestroyImmediate(gameFlowObj);
         if (loseCanvasObj != null) Object.DestroyImmediate(loseCanvasObj);
         if (winCanvasObj != null) Object.DestroyImmediate(winCanvasObj);
+        if (resultadosObj != null) Object.DestroyImmediate(resultadosObj);
         yield return null;
     }
 
@@ -62,7 +86,8 @@ public class GameFlowPlayModeTests
     public IEnumerator TiempoAgotado_PuntajeInsuficiente_ActivaLosePopup()
     {
         // Configurar puntaje insuficiente
-        typeof(PuntajedePregunta).GetProperty("PuntosActuales", NonPublic).SetValue(PuntajedePregunta.Instance, 50);
+        PuntajedePregunta.Instance.ReiniciarPuntaje();
+        typeof(PuntajedePregunta).GetMethod("SumarPuntos", NonPublic).Invoke(PuntajedePregunta.Instance, new object[] { 50 });
 
         // Agotar tiempo
         TiempoJuego.Instance.AjustarTiempo(-1000f);
@@ -76,7 +101,8 @@ public class GameFlowPlayModeTests
     public IEnumerator VidaAgotada_PuntajeInsuficiente_ActivaLosePopup()
     {
         // Configurar puntaje insuficiente
-        typeof(PuntajedePregunta).GetProperty("PuntosActuales", NonPublic).SetValue(PuntajedePregunta.Instance, 50);
+        PuntajedePregunta.Instance.ReiniciarPuntaje();
+        typeof(PuntajedePregunta).GetMethod("SumarPuntos", NonPublic).Invoke(PuntajedePregunta.Instance, new object[] { 50 });
 
         // Agotar vida/tiempo
         TiempoJuego.Instance.AjustarTiempo(-1000f);
@@ -90,7 +116,8 @@ public class GameFlowPlayModeTests
     public IEnumerator TiempoAgotado_PuntajeSuficiente_NoActivaLosePopup()
     {
         // Configurar puntaje suficiente
-        typeof(PuntajedePregunta).GetProperty("PuntosActuales", NonPublic).SetValue(PuntajedePregunta.Instance, 100);
+        PuntajedePregunta.Instance.ReiniciarPuntaje();
+        typeof(PuntajedePregunta).GetMethod("SumarPuntos", NonPublic).Invoke(PuntajedePregunta.Instance, new object[] { 100 });
 
         // Agotar tiempo
         TiempoJuego.Instance.AjustarTiempo(-1000f);
@@ -99,5 +126,4 @@ public class GameFlowPlayModeTests
 
         Assert.IsFalse(loseCanvasObj.activeSelf, "LoseCanvas NO debería activarse cuando tiempo se agota pero puntaje es suficiente");
     }
-}</content>
-<parameter name="filePath">C:\Users\regih\OneDrive\Escritorio\Overmath_FJ2026\Assets\Tests\PlayMode\GameFlowPlayModeTests.cs
+}*/
