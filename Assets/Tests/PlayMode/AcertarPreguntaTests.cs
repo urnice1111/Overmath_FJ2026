@@ -52,7 +52,7 @@ public class AcertarPreguntaTests
         Assert.AreEqual(initialCorrect + 1, preguntaManager.TotalCorrectas, 
             "TotalCorrectas no aumentó al acertar la pregunta.");
 
-        // TODO 6: Verificar que TotalContestadas aumentó en 1
+        
         Assert.AreEqual(initialAnswered + 1, preguntaManager.TotalContestadas,
             "TotalContestadas no aumentó.");
     }

@@ -1,13 +1,14 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
-// Esta clase cambia las animaciones del barco según su movimiento.
 
 public class CambiaAnimacion : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer sr;
+
+    private string ultimaDireccion = "down";
+
+    private bool mirandoIzquierda = false;
 
     void Start()
     {
@@ -19,20 +20,64 @@ public class CambiaAnimacion : MonoBehaviour
     void Update()
     {
         Vector2 velocidad = rb.linearVelocity;
-        bool estaQuieto = velocidad.sqrMagnitude < 0.01f;
+
         bool mueveHorizontal = Mathf.Abs(velocidad.x) > 0.1f;
         bool mueveArriba = velocidad.y > 0.1f;
         bool mueveAbajo = velocidad.y < -0.1f;
-        
-        
-        animator.SetBool("idle", estaQuieto);
-        animator.SetBool("move_horizontal", mueveHorizontal);
-        animator.SetBool("move_up", mueveArriba);
-        animator.SetBool("move_down", mueveAbajo);
+        bool estaQuieto = velocidad.sqrMagnitude < 0.01f;
 
-        //animator.SetTrigger("")
+        if (mueveArriba)
+        {
+            ultimaDireccion = "up";
+        }
+        else if (mueveAbajo)
+        {
+            ultimaDireccion = "down";
+        }
+        else if (mueveHorizontal)
+        {
+            ultimaDireccion = "horizontal";
+            mirandoIzquierda = velocidad.x < 0;
+        }
 
-        sr.flipX = velocidad.x < -0.1f;
+        animator.SetBool("move_up", false);
+        animator.SetBool("move_down", false);
+        animator.SetBool("move_horizontal", false);
+        animator.SetBool("idle", false);
+
+        if (estaQuieto)
+        {
+            if (ultimaDireccion == "horizontal")
+            {
+                animator.SetBool("idle", true);
+            }
+            else if (ultimaDireccion == "up")
+            {
+                animator.SetBool("move_up", true);
+            }
+            else if (ultimaDireccion == "down")
+            {
+                animator.SetBool("move_down", true);
+            }
+        }
+        
+        else
+        {
+            if (ultimaDireccion == "up")
+            {
+                animator.SetBool("move_up", true);
+            }
+            else if (ultimaDireccion == "down")
+            {
+                animator.SetBool("move_down", true);
+            }
+            else if (ultimaDireccion == "horizontal")
+            {
+                animator.SetBool("move_horizontal", true);
+            }
+        }
+
+        sr.flipX = mirandoIzquierda;
     }
 }
 
