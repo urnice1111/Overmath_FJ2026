@@ -15,6 +15,18 @@ public class MoveToVillianScene : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    private void LimpiarEstadoPartida()
+    {
+        if (DragSelectionManager.Instance != null)
+            DragSelectionManager.Instance.LimpiarTodo();
+
+        if (NumberSpawner.Instance != null)
+            NumberSpawner.Instance.LimpiarVisual();
+
+        pauseController.SetPause(false);
+    }
+
+
     public void OnPointerDown(PointerEventData eventData)
     {
             // If the pause menu triggers scene change, resume time first.
@@ -23,11 +35,13 @@ public class MoveToVillianScene : MonoBehaviour, IPointerDownHandler
             if (ScreenFadereManager.Instance != null)
             {
                 ScreenFadereManager.Instance.ChangeScene(sceneName);
+                LimpiarEstadoPartida();
             }
             else
             {
                 Debug.LogWarning("ScreenFadereManager no encontrado. Cargando escena sin transición.");
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+                LimpiarEstadoPartida();
             }
     }
 
