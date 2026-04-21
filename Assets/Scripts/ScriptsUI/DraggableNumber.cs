@@ -170,6 +170,7 @@ public class DraggableNumber : MonoBehaviour
 
         Destroy(gameObject);
 
+        // Instead of previous approach, re call the Restaurar Asignaciones method
         if (NumberSpawner.Instance != null)
         {
             NumberSpawner.Instance.CrearSlots();
