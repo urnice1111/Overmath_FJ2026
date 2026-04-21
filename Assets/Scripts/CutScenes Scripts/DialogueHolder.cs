@@ -5,10 +5,14 @@ namespace  DialogueSystem
 {
     public class DialogueHolder : MonoBehaviour
     {
+        public static bool IsDialogueActive { get; private set; }
+
         private Coroutine sequenceRoutine;
 
         private void OnEnable()
         {
+            IsDialogueActive = true;
+
             if (sequenceRoutine != null)
             {
                 StopCoroutine(sequenceRoutine);
@@ -19,6 +23,8 @@ namespace  DialogueSystem
 
         private void OnDisable()
         {
+            IsDialogueActive = false;
+
             if (sequenceRoutine != null)
             {
                 StopCoroutine(sequenceRoutine);
@@ -26,6 +32,11 @@ namespace  DialogueSystem
             }
 
             Deactivate();
+        }
+
+        private void OnDestroy()
+        {
+            IsDialogueActive = false;
         }
 
         private IEnumerator dialogueSequence()
