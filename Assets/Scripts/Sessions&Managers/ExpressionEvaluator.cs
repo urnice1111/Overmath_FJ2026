@@ -13,6 +13,7 @@ public class ExpressionEvaluator : MonoBehaviour
     [SerializeField] private RectTransform slotParent;
 
     [SerializeField] private VillianState villianState;
+    
 
     private void Awake()
     {
@@ -92,10 +93,15 @@ public class ExpressionEvaluator : MonoBehaviour
 
         bool correcto = PreguntaManager.Instance != null
             && PreguntaManager.Instance.VerificarRespuesta(resultado);
-        if (correcto)
+        ContarElementosUsados(ordenados, out int numerosUsados, out int operadoresUsados);
+
+        if (correcto){
             Debug.Log("Respuesta correcta!");
-        else
+            ReproducirAnimacionResultado(true);
+        }
+        else{
             Debug.Log("Respuesta incorrecta.");
+            ReproducirAnimacionResultado(false);}
 
         bool isTutorial = GameSession.Instance != null && GameSession.Instance.IsTutorial;
 
@@ -123,7 +129,7 @@ public class ExpressionEvaluator : MonoBehaviour
         }
 
         if (PuntajedePregunta.Instance != null)
-            PuntajedePregunta.Instance.RegistrarResultado(correcto);
+            PuntajedePregunta.Instance.RegistrarResultado(correcto, numerosUsados, operadoresUsados);
 
         if (Ranks_Manager.Instance != null)
             Ranks_Manager.Instance.RegistrarRespuesta(correcto);
@@ -214,5 +220,39 @@ public class ExpressionEvaluator : MonoBehaviour
         }
 
         return acumulado;
+    }
+
+    private void ContarElementosUsados(DropSlot[] slotsOrdenados, out int numerosUsados, out int operadoresUsados)
+    {
+        numerosUsados = 0;
+        operadoresUsados = 0;
+
+        foreach (var slot in slotsOrdenados)
+        {
+            DraggableNumber item = slot.itemActual;
+            if (item == null) continue;
+
+            if (item.esOperador)
+                operadoresUsados++;
+            else
+                numerosUsados++;
+        }
+    }
+
+    private void ReproducirAnimacionResultado(bool correcto)
+    {
+        if (villianState == null)
+            villianState = FindObjectOfType<VillianState>();
+
+        if (villianState == null)
+        {
+            Debug.LogWarning("ExpressionEvaluator: No se encontro VillianState para reproducir la animacion.");
+            return;
+        }
+
+        if (correcto)
+            villianState.MakeAnimationCorrectAnsw();
+        else
+            villianState.MakeAnimationWrongAnsw();
     }
 }
