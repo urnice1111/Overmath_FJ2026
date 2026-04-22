@@ -1700,7 +1700,7 @@ GameObject:
   - component: {fileID: 317816888}
   - component: {fileID: 317816892}
   - component: {fileID: 317816893}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: LoseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2616,7 +2616,7 @@ GameObject:
   - component: {fileID: 763335033}
   - component: {fileID: 763335035}
   - component: {fileID: 763335034}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3069,7 +3069,7 @@ GameObject:
   - component: {fileID: 856775899}
   - component: {fileID: 856775898}
   - component: {fileID: 856775901}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Reintentar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4890,7 +4890,7 @@ GameObject:
   - component: {fileID: 1141835339}
   - component: {fileID: 1141835338}
   - component: {fileID: 1141835341}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Regresar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5034,7 +5034,7 @@ GameObject:
   - component: {fileID: 1143900039}
   - component: {fileID: 1143900041}
   - component: {fileID: 1143900040}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Perdiste
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5464,7 +5464,7 @@ GameObject:
   - component: {fileID: 1234470302}
   - component: {fileID: 1234470304}
   - component: {fileID: 1234470303}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7479,7 +7479,7 @@ GameObject:
   - component: {fileID: 1631269847}
   - component: {fileID: 1631269846}
   - component: {fileID: 1631269849}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8317,7 +8317,7 @@ GameObject:
   - component: {fileID: 1832385008}
   - component: {fileID: 1832385010}
   - component: {fileID: 1832385009}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8703,7 +8703,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::TiempoJuego
   barTransform: {fileID: 1896745689}
   maxTime: 100
-  decreaseRate: 2
+  decreaseRate: 25
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1896745691
 MonoBehaviour:
