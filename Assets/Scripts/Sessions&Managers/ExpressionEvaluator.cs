@@ -62,16 +62,19 @@ public class ExpressionEvaluator : MonoBehaviour
             Debug.Log("  Slot[" + i + "] vacio=" + slots[i].EstaVacio + " valor=" + (val ?? "null"));
         }
 
-        foreach (var slot in slots)
-        {
-            if (slot.EstaVacio)
-            {
-                Debug.LogWarning("ExpressionEvaluator: Hay slots vacios, no se puede evaluar.");
-                return;
-            }
-        }
+        // foreach (var slot in slots)
+        // {
+        //     if (slot.EstaVacio)
+        //     {
+        //         Debug.LogWarning("ExpressionEvaluator: Hay slots vacios, no se puede evaluar.");
+        //         return;
+        //     }
+        // }
 
-        var ordenados = slots.OrderBy(s => s.GetComponent<RectTransform>().anchoredPosition.x).ToArray();
+        var ordenados = slots
+                        .Where(s => !s.EstaVacio)
+                        .OrderBy(s => s.GetComponent<RectTransform>().anchoredPosition.x)
+                        .ToArray();
 
         string expresion = "";
         foreach (var slot in ordenados)
