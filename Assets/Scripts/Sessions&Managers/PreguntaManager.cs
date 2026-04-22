@@ -33,6 +33,7 @@ public class PreguntaManager : MonoBehaviour
 
     private List<int> shuffledIndices = new List<int>();
     private int shufflePosition;
+    public int PreguntaIndexActual => shufflePosition;
     private int tutorialIndex;
 
     private static readonly Pregunta[] preguntasTutorial = new Pregunta[]
@@ -40,6 +41,10 @@ public class PreguntaManager : MonoBehaviour
         new Pregunta { problema = "2 + 5", respuesta_correcta = 7 },
         new Pregunta { problema = "3 * 4", respuesta_correcta = 12 },
     };
+    
+    public List<ProgressHandler.IntentoPregunta> intentos = new List<ProgressHandler.IntentoPregunta>();
+    private float tiempoInicioPregunta;
+
 
     private void Awake()
     {
@@ -120,6 +125,8 @@ public class PreguntaManager : MonoBehaviour
 
         PreguntaActual = preguntasUnity[shuffledIndices[shufflePosition]];
         shufflePosition++;
+        
+        tiempoInicioPregunta = Time.time; // ⏱ inicio del cronómetro
 
         if (questionLabel != null)
             questionLabel.text = PreguntaActual.respuesta_correcta.ToString();
@@ -174,5 +181,21 @@ public class PreguntaManager : MonoBehaviour
         if (textoPregunta != null)
             textoPregunta.text = PreguntaActual.problema;
     }
+    
+    public void RegistrarIntento(int idPregunta, string respuestaUsuario, bool esCorrecta)
+    {
+        float tiempoRespuesta = Time.time - tiempoInicioPregunta;
+
+        var intento = new ProgressHandler.IntentoPregunta
+        {
+            id_pregunta = idPregunta,
+            respuesta_usuario = respuestaUsuario,
+            es_correcta = esCorrecta,
+            tiempo_respuesta_seg = tiempoRespuesta
+        };
+
+        intentos.Add(intento);
+    }
+
     
 }
