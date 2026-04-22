@@ -51,7 +51,7 @@ public class GameSession : MonoBehaviour
           _ => "Dificil"  
         };
 
-        return $"https://q623ldzsbzpk3j6nktpzcvqi7y0qrpsr.lambda-url.us-east-1.on.aws/get_questions/{IslaActual}/{diff}";
+        return $"https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/get_questions/{IslaActual}/{diff}";
     }
 
     // Later hp bar logic here:

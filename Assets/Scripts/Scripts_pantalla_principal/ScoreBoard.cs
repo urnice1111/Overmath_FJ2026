@@ -37,7 +37,7 @@ public class ScoreBoard : MonoBehaviour
     private IEnumerator GetTopPlayers()
     {
 
-        string url = "https://q623ldzsbzpk3j6nktpzcvqi7y0qrpsr.lambda-url.us-east-1.on.aws/get_scoreboard";
+        string url = "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/get_scoreboard";
 
         using (UnityWebRequest www = UnityWebRequest.Get(url))
         {
