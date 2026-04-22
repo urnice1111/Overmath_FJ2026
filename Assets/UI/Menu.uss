@@ -9,7 +9,7 @@
     border-width: 0;
     background-color: rgba(0, 0, 0, 0);
     padding: 0;
-    font-size: 50px;
+    font-size: 100px;
     -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
     -unity-font-style: normal;
     color: rgb(36, 36, 36);

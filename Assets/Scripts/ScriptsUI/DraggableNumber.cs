@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class DraggableNumber : MonoBehaviour
 {
     public int uniqueId;
+    public int posicionIndex;
     public int numero;
     public bool esOperador;
     public string simboloOperador;
@@ -169,6 +170,8 @@ public class DraggableNumber : MonoBehaviour
         }
 
         Destroy(gameObject);
+
+        NumberSpawner.Instance.LiberarPosicion(posicionIndex);
 
         // Instead of previous approach, re call the Restaurar Asignaciones method
         if (NumberSpawner.Instance != null)

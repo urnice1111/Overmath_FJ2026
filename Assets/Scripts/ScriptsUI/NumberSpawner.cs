@@ -39,13 +39,17 @@ public class NumberSpawner : MonoBehaviour
     [SerializeField] private Color botonResolverColor = new Color(0.2f, 0.7f, 0.3f, 1f);
     [SerializeField] private int botonFontSize = 30;
 
-    private int spawnCount;
+    public int spawnCount;
+    private int nextUniqueId;
+    private Queue<int> posicionesLibres = new Queue<int>();
     private List<DropSlot> slotsActuales = new List<DropSlot>();
 
     public void LimpiarVisual()
     {
         slotsActuales.Clear();
         spawnCount = 0;
+        nextUniqueId = 0;
+        posicionesLibres.Clear();
 
         if (spawnParent != null)
             foreach (Transform child in spawnParent)
@@ -76,6 +80,8 @@ public class NumberSpawner : MonoBehaviour
         if (DragSelectionManager.Instance == null) return;
 
         spawnCount = 0;
+        nextUniqueId = 0;
+        posicionesLibres.Clear();
 
         foreach (int num in DragSelectionManager.Instance.numerosSeleccionados)
             CrearNumero(num);
@@ -101,32 +107,49 @@ public class NumberSpawner : MonoBehaviour
         RestaurarAsignaciones();
     }
 
+    private int ObtenerPosicionDisponible()
+    {
+        if (posicionesLibres.Count > 0)
+            return posicionesLibres.Dequeue();
+        return spawnCount++;
+    }
+
+    public void LiberarPosicion(int posIndex)
+    {
+        posicionesLibres.Enqueue(posIndex);
+        Debug.Log("Posición " + posIndex + " liberada. Libres: " + posicionesLibres.Count);
+    }
+
     private void CrearNumero(int numero)
     {
         if (spawnParent == null) return;
 
-        var card = CrearTarjetaBase("Num_" + numero + "_" + spawnCount, numero.ToString(), cardColor);
+        int posIndex = ObtenerPosicionDisponible();
+        var card = CrearTarjetaBase("Num_" + numero + "_" + nextUniqueId, numero.ToString(), cardColor, posIndex);
 
         var draggable = card.GetComponent<DraggableNumber>();
-        draggable.uniqueId = spawnCount;
+        draggable.uniqueId = nextUniqueId;
+        draggable.posicionIndex = posIndex;
         draggable.numero = numero;
         draggable.esOperador = false;
 
-        spawnCount++;
+        nextUniqueId++;
     }
 
     private void CrearOperador(string operador)
     {
         if (spawnParent == null) return;
 
-        var card = CrearTarjetaBase("Op_" + operador + "_" + spawnCount, operador, operadorCardColor);
+        int posIndex = ObtenerPosicionDisponible();
+        var card = CrearTarjetaBase("Op_" + operador + "_" + nextUniqueId, operador, operadorCardColor, posIndex);
 
         var draggable = card.GetComponent<DraggableNumber>();
-        draggable.uniqueId = spawnCount;
+        draggable.uniqueId = nextUniqueId;
+        draggable.posicionIndex = posIndex;
         draggable.esOperador = true;
         draggable.simboloOperador = operador;
 
-        spawnCount++;
+        nextUniqueId++;
     }
 
     public void RestaurarAsignaciones()
@@ -160,7 +183,7 @@ public class NumberSpawner : MonoBehaviour
         }
     }
 
-    private GameObject CrearTarjetaBase(string nombre, string textoMostrar, Color bgColor)
+    private GameObject CrearTarjetaBase(string nombre, string textoMostrar, Color bgColor, int posIndex)
     {
         var card = new GameObject(
             nombre,
@@ -175,8 +198,8 @@ public class NumberSpawner : MonoBehaviour
         var cardRT = card.GetComponent<RectTransform>();
         cardRT.sizeDelta = tamanoTarjeta;
 
-        float offsetX = (spawnCount % 5) * (tamanoTarjeta.x + 10f) - 180f;
-        float offsetY = (spawnCount / 5) * -(tamanoTarjeta.y + 10f) + 200f;
+        float offsetX = (posIndex % 5) * (tamanoTarjeta.x + 10f) - 180f;
+        float offsetY = (posIndex / 5) * -(tamanoTarjeta.y + 10f) + 200f;
         cardRT.anchoredPosition = new Vector2(offsetX, offsetY);
 
         var cardImg = card.GetComponent<Image>();

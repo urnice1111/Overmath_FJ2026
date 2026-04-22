@@ -3612,6 +3612,7 @@ MonoBehaviour:
   botonResolverSize: {x: 200, y: 60}
   botonResolverColor: {r: 0.2, g: 0.7, b: 0.3, a: 1}
   botonFontSize: 30
+  spawnCount: 0
 --- !u!4 &967259021
 Transform:
   m_ObjectHideFlags: 0
@@ -8703,7 +8704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::TiempoJuego
   barTransform: {fileID: 1896745689}
   maxTime: 100
-  decreaseRate: 25
+  decreaseRate: 1
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1896745691
 MonoBehaviour:
