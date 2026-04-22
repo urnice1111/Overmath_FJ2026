@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 115969290}
   - component: {fileID: 115969292}
   - component: {fileID: 115969291}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: tiempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,13 +360,13 @@ GameObject:
   - component: {fileID: 128430216}
   - component: {fileID: 128430215}
   - component: {fileID: 128430214}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: WinCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &128430214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,7 +460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 168285153}
   - component: {fileID: 168285152}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FakeObjective
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 172596025}
   - component: {fileID: 172596027}
   - component: {fileID: 172596026}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Tiempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1439,8 +1439,8 @@ GameObject:
   - component: {fileID: 221849707}
   - component: {fileID: 221849709}
   - component: {fileID: 221849708}
-  m_Layer: 5
-  m_Name: Text (TMP)
+  m_Layer: 6
+  m_Name: Resultados
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1826,7 +1826,7 @@ GameObject:
   - component: {fileID: 377662813}
   - component: {fileID: 377662815}
   - component: {fileID: 377662814}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Correctas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2144,7 +2144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443138341}
   - component: {fileID: 443138340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GanarPerder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2243,7 +2243,7 @@ GameObject:
   - component: {fileID: 548135495}
   - component: {fileID: 548135497}
   - component: {fileID: 548135496}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Marco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2377,7 +2377,7 @@ GameObject:
   - component: {fileID: 686308920}
   - component: {fileID: 686308922}
   - component: {fileID: 686308921}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Fondo azul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2616,7 +2616,7 @@ GameObject:
   - component: {fileID: 752110327}
   - component: {fileID: 752110328}
   - component: {fileID: 752110329}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: contestadas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4322,7 +4322,7 @@ GameObject:
   - component: {fileID: 1046856660}
   - component: {fileID: 1046856662}
   - component: {fileID: 1046856661}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: correctas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4459,7 +4459,7 @@ GameObject:
   - component: {fileID: 1082314430}
   - component: {fileID: 1082314432}
   - component: {fileID: 1082314431}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Puntaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4810,7 +4810,7 @@ GameObject:
   - component: {fileID: 1118868713}
   - component: {fileID: 1118868715}
   - component: {fileID: 1118868714}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Contestadas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6141,7 +6141,7 @@ GameObject:
   - component: {fileID: 1300276769}
   - component: {fileID: 1300276771}
   - component: {fileID: 1300276770}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: puntaje
   m_TagString: Untagged
   m_Icon: {fileID: 0}
