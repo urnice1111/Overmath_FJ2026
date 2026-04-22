@@ -25,9 +25,6 @@ public class PreguntaManager : MonoBehaviour
     }
 
     public static PreguntaManager Instance { get; private set; }
-    
-    public int TotalContestadas { get; private set; }
-    public int TotalCorrectas { get; private set; }
 
     [SerializeField] private TextMeshProUGUI textoPregunta;
 
@@ -178,14 +175,4 @@ public class PreguntaManager : MonoBehaviour
             textoPregunta.text = PreguntaActual.problema;
     }
     
-    // Método para registrar cada respuesta
-    public void RegistrarRespuesta(int resultado)
-    {
-        TotalContestadas++; // siempre suma una pregunta contestada
-
-        if (VerificarRespuesta(resultado)) // usa tu método ya existente
-        {
-            TotalCorrectas++; // solo suma si fue correcta
-        }
-    }
 }

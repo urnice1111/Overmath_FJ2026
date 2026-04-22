@@ -27,8 +27,8 @@ public class GameFlowManager : MonoBehaviour
 
         int puntos = PuntajedePregunta.Instance.PuntosActuales;
         float tiempo = TiempoJuego.Instance.TiempoJugado;
-        int contestadas = PreguntaManager.Instance.TotalContestadas;
-        int correctas = PreguntaManager.Instance.TotalCorrectas;
+        int contestadas = PuntajedePregunta.Instance.TotalContestadas;
+        int correctas = PuntajedePregunta.Instance.TotalCorrectas;
 
         if (puntos >= 100)
         {

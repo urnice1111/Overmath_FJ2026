@@ -12,7 +12,7 @@ public class resultadosUI : MonoBehaviour
     {
         Debug.Log("Resultados actualizados");
         
-        puntaje.text = "hola" + puntajee;
+        puntaje.text = "" + puntajee;
         tiempo.text = "" + FormatearTiempo(tiempoo);
         contestadas.text = "" + contestadass;
         correctas.text = "" + correctass;

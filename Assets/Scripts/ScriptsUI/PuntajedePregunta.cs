@@ -8,6 +8,8 @@ public class PuntajedePregunta : MonoBehaviour
     [SerializeField] private int puntosPorAcierto = 5;
     [SerializeField] private int bonusPorNumeroUsado = 1;
     [SerializeField] private int bonusPorOperadorUsado = 2;
+    public int TotalContestadas { get; private set; }
+    public int TotalCorrectas { get; private set; }
 
     // private const string PlayerPrefsKey = "PuntajeActual";
 
@@ -35,6 +37,7 @@ public class PuntajedePregunta : MonoBehaviour
     //Registra el resultado de una pregunta, sumando puntos solo si la respuesta es correcta
     public void RegistrarResultado(bool respuestaCorrecta, int numerosUsados = 0, int operadoresUsados = 0)
     {
+        TotalContestadas++; // siempre suma una pregunta contestada
         if (respuestaCorrecta)
         {
             int bonus = Mathf.Max(0, numerosUsados) * bonusPorNumeroUsado
@@ -42,6 +45,7 @@ public class PuntajedePregunta : MonoBehaviour
 
             SumarPuntos(puntosPorAcierto + bonus);
             TiempoJuego.Instance.AjustarTiempo(+10f); // aumenta tiempo
+            TotalCorrectas++; // solo suma si fue correcta
         }
         else
         {
