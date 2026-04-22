@@ -8,6 +8,8 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private GameObject WinCanvas; // Pop-up de victoria
     [SerializeField] private GameObject LoseCanvas; // Pop-up de derrota
     [SerializeField] private resultadosUI resultadosUI;
+    private GameObject tiempoymenu;
+    private GameObject villano;
 
     private bool gameEnded = false;
 
@@ -21,7 +23,14 @@ public class GameFlowManager : MonoBehaviour
 
     void Update()
     {
-        if (gameEnded) return;
+        if (gameEnded)
+        {
+            tiempoymenu = GameObject.Find("TiempoYMenu");
+            tiempoymenu.SetActive(false);
+            villano = GameObject.Find("FakeObjective");
+            villano.SetActive(false); }
+
+        ;
         
         float tiemporestante = TiempoJuego.Instance.TiempoRestante;
 
@@ -57,7 +66,6 @@ public class GameFlowManager : MonoBehaviour
         // Ocultar mesa creacion si activa
         ActiveMesaCreacion mesa = null;
         mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
-
         mesa.Cerrar();
 
         gameEnded = true;

@@ -53,6 +53,23 @@ public class GameSession : MonoBehaviour
 
         return $"https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/get_questions/{IslaActual}/{diff}";
     }
+    public int GetNivel()
+    {
+        if (IslaActual == "isla_infinito")
+            return 15; // único nivel para infinito
+
+        int islaIndex = IslaActual switch
+        {
+            "isla_suma" => 0,
+            "isla_resta" => 1,
+            "isla_multi" => 2,
+            "isla_div" => 3,
+            "isla_comb" => 4,
+            _ => 0
+        };
+
+        return islaIndex * 3 + (int)DificultadActual;
+    }
 
     // Later hp bar logic here:
 }

@@ -133,6 +133,19 @@ public class ExpressionEvaluator : MonoBehaviour
 
         if (PuntajedePregunta.Instance != null)
             PuntajedePregunta.Instance.RegistrarResultado(correcto, numerosUsados, operadoresUsados);
+        
+        if (PreguntaManager.Instance != null)
+        {
+            int idPregunta = PreguntaManager.Instance.PreguntaIndexActual - 1;
+
+            PreguntaManager.Instance.RegistrarIntento(
+                idPregunta,
+                resultado.ToString(),
+                correcto
+            );
+
+            PreguntaManager.Instance.CargarPreguntaAleatoria();
+        }
 
         if (Ranks_Manager.Instance != null)
             Ranks_Manager.Instance.RegistrarRespuesta(correcto);

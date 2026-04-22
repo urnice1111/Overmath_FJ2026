@@ -38,13 +38,16 @@ public class PuntajedePregunta : MonoBehaviour
     public void RegistrarResultado(bool respuestaCorrecta, int numerosUsados = 0, int operadoresUsados = 0)
     {
         TotalContestadas++; // siempre suma una pregunta contestada
+        
         if (respuestaCorrecta)
         {
             int bonus = Mathf.Max(0, numerosUsados) * bonusPorNumeroUsado
                       + Mathf.Max(0, operadoresUsados) * bonusPorOperadorUsado;
 
             SumarPuntos(puntosPorAcierto + bonus);
+            
             TiempoJuego.Instance.AjustarTiempo(+10f); // aumenta tiempo
+            
             TotalCorrectas++; // solo suma si fue correcta
         }
         else
