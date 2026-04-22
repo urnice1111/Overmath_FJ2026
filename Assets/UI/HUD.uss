@@ -3,7 +3,7 @@
 }
 
 .text {
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/Font/GrapeSoda.ttf?fileID=12800000&guid=1ce24602d69ad9348b3d31800d2bee86&type=3#GrapeSoda");
     -unity-font-style: normal;
     font-size: 52px;
 }

@@ -120,7 +120,7 @@ public class SignInHandler : MonoBehaviour
 
         string jsonBody = JsonUtility.ToJson(signInData);
 
-        using UnityWebRequest www = UnityWebRequest.Post("https://q623ldzsbzpk3j6nktpzcvqi7y0qrpsr.lambda-url.us-east-1.on.aws/register_jugador", jsonBody, "application/json");
+        using UnityWebRequest www = UnityWebRequest.Post("https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/register_jugador", jsonBody, "application/json");
 
         yield return www.SendWebRequest();
 
