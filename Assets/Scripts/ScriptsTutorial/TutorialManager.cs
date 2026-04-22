@@ -22,8 +22,10 @@ public class TutorialManager : MonoBehaviour
     [Header("Return scene after tutorial ends")]
     [SerializeField] private string escenaMapa = "PantallaPrincipal";
 
+    [Header("Intro dialogue (optional, needs DialogueSystem.DialogueHolder component)")]
     [SerializeField] private GameObject DialogueHolder;
 
+    private Canvas tutorialCanvas;
     private int pasoActual = -1;
     private TutorialStep stepActivo;
     private bool esperandoTap;
@@ -40,18 +42,26 @@ public class TutorialManager : MonoBehaviour
             return;
         }
         Instance = this;
+
+        tutorialCanvas = panelDialogue.GetComponentInParent<Canvas>(true);
     }
 
     private void Start()
     {
         if (GameSession.Instance == null || !GameSession.Instance.IsTutorial)
         {
+            SetTutorialCanvasActive(false);
             panelDialogue.SetActive(false);
             enabled = false;
             return;
         }
 
-        if(DialogueHolder != null)
+        SetTutorialCanvasActive(true);
+
+        bool hasIntro = DialogueHolder != null
+            && DialogueHolder.GetComponent<DialogueSystem.DialogueHolder>() != null;
+
+        if (hasIntro)
         {
             StartCoroutine(EjecutarIntroYEmpezarTutorial());
         }
@@ -59,6 +69,12 @@ public class TutorialManager : MonoBehaviour
         {
             IniciarTutorial();
         }
+    }
+
+    private void SetTutorialCanvasActive(bool active)
+    {
+        if (tutorialCanvas != null)
+            tutorialCanvas.gameObject.SetActive(active);
     }
 
     public void IniciarTutorial()
@@ -278,6 +294,7 @@ public class TutorialManager : MonoBehaviour
         TutorialActivo = false;
         panelDialogue.SetActive(false);
         spotlight.Hide();
+        SetTutorialCanvasActive(false);
 
         // PlayerPrefs.SetInt("TutorialCompletado", 1);
         // PlayerPrefs.Save();

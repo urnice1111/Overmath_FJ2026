@@ -8968,7 +8968,7 @@ MonoBehaviour:
   textoDialogue: {fileID: 1827083562}
   spotlight: {fileID: 1327552522}
   escenaMapa: PantallaPrincipal
-  DialogueHolder: {fileID: 0}
+  DialogueHolder: {fileID: 1118339380}
   isGoBackButtonPressed: 0
 --- !u!4 &1919949654
 Transform:
