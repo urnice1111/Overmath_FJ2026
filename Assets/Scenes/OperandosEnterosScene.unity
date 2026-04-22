@@ -8704,7 +8704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::TiempoJuego
   barTransform: {fileID: 1896745689}
   maxTime: 100
-  decreaseRate: 1
+  decreaseRate: 25
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1896745691
 MonoBehaviour:
