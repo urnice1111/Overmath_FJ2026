@@ -6,7 +6,7 @@ public class DifficultySelector : MonoBehaviour
 {
     [SerializeField] private string gameSceneName = "OperandosEnterosScene";
 
-    /*public void OnFacilSelected()
+    public void OnFacilSelected()
     {
         GameSession.Instance.SetDificultad(Dificultad.Facil);
         SceneManager.LoadScene(gameSceneName);
@@ -22,7 +22,7 @@ public class DifficultySelector : MonoBehaviour
     {
         GameSession.Instance.SetDificultad(Dificultad.Dificil);
         SceneManager.LoadScene(gameSceneName);
-    }*/
+    }
     // Isla Suma
     public void OnSumaFacil()
     {
