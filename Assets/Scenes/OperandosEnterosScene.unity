@@ -4235,7 +4235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 0.05
+  velocidad: 2
+  desplazamientoMax: 0.5
+  posicionInicial: {x: 0, y: 0, z: 0}
+  direccion: 1
 --- !u!1 &1026360604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4327,7 +4330,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd20434ba6e54b1786a4a038a3306c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::ActivDesacBackgrounds
-  visualD: []
+  visualD:
+  - islandName: 
+    backgroundObjects: {fileID: 0}
+    villianObject: {fileID: 0}
+  - islandName: 
+    backgroundObjects: {fileID: 0}
+    villianObject: {fileID: 0}
+  - islandName: 
+    backgroundObjects: {fileID: 0}
+    villianObject: {fileID: 0}
+  - islandName: 
+    backgroundObjects: {fileID: 0}
+    villianObject: {fileID: 0}
+  - islandName: 
+    backgroundObjects: {fileID: 0}
+    villianObject: {fileID: 0}
 --- !u!1 &1035531158
 GameObject:
   m_ObjectHideFlags: 0
@@ -5736,7 +5754,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 0.05
+  velocidad: 2
+  desplazamientoMax: 0.5
+  posicionInicial: {x: 0, y: 0, z: 0}
+  direccion: 1
 --- !u!1 &1190751788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6299,7 +6320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 0.05
+  velocidad: 2
+  desplazamientoMax: 0.5
+  posicionInicial: {x: 0, y: 0, z: 0}
+  direccion: 1
 --- !u!1 &1239925940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6404,7 +6428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 0.05
+  velocidad: 2
+  desplazamientoMax: 5
+  posicionInicial: {x: 0, y: 0, z: 0}
+  direccion: 1
 --- !u!1 &1255636117
 GameObject:
   m_ObjectHideFlags: 0
@@ -7721,6 +7748,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscenaHuerto
   velocidad: 2
+  desplazamientoMax: 0.5
+  posicionInicial: {x: 0, y: 0, z: 0}
+  direccion: 1
 --- !u!212 &1486636917
 SpriteRenderer:
   serializedVersion: 2

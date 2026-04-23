@@ -2,26 +2,29 @@ using UnityEngine;
 
 public class MovimientoBackground : MonoBehaviour
 {
-    public float velocidad = 0.05f;
-    public float velocidadRotacion = 180f; //rotation speed in degrees per second
-    private float ancho;
-    private Vector3 posicionInicial;
+    public float velocidad = 0.5f; //Movemet speed of the bakcground
+    public float desplazamientoMax = 5f; //Amount of movement in the background
+    public SpriteRenderer sr; //Reference to the SpriteRenderer component of the background
 
+    private Vector3 posicionInicial;
+    private int direccion = 1; //Direction of movement, 1 for right and -1 for left
     void Start()
     {
-        ancho = GetComponent<SpriteRenderer>().bounds.size.x;
-        posicionInicial = transform.position;
+        posicionInicial = transform.position; //Store the initial position of the background
     }
 
     void Update()
     {
-        transform.position += Vector3.left * velocidad * Time.deltaTime;
-        transform.Rotate(0f, 0f, velocidadRotacion * Time.deltaTime);
-
-        if (transform.position.x <= -ancho)
+        transform.position += Vector3.right * direccion * velocidad * Time.deltaTime; //move the background in the current p, dir, sp and t
+        float distancia = transform.position.x - posicionInicial.x; //Calculate the distance moved from the initial position
+        if (distancia <= -desplazamientoMax)
         {
-            transform.position = posicionInicial;
-            transform.rotation = Quaternion.identity;
+            direccion = 1; //Move to the right
+        }
+        else if (distancia >= 0f)
+        {
+            direccion = -1; //Move to the left
         }
     }
 }
+
