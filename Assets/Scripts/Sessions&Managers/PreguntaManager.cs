@@ -190,7 +190,7 @@ public class PreguntaManager : MonoBehaviour
         {
             id_pregunta = idPregunta,
             respuesta_usuario = respuestaUsuario,
-            es_correcta = esCorrecta,
+            es_correcto = esCorrecta,
             tiempo_respuesta_seg = tiempoRespuesta
         };
 

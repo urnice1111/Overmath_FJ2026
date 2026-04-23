@@ -12,7 +12,7 @@ public class ProgressHandler : MonoBehaviour
     {
         public int id_pregunta;
         public string respuesta_usuario;
-        public bool es_correcta;
+        public bool es_correcto;
         public float tiempo_respuesta_seg;
     }
 
