@@ -25,14 +25,14 @@ public class ActivDesacBackgrounds : MonoBehaviour
             return;
         }
 
-        string islaActual = GameSession.Instance.IslaActual();
+        string islaActual = GameSession.Instance.IslaActual;
         for (int i = 0; i < visualD.Length; i++)
         {
             if (visualD[i].islandName == islaActual)
             {
                 visualD[i].backgroundObjects.SetActive(true);
                 visualD[i].villianObject.SetActive(true);
-                Debug.Log("Se activaron los objetos para la isla: " + islaActual);
+                //Debug.Log("Se activaron los objetos para la isla: " + islaActual);
             }
             else
             {
