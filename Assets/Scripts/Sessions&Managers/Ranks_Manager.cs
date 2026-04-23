@@ -33,6 +33,11 @@ public class Ranks_Manager : MonoBehaviour
 
         EvaluarRank();
         Debug.Log("Ranks_Manager: streak=" + streak + " rank=" + rank);
+
+        if (Ranks_Display.Instance != null)
+        {
+            Ranks_Display.Instance.ActualizarRango(rank);
+        }
     }
 
     public void EvaluarRank()  //Evalúa el rango del jugador en función de su racha actual (streak) y actualiza la variable rank:
