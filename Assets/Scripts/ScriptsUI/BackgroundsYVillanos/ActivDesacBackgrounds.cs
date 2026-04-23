@@ -1,16 +1,16 @@
-using System;
 using UnityEngine;
+
 [System.Serializable]
 public class VisualData
 {
-    public string islandName; // Name of the island to activate the background
-    public GameObject backgroundObjects; // Reference to the background GameObject
-    public GameObject villianObject; // Reference to the Villian GameObject
-
+    public string islandName;
+    public GameObject backgroundObject;
+    public GameObject villianObject;
 }
+
 public class ActivDesacBackgrounds : MonoBehaviour
 {
-    [SerializeField] private VisualData[] visualD; // Array to hold data for each island
+    [SerializeField] private VisualData[] visualD;
 
     private void Start()
     {
@@ -21,27 +21,21 @@ public class ActivDesacBackgrounds : MonoBehaviour
     {
         if (GameSession.Instance == null)
         {
-            Debug.LogWarning("ActivDesacBackgrounds: GameSession.Instance es null");
+            Debug.LogWarning("GameSession es null");
             return;
         }
 
         string islaActual = GameSession.Instance.IslaActual;
+
         for (int i = 0; i < visualD.Length; i++)
         {
-            if (visualD[i].islandName == islaActual)
-            {
-                visualD[i].backgroundObjects.SetActive(true);
-                visualD[i].villianObject.SetActive(true);
-                //Debug.Log("Se activaron los objetos para la isla: " + islaActual);
-            }
-            else
-            {
-                visualD[i].backgroundObjects.SetActive(false);
-                visualD[i].villianObject.SetActive(false);
-            }
-        }
+            bool activar = visualD[i].islandName == islaActual;
 
-        Debug.Log("No se encontró la isla actual = " + islaActual);
+            if (visualD[i].backgroundObject != null)
+                visualD[i].backgroundObject.SetActive(activar);
+
+            if (visualD[i].villianObject != null)
+                visualD[i].villianObject.SetActive(activar);
+        }
     }
 }
-    
