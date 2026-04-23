@@ -3688,6 +3688,7 @@ MonoBehaviour:
   PreguntaActual:
     respuesta_correcta: 0
     problema: 
+  intentos: []
 --- !u!4 &961878890
 Transform:
   m_ObjectHideFlags: 0
@@ -8704,7 +8705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::TiempoJuego
   barTransform: {fileID: 1896745689}
   maxTime: 100
-  decreaseRate: 25
+  decreaseRate: 1
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1896745691
 MonoBehaviour:

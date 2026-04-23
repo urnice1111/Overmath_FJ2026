@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01e35b13f54346949a04a542d037c767
+guid: b7e4eb8eb6aad4736adc90a3cd34bd93
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WhatsApp Image 2026-04-21 at 11.35.15 PM_0
+      name: Tile pallet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e69a51416ce19b4387826cfc0c731dd
-      internalID: -2120537460
+      spriteID: a618743fa2601490fa103b10f940f3d4
+      internalID: -1522299580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WhatsApp Image 2026-04-21 at 11.35.15 PM_1
+      name: Tile pallet 1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -147,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fea21a973c26e7c4a8db8c320aeffb2c
-      internalID: -1967588926
+      spriteID: 08d7887845ff840388766740b51c0023
+      internalID: -1180157561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WhatsApp Image 2026-04-21 at 11.35.15 PM_2
+      name: Tile pallet 1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -169,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fd8381059209414b95e9d0718586dd2
-      internalID: 1803315241
+      spriteID: 0cb90e92f30fa4612968c7a512d5dc2e
+      internalID: -182066996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WhatsApp Image 2026-04-21 at 11.35.15 PM_3
+      name: Tile pallet 1_3
       rect:
         serializedVersion: 2
         x: 16
@@ -191,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4eb5e8f81bbab64d940d0304460c8af
-      internalID: 949498827
+      spriteID: d47d7eb86b8dd4430aa976a981bcc6bc
+      internalID: -886111153
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cb28cbab1dbe1724aae556057831c7e3
+    spriteID: 3e1a5392b332c41c1a74c79619c35859
     internalID: 0
     vertices: []
     indices: 
@@ -211,12 +211,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      WhatsApp Image 2026-04-21 at 11.35.15 PM_0: -2120537460
-      WhatsApp Image 2026-04-21 at 11.35.15 PM_1: -1967588926
-      WhatsApp Image 2026-04-21 at 11.35.15 PM_2: 1803315241
-      WhatsApp Image 2026-04-21 at 11.35.15 PM_3: 949498827
+      Tile pallet 1_0: -1522299580
+      Tile pallet 1_1: -1180157561
+      Tile pallet 1_2: -182066996
+      Tile pallet 1_3: -886111153
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
