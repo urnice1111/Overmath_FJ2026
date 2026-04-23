@@ -4,9 +4,9 @@ public class PuntajedePregunta : MonoBehaviour
 {
     public static PuntajedePregunta Instance { get; private set; }
 
-    [SerializeField] private int limitePuntos = 100;
-    [SerializeField] private int puntosPorAcierto = 5;
-    [SerializeField] private int bonusPorNumeroUsado = 1;
+    [SerializeField] private int MinimoDePuntos = 100;
+    [SerializeField] private int puntosPorAcierto = 1;
+    [SerializeField] private int bonusPorNumeroUsado = 2;
     [SerializeField] private int bonusPorOperadorUsado = 2;
     public int TotalContestadas { get; private set; }
     public int TotalCorrectas { get; private set; }
@@ -17,7 +17,7 @@ public class PuntajedePregunta : MonoBehaviour
 
 
     //Calcula el porcentaje actual basado en los puntos actuales y el límite de puntos
-    public int PorcentajeActual => limitePuntos <= 0 ? 0 : Mathf.RoundToInt((PuntosActuales / (float)limitePuntos) * 100f); //Redondea el porcentaje y el porcentaje no puede ser negativo ni mayor a 100
+    public int PorcentajeActual => MinimoDePuntos <= 0 ? 0 : Mathf.RoundToInt((PuntosActuales / (float)MinimoDePuntos) * 100f); //Redondea el porcentaje y el porcentaje no puede ser negativo ni mayor a 100
 
 
     //Hace que solo exista una instancia de PuntajedePregunta
@@ -42,7 +42,7 @@ public class PuntajedePregunta : MonoBehaviour
         if (respuestaCorrecta)
         {
             int bonus = Mathf.Max(0, numerosUsados) * bonusPorNumeroUsado
-                      + Mathf.Max(0, operadoresUsados) * bonusPorOperadorUsado;
+                      * Mathf.Max(0, operadoresUsados) * bonusPorOperadorUsado;
 
             SumarPuntos(puntosPorAcierto + bonus);
             
@@ -67,9 +67,9 @@ public class PuntajedePregunta : MonoBehaviour
     //Suma una cantidad específica de puntos al puntaje actual
     private void SumarPuntos(int cantidad)
     {
-        PuntosActuales = Mathf.Clamp(PuntosActuales + cantidad, 0, limitePuntos);//Suma los puntos actuales con la cantidad de puntos, asegurándose de que el resultado esté entre 0 y el límite de puntos
+        PuntosActuales = Mathf.Clamp(PuntosActuales + cantidad, 0, MinimoDePuntos);//Suma los puntos actuales con la cantidad de puntos, asegurándose de que el resultado esté entre 0 y el límite de puntos
         GuardarPuntaje();
-        Debug.Log("PuntajedePregunta: " + PuntosActuales + "/" + limitePuntos + " (" + PorcentajeActual + "%)");
+        Debug.Log("PuntajedePregunta: " + PuntosActuales + "/" + MinimoDePuntos + " (" + PorcentajeActual + "%)");
     }
 
     //Carga el puntaje actual desde PlayerPrefs

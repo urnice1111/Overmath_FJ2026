@@ -1464,6 +1464,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &207965771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207965773}
+  - component: {fileID: 207965772}
+  m_Layer: 0
+  m_Name: Ranks_Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &207965772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207965771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e446dd704a8d90438fa4c6635982bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::Ranks_Display
+  animator: {fileID: 1190751789}
+  layerIndex: 0
+  rankStates:
+  - rank: D
+    triggerName: RangoD
+  - rank: C
+    triggerName: RangoC
+  - rank: B
+    triggerName: RangoB
+  - rank: A
+    triggerName: RangoA
+  - rank: OverMath
+    triggerName: RangoMax
+--- !u!4 &207965773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207965771}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.1969, y: -17.42588, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221849706
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,10 +1692,10 @@ RectTransform:
   - {fileID: 1865721131}
   m_Father: {fileID: 439659623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 860, y: -440}
-  m_SizeDelta: {x: 400, y: 150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276443015
 MonoBehaviour:
@@ -2085,7 +2142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &439659623
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2248,10 +2305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cc0e337ee876047905d0b4c7fa71a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuntajedePregunta
-  limitePuntos: 100
-  puntosPorAcierto: 50
-  bonusPorNumeroUsado: 1
-  bonusPorOperadorUsado: 2
+  MinimoDePuntos: 100
+  puntosPorAcierto: 1
+  bonusPorNumeroUsado: 2
+  bonusPorOperadorUsado: 3
 --- !u!4 &481603029
 Transform:
   m_ObjectHideFlags: 0
@@ -5769,6 +5826,7 @@ GameObject:
   - component: {fileID: 1190751791}
   - component: {fileID: 1190751790}
   - component: {fileID: 1190751789}
+  - component: {fileID: 1190751792}
   m_Layer: 0
   m_Name: Rank_assets_1
   m_TagString: Untagged
@@ -5866,12 +5924,27 @@ Transform:
   m_GameObject: {fileID: 1190751788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5135975, y: -17.796644, z: 0}
+  m_LocalPosition: {x: 6.83, y: -17.796644, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190751792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190751788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb068f21f4882b94c8ecd9f5309b97c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::Ranks_Manager
+  streak: 0
+  rank: D
+  escenaResultado: OperandosEnterosScene
 --- !u!1 &1234470301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6893,10 +6966,10 @@ RectTransform:
   - {fileID: 391215609}
   m_Father: {fileID: 439659623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 860, y: -190}
-  m_SizeDelta: {x: 400, y: 150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1357078183
 MonoBehaviour:
@@ -10245,10 +10318,10 @@ RectTransform:
   - {fileID: 1122543755}
   m_Father: {fileID: 439659623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 860, y: -690}
-  m_SizeDelta: {x: 400, y: 150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1949726841
 MonoBehaviour:
@@ -10676,3 +10749,4 @@ SceneRoots:
   - {fileID: 801857428}
   - {fileID: 1190751791}
   - {fileID: 1718333489}
+  - {fileID: 207965773}
