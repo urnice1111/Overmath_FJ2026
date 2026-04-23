@@ -194,7 +194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &111286739
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,11 +1515,11 @@ Transform:
   m_GameObject: {fileID: 207965771}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.1969, y: -17.42588, z: 0}
+  m_LocalPosition: {x: 14.09245, y: -0.18486023, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 398963312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221849706
 GameObject:
@@ -2124,6 +2124,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391215608}
   m_CullTransparentMesh: 1
+--- !u!1 &398963311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398963312}
+  m_Layer: 0
+  m_Name: Rangos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &398963312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398963311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.89555, y: -17.24102, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1422025147}
+  - {fileID: 1190751791}
+  - {fileID: 207965773}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &439659622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,10 +4326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 2
-  desplazamientoMax: 0.5
-  posicionInicial: {x: 0, y: 0, z: 0}
-  direccion: 1
+  duracionRecorrido: 15
 --- !u!1 &1026360604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4389,19 +4420,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::ActivDesacBackgrounds
   visualD:
   - islandName: 
-    backgroundObjects: {fileID: 0}
+    backgroundObject: {fileID: 0}
     villianObject: {fileID: 0}
   - islandName: 
-    backgroundObjects: {fileID: 0}
+    backgroundObject: {fileID: 0}
     villianObject: {fileID: 0}
   - islandName: 
-    backgroundObjects: {fileID: 0}
+    backgroundObject: {fileID: 0}
     villianObject: {fileID: 0}
   - islandName: 
-    backgroundObjects: {fileID: 0}
+    backgroundObject: {fileID: 0}
     villianObject: {fileID: 0}
   - islandName: 
-    backgroundObjects: {fileID: 0}
+    backgroundObject: {fileID: 0}
     villianObject: {fileID: 0}
 --- !u!1 &1035531158
 GameObject:
@@ -5811,10 +5842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 2
-  desplazamientoMax: 0.5
-  posicionInicial: {x: 0, y: 0, z: 0}
-  direccion: 1
+  duracionRecorrido: 15
 --- !u!1 &1190751788
 GameObject:
   m_ObjectHideFlags: 0
@@ -5923,12 +5951,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190751788}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.83, y: -17.796644, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.72555, y: -0.555624, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 398963312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1190751792
 MonoBehaviour:
@@ -6393,10 +6421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 2
-  desplazamientoMax: 0.5
-  posicionInicial: {x: 0, y: 0, z: 0}
-  direccion: 1
+  duracionRecorrido: 15
 --- !u!1 &1239925940
 GameObject:
   m_ObjectHideFlags: 0
@@ -6501,10 +6526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
-  velocidad: 2
-  desplazamientoMax: 5
-  posicionInicial: {x: 0, y: 0, z: 0}
-  direccion: 1
+  duracionRecorrido: 15
 --- !u!1 &1255636117
 GameObject:
   m_ObjectHideFlags: 0
@@ -7572,12 +7594,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422025145}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0497, y: 0.17714, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.84585, y: 17.41816, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 398963312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1439254048
 GameObject:
@@ -7595,7 +7617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1439254049
 Transform:
   m_ObjectHideFlags: 0
@@ -7820,10 +7842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e7d8f714c34a7a90c3f3f393238ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscenaHuerto
-  velocidad: 2
-  desplazamientoMax: 0.5
-  posicionInicial: {x: 0, y: 0, z: 0}
-  direccion: 1
+  duracionRecorrido: 15
 --- !u!212 &1486636917
 SpriteRenderer:
   serializedVersion: 2
@@ -9279,7 +9298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1849665484
 Transform:
   m_ObjectHideFlags: 0
@@ -10732,7 +10751,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 443138341}
-  - {fileID: 1422025147}
   - {fileID: 1658332798}
   - {fileID: 1472767201}
   - {fileID: 1542696612}
@@ -10747,6 +10765,5 @@ SceneRoots:
   - {fileID: 40862843}
   - {fileID: 1296453379}
   - {fileID: 801857428}
-  - {fileID: 1190751791}
   - {fileID: 1718333489}
-  - {fileID: 207965773}
+  - {fileID: 398963312}

@@ -257,15 +257,47 @@ public class ExpressionEvaluator : MonoBehaviour
 
     private void ReproducirAnimacionResultado(bool correcto)
     {
+        // Si ya está asignado, usar ese
         if (villianState == null)
-            villianState = FindObjectOfType<VillianState>();
+        {
+            // Buscar todos los VillianState activos en la escena
+            VillianState[] villains = FindObjectsOfType<VillianState>();
+            
+            if (villains.Length == 0)
+            {
+                Debug.LogWarning("ExpressionEvaluator: No se encontro ningun VillianState en la escena.");
+                return;
+            }
+            
+            if (villains.Length > 1)
+            {
+                Debug.LogWarning($"ExpressionEvaluator: Se encontraron {villains.Length} villanos. Usando el primero activo.");
+                // Priorizar el activo
+                foreach (var villain in villains)
+                {
+                    if (villain.gameObject.activeSelf)
+                    {
+                        villianState = villain;
+                        break;
+                    }
+                }
+                // Si no hay ninguno activo, usar el primero
+                if (villianState == null)
+                    villianState = villains[0];
+            }
+            else
+            {
+                villianState = villains[0];
+            }
+        }
 
         if (villianState == null)
         {
-            Debug.LogWarning("ExpressionEvaluator: No se encontro VillianState para reproducir la animacion.");
+            Debug.LogError("ExpressionEvaluator: No se pudo obtener una referencia valida a VillianState.");
             return;
         }
 
+        Debug.Log($"ExpressionEvaluator: Reproduciendo animacion en villano: {villianState.gameObject.name}");
         if (correcto)
             villianState.MakeAnimationCorrectAnsw();
         else
