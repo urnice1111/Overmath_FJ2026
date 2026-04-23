@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EscenaHuerto : MonoBehaviour
+public class MovimientoBackground : MonoBehaviour
 {
     public float velocidad = 0.05f;
     private float ancho;
