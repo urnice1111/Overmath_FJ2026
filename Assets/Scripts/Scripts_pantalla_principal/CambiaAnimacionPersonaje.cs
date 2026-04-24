@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// Animación + pasos (versión simple y funcional)
 
 public class CambiaAnimacionPersonaje : MonoBehaviour
 {
@@ -37,7 +36,6 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
     animator.SetBool("isSwimming", true);
     sr.flipX = velocidad.x < -0.1f;
     
-    // Detener audio de pasos SOLO cuando entra al agua (transición)
     if (!estabaEnAgua)
     {
         audioSource.Stop();
@@ -69,7 +67,6 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
         else
         {
             animator.SetBool("isSwimming", false);
-            // Detener audio de nado cuando sale del agua
             if (estabaEnAgua)
             {
                 audioSource.Stop();
