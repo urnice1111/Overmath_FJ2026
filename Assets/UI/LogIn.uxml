@@ -3,8 +3,8 @@
     <ui:VisualElement name="LogIn" class="login-root" style="-unity-font-definition: url(&quot;project://database/Assets/Font/Pixeled.ttf?fileID=12800000&amp;guid=8fb5217c4f3de4d6590f5f984218537b&amp;type=3#Pixeled&quot;);">
         <ui:VisualElement class="login-spacer"/>
         <ui:VisualElement name="FormPanel" class="login-form-panel" style="margin-left: 756px;">
-            <ui:Label text="OVERMATH" class="login-title" style="-unity-font-definition: url(&quot;project://database/Assets/Font/GrapeSoda.ttf?fileID=12800000&amp;guid=1ce24602d69ad9348b3d31800d2bee86&amp;type=3#GrapeSoda&quot;);"/>
-            <ui:Label text="INICIAR SESIÓN" class="login-subtitle" style="-unity-font-definition: url(&quot;project://database/Assets/Font/GrapeSoda.ttf?fileID=12800000&amp;guid=1ce24602d69ad9348b3d31800d2bee86&amp;type=3#GrapeSoda&quot;);"/>
+            <ui:Label text="OVERMATH" class="login-title" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
+            <ui:Label text="INICIAR SESIÓN" class="login-subtitle" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
             <ui:Label text="CORREO ELECTRÓNICO" class="field-label" style="-unity-font-definition: url(&quot;project://database/Assets/Font/GrapeSoda.ttf?fileID=12800000&amp;guid=1ce24602d69ad9348b3d31800d2bee86&amp;type=3#GrapeSoda&quot;);"/>
             <ui:TextField name="EmailField" class="scroll-textfield"/>
             <ui:Label text="CONTRASEÑA" class="field-label" style="-unity-font-definition: url(&quot;project://database/Assets/Font/GrapeSoda.ttf?fileID=12800000&amp;guid=1ce24602d69ad9348b3d31800d2bee86&amp;type=3#GrapeSoda&quot;);"/>
