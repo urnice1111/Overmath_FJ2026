@@ -1,5 +1,5 @@
 using UnityEngine;
-public class SalirTriggerBarco : MonoBehaviour
+public class TriggerBarco : MonoBehaviour
 {
     public GameObject playButtonUI;
 

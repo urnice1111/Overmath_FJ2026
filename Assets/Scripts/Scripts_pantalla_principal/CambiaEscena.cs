@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : MonoBehaviour
+public class CambiaEscena : MonoBehaviour
 {
     public string sceneToLoad;
 
-    public void LoadPantallaPrincipal()
+    public void LoadNuevaEscena()
     {
         SceneManager.LoadScene(sceneToLoad);
     }
