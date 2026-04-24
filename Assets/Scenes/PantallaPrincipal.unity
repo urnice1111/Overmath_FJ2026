@@ -1916,7 +1916,7 @@ GameObject:
   - component: {fileID: 630616018}
   - component: {fileID: 630616017}
   m_Layer: 0
-  m_Name: isla_multiplicacion
+  m_Name: isla_multi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1935,6 +1935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
+  islandName: isla_multi
 --- !u!58 &630616018
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2193,8 +2194,9 @@ GameObject:
   - component: {fileID: 823994050}
   - component: {fileID: 823994049}
   - component: {fileID: 823994051}
+  - component: {fileID: 823994052}
   m_Layer: 0
-  m_Name: isla_4 operandos_0
+  m_Name: isla_comb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2310,6 +2312,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 9.39566
+--- !u!114 &823994052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823994048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f15845a7d3f834c9dcc66ad7af605a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::IslandTrigger
+  playButtonUI: {fileID: 1153813430}
+  islandName: isla_comb
 --- !u!1 &835620639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3921,6 +3937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IslandTrigger
   playButtonUI: {fileID: 1153813430}
+  islandName: 
 --- !u!114 &1200030085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4490,6 +4507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
+  islandName: isla_resta
 --- !u!58 &1295376009
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5103,6 +5121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IslandTrigger
   playButtonUI: {fileID: 1809622677}
+  islandName: 
 --- !u!58 &1486591107
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6898,8 +6917,9 @@ GameObject:
   - component: {fileID: 2064703003}
   - component: {fileID: 2064703002}
   - component: {fileID: 2064703004}
+  - component: {fileID: 2064703005}
   m_Layer: 0
-  m_Name: isla_division
+  m_Name: isla_div
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7015,6 +7035,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 4.6399994
+--- !u!114 &2064703005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064703001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f15845a7d3f834c9dcc66ad7af605a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::IslandTrigger
+  playButtonUI: {fileID: 1153813430}
+  islandName: isla_div
 --- !u!1 &2104597883
 GameObject:
   m_ObjectHideFlags: 0
@@ -7145,6 +7179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
+  islandName: isla_suma
 --- !u!58 &2104597888
 CircleCollider2D:
   m_ObjectHideFlags: 0

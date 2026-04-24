@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class MovimientoBackground : MonoBehaviour
 {
-    [SerializeField] private float duracionRecorrido = 15f;
+    [SerializeField] private float duracionRecorrido = 10f;
 
     private Vector3 posicionInicial;
     private float desplazamientoMaximo;
@@ -29,7 +29,7 @@ public class MovimientoBackground : MonoBehaviour
 
         desplazamientoMaximo = (anchoSprite - anchoCamara) / 2f;
 
-        if (desplazamientoMaximo == 0f)
+        if (desplazamientoMaximo <= 0f)
         {
             Debug.LogWarning("MovimientoBackground: el fondo no es más ancho que la cámara.");
             desplazamientoMaximo = 0f;
@@ -38,7 +38,7 @@ public class MovimientoBackground : MonoBehaviour
 
     private void Update()
     {
-        if (desplazamientoMaximo == 0f)
+        if (desplazamientoMaximo <= 0f)
             return;
 
         float t = Mathf.PingPong(Time.time / duracionRecorrido, 1f);
