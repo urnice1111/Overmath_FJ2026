@@ -17,8 +17,9 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
     private float temporizadorPasos = 0f;
     public AudioClip sonidoNadar;
 
-    float tiempoEntreBrazadas = 0.5f;
+    private float tiempoEntreBrazadas = 0.5f;
     private float temporizadorNado = 0f;
+    private bool estabaEnAgua = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,6 +36,14 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
 {
     animator.SetBool("isSwimming", true);
     sr.flipX = velocidad.x < -0.1f;
+    
+    // Detener audio de pasos SOLO cuando entra al agua (transición)
+    if (!estabaEnAgua)
+    {
+        audioSource.Stop();
+        temporizadorPasos = 0f;
+        estabaEnAgua = true;
+    }
 
     bool estaNadando = Mathf.Abs(velocidad.x) > 0.1f || Mathf.Abs(velocidad.y) > 0.1f;
 
@@ -55,14 +64,18 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
         audioSource.Stop();
     }
 
-    // Reset pasos para evitar mezcla
-    temporizadorPasos = 0f;
-
     return;
 }
         else
         {
             animator.SetBool("isSwimming", false);
+            // Detener audio de nado cuando sale del agua
+            if (estabaEnAgua)
+            {
+                audioSource.Stop();
+                temporizadorNado = 0f;
+                estabaEnAgua = false;
+            }
         }
 
         bool estaQuieto = velocidad.sqrMagnitude < 0.01f;
