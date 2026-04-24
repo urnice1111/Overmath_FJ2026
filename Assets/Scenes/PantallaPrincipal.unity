@@ -388,8 +388,8 @@ Transform:
   m_GameObject: {fileID: 56133314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24.252514, y: 3.6926904, z: 0}
-  m_LocalScale: {x: 1.3058058, y: 28.448652, z: 1}
+  m_LocalPosition: {x: -24.252514, y: 5.6926894, z: 0}
+  m_LocalScale: {x: 1.3058058, y: 32.448532, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 115862237}
@@ -421,8 +421,8 @@ Transform:
   m_GameObject: {fileID: 57337838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2438173, y: 18.566916, z: 0}
-  m_LocalScale: {x: 45.773277, y: 2.2863333, z: 1}
+  m_LocalPosition: {x: 3.0562668, y: 20.200062, z: 0}
+  m_LocalScale: {x: 55.77474, y: 2.2863333, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 115862237}
@@ -1167,6 +1167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::CambiaEscena
   sceneToLoad: Barco_tienda
+  barco: {fileID: 531576067}
+  guardarPosicionAntesDeCambiar: 1
 --- !u!4 &359569149
 Transform:
   m_ObjectHideFlags: 0
@@ -2804,8 +2806,8 @@ Transform:
   m_GameObject: {fileID: 835620639}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.412172, y: 4.152494, z: 0}
-  m_LocalScale: {x: 2.2390404, y: 28.463327, z: 1}
+  m_LocalPosition: {x: 29.411371, y: 4.4969563, z: 0}
+  m_LocalScale: {x: 2.2390404, y: 33.464428, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 115862237}
@@ -3847,8 +3849,8 @@ Transform:
   m_GameObject: {fileID: 1090318336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.691799, y: 7.5000005, z: 0}
-  m_LocalScale: {x: 1.216587, y: 1.2706634, z: 0.5}
+  m_LocalPosition: {x: 13.691799, y: 8.5, z: 0}
+  m_LocalScale: {x: 1.4248667, y: 1.5483878, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5943,8 +5945,8 @@ Transform:
   m_GameObject: {fileID: 1653683724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9248409, y: -10.4601, z: 0}
-  m_LocalScale: {x: 47.772697, y: 2.2863333, z: 1}
+  m_LocalPosition: {x: 3.075161, y: -11.859939, z: 0}
+  m_LocalScale: {x: 55.774624, y: 2.2863333, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 115862237}
@@ -7005,7 +7007,7 @@ Transform:
   m_GameObject: {fileID: 1945868575}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.4126, y: 16.914793, z: 0}
+  m_LocalPosition: {x: 26.72368, y: 16.992563, z: 0}
   m_LocalScale: {x: 0.3452, y: 0.31814066, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8069,8 +8071,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4605349086990524080, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3985632721424942180}
   m_SourcePrefab: {fileID: 100100000, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
+--- !u!1 &3985632721424942179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4605349086990524080, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
+  m_PrefabInstance: {fileID: 3985632721424942178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3985632721424942180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985632721424942179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d11f26827def8b49ac15e3465b774ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::PosicionInicialBarco
 --- !u!1001 &5105590492050983824
 PrefabInstance:
   m_ObjectHideFlags: 0
