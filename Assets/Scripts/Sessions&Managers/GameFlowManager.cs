@@ -8,6 +8,7 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private GameObject WinCanvas; // Pop-up de victoria
     [SerializeField] private GameObject LoseCanvas; // Pop-up de derrota
     [SerializeField] private resultadosUI resultadosUI;
+    [SerializeField] private FrasesCanvaPerdiste frases;
     private GameObject tiempoymenu;
     private GameObject villano;
 
@@ -47,7 +48,7 @@ public class GameFlowManager : MonoBehaviour
         else if (tiemporestante <= 0 && puntos < 100)
         {
             //MostrarVictoria(puntos, tiempo, contestadas, correctas);
-            MostrarDerrota();
+            MostrarDerrota(puntos);
         }
     }
 
@@ -61,7 +62,7 @@ public class GameFlowManager : MonoBehaviour
         resultadosUI.MostrarResultados(puntos, tiempo, contestadas, correctas);
     }
 
-    private void MostrarDerrota()
+    private void MostrarDerrota(int puntos)
     {
         // Ocultar mesa creacion si activa
         ActiveMesaCreacion mesa = null;
@@ -70,6 +71,7 @@ public class GameFlowManager : MonoBehaviour
 
         gameEnded = true;
         LoseCanvas.GetComponent<LosePopupUI>().Show();
+        frases.MostrarPuntaje(puntos);
         Time.timeScale = 0f;
         Debug.Log("perdiste nub");
         
