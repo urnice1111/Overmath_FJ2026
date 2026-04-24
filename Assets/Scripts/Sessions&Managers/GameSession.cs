@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 /*
@@ -17,7 +18,7 @@ public class GameSession : MonoBehaviour
 
     public Dificultad DificultadActual {get; private set;} = Dificultad.Normal;
 
-    public string IslaActual {get; private set;} = "isla_suma";
+    public string IslaActual {get; private set;}
 
     public bool IsTutorial { get; set; }
 
@@ -34,7 +35,9 @@ public class GameSession : MonoBehaviour
             return;
         }
         Instance = this;
+        transform.parent = null;
         DontDestroyOnLoad(gameObject);
+        Debug.Log("GameSession Awake: IslaActual = " + IslaActual);
     }
 
     public void SetDificultad(Dificultad d) => DificultadActual = d;

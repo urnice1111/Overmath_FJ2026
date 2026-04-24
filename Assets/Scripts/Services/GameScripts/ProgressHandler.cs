@@ -12,7 +12,7 @@ public class ProgressHandler : MonoBehaviour
     {
         public int id_pregunta;
         public string respuesta_usuario;
-        public bool es_correcta;
+        public bool es_correcto;
         public float tiempo_respuesta_seg;
     }
 
@@ -45,11 +45,16 @@ public class ProgressHandler : MonoBehaviour
 
     private IEnumerator PostPartida(string jsonData)
     {
-        using (UnityWebRequest www = UnityWebRequest.Post(
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+
+        using (UnityWebRequest www = new UnityWebRequest(
                    "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/save_progress",
-                   jsonData,
-                   "application/json"))
+                   "POST"))
         {
+            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            www.downloadHandler = new DownloadHandlerBuffer();
+            www.SetRequestHeader("Content-Type", "application/json");
+
             yield return www.SendWebRequest();
 
             if (www.result == UnityWebRequest.Result.Success)
@@ -62,4 +67,5 @@ public class ProgressHandler : MonoBehaviour
             }
         }
     }
+
 }

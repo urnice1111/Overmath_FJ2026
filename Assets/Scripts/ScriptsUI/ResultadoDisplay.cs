@@ -106,6 +106,46 @@ public class ResultadoDisplay : MonoBehaviour
 
     private void MakeAnimation()
     {
+        // Si no está asignado, buscarlo en la escena
+        if (villianState == null)
+        {
+            VillianState[] villains = FindObjectsOfType<VillianState>();
+            
+            if (villains.Length == 0)
+            {
+                Debug.LogWarning("ResultadoDisplay: No se encontro ningun VillianState en la escena.");
+                return;
+            }
+            
+            if (villains.Length > 1)
+            {
+                Debug.LogWarning($"ResultadoDisplay: Se encontraron {villains.Length} villanos. Usando el primero activo.");
+                // Priorizar el activo
+                foreach (var villain in villains)
+                {
+                    if (villain.gameObject.activeSelf)
+                    {
+                        villianState = villain;
+                        break;
+                    }
+                }
+                // Si no hay ninguno activo, usar el primero
+                if (villianState == null)
+                    villianState = villains[0];
+            }
+            else
+            {
+                villianState = villains[0];
+            }
+        }
+
+        if (villianState == null)
+        {
+            Debug.LogError("ResultadoDisplay: No se pudo obtener una referencia valida a VillianState.");
+            return;
+        }
+
+        Debug.Log($"ResultadoDisplay: Reproduciendo animacion en villano: {villianState.gameObject.name}");
         if (DragSelectionManager.FueCorrecta)
         {
             villianState.MakeAnimationCorrectAnsw();

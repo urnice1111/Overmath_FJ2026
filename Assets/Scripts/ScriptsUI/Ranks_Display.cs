@@ -2,11 +2,26 @@ using UnityEngine;
 
 public class Ranks_Display : MonoBehaviour
 {
+    private const string DefaultStateName = "Animation_rangos";
+
+    public static Ranks_Display Instance { get; private set; }
+    
     [System.Serializable]
     private class RankState
     {
         public string rank;
         public string triggerName;
+    }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
 
@@ -25,22 +40,24 @@ public class Ranks_Display : MonoBehaviour
     //Al iniciar, se obtiene el rango actual del Ranks_Manager y se activa el trigger correspondiente en el animator
     void Start()
     {
-        if (animator == null) //Verifica que el Animator esté asignado
-        {
-            Debug.LogError("Ranks_Display: Animator no asignado.");
-            return;
-        }
-
         if (Ranks_Manager.Instance == null)  //Verifica que el Ranks_Manager esté asignado en la escena
         {
             Debug.LogError("Ranks_Display: No existe Ranks_Manager.Instance en esta escena.");
             return;
         }
 
-        //Obtener el rango actual del Ranks_Manager
-        string rank = Ranks_Manager.Instance.rank;  //Obtiene el rango actual y se actualiza cada vez que el jugador responde correctamente o incorrectamente a una pregunta
-        string targetTrigger = GetTriggerByRank(rank);  //Obtiene el nombre del trigger que corresponde al rango actual
+        ActualizarRango(Ranks_Manager.Instance.rank);
+    }
 
+    public void ActualizarRango(string rank)
+    {
+        if (animator == null) //Verifica que el Animator esté asignado
+        {
+            Debug.LogError("Ranks_Display: Animator no asignado.");
+            return;
+        }
+
+        string targetTrigger = GetTriggerByRank(rank);  //Obtiene el nombre del trigger que corresponde al rango actual
 
         //Esto es para verificar que el trigger existe en el Animator antes de activarlo
         if (string.IsNullOrEmpty(targetTrigger))
@@ -49,11 +66,9 @@ public class Ranks_Display : MonoBehaviour
             return;
         }
 
-
         //Verificar que el trigger existe en el Animator
         int triggerHash = Animator.StringToHash(targetTrigger); //StringToHash es una función que convierte el nombre del trigger en un hash para optimizar la búsqueda en el Animator
         bool triggerExists = false;  //Primero se asume que el trigger no existe
-
 
         //Al momento de buscar el trigger, se recorre la lista de parámetros del Animator para verificar que el trigger existe antes de activarlo
         for (int i = 0; i < animator.parameters.Length; i++)
@@ -72,6 +87,8 @@ public class Ranks_Display : MonoBehaviour
             return;
         }
 
+        animator.Play(DefaultStateName, layerIndex, 0f);
+        animator.Update(0f);
         animator.SetTrigger(triggerHash); //Si el trigger existe, se activa el trigger en el Animator para mostrar la animación correspondiente
     }
 

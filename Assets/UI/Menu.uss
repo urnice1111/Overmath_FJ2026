@@ -14,3 +14,6 @@
     -unity-font-style: normal;
     color: rgb(36, 36, 36);
 }
+
+.menu {
+}
