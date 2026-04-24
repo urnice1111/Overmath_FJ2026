@@ -26,9 +26,14 @@ public class ActivDesacBackgrounds : MonoBehaviour
         }
 
         string islaActual = GameSession.Instance.IslaActual;
+        Debug.Log("Isla actual: " + islaActual);
+
+        bool encontro = false;
 
         for (int i = 0; i < visualD.Length; i++)
         {
+            Debug.Log("Comparando con: " + visualD[i].islandName);
+
             bool activar = visualD[i].islandName == islaActual;
 
             if (visualD[i].backgroundObject != null)
@@ -36,6 +41,14 @@ public class ActivDesacBackgrounds : MonoBehaviour
 
             if (visualD[i].villianObject != null)
                 visualD[i].villianObject.SetActive(activar);
+
+            if (activar)
+                encontro = true;
+        }
+
+        if (!encontro)
+        {
+            Debug.LogWarning("No se encontró visual para la isla: " + islaActual);
         }
     }
 }
