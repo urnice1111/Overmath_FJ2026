@@ -137679,6 +137679,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 733461184}
+    - target: {fileID: 6627871695361753532, guid: fc1759a999c15b54d87cf5db90fa20eb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
