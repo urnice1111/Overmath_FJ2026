@@ -1,9 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/HUD.uss?fileID=7433441132597879392&amp;guid=2e0739153e9674fb18e9a111286168da&amp;type=3#HUD"/>
-    <ui:VisualElement name="HUD" style="flex-grow: 1; background-size: -166% 200%;">
+    <ui:VisualElement name="HUD" style="flex-grow: 1; background-size: -166% 200%; margin-top: 0; margin-left: 0;">
         <ui:VisualElement name="TopContainer" style="flex-grow: 0; height: 200px; flex-direction: row;">
             <ui:VisualElement name="VisualElement" style="flex-grow: 1;"/>
-            <ui:VisualElement name="ObjectiveStack" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Images/ObjetivoEtiqueta.png?fileID=2800000&amp;guid=92aeb619ee9764e8f990ec204711d93a&amp;type=3#ObjetivoEtiqueta&quot;); background-size: 90% 90%; flex-direction: row; -unity-text-align: upper-center; align-items: center; justify-content: center; align-self: stretch; align-content: center; padding-bottom: 31px;">
+            <ui:VisualElement name="ObjectiveStack" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Images/ObjetivoEtiqueta.png?fileID=2800000&amp;guid=92aeb619ee9764e8f990ec204711d93a&amp;type=3#ObjetivoEtiqueta&quot;); background-size: 90% 90%; flex-direction: row; -unity-text-align: upper-center; align-items: center; justify-content: center; align-self: stretch; align-content: center; padding-bottom: 31px; margin-top: 30px; margin-bottom: -45px;">
                 <ui:Label text="OBJETIVO:" class="text" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); font-size: 120px;"/>
                 <ui:Label text="75" name="question-label" class="text" style="color: rgb(255, 0, 32); font-size: 120px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
             </ui:VisualElement>
