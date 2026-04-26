@@ -1,48 +1,85 @@
+using System;
+using Unity.Profiling;
 using UnityEngine;
 
 public class ActiveManager : MonoBehaviour
 {
+    private GameObject operadorActivado;
+
+    [SerializeField] private GameObject operadorSuma;
+    [SerializeField] private GameObject operadorResta;
+    [SerializeField] private GameObject operadorMultiplicacion;
+    [SerializeField] private GameObject operadorDivision;
+
     private void Start()
     {
-        if (IsVisualDataManagerActive())
-        {
-            Debug.Log("ActiveManager: ActivDesacBackgrounds está activo; se omite activación por nombres.");
-            return;
-        }
+        // if (IsVisualDataManagerActive())
+        // {
+        //     Debug.Log("ActiveManager: ActivDesacBackgrounds está activo; se omite activación por nombres.");
+        //     return;
+        // }
 
-        if (GameSession.Instance == null)
-        {
-            Debug.LogWarning("ActiveManager: GameSession es null");
-            return;
-        }
+        // if (GameSession.Instance == null)
+        // {
+        //     Debug.LogWarning("ActiveManager: GameSession es null");
+        //     return;
+        // }
 
-        string isla = NormalizeIslandName(GameSession.Instance.IslaActual);
+        // string isla = NormalizeIslandName(GameSession.Instance.IslaActual);
 
-        if (string.IsNullOrEmpty(isla))
-        {
-            Debug.LogWarning("ActiveManager: IslaActual está vacía o null");
-            return;
-        }
+        // if (string.IsNullOrEmpty(isla))
+        // {
+        //     Debug.LogWarning("ActiveManager: IslaActual está vacía o null");
+        //     return;
+        // }
 
-        switch (isla)
+
+        // Debug.Log("ActiveManager: isla normalizada = '" + isla + "'");
+
+
+        // This switch is unnecesary lol
+        // switch (isla)
+        // {
+        //     case "isla_suma":
+        //         ActivatePair("VillanoTae", "FondoTae");
+        //         Debug.Log("AAAAAAAAAAA");
+        //         break;
+        //     case "isla_resta":
+        //         ActivatePair("VillanoHuerto", "FondoHuerto");
+        //         break;
+        //     case "isla_multi":
+        //         ActivatePair("VillanoArte", "FondoArte");
+        //         break;
+        //     case "isla_div":
+        //         ActivatePair("VillanoDeporte", "FondoDeportes");
+        //         break;
+        //     case "isla_comb":
+        //         ActivatePair("VillanoComb", "FondoCine");
+        //         break;
+        //     default:
+        //         Debug.LogWarning("ActiveManager: IslaActual no reconocida: " + isla);
+        //         break;
+        // }
+
+        switch (GameSession.Instance.IslaActual)
         {
             case "isla_suma":
-                ActivatePair("VillanoTae", "FondoTae");
+                operadorSuma.SetActive(true);
                 break;
             case "isla_resta":
-                ActivatePair("VillanoHuerto", "FondoHuerto");
+                operadorResta.SetActive(true);
                 break;
             case "isla_multi":
-                ActivatePair("VillanoArte", "FondoArte");
+                operadorMultiplicacion.SetActive(true);
                 break;
             case "isla_div":
-                ActivatePair("VillanoDeporte", "FondoDeportes");
-                break;
-            case "isla_comb":
-                ActivatePair("VillanoComb", "FondoCine");
+                operadorDivision.SetActive(true);
                 break;
             default:
-                Debug.LogWarning("ActiveManager: IslaActual no reconocida: " + isla);
+                operadorDivision.SetActive(true);
+                operadorMultiplicacion.SetActive(true);
+                operadorResta.SetActive(true);
+                operadorSuma.SetActive(true);
                 break;
         }
     }
