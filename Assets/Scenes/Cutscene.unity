@@ -209,6 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf32df277a36fd43a2b86f0cff3fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueHolder
+  cutsceneDirector: {fileID: 0}
+  timelineAdvanceWindow: 0.35
+  nextDialogueDelay: 0.1
+  advanceAfterLastLine: 0
 --- !u!1 &273947544
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,12 +318,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 292849562}
-  input: Sample
+  input: "Que onda! \U0001F911"
   textColor: {r: 1, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
   delay: 0.05
   delayBetweenLines: 5
-  characterSprite: {fileID: -96190418, guid: c7dea917e6f58bf49adf7ab71f8b4dd6, type: 3}
+  characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
   imageHolder: {fileID: 1741108473}
 --- !u!114 &292849562
 MonoBehaviour:
@@ -1071,12 +1075,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 1315956125}
-  input: Text
+  input: Insertar Texto
   textColor: {r: 1, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
   delay: 0.1
   delayBetweenLines: 5
-  characterSprite: {fileID: -307042850, guid: 1bb9773f42e1a144ab1ad5aeeb14b043, type: 3}
+  characterSprite: {fileID: -397256934, guid: c82b19f46731945f5b86127b0d227f41, type: 3}
   imageHolder: {fileID: 1214674999}
 --- !u!114 &1315956125
 MonoBehaviour:
