@@ -11,10 +11,24 @@ public class SkinUIManager : MonoBehaviour
 
     public void MostrarSkin(Sprite imagen, string nombre, string descripcion, int precio)
     {
-        imagenSkin.sprite = imagen;
-        nombreText.text = nombre;
-        descripcionText.text = descripcion;
-        precioText.text = "Precio: " + precio.ToString();
+        // Limpiar UI primero
+        imagenSkin.sprite = null;
+        nombreText.text = "";
+        descripcionText.text = "";
+        precioText.text = "";
+
+        // Asignar nuevos datos
+        if (imagen != null)
+            imagenSkin.sprite = imagen;
+
+        if (!string.IsNullOrEmpty(nombre))
+            nombreText.text = nombre;
+
+        if (!string.IsNullOrEmpty(descripcion))
+            descripcionText.text = descripcion;
+
+        if (precio > 0)
+            precioText.text = "Precio: " + precio.ToString();
     }
 
     public void Cerrar()
