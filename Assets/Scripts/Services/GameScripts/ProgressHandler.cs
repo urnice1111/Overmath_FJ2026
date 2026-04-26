@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Text;
 
 public class ProgressHandler : MonoBehaviour
 {
-    private string apiUrl = "https://tuservidor.com/save_progress";
-
     [System.Serializable]
     public class IntentoPregunta
     {
@@ -26,46 +25,33 @@ public class ProgressHandler : MonoBehaviour
         public int nivel;         // DifficultySelector.Instance.NivelActual
         public List<IntentoPregunta> intentos;
     }
+    
+    private string apiUrl = "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/save_progress";
 
-    public void GuardarPartida(List<IntentoPregunta> intentos)
+    public void GuardarPartida(PartidaData partida)
     {
-        PartidaData partida = new PartidaData
-        {
-            id_jugador = GameSession.Instance.userId,
-            score_max = PuntajedePregunta.Instance.PuntosActuales,
-            tiempo_seg = TiempoJuego.Instance.TiempoJugado,
-            fecha_hora = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-            nivel = GameSession.Instance.GetNivel(),
-            intentos = intentos
-        };
-
         string jsonData = JsonUtility.ToJson(partida);
-        StartCoroutine(PostPartida(jsonData));
+        Debug.Log("JSON enviado: " + jsonData);
+        StartCoroutine(PostRequest(apiUrl, jsonData));
     }
 
-    private IEnumerator PostPartida(string jsonData)
+    IEnumerator PostRequest(string url, string json)
     {
-        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+        var request = new UnityWebRequest(url, "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
 
-        using (UnityWebRequest www = new UnityWebRequest(
-                   "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/save_progress",
-                   "POST"))
+        yield return request.SendWebRequest();
+
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            www.downloadHandler = new DownloadHandlerBuffer();
-            www.SetRequestHeader("Content-Type", "application/json");
-
-            yield return www.SendWebRequest();
-
-            if (www.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log("Progreso guardado correctamente: " + www.downloadHandler.text);
-            }
-            else
-            {
-                Debug.LogError("Error al guardar progreso: " + www.error);
-            }
+            Debug.Log("Progreso guardado correctamente: " + request.downloadHandler.text);
+        }
+        else
+        {
+            Debug.LogError("Error al guardar progreso: " + request.error);
         }
     }
-
 }

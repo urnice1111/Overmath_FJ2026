@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+//<<<<<<< HEAD
 using System;
 using Unity.Profiling;
 using UnityEngine;
@@ -84,7 +84,8 @@ public class ActiveManager : MonoBehaviour
                 break;
         }
     }
-=======
+}
+//=======
 // using UnityEngine;
 
 // public class ActiveManager : MonoBehaviour
@@ -133,7 +134,7 @@ public class ActiveManager : MonoBehaviour
 //                 break;
 //         }
 //     }
->>>>>>> 4b7ff7a (sprites de nosotros)
+//>>>>>>> 4b7ff7a (sprites de nosotros)
 
 //     private static string NormalizeIslandName(string island)
 //     {
