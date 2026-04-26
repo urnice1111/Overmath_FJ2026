@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 using System;
 using Unity.Profiling;
 using UnityEngine;
@@ -207,3 +207,4 @@ public class ActiveManager : MonoBehaviour
 //         return null;
 //     }
 // }
+*/
