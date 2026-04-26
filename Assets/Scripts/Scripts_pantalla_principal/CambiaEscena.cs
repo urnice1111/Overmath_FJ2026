@@ -15,6 +15,7 @@ public class CambiaEscena : MonoBehaviour
         {
             GameData.posicionBarco = barco.position;
             GameData.hayPosicionGuardada = true;
+            
         }
 
         SceneManager.LoadScene(sceneToLoad);
