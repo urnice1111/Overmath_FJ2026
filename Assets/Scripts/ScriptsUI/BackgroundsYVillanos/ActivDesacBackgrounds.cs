@@ -25,22 +25,33 @@ public class ActivDesacBackgrounds : MonoBehaviour
             return;
         }
 
-        string islaActual = GameSession.Instance.IslaActual;
+        if (visualD == null || visualD.Length == 0)
+        {
+            Debug.LogWarning("ActivDesacBackgrounds: visualD está vacío");
+            return;
+        }
+
+        string islaActual = NormalizeIslandName(GameSession.Instance.IslaActual);
         Debug.Log("Isla actual: " + islaActual);
 
         bool encontro = false;
 
         for (int i = 0; i < visualD.Length; i++)
         {
-            Debug.Log("Comparando con: " + visualD[i].islandName);
+            string islandName = NormalizeIslandName(visualD[i].islandName);
+            Debug.Log("Comparando con: " + islandName);
 
-            bool activar = visualD[i].islandName == islaActual;
+            bool activar = islandName == islaActual;
 
             if (visualD[i].backgroundObject != null)
                 visualD[i].backgroundObject.SetActive(activar);
+            else
+                Debug.LogWarning("ActivDesacBackgrounds: Falta backgroundObject en índice " + i);
 
             if (visualD[i].villianObject != null)
                 visualD[i].villianObject.SetActive(activar);
+            else
+                Debug.LogWarning("ActivDesacBackgrounds: Falta villianObject en índice " + i);
 
             if (activar)
                 encontro = true;
@@ -50,5 +61,10 @@ public class ActivDesacBackgrounds : MonoBehaviour
         {
             Debug.LogWarning("No se encontró visual para la isla: " + islaActual);
         }
+    }
+
+    private static string NormalizeIslandName(string island)
+    {
+        return string.IsNullOrWhiteSpace(island) ? string.Empty : island.Trim().ToLowerInvariant();
     }
 }

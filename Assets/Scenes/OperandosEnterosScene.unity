@@ -1733,6 +1733,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276443013}
   m_CullTransparentMesh: 1
+--- !u!1 &306852201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306852203}
+  - component: {fileID: 306852202}
+  m_Layer: 0
+  m_Name: ActiveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &306852202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306852201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ab89d6433ad48028524be8696e486e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::ActiveManager
+--- !u!4 &306852203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306852201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.90165, y: -0.03414, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &317816887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3181,6 +3225,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775711218}
   m_CullTransparentMesh: 1
+--- !u!1 &780967697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 780967698}
+  - component: {fileID: 780967699}
+  m_Layer: 0
+  m_Name: ActiveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &780967698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780967697}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1829.8718, y: -10001.545, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1029730440}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &780967699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780967697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ab89d6433ad48028524be8696e486e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::ActiveManager
 --- !u!1 &786516830
 GameObject:
   m_ObjectHideFlags: 0
@@ -4462,6 +4550,7 @@ Transform:
   - {fileID: 1844106108}
   - {fileID: 1035531161}
   - {fileID: 845493106}
+  - {fileID: 780967698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1029730441
@@ -4477,20 +4566,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::ActivDesacBackgrounds
   visualD:
-  - islandName: 
-    backgroundObject: {fileID: 0}
-    villianObject: {fileID: 0}
-  - islandName: 
-    backgroundObject: {fileID: 0}
-    villianObject: {fileID: 0}
-  - islandName: 
-    backgroundObject: {fileID: 0}
-    villianObject: {fileID: 0}
-  - islandName: 
-    backgroundObject: {fileID: 0}
-    villianObject: {fileID: 0}
-  - islandName: 
-    backgroundObject: {fileID: 0}
+  - islandName: isla_suma
+    backgroundObject: {fileID: 1187915778}
+    villianObject: {fileID: 1439254048}
+  - islandName: isla_resta
+    backgroundObject: {fileID: 1486636915}
+    villianObject: {fileID: 694070049}
+  - islandName: isla_multi
+    backgroundObject: {fileID: 1239925940}
+    villianObject: {fileID: 111286738}
+  - islandName: isla_div
+    backgroundObject: {fileID: 1022813900}
+    villianObject: {fileID: 1849665483}
+  - islandName: isla_comb
+    backgroundObject: {fileID: 1239507966}
     villianObject: {fileID: 0}
 --- !u!1 &1035531158
 GameObject:
@@ -11278,3 +11367,4 @@ SceneRoots:
   - {fileID: 1718333489}
   - {fileID: 398963312}
   - {fileID: 1796459932}
+  - {fileID: 306852203}
