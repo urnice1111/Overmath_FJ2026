@@ -36,6 +36,76 @@ public class HUDController : MonoBehaviour
 
         skinCollapsed.pickingMode = PickingMode.Position;
         skinCollapsed.RegisterCallback<ClickEvent>(evt => ToggleSkinPanel());
+
+        Debug.Log("[SkinSelector] GameSession null? " + (GameSession.Instance == null));
+        Debug.Log("[SkinSelector] skinSelected: " + GameSession.Instance.skinSelected);
+        Debug.Log("[SkinSelector] availableSkins count: " + GameSession.Instance.availableSkins.Count);
+
+        SetCollapsedSkinImage(GameSession.Instance.skinSelected);
+        PopulateSkinSlots();
+    }
+
+    private Sprite LoadSkinSprite(string skinName)
+    {
+        string spriteName = skinName + "_0";
+        Sprite[] all = Resources.LoadAll<Sprite>("Skins/" + skinName);
+        Debug.Log("[SkinSelector] LoadAll 'Skins/" + skinName + "' returned " + all.Length + " sprites");
+
+        foreach (var s in all)
+        {
+            Debug.Log("[SkinSelector]   found sub-sprite: " + s.name);
+            if (s.name == spriteName)
+                return s;
+        }
+
+        if (all.Length > 0)
+            return all[0];
+
+        return null;
+    }
+
+    private void SetCollapsedSkinImage(string skinName)
+    {
+        Sprite sprite = LoadSkinSprite(skinName);
+        if (sprite != null)
+            skinCollapsed.style.backgroundImage = new StyleBackground(sprite);
+    }
+
+    private void PopulateSkinSlots()
+    {
+        skinExpanded.Clear();
+
+        foreach (var skin in GameSession.Instance.availableSkins)
+        {
+            Debug.Log("[SkinSelector] Creating slot for: " + skin.nombre_asset);
+
+            var slot = new VisualElement();
+            slot.style.width = 100;
+            slot.style.height = 100;
+            slot.style.marginBottom = 5;
+            slot.style.backgroundColor = new StyleColor(new Color(0, 0, 0, 0.4f));
+
+            Sprite sprite = LoadSkinSprite(skin.nombre_asset);
+            if (sprite != null)
+                slot.style.backgroundImage = new StyleBackground(sprite);
+
+            slot.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+            slot.pickingMode = PickingMode.Position;
+
+            string assetName = skin.nombre_asset;
+            slot.RegisterCallback<ClickEvent>(evt => OnSkinSlotClicked(assetName));
+
+            skinExpanded.Add(slot);
+        }
+
+        Debug.Log("[SkinSelector] Total slots created: " + skinExpanded.childCount);
+    }
+
+    private void OnSkinSlotClicked(string skinName)
+    {
+        GameSession.Instance.skinSelected = skinName;
+        SetCollapsedSkinImage(skinName);
+        Debug.Log("[SkinSelector] Skin selected: " + skinName);
     }
 
     private void ToggleSkinPanel()
