@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Playables;
 
 namespace  DialogueSystem
 {
@@ -7,11 +8,18 @@ namespace  DialogueSystem
     {
         public static bool IsDialogueActive { get; private set; }
 
+        [Header("Timeline control (optional)")]
+        [SerializeField] private PlayableDirector cutsceneDirector;
+        [SerializeField, Min(0f)] private float timelineAdvanceWindow = 0.35f;
+        [SerializeField, Min(0f)] private float nextDialogueDelay = 0.1f;
+        [SerializeField] private bool advanceAfterLastLine;
+
         private Coroutine sequenceRoutine;
 
         private void OnEnable()
         {
             IsDialogueActive = true;
+            PauseTimeline();
 
             if (sequenceRoutine != null)
             {
@@ -24,6 +32,7 @@ namespace  DialogueSystem
         private void OnDisable()
         {
             IsDialogueActive = false;
+            PauseTimeline();
 
             if (sequenceRoutine != null)
             {
@@ -55,6 +64,17 @@ namespace  DialogueSystem
                     // Espera una entrada de avance (mouse/touch/teclado) para pasar a la siguiente línea.
                     yield return new WaitUntil(AdvancePressed);
                     yield return new WaitUntil(() => !AdvanceHeld());
+
+                    bool hasNextLine = i < transform.childCount - 1;
+                    if (hasNextLine || advanceAfterLastLine)
+                    {
+                        yield return StartCoroutine(AdvanceTimelineWindow());
+                    }
+
+                    if (hasNextLine && nextDialogueDelay > 0f)
+                    {
+                        yield return new WaitForSeconds(nextDialogueDelay);
+                    }
                 }
                 else
                 {
@@ -93,6 +113,26 @@ namespace  DialogueSystem
             }
 
             return Input.touchCount > 0;
+        }
+
+        private IEnumerator AdvanceTimelineWindow()
+        {
+            if (cutsceneDirector == null || timelineAdvanceWindow <= 0f)
+            {
+                yield break;
+            }
+
+            cutsceneDirector.Play();
+            yield return new WaitForSeconds(timelineAdvanceWindow);
+            PauseTimeline();
+        }
+
+        private void PauseTimeline()
+        {
+            if (cutsceneDirector != null)
+            {
+                cutsceneDirector.Pause();
+            }
         }
     }
 }
