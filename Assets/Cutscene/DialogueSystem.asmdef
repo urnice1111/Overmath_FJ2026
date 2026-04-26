@@ -1,0 +1,6 @@
+{
+    "name": "DialogueSystem",
+    "references": [
+        "Unity.TextMeshPro"
+    ]
+}

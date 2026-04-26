@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DialogueSystem;
 
 // Esta clase maneja el movimiento del barco en 2D con teclado y joystick táctil
 
