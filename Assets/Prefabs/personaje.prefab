@@ -92,7 +92,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 11.431802, y: 15.68}
+  m_Size: {x: 17.86219, y: 24.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -163,7 +163,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 17.86219, y: 24.5}
-    newSize: {x: 11.431802, y: 15.68}
+    newSize: {x: 17.86219, y: 24.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -268,6 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb5db9914b119c418238eda05ce9833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CambiaAnimacionPersonaje
+  sonidoPasos: {fileID: 0}
+  sonidoNadar: {fileID: 0}
 --- !u!114 &6627871695361753532
 MonoBehaviour:
   m_ObjectHideFlags: 0
