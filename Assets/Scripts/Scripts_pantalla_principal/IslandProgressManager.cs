@@ -7,7 +7,7 @@ public class IslandProgressManager : MonoBehaviour
     [SerializeField] private TutorialIslandTrigger tutorialIsland;
 
     private const string BaseUrl =
-        "http://localhost:8080";
+        "http://127.0.0.1:8080";
 
     private void Start()
     {

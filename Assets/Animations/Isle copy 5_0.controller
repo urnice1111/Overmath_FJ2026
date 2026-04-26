@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: desbloqueada
+    m_ConditionEvent: bloqueada
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4997748172929420614}
@@ -61,7 +61,7 @@ AnimatorController:
   m_Name: Isle copy 5_0
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: desbloqueada
+  - m_Name: bloqueada
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -116,7 +116,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: desbloqueada
+    m_ConditionEvent: bloqueada
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4362221572888207397}
@@ -146,7 +146,7 @@ AnimatorStateMachine:
     m_Position: {x: 160, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4362221572888207397}
-    m_Position: {x: 484.52914, y: 57.937256, z: 0}
+    m_Position: {x: 480, y: 60, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
