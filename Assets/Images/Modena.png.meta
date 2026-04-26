@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c027365723634eae88c3c2ae5eb1b1d
+guid: 68faede772d0544e7aae1f44c4b32965
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,16 +39,16 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Isle 3_0
+      name: Modena_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fcc5b93100cf4f1282838e28724e7e5
-      internalID: 1110207950
+      spriteID: 196699fc9b58d40b0b6318361cf8484b
+      internalID: -1137908331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isle 3_1
+      name: Modena_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 12
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 956b6ad8c69c94c61a988e4b072ac643
-      internalID: -107904108
+      spriteID: 4690b11a4322d453c8bf140d13b0e913
+      internalID: 1996820237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isle 3_2
+      name: Modena_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 24
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23baa5a1157b8432f932fad44e4ba698
-      internalID: -666420764
+      spriteID: a617309b289764102bb5ed5da2b60531
+      internalID: -1045985664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isle 3_3
+      name: Modena_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 36
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61d9b0b3b21004d8499eaa7863807fb3
-      internalID: -1632444201
+      spriteID: 870d756bf6b2c4e088c950f74878ca60
+      internalID: 521039395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isle 3_4
+      name: Modena_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 48
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62dde2f5e4d8f446f903a1284edd901e
-      internalID: 12674007
+      spriteID: 0d98b5a96b6f644ee82570d3b2de4da2
+      internalID: -585594677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isle 3_5
+      name: Modena_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 60
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74471740ff8ad4de28fb597e6dcac80f
-      internalID: 691172040
+      spriteID: 1f83c9e193a224a83b0be0d215dc51e4
+      internalID: -1885300598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Isle 3_6
+      name: Modena_6
       rect:
         serializedVersion: 2
-        x: 768
+        x: 72
         y: 0
-        width: 128
-        height: 128
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,30 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 094e818934d264317909708e3c227ad6
-      internalID: -1836937053
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Isle 3_7
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 063391d44c04d48a0afd8967e333b434
-      internalID: -1202033702
+      spriteID: cd5e6722754a84299a5a27797f38c9e6
+      internalID: 873236713
       vertices: []
       indices: 
       edges: []
@@ -289,7 +267,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3eaf810317d564a699d5f95cee586e06
+    spriteID: 1fc881868ec6345fd914f55338d36584
     internalID: 0
     vertices: []
     indices: 
@@ -299,16 +277,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":12.0,"y":12.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Isle 3_0: 1110207950
-      Isle 3_1: -107904108
-      Isle 3_2: -666420764
-      Isle 3_3: -1632444201
-      Isle 3_4: 12674007
-      Isle 3_5: 691172040
-      Isle 3_6: -1836937053
-      Isle 3_7: -1202033702
+      Modena_0: -1137908331
+      Modena_1: 1996820237
+      Modena_2: -1045985664
+      Modena_3: 521039395
+      Modena_4: -585594677
+      Modena_5: -1885300598
+      Modena_6: 873236713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
