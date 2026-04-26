@@ -2979,7 +2979,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f15845a7d3f834c9dcc66ad7af605a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
+<<<<<<< HEAD
   playButtonUI: {fileID: 1153813430}
+=======
+  playButtonUI: {fileID: 0}
+>>>>>>> 041e57c (cambio escenas 3 (creo))
   islandName: isla_comb
 --- !u!1 &835620639
 GameObject:
@@ -8311,6 +8315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4f15845a7d3f834c9dcc66ad7af605a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
+<<<<<<< HEAD
   playButtonUI: {fileID: 1153813430}
   islandName: isla_div
 --- !u!1 &2091694233 stripped
@@ -8331,6 +8336,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::ButtonPressEffect
   pressedScale: 0.8
+=======
+  playButtonUI: {fileID: 0}
+  islandName: isla_div
+>>>>>>> 041e57c (cambio escenas 3 (creo))
 --- !u!1 &2104597883
 GameObject:
   m_ObjectHideFlags: 0
