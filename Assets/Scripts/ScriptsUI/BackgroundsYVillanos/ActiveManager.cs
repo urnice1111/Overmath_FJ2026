@@ -2,46 +2,120 @@ using UnityEngine;
 
 public class ActiveManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-        switch (GameSession.Instance.IslaActual)
+        if (IsVisualDataManagerActive())
+        {
+            Debug.Log("ActiveManager: ActivDesacBackgrounds está activo; se omite activación por nombres.");
+            return;
+        }
+
+        if (GameSession.Instance == null)
+        {
+            Debug.LogWarning("ActiveManager: GameSession es null");
+            return;
+        }
+
+        string isla = NormalizeIslandName(GameSession.Instance.IslaActual);
+
+        if (string.IsNullOrEmpty(isla))
+        {
+            Debug.LogWarning("ActiveManager: IslaActual está vacía o null");
+            return;
+        }
+
+        switch (isla)
         {
             case "isla_suma":
-                GameObject VillanoTae = GameObject.Find("VillanoTae");
-                VillanoTae.SetActive(true);
-                GameObject FondoTae = GameObject.Find("FondoTae");
-                FondoTae.SetActive(true);
+                ActivatePair("VillanoTae", "FondoTae");
                 break;
             case "isla_resta":
-                GameObject VillanoHuerto = GameObject.Find("VillanoHuerto");
-                VillanoHuerto.SetActive(true);
-                GameObject FondoHuerto = GameObject.Find("FondoHuerto");
-                FondoHuerto.SetActive(true);
+                ActivatePair("VillanoHuerto", "FondoHuerto");
                 break;
             case "isla_multi":
-                GameObject VillanoArte = GameObject.Find("VillanoArte");
-                VillanoArte.SetActive(true);
-                GameObject FondoArte = GameObject.Find("FondoArte");
-                FondoArte.SetActive(true);
+                ActivatePair("VillanoArte", "FondoArte");
                 break;
-
             case "isla_div":
-                GameObject VillanoDeporte = GameObject.Find("VillanoDeporte");
-                VillanoDeporte.SetActive(true);
-                GameObject FondoDeporte = GameObject.Find("FondoDeporte");
-                FondoDeporte.SetActive(true);
+                ActivatePair("VillanoDeporte", "FondoDeportes");
                 break;
-
             case "isla_comb":
-                GameObject VillanoComb = GameObject.Find("VillanoComb");
-                VillanoComb.SetActive(true);
-                GameObject FondoCine = GameObject.Find("FondoCine");
-                FondoCine.SetActive(true);
+                ActivatePair("VillanoComb", "FondoCine");
                 break;
-            
             default:
+                Debug.LogWarning("ActiveManager: IslaActual no reconocida: " + isla);
                 break;
         }
+    }
+
+    private static string NormalizeIslandName(string island)
+    {
+        return string.IsNullOrWhiteSpace(island) ? string.Empty : island.Trim().ToLowerInvariant();
+    }
+
+    private static bool IsVisualDataManagerActive()
+    {
+        ActivDesacBackgrounds[] managers = Resources.FindObjectsOfTypeAll<ActivDesacBackgrounds>();
+        for (int i = 0; i < managers.Length; i++)
+        {
+            ActivDesacBackgrounds manager = managers[i];
+            if (manager == null)
+                continue;
+
+            if (!manager.gameObject.scene.IsValid())
+                continue;
+
+            if (manager.isActiveAndEnabled)
+                return true;
+        }
+
+        return false;
+    }
+
+    private static void ActivatePair(string villanoName, params string[] fondoNames)
+    {
+        GameObject villano = FindInSceneIncludingInactive(villanoName);
+        GameObject fondo = null;
+
+        if (fondoNames != null)
+        {
+            for (int i = 0; i < fondoNames.Length; i++)
+            {
+                fondo = FindInSceneIncludingInactive(fondoNames[i]);
+                if (fondo != null)
+                    break;
+            }
+        }
+
+        if (villano == null)
+            Debug.LogWarning("ActiveManager: No se encontró objeto " + villanoName);
+        else
+            villano.SetActive(true);
+
+        if (fondo == null)
+            Debug.LogWarning("ActiveManager: No se encontró fondo para " + villanoName);
+        else
+            fondo.SetActive(true);
+    }
+
+    private static GameObject FindInSceneIncludingInactive(string objectName)
+    {
+        if (string.IsNullOrEmpty(objectName))
+            return null;
+
+        Transform[] allTransforms = Resources.FindObjectsOfTypeAll<Transform>();
+        for (int i = 0; i < allTransforms.Length; i++)
+        {
+            Transform current = allTransforms[i];
+            if (current == null)
+                continue;
+
+            if (!current.gameObject.scene.IsValid())
+                continue;
+
+            if (current.name == objectName)
+                return current.gameObject;
+        }
+
+        return null;
     }
 }
