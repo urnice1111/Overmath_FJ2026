@@ -9,4 +9,12 @@ public class BotonAbrirManager : MonoBehaviour
             CofreInteractuable.cofreActual.AbrirCofre();
         }
     }
+
+    public void CerrarCofreActual()
+    {
+        if (CofreInteractuable.cofreActual != null)
+        {
+            CofreInteractuable.cofreActual.CerrarCofre();
+        }
+    }
 }
