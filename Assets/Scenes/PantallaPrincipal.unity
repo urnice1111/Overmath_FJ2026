@@ -2006,8 +2006,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 2.73
+  m_Offset: {x: 0.11889291, y: 0}
+  m_Radius: 2.611107
 --- !u!95 &630616020
 Animator:
   serializedVersion: 7
@@ -2195,6 +2195,7 @@ GameObject:
   - component: {fileID: 823994049}
   - component: {fileID: 823994051}
   - component: {fileID: 823994052}
+  - component: {fileID: 823994053}
   m_Layer: 0
   m_Name: isla_comb
   m_TagString: Untagged
@@ -2326,6 +2327,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
   islandName: isla_comb
+--- !u!58 &823994053
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823994048}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.000030517578, y: -0.00004005432}
+  m_Radius: 9.39566
 --- !u!1 &835620639
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,8 +4450,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.26}
-  m_Radius: 2.55
+  m_Offset: {x: 0, y: -0.48193288}
+  m_Radius: 2.2012484
 --- !u!58 &1295376010
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4449,8 +4486,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.42}
-  m_Radius: 1.79
+  m_Offset: {x: 0, y: -0.42792606}
+  m_Radius: 1.782074
 --- !u!1 &1300596448
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,8 +4964,8 @@ Transform:
   m_GameObject: {fileID: 1486591101}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.695199, y: 3.890859, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.6941, y: 3.8882, z: 0}
+  m_LocalScale: {x: 1.090127, y: 1.090127, z: 1.090127}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4967,7 +5004,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.057475567, y: 0.0344851}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4977,7 +5014,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 2.4942145, y: 2.6091652}
   m_EdgeRadius: 0
 --- !u!114 &1486591106
 MonoBehaviour:
@@ -5249,6 +5286,11 @@ MonoBehaviour:
   - {fileID: 521039395, guid: 68faede772d0544e7aae1f44c4b32965, type: 3}
   - {fileID: -585594677, guid: 68faede772d0544e7aae1f44c4b32965, type: 3}
   - {fileID: -1885300598, guid: 68faede772d0544e7aae1f44c4b32965, type: 3}
+  trophyFrames:
+  - {fileID: -1365284472, guid: 0d695b2c8c7cb46b597ba03f66cf8496, type: 3}
+  - {fileID: 302057907, guid: 0d695b2c8c7cb46b597ba03f66cf8496, type: 3}
+  - {fileID: 1768688312, guid: 0d695b2c8c7cb46b597ba03f66cf8496, type: 3}
+  - {fileID: -376522581, guid: 0d695b2c8c7cb46b597ba03f66cf8496, type: 3}
   frameRate: 4
 --- !u!114 &1556349552
 MonoBehaviour:
@@ -5900,8 +5942,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.08}
-  m_Radius: 4.07
+  m_Offset: {x: 0.03084898, y: -0.6044252}
+  m_Radius: 3.864343
 --- !u!58 &1734325276
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6062,6 +6104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf32df277a36fd43a2b86f0cff3fa66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueHolder
+  cutsceneDirector: {fileID: 0}
+  timelineAdvanceWindow: 0.35
+  nextDialogueDelay: 0.1
+  advanceAfterLastLine: 0
 --- !u!114 &1761051763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6865,6 +6911,7 @@ GameObject:
   - component: {fileID: 2064703003}
   - component: {fileID: 2064703002}
   - component: {fileID: 2064703004}
+  - component: {fileID: 2064703006}
   - component: {fileID: 2064703005}
   m_Layer: 0
   m_Name: isla_div
@@ -6997,6 +7044,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
   islandName: isla_div
+--- !u!58 &2064703006
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064703001}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.000049591064, y: -0.000059127808}
+  m_Radius: 4.6399994
 --- !u!1 &2104597883
 GameObject:
   m_ObjectHideFlags: 0
@@ -7158,7 +7241,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -7428,6 +7511,18 @@ PrefabInstance:
     - target: {fileID: 4605349086990524080, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
       propertyPath: m_Name
       value: barquito_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297271239710507865, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3355649
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297271239710507865, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3355649
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297271239710507865, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3422596
       objectReference: {fileID: 0}
     - target: {fileID: 7297271239710507865, guid: 0b6d4d9068f310e4bb9756f3afd87687, type: 3}
       propertyPath: m_LocalPosition.x

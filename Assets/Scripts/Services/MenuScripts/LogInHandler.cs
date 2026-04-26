@@ -26,16 +26,27 @@ public class LogInHandler : MonoBehaviour
     }
 
     [System.Serializable]
+    public class SkinInfo
+    {
+        public string nombre_asset;
+        public string descripcion;
+    }
+
+    [System.Serializable]
     public class SignInResult
     {
         public bool ok;
         public UserInfo user;
+        public SkinInfo[] skins;
     }
 
     [System.Serializable]
     public class UserInfo{
         public int id_cuenta;
         public string correo;
+        public string skin_actual;
+        public int monedas;
+        public int score_global;
         
     }
 
@@ -94,7 +105,9 @@ public class LogInHandler : MonoBehaviour
 
         string jsonBody = JsonUtility.ToJson(loginData);
 
-        using UnityWebRequest www = UnityWebRequest.Post("https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/login", jsonBody, "application/json");
+        //https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws
+
+        using UnityWebRequest www = UnityWebRequest.Post("http://localhost:8080/login", jsonBody, "application/json");
 
 
         yield return www.SendWebRequest();
@@ -114,8 +127,17 @@ public class LogInHandler : MonoBehaviour
 
             LoginResponse response = JsonUtility.FromJson<LoginResponse>(www.downloadHandler.text);
             GameSession.Instance.userId = response.result.user.id_cuenta;
+            GameSession.Instance.skinSelected = response.result.user.skin_actual;
+            GameSession.Instance.monedas = response.result.user.monedas;
+            GameSession.Instance.globalScore = response.result.user.score_global;
+
+            GameSession.Instance.availableSkins.Clear();
+            if (response.result.skins != null)
+                GameSession.Instance.availableSkins.AddRange(response.result.skins);
 
             Debug.Log(GameSession.Instance.userId);
+            Debug.Log(GameSession.Instance.skinSelected + " Esta skin esta seleccionada");
+            Debug.Log("Skins disponibles: " + GameSession.Instance.availableSkins.Count);
 
             Debug.Log(www.responseCode);
             ShowMessage("Login successful! Loading game...", Color.green);
