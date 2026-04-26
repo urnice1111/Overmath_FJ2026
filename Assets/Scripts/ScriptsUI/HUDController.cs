@@ -16,6 +16,9 @@ public class HUDController : MonoBehaviour
     private float coinTimer;
     private float trophyTimer;
 
+    private VisualElement skinCollapsed;
+    private VisualElement skinExpanded;
+
     void Start()
     {
         var root = uiDocument.rootVisualElement;
@@ -27,6 +30,18 @@ public class HUDController : MonoBehaviour
 
         if (trophyFrames.Count > 0)
             trophyIcon.style.backgroundImage = new StyleBackground(trophyFrames[0]);
+
+        skinCollapsed = root.Q<VisualElement>("SkinSelectorCollapsed");
+        skinExpanded = root.Q<VisualElement>("SkinSelectorExpanded");
+
+        skinCollapsed.pickingMode = PickingMode.Position;
+        skinCollapsed.RegisterCallback<ClickEvent>(evt => ToggleSkinPanel());
+    }
+
+    private void ToggleSkinPanel()
+    {
+        bool isVisible = skinExpanded.resolvedStyle.display == DisplayStyle.Flex;
+        skinExpanded.style.display = isVisible ? DisplayStyle.None : DisplayStyle.Flex;
     }
 
     void Update()

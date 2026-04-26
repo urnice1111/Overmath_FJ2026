@@ -10,5 +10,10 @@
                 <ui:Label name="score-label" text="0" class="text" style="font-size: 100px; color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); -unity-text-outline-width: 4px; -unity-text-outline-color: rgb(0, 0, 0);"/>
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="SkinSelectorCollapsed" style="position: absolute; right: 20px; top: 20px; width: 100px; height: 100px; background-color: rgba(0, 0, 0, 0.4); background-image: url(&quot;project://database/Assets/Images/Gemini_Generated_Image_8ir09k8ir09k8ir0.png?fileID=1635626872&amp;guid=f733e7fbe3aa02248ab06fc51f126465&amp;type=3#Gemini_Generated_Image_8ir09k8ir09k8ir0_0&quot;); -unity-background-scale-mode: scale-to-fit;"/>
+        <ui:VisualElement name="SkinSelectorExpanded" style="position: absolute; right: 20px; top: 130px; display: none; background-color: rgba(0, 0, 0, 0.4); padding: 5px; flex-direction: column;">
+            <ui:VisualElement name="SkinSlot" style="width: 100px; height: 100px; margin-bottom: 5px; background-image: url(&quot;project://database/Assets/Images/Gemini_Generated_Image_8ir09k8ir09k8ir0.png?fileID=1635626872&amp;guid=f733e7fbe3aa02248ab06fc51f126465&amp;type=3#Gemini_Generated_Image_8ir09k8ir09k8ir0_0&quot;); -unity-background-scale-mode: scale-to-fit;"/>
+            <ui:VisualElement name="SkinSlot" style="width: 100px; height: 100px; background-image: url(&quot;project://database/Assets/Images/Gemini_Generated_Image_8ir09k8ir09k8ir0.png?fileID=1635626872&amp;guid=f733e7fbe3aa02248ab06fc51f126465&amp;type=3#Gemini_Generated_Image_8ir09k8ir09k8ir0_0&quot;); -unity-background-scale-mode: scale-to-fit;"/>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
