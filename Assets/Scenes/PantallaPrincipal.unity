@@ -1935,11 +1935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
-<<<<<<< HEAD
-  islandName: 
-=======
   islandName: isla_multi
->>>>>>> 7be3eeb (ahora sí ya cambia)
 --- !u!58 &630616018
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4382,11 +4378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
-<<<<<<< HEAD
-  islandName: 
-=======
   islandName: isla_resta
->>>>>>> 7be3eeb (ahora sí ya cambia)
 --- !u!58 &1295376009
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7135,11 +7127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::IslandTrigger
   playButtonUI: {fileID: 1153813430}
-<<<<<<< HEAD
-  islandName: 
-=======
   islandName: isla_suma
->>>>>>> 7be3eeb (ahora sí ya cambia)
 --- !u!58 &2104597888
 CircleCollider2D:
   m_ObjectHideFlags: 0
