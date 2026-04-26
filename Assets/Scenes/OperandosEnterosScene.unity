@@ -1761,8 +1761,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 299323651, guid: 79276e10790a00e41bf305de416ff15e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1808,10 +1808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ab89d6433ad48028524be8696e486e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::ActiveManager
-  operadorSuma: {fileID: 1384868808}
-  operadorResta: {fileID: 2111644263}
-  operadorMultiplicacion: {fileID: 1156213024}
-  operadorDivision: {fileID: 952618196}
 --- !u!4 &306852203
 Transform:
   m_ObjectHideFlags: 0
@@ -2234,7 +2230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31934464, g: 0.6528301, b: 0, a: 1}
+  m_Color: {r: 0.7497726, g: 1, b: 0.5113207, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3410,10 +3406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ab89d6433ad48028524be8696e486e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::ActiveManager
-  operadorSuma: {fileID: 0}
-  operadorResta: {fileID: 0}
-  operadorMultiplicacion: {fileID: 0}
-  operadorDivision: {fileID: 0}
 --- !u!1 &786516830
 GameObject:
   m_ObjectHideFlags: 0
@@ -5562,7 +5554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.21176471, b: 0.5529412, a: 1}
+  m_Color: {r: 1, g: 0.3150943, b: 0.61154616, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6284,8 +6276,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::Ranks_Manager
   streak: 0
-  rank: D
+  rank: OverMath
   escenaResultado: OperandosEnterosScene
+  rankUpAudioSource: {fileID: 0}
+  rankUpSound: {fileID: 0}
+  rankUpVolume: 1
+  overMathLoopAudioSource: {fileID: 0}
+  overMathLoopSound: {fileID: 0}
+  overMathLoopVolume: 0.65
 --- !u!1 &1234470301
 GameObject:
   m_ObjectHideFlags: 0
@@ -7187,8 +7185,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 299323651, guid: 79276e10790a00e41bf305de416ff15e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7714,8 +7712,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ranks_Manager
   streak: 0
-  rank: D
+  rank: OverMath
   escenaResultado: SampleScene
+  rankUpAudioSource: {fileID: 2030815733}
+  rankUpSound: {fileID: 8300000, guid: 25086c98e912aa54c80f2f9bd8993c00, type: 3}
+  rankUpVolume: 1
+  overMathLoopAudioSource: {fileID: 2030815733}
+  overMathLoopSound: {fileID: 8300000, guid: 375a202628e68524b9f819dcad9d0a90, type: 3}
+  overMathLoopVolume: 0.88
 --- !u!4 &1422025147
 Transform:
   m_ObjectHideFlags: 0
@@ -8215,6 +8219,9 @@ MonoBehaviour:
   BotonMenu: {fileID: 1296453375}
   Reanudar: {fileID: 1357078183}
   botonMenuObjectName: BotonMenu
+  uiAudioSource: {fileID: 0}
+  menuClickSound: {fileID: 0}
+  menuClickVolume: 1
 --- !u!1 &1554483267
 GameObject:
   m_ObjectHideFlags: 0
@@ -10053,7 +10060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6679245, g: 0, b: 0.60823965, a: 1}
+  m_Color: {r: 1, g: 0.6773585, b: 0.9715316, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10882,8 +10889,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 299323651, guid: 79276e10790a00e41bf305de416ff15e, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10913,6 +10920,135 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveToVillianScene
   sceneName: PantallaPrincipal
+--- !u!1 &2030815732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030815734}
+  - component: {fileID: 2030815733}
+  m_Layer: 0
+  m_Name: Sonidos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &2030815733
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030815732}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2030815734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030815732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -637.46155, y: 684.5012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2047329631
 GameObject:
   m_ObjectHideFlags: 0
@@ -11041,6 +11177,9 @@ MonoBehaviour:
   BotonMenu: {fileID: 1296453375}
   Reanudar: {fileID: 0}
   botonMenuObjectName: BotonMenu
+  uiAudioSource: {fileID: 2030815733}
+  menuClickSound: {fileID: 8300000, guid: 9fd48ce783ed776418e3c931a6527ebf, type: 3}
+  menuClickVolume: 1
 --- !u!114 &2092397857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11474,3 +11613,4 @@ SceneRoots:
   - {fileID: 1796459932}
   - {fileID: 306852203}
   - {fileID: 309560303}
+  - {fileID: 2030815734}

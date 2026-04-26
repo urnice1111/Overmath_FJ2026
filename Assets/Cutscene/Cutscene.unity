@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueHolder
   cutsceneDirector: {fileID: 0}
-  timelineAdvanceWindow: 0.35
+  timelineAdvanceWindow: 0.14
   nextDialogueDelay: 0.1
-  advanceAfterLastLine: 0
+  advanceAfterLastLine: 1
 --- !u!1 &273947544
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,11 +318,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 292849562}
-  input: "Que onda! \U0001F911"
+  input: El pentagono de las bermudas es conocido por tener propiedades inexplicables
   textColor: {r: 1, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
   delay: 0.05
-  delayBetweenLines: 5
+  delayBetweenLines: 3
   characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
   imageHolder: {fileID: 1741108473}
 --- !u!114 &292849562
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -558,7 +558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &671603352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5912,11 +5912,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 1315956125}
-  input: Insertar Texto
+  input: "Gente reporta haber estado en una versi\xF3n diferente a nuestro mundo"
   textColor: {r: 1, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
-  delay: 0.1
-  delayBetweenLines: 5
+  delay: 0.05
+  delayBetweenLines: 3
   characterSprite: {fileID: -397256934, guid: c82b19f46731945f5b86127b0d227f41, type: 3}
   imageHolder: {fileID: 1214674999}
 --- !u!114 &1315956125
@@ -5966,13 +5966,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
