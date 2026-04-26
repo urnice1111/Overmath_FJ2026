@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CofreInteractuable : MonoBehaviour
 {
+    // 🔗 Referencia global al cofre actual
+    public static CofreInteractuable cofreActual;
+
     [Header("UI")]
     public GameObject botonAbrir;
     public GameObject panelSkin;
@@ -25,6 +28,7 @@ public class CofreInteractuable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             botonAbrir.SetActive(true);
+            cofreActual = this; // 👈 ESTE COFRE ES EL ACTIVO
         }
     }
 
@@ -33,6 +37,9 @@ public class CofreInteractuable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             botonAbrir.SetActive(false);
+
+            if (cofreActual == this)
+                cofreActual = null;
         }
     }
 
