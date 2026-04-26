@@ -1,82 +1,7 @@
 fileFormatVersion: 2
-guid: a8fbbe485dcb94bab9586695e5b13850
+guid: 68faede772d0544e7aae1f44c4b32965
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -2821857791964831585
-    second: IMG_0057_0
-  - first:
-      213: -2720510263508948068
-    second: IMG_0057_1
-  - first:
-      213: -2750774131662190655
-    second: IMG_0057_2
-  - first:
-      213: 3869307963063571352
-    second: IMG_0057_3
-  - first:
-      213: 1251952083270798451
-    second: IMG_0057_4
-  - first:
-      213: -5632254410520106771
-    second: IMG_0057_5
-  - first:
-      213: 1801060719743202018
-    second: IMG_0057_6
-  - first:
-      213: 5299292806842983909
-    second: IMG_0057_7
-  - first:
-      213: 515628150676989778
-    second: IMG_0057_8
-  - first:
-      213: 7103563164916630290
-    second: IMG_0057_9
-  - first:
-      213: 2986118697809515837
-    second: IMG_0057_10
-  - first:
-      213: 7430572867953348933
-    second: IMG_0057_11
-  - first:
-      213: -3537113874671577884
-    second: IMG_0057_12
-  - first:
-      213: 8557446420140345418
-    second: IMG_0057_13
-  - first:
-      213: -7860878922524584984
-    second: IMG_0057_14
-  - first:
-      213: -8361137102632557542
-    second: IMG_0057_15
-  - first:
-      213: 6685604411591557922
-    second: IMG_0057_16
-  - first:
-      213: -4806822318407592801
-    second: IMG_0057_17
-  - first:
-      213: 4762317654620362887
-    second: IMG_0057_18
-  - first:
-      213: -3096435226717449208
-    second: IMG_0057_19
-  - first:
-      213: 5082321196905169581
-    second: IMG_0057_20
-  - first:
-      213: -982275649468594704
-    second: IMG_0057_21
-  - first:
-      213: 503553752182754283
-    second: IMG_0057_22
-  - first:
-      213: 686194878140005717
-    second: IMG_0057_23
-  - first:
-      213: -4112958383249302992
-    second: IMG_0057_24
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,13 +39,13 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -185,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scoreboard_0
+      name: Modena_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8dbbe9d485a4b63b11d45aa7c1557b
-      internalID: 1976102491
+      spriteID: 196699fc9b58d40b0b6318361cf8484b
+      internalID: -1137908331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scoreboard_1
+      name: Modena_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 12
         y: 0
-        width: 256
-        height: 256
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85b308e871c064faaab0561746da07a1
-      internalID: -1901106927
+      spriteID: 4690b11a4322d453c8bf140d13b0e913
+      internalID: 1996820237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scoreboard_2
+      name: Modena_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 24
         y: 0
-        width: 256
-        height: 256
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,8 +169,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c8f20b6ce9364d9ba0aa6d55d7863bb
-      internalID: 1823053090
+      spriteID: a617309b289764102bb5ed5da2b60531
+      internalID: -1045985664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modena_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 870d756bf6b2c4e088c950f74878ca60
+      internalID: 521039395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modena_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d98b5a96b6f644ee82570d3b2de4da2
+      internalID: -585594677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modena_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f83c9e193a224a83b0be0d215dc51e4
+      internalID: -1885300598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Modena_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5e6722754a84299a5a27797f38c9e6
+      internalID: 873236713
       vertices: []
       indices: 
       edges: []
@@ -254,7 +267,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b0b9ab68930034a17831a00d125327b6
+    spriteID: 1fc881868ec6345fd914f55338d36584
     internalID: 0
     vertices: []
     indices: 
@@ -264,11 +277,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":12.0,"y":12.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Scoreboard_0: 1976102491
-      Scoreboard_1: -1901106927
-      Scoreboard_2: 1823053090
+      Modena_0: -1137908331
+      Modena_1: 1996820237
+      Modena_2: -1045985664
+      Modena_3: 521039395
+      Modena_4: -585594677
+      Modena_5: -1885300598
+      Modena_6: 873236713
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

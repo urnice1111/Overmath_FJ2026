@@ -26,6 +26,8 @@ public class GameSession : MonoBehaviour
 
     public int userId {get; set;}
 
+    public int skinSelected {get; set;}
+
 
     private void Awake()
     {

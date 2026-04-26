@@ -1,82 +1,7 @@
 fileFormatVersion: 2
-guid: a8fbbe485dcb94bab9586695e5b13850
+guid: 0d695b2c8c7cb46b597ba03f66cf8496
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -2821857791964831585
-    second: IMG_0057_0
-  - first:
-      213: -2720510263508948068
-    second: IMG_0057_1
-  - first:
-      213: -2750774131662190655
-    second: IMG_0057_2
-  - first:
-      213: 3869307963063571352
-    second: IMG_0057_3
-  - first:
-      213: 1251952083270798451
-    second: IMG_0057_4
-  - first:
-      213: -5632254410520106771
-    second: IMG_0057_5
-  - first:
-      213: 1801060719743202018
-    second: IMG_0057_6
-  - first:
-      213: 5299292806842983909
-    second: IMG_0057_7
-  - first:
-      213: 515628150676989778
-    second: IMG_0057_8
-  - first:
-      213: 7103563164916630290
-    second: IMG_0057_9
-  - first:
-      213: 2986118697809515837
-    second: IMG_0057_10
-  - first:
-      213: 7430572867953348933
-    second: IMG_0057_11
-  - first:
-      213: -3537113874671577884
-    second: IMG_0057_12
-  - first:
-      213: 8557446420140345418
-    second: IMG_0057_13
-  - first:
-      213: -7860878922524584984
-    second: IMG_0057_14
-  - first:
-      213: -8361137102632557542
-    second: IMG_0057_15
-  - first:
-      213: 6685604411591557922
-    second: IMG_0057_16
-  - first:
-      213: -4806822318407592801
-    second: IMG_0057_17
-  - first:
-      213: 4762317654620362887
-    second: IMG_0057_18
-  - first:
-      213: -3096435226717449208
-    second: IMG_0057_19
-  - first:
-      213: 5082321196905169581
-    second: IMG_0057_20
-  - first:
-      213: -982275649468594704
-    second: IMG_0057_21
-  - first:
-      213: 503553752182754283
-    second: IMG_0057_22
-  - first:
-      213: 686194878140005717
-    second: IMG_0057_23
-  - first:
-      213: -4112958383249302992
-    second: IMG_0057_24
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,7 +39,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -185,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scoreboard_0
+      name: trofeo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8dbbe9d485a4b63b11d45aa7c1557b
-      internalID: 1976102491
+      spriteID: 1ba307084eb76481c91f4443d04c2e01
+      internalID: -1365284472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scoreboard_1
+      name: trofeo_1
       rect:
         serializedVersion: 2
-        x: 256
+        x: 20
         y: 0
-        width: 256
-        height: 256
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85b308e871c064faaab0561746da07a1
-      internalID: -1901106927
+      spriteID: 35ad612358a3f447baef1541e9be1f92
+      internalID: 302057907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scoreboard_2
+      name: trofeo_2
       rect:
         serializedVersion: 2
-        x: 512
+        x: 40
         y: 0
-        width: 256
-        height: 256
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,8 +169,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c8f20b6ce9364d9ba0aa6d55d7863bb
-      internalID: 1823053090
+      spriteID: 90836ddc22a0f4f599cc218b2f9829a6
+      internalID: 1768688312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trofeo_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785841d02cadd45e0adb32f6a835506d
+      internalID: -376522581
       vertices: []
       indices: 
       edges: []
@@ -254,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b0b9ab68930034a17831a00d125327b6
+    spriteID: 853017cda71b0493092b7998651ee23e
     internalID: 0
     vertices: []
     indices: 
@@ -264,11 +211,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":20.0,"y":22.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Scoreboard_0: 1976102491
-      Scoreboard_1: -1901106927
-      Scoreboard_2: 1823053090
+      trofeo_0: -1365284472
+      trofeo_1: 302057907
+      trofeo_2: 1768688312
+      trofeo_3: -376522581
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
