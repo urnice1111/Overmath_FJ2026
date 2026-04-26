@@ -10,7 +10,9 @@ public class HUDController : MonoBehaviour
     [SerializeField] private float frameRate = 6f;
 
     private VisualElement coinIcon;
+    private Label coinLabel;
     private VisualElement trophyIcon;
+    private Label trophyLabel;
     private int coinCurrentFrame;
     private int trophyCurrentFrame;
     private float coinTimer;
@@ -24,6 +26,12 @@ public class HUDController : MonoBehaviour
         var root = uiDocument.rootVisualElement;
         coinIcon = root.Q<VisualElement>("coin-icon");
         trophyIcon = root.Q<VisualElement>("trophy-icon");
+        coinLabel = root.Q<Label>("coin-label");
+        trophyLabel = root.Q<Label>("score-label");
+
+        coinLabel.text = GameSession.Instance.monedas.ToString();
+        trophyLabel.text = GameSession.Instance.globalScore.ToString();
+
 
         if (coinFrames.Count > 0)
             coinIcon.style.backgroundImage = new StyleBackground(coinFrames[0]);

@@ -45,6 +45,8 @@ public class LogInHandler : MonoBehaviour
         public int id_cuenta;
         public string correo;
         public string skin_actual;
+        public int monedas;
+        public int score_global;
         
     }
 
@@ -126,6 +128,8 @@ public class LogInHandler : MonoBehaviour
             LoginResponse response = JsonUtility.FromJson<LoginResponse>(www.downloadHandler.text);
             GameSession.Instance.userId = response.result.user.id_cuenta;
             GameSession.Instance.skinSelected = response.result.user.skin_actual;
+            GameSession.Instance.monedas = response.result.user.monedas;
+            GameSession.Instance.globalScore = response.result.user.score_global;
 
             GameSession.Instance.availableSkins.Clear();
             if (response.result.skins != null)

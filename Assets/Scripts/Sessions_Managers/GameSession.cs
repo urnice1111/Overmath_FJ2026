@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using UnityEngine;
 
 /*
@@ -28,6 +29,10 @@ public class GameSession : MonoBehaviour
     public int userId {get; set;}
 
     public string skinSelected {get; set;}
+
+    public int globalScore {get; set;}
+
+    public int monedas {get; set;}
 
     public List<LogInHandler.SkinInfo> availableSkins {get; set;} = new List<LogInHandler.SkinInfo>();
 
