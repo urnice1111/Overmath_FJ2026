@@ -19,7 +19,9 @@ public class HUDController : MonoBehaviour
     private float trophyTimer;
 
     private VisualElement skinCollapsed;
+    private VisualElement skinCollapsedInner;
     private VisualElement skinExpanded;
+    private Texture2D borderTexture;
 
     void Start()
     {
@@ -39,8 +41,15 @@ public class HUDController : MonoBehaviour
         if (trophyFrames.Count > 0)
             trophyIcon.style.backgroundImage = new StyleBackground(trophyFrames[0]);
 
+        borderTexture = Resources.Load<Texture2D>("Skins/Borde");
+        Debug.Log("[SkinSelector] Borde texture loaded: " + (borderTexture != null));
+
         skinCollapsed = root.Q<VisualElement>("SkinSelectorCollapsed");
+        skinCollapsedInner = root.Q<VisualElement>("SkinSelectorCollapsedInner");
         skinExpanded = root.Q<VisualElement>("SkinSelectorExpanded");
+
+        if (borderTexture != null)
+            skinCollapsed.style.backgroundImage = new StyleBackground(borderTexture);
 
         skinCollapsed.pickingMode = PickingMode.Position;
         skinCollapsed.RegisterCallback<ClickEvent>(evt => ToggleSkinPanel());
@@ -76,7 +85,7 @@ public class HUDController : MonoBehaviour
     {
         Sprite sprite = LoadSkinSprite(skinName);
         if (sprite != null)
-            skinCollapsed.style.backgroundImage = new StyleBackground(sprite);
+            skinCollapsedInner.style.backgroundImage = new StyleBackground(sprite);
     }
 
     private void PopulateSkinSlots()
@@ -91,13 +100,25 @@ public class HUDController : MonoBehaviour
             slot.style.width = 100;
             slot.style.height = 100;
             slot.style.marginBottom = 5;
-            slot.style.backgroundColor = new StyleColor(new Color(0, 0, 0, 0.4f));
+
+            if (borderTexture != null)
+                slot.style.backgroundImage = new StyleBackground(borderTexture);
+            slot.style.unityBackgroundScaleMode = ScaleMode.StretchToFill;
+
+            var inner = new VisualElement();
+            inner.style.flexGrow = 1;
+            inner.style.marginTop = 10;
+            inner.style.marginBottom = 10;
+            inner.style.marginLeft = 10;
+            inner.style.marginRight = 10;
+            inner.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
 
             Sprite sprite = LoadSkinSprite(skin.nombre_asset);
             if (sprite != null)
-                slot.style.backgroundImage = new StyleBackground(sprite);
+                inner.style.backgroundImage = new StyleBackground(sprite);
 
-            slot.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+            slot.Add(inner);
+
             slot.pickingMode = PickingMode.Position;
 
             string assetName = skin.nombre_asset;
