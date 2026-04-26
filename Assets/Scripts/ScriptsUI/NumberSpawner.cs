@@ -89,6 +89,7 @@ public class NumberSpawner : MonoBehaviour
         foreach (string op in DragSelectionManager.Instance.operadoresSeleccionados)
             CrearOperador(op);
 
+        ReposicionarTarjetas();
         CrearSlots();
         RestaurarAsignaciones();
     }
@@ -96,6 +97,7 @@ public class NumberSpawner : MonoBehaviour
     public void SpawnNumero(int numero)
     {
         CrearNumero(numero);
+        ReposicionarTarjetas();
         CrearSlots();
         RestaurarAsignaciones();
     }
@@ -103,6 +105,7 @@ public class NumberSpawner : MonoBehaviour
     public void SpawnOperador(string operador)
     {
         CrearOperador(operador);
+        ReposicionarTarjetas();
         CrearSlots();
         RestaurarAsignaciones();
     }
@@ -118,6 +121,36 @@ public class NumberSpawner : MonoBehaviour
     {
         posicionesLibres.Enqueue(posIndex);
         Debug.Log("Posición " + posIndex + " liberada. Libres: " + posicionesLibres.Count);
+    }
+
+    public void ReposicionarTarjetas()
+    {
+        if (spawnParent == null) return;
+
+        List<RectTransform> tarjetas = new List<RectTransform>();
+        foreach (Transform child in spawnParent)
+        {
+            if (child.GetComponent<DraggableNumber>() != null)
+                tarjetas.Add(child.GetComponent<RectTransform>());
+        }
+
+        if (tarjetas.Count == 0) return;
+
+        float spacing = 10f;
+        float totalWidth = tarjetas.Count * tamanoTarjeta.x + (tarjetas.Count - 1) * spacing;
+        float currentX = -totalWidth / 2f;
+
+        for (int i = 0; i < tarjetas.Count; i++)
+        {
+            Vector2 pos = new Vector2(currentX + tamanoTarjeta.x / 2f, 100f);
+            tarjetas[i].anchoredPosition = pos;
+
+            var drag = tarjetas[i].GetComponent<DraggableNumber>();
+            if (drag != null)
+                drag.ActualizarPosicionOriginal(pos);
+
+            currentX += tamanoTarjeta.x + spacing;
+        }
     }
 
     private void CrearNumero(int numero)
@@ -198,9 +231,7 @@ public class NumberSpawner : MonoBehaviour
         var cardRT = card.GetComponent<RectTransform>();
         cardRT.sizeDelta = tamanoTarjeta;
 
-        float offsetX = (posIndex % 5) * (tamanoTarjeta.x + 10f) - 180f;
-        float offsetY = (posIndex / 5) * -(tamanoTarjeta.y + 10f) + 200f;
-        cardRT.anchoredPosition = new Vector2(offsetX, offsetY);
+        cardRT.anchoredPosition = Vector2.zero;
 
         var cardImg = card.GetComponent<Image>();
         cardImg.color = bgColor;

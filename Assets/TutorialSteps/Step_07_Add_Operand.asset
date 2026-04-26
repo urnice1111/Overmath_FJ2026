@@ -16,7 +16,7 @@ MonoBehaviour:
   advanceMode: 3
   waitSeconds: 2
   seleccionesRequeridas: 1
-  highlightTargetName: operadores Assets_6
+  highlightTargetName: OperadorSuma
   allowWorldClicks: 0
   cameraTargetPos: {x: 0, y: 0}
   hideDimmer: 0

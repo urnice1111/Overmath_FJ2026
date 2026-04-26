@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
 using UnityEngine;
 
 /*
@@ -13,6 +11,20 @@ using UnityEngine;
 */
 
 public enum Dificultad{ Facil, Normal, Dificil}
+
+[System.Serializable]
+public class IslaProgreso
+{
+    public string isla_id;
+    public bool desbloqueada;
+}
+
+[System.Serializable]
+public class ProgresoResponse
+{
+    public bool tutorial_completado;
+    public IslaProgreso[] islas;
+}
 
 public class GameSession : MonoBehaviour
 {
@@ -35,6 +47,15 @@ public class GameSession : MonoBehaviour
     public int monedas {get; set;}
 
     public List<LogInHandler.SkinInfo> availableSkins {get; set;} = new List<LogInHandler.SkinInfo>();
+
+    public bool tutorialCompletado { get; set; }
+    public List<IslaProgreso> islasProgreso { get; set; } = new List<IslaProgreso>();
+
+    public bool IsIslaDesbloqueada(string islaId)
+    {
+        var isla = islasProgreso.Find(i => i.isla_id == islaId);
+        return isla != null && isla.desbloqueada;
+    }
 
 
     private void Awake()

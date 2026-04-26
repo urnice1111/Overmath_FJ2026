@@ -131,6 +131,11 @@ public class DraggableNumber : MonoBehaviour
         slotActual = slot;
     }
 
+    public void ActualizarPosicionOriginal(Vector2 nuevaPos)
+    {
+        posicionOriginal = nuevaPos;
+    }
+
     // private void OnDoubleClick()
     // {
     //     if (slotActual != null)
@@ -173,9 +178,9 @@ public class DraggableNumber : MonoBehaviour
 
         NumberSpawner.Instance.LiberarPosicion(posicionIndex);
 
-        // Instead of previous approach, re call the Restaurar Asignaciones method
         if (NumberSpawner.Instance != null)
         {
+            NumberSpawner.Instance.ReposicionarTarjetas();
             NumberSpawner.Instance.CrearSlots();
             NumberSpawner.Instance.RestaurarAsignaciones();
         }
