@@ -1,4 +1,5 @@
 //If fro controlling canvas menu -> esc (keyboard)
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -9,11 +10,17 @@ public class MenuController : MonoBehaviour, IPointerDownHandler
     public GameObject BotonMenu;
     public Button Reanudar; // Asigna el botón desde el Inspector
     [SerializeField] private string botonMenuObjectName = "BotonMenu";
+    [SerializeField] private AudioSource uiAudioSource;
+    [SerializeField] private AudioClip menuClickSound;
+    [SerializeField, Range(0f, 1f)] private float menuClickVolume = 1f;
+
+    private readonly List<Button> menuButtonsWithSound = new List<Button>();
     
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         TryResolveMenuReferences();
+        BindMenuButtonSounds();
         if (BotonMenu != null)
         {
             BotonMenu.SetActive(false);
@@ -22,6 +29,7 @@ public class MenuController : MonoBehaviour, IPointerDownHandler
         // Vincula el evento click del botón
         if (Reanudar != null)
         {
+            Reanudar.onClick.RemoveListener(ToggleMenu);
             Reanudar.onClick.AddListener(ToggleMenu);
         }
     }
@@ -29,11 +37,19 @@ public class MenuController : MonoBehaviour, IPointerDownHandler
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        if (Reanudar != null)
+        {
+            Reanudar.onClick.RemoveListener(ToggleMenu);
+        }
+
+        UnbindMenuButtonSounds();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         TryResolveMenuReferences();
+        BindMenuButtonSounds();
         if (BotonMenu != null)
         {
             BotonMenu.SetActive(false);
@@ -51,6 +67,7 @@ public class MenuController : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        PlayMenuClickSound();
         ToggleMenu();
     }
     
@@ -82,5 +99,54 @@ public class MenuController : MonoBehaviour, IPointerDownHandler
                 BotonMenu = candidate;
             }
         }
+    }
+
+    private void BindMenuButtonSounds()
+    {
+        UnbindMenuButtonSounds();
+
+        if (BotonMenu == null)
+        {
+            return;
+        }
+
+        Button[] buttons = BotonMenu.GetComponentsInChildren<Button>(true);
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            Button button = buttons[i];
+            if (button == null)
+            {
+                continue;
+            }
+
+            button.onClick.AddListener(PlayMenuClickSound);
+            menuButtonsWithSound.Add(button);
+        }
+    }
+
+    private void UnbindMenuButtonSounds()
+    {
+        for (int i = 0; i < menuButtonsWithSound.Count; i++)
+        {
+            Button button = menuButtonsWithSound[i];
+            if (button == null)
+            {
+                continue;
+            }
+
+            button.onClick.RemoveListener(PlayMenuClickSound);
+        }
+
+        menuButtonsWithSound.Clear();
+    }
+
+    private void PlayMenuClickSound()
+    {
+        if (uiAudioSource == null || menuClickSound == null)
+        {
+            return;
+        }
+
+        uiAudioSource.PlayOneShot(menuClickSound, menuClickVolume);
     }
 }
