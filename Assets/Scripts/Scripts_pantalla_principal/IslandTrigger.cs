@@ -6,8 +6,12 @@ public class IslandTrigger : MonoBehaviour
     public GameObject playButtonUI;
     [SerializeField] private string islandName;
 
+    private bool bloqueada = true;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (bloqueada) return;
+
         if (other.CompareTag("Player"))
         {
             if (GameSession.Instance == null)
@@ -16,7 +20,6 @@ public class IslandTrigger : MonoBehaviour
                 return;
             }
 
-            // Usa islandName configurado y, si falta, intenta con el nombre del objeto.
             string selectedIsland = ResolveIslandName();
             GameSession.Instance.SetIsla(selectedIsland);
             playButtonUI.SetActive(true);
@@ -29,6 +32,20 @@ public class IslandTrigger : MonoBehaviour
         {
             playButtonUI.SetActive(false);
         }
+    }
+
+    public string GetIslandName() => NormalizeIslandName(islandName);
+
+    public void SetBloqueada(bool value)
+    {
+        bloqueada = value;
+
+        if (bloqueada && playButtonUI != null)
+            playButtonUI.SetActive(false);
+
+        var animator = GetComponent<Animator>();
+        if (animator != null)
+            animator.SetBool("bloqueada", bloqueada);
     }
 
     private string ResolveIslandName()

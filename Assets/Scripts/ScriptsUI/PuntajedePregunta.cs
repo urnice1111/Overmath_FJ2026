@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PuntajedePregunta : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class PuntajedePregunta : MonoBehaviour
     // private const string PlayerPrefsKey = "PuntajeActual";
 
     public int PuntosActuales{get; private set;}
-
+    
+    //lista para acumular los intentos de cada pregunta, con información sobre si fue correcta o no, y cuántos números y operadores se usaron
+    public List<ProgressHandler.IntentoPregunta> ListaIntentos { get; private set; } = new List<ProgressHandler.IntentoPregunta>();
 
     //Calcula el porcentaje actual basado en los puntos actuales y el límite de puntos
     public int PorcentajeActual => MinimoDePuntos <= 0 ? 0 : Mathf.RoundToInt((PuntosActuales / (float)MinimoDePuntos) * 100f); //Redondea el porcentaje y el porcentaje no puede ser negativo ni mayor a 100
@@ -35,7 +38,12 @@ public class PuntajedePregunta : MonoBehaviour
     }
 
     //Registra el resultado de una pregunta, sumando puntos solo si la respuesta es correcta
-    public void RegistrarResultado(bool respuestaCorrecta, int numerosUsados = 0, int operadoresUsados = 0)
+    public void RegistrarResultado(bool respuestaCorrecta,
+        int numerosUsados = 0,
+        int operadoresUsados = 0,
+        int idPregunta = 0,
+        string respuestaUsuario = "",
+        float tiempoRespuesta = 0f)
     {
         TotalContestadas++; // siempre suma una pregunta contestada
         
@@ -54,6 +62,13 @@ public class PuntajedePregunta : MonoBehaviour
         {
             TiempoJuego.Instance.AjustarTiempo(-10f); // disminuye tiempo
         } 
+        
+        // Guardar intento en la lista
+        ListaIntentos.Add(new ProgressHandler.IntentoPregunta {
+            id_pregunta = idPregunta,
+            respuesta_usuario = respuestaUsuario,
+            es_correcto = respuestaCorrecta,
+            tiempo_respuesta_seg = tiempoRespuesta});
     }
 
     //Reinicia el puntaje actual a cero y guarda el cambio
@@ -61,6 +76,7 @@ public class PuntajedePregunta : MonoBehaviour
     {
         PuntosActuales = 0;
         GuardarPuntaje();
+        ListaIntentos.Clear(); // Limpia la lista de intentos para la nueva partida
     }
 
 

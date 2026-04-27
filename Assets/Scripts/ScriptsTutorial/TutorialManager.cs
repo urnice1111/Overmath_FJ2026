@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
+
     public static TutorialManager Instance { get; private set; }
     public static bool TutorialActivo { get; private set; }
 
@@ -296,11 +298,38 @@ public class TutorialManager : MonoBehaviour
         spotlight.Hide();
         SetTutorialCanvasActive(false);
 
-        // PlayerPrefs.SetInt("TutorialCompletado", 1);
-        // PlayerPrefs.Save();
-
         if (GameSession.Instance != null)
             GameSession.Instance.IsTutorial = false;
+
+        StartCoroutine(SetTutorialCompletedAndReturn());
+    }
+
+    [System.Serializable]
+    private class TutorialCompletedRequest
+    {
+        public int id_user;
+    }
+
+    private IEnumerator SetTutorialCompletedAndReturn()
+    {
+        var body = new TutorialCompletedRequest
+        {
+            id_user = GameSession.Instance.userId
+        };
+
+        string jsonBody = JsonUtility.ToJson(body);
+
+        using UnityWebRequest www = UnityWebRequest.Post(
+            "http://localhost:8080/set_tutorial_completed",
+            jsonBody,
+            "application/json");
+
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.Success)
+            Debug.Log("Tutorial marcado como completado en BD.");
+        else
+            Debug.LogError("Error al marcar tutorial completado: " + www.error);
 
         if (ScreenFadereManager.Instance != null)
             ScreenFadereManager.Instance.ChangeScene(escenaMapa);

@@ -7,6 +7,8 @@ public class TutorialIslandTrigger : MonoBehaviour
     [SerializeField] private GameObject completedBadge;
     [SerializeField] private string gameSceneName = "OperandosEnterosScene";
 
+    public GameObject completedBadgePublic => completedBadge;
+
     private bool playerInRange;
 
     private void Start()
@@ -21,7 +23,7 @@ public class TutorialIslandTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         playerInRange = true;
-        bool alreadyDone = PlayerPrefs.GetInt("TutorialCompletado", 0) == 1;
+        bool alreadyDone = GameSession.Instance != null && GameSession.Instance.tutorialCompletado;
 
         tutorialButtonUI.SetActive(true);
         if (completedBadge != null)
