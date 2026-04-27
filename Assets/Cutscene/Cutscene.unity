@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e9edd164adecf498ebfeef05da438d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DialogueSystem::EndCutscene
+  sceneToLoad: Escena1
 --- !u!1 &292849559
 GameObject:
   m_ObjectHideFlags: 0
