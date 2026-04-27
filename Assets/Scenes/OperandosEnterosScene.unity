@@ -1808,6 +1808,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ab89d6433ad48028524be8696e486e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::ActiveManager
+  operadorSuma: {fileID: 1384868808}
+  operadorResta: {fileID: 2111644263}
+  operadorMultiplicacion: {fileID: 1156213024}
+  operadorDivision: {fileID: 952618196}
 --- !u!4 &306852203
 Transform:
   m_ObjectHideFlags: 0
@@ -3407,6 +3411,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ab89d6433ad48028524be8696e486e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Overmath::ActiveManager
+  operadorSuma: {fileID: 0}
+  operadorResta: {fileID: 0}
+  operadorMultiplicacion: {fileID: 0}
+  operadorDivision: {fileID: 0}
 --- !u!1 &786516830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,7 +3939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &952618197
 Transform:
   m_ObjectHideFlags: 0
@@ -4122,6 +4130,7 @@ MonoBehaviour:
   textoPregunta: {fileID: 920987024}
   preguntasUnity: []
   PreguntaActual:
+    id_pregunta: 0
     respuesta_correcta: 0
     problema: 
   intentos: []
@@ -5886,7 +5895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1156213025
 Transform:
   m_ObjectHideFlags: 0
@@ -7525,7 +7534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1384868809
 Transform:
   m_ObjectHideFlags: 0
@@ -11282,7 +11291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2111644264
 Transform:
   m_ObjectHideFlags: 0
@@ -11659,3 +11668,4 @@ SceneRoots:
   - {fileID: 306852203}
   - {fileID: 309560303}
   - {fileID: 1510351403}
+  - {fileID: 2030815734}
