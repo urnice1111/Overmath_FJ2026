@@ -23,7 +23,7 @@ public class IslaProgreso
 public class ProgresoResponse
 {
     public bool tutorial_completado;
-    public IslaProgreso[] islas;
+    public List<IslaProgreso> islas;
 }
 
 public class GameSession : MonoBehaviour

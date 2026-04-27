@@ -2,6 +2,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UIElements;
+using Codice.Client.BaseCommands.Differences;
 //using DG.Tweening;
 
 namespace Sessions_Managers
@@ -15,6 +17,8 @@ namespace Sessions_Managers
         [SerializeField] private GameObject winCanvas; // Pop-up de victoria
         [SerializeField] private GameObject loseCanvas; // Pop-up de derrota
         [SerializeField] private resultadosUI resultadosUI;
+        [SerializeField] private UIDocument HUD;
+        [SerializeField] private GameObject tiempoYMenu;
         [SerializeField] private FrasesCanvaPerdiste frases;
         private GameObject tiempoymenu;
         private GameObject villano;
@@ -23,8 +27,10 @@ namespace Sessions_Managers
 
         void Start()
         {
+            HUD.gameObject.SetActive(true);
             winCanvas.SetActive(false);
             loseCanvas.SetActive(false);
+            tiempoYMenu.SetActive(true);
             Time.timeScale = 1f;
             PuntajedePregunta.Instance.ReiniciarPuntaje();
         }
@@ -61,7 +67,9 @@ namespace Sessions_Managers
         private void MostrarVictoria(int puntos, float tiempo, int contestadas, int correctas)
         {
             gameEnded = true;
+            HUD.gameObject.SetActive(false);
             winCanvas.SetActive(true);
+            tiempoYMenu.SetActive(false);
             Time.timeScale = 0f;
 
             if (tiempoymenu != null) tiempoymenu.SetActive(false);
@@ -78,11 +86,12 @@ namespace Sessions_Managers
             /*ActiveMesaCreacion mesa;
             mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
             mesa.Cerrar();*/
-
+            tiempoYMenu.SetActive(false);
             ActiveMesaCreacion mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
             if (mesa != null) mesa.Cerrar();
 
             gameEnded = true;
+            HUD.gameObject.SetActive(false);
             loseCanvas.GetComponent<LosePopupUI>().Show();
             frases.MostrarPuntaje(puntos);
 
