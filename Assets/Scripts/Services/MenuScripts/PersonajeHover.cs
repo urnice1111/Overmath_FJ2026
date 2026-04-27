@@ -8,18 +8,28 @@ public class PersonajeHover : MonoBehaviour
     void Start()
     {
         movimiento = GetComponent<PersonajeMov>();
-        burbuja.SetActive(false);
+        if (burbuja != null)
+        {
+            burbuja.SetActive(false);
+        }
     }
 
     void OnMouseEnter()
     {
         movimiento.PausarMovimiento(true);
-        burbuja.SetActive(true);
+
+        if (burbuja != null)
+        {
+            burbuja.SetActive(true);
+        }
     }
 
     void OnMouseExit()
     {
         movimiento.PausarMovimiento(false);
-        burbuja.SetActive(false);
+        if (burbuja != null)
+        {
+            burbuja.SetActive(false);
+        }
     }
 }

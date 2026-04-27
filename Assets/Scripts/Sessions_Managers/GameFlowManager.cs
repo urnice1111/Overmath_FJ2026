@@ -1,15 +1,24 @@
 //using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using UnityEngine.UIElements;
+using Codice.Client.BaseCommands.Differences;
 //using DG.Tweening;
 
 namespace Sessions_Managers
 {
+
+    
     public class GameFlowManager : MonoBehaviour
     {
+        [SerializeField] private ProgressHandler progressHandler;
+
         [SerializeField] private GameObject winCanvas; // Pop-up de victoria
         [SerializeField] private GameObject loseCanvas; // Pop-up de derrota
         [SerializeField] private resultadosUI resultadosUI;
+        [SerializeField] private UIDocument HUD;
+        [SerializeField] private GameObject tiempoYMenu;
         [SerializeField] private FrasesCanvaPerdiste frases;
         private GameObject tiempoymenu;
         private GameObject villano;
@@ -18,8 +27,10 @@ namespace Sessions_Managers
 
         void Start()
         {
+            HUD.gameObject.SetActive(true);
             winCanvas.SetActive(false);
             loseCanvas.SetActive(false);
+            tiempoYMenu.SetActive(true);
             Time.timeScale = 1f;
             PuntajedePregunta.Instance.ReiniciarPuntaje();
         }
@@ -56,7 +67,9 @@ namespace Sessions_Managers
         private void MostrarVictoria(int puntos, float tiempo, int contestadas, int correctas)
         {
             gameEnded = true;
+            HUD.gameObject.SetActive(false);
             winCanvas.SetActive(true);
+            tiempoYMenu.SetActive(false);
             Time.timeScale = 0f;
 
             if (tiempoymenu != null) tiempoymenu.SetActive(false);
@@ -64,7 +77,7 @@ namespace Sessions_Managers
 
             // Pasar datos al panel de resultados
             resultadosUI.MostrarResultados(puntos, tiempo, contestadas, correctas);
-            EnviarProgreso(puntos, tiempo, contestadas, correctas);
+            EnviarProgreso(puntos, tiempo);
         }
 
         private void MostrarDerrota(int puntos, float tiempo, int contestadas, int correctas)
@@ -73,11 +86,12 @@ namespace Sessions_Managers
             /*ActiveMesaCreacion mesa;
             mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
             mesa.Cerrar();*/
-
+            tiempoYMenu.SetActive(false);
             ActiveMesaCreacion mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
             if (mesa != null) mesa.Cerrar();
 
             gameEnded = true;
+            HUD.gameObject.SetActive(false);
             loseCanvas.GetComponent<LosePopupUI>().Show();
             frases.MostrarPuntaje(puntos);
 
@@ -86,19 +100,19 @@ namespace Sessions_Managers
 
             Time.timeScale = 0f;
             Debug.Log("perdiste nub");
-            EnviarProgreso(puntos, tiempo, contestadas, correctas);
+            EnviarProgreso(puntos, tiempo);
 
         }
         
-        private void EnviarProgreso(int puntos, float tiempo, int contestadas, int correctas)
+        private void EnviarProgreso(int puntos, float tiempo)
         {
             ProgressHandler.PartidaData partida = new ProgressHandler.PartidaData
             {
-                id_jugador = GameSession.Instance.userId,
-                nivel = GameSession.Instance.GetNivel(), // nivel actual
+                id_cuenta = GameSession.Instance.userId,
+                nombreIsla = GameSession.Instance.IslaActual,
+                dificultad = GameSession.Instance.DificultadActual.ToString(),
                 score_max = puntos,
                 tiempo_seg = Mathf.RoundToInt(tiempo),
-                fecha_hora = System.DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"),
                 intentos = new List<ProgressHandler.IntentoPregunta>()
             };
 
@@ -113,7 +127,7 @@ namespace Sessions_Managers
                 });
             }
 
-            FindObjectOfType<ProgressHandler>().GuardarPartida(partida);
+            progressHandler.GuardarPartida(partida);
         }
     }
 };

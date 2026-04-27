@@ -35,12 +35,23 @@ public class IslandProgressManager : MonoBehaviour
             yield break;
         }
 
-        ProgresoResponse response = JsonUtility.FromJson<ProgresoResponse>(www.downloadHandler.text);
+        string rawJson = www.downloadHandler.text;
+        Debug.Log("IslandProgressManager: raw JSON = " + rawJson);
+
+        ProgresoResponse response = JsonUtility.FromJson<ProgresoResponse>(rawJson);
+
+        Debug.Log("IslandProgressManager: tutorial_completado = " + response.tutorial_completado);
+        Debug.Log("IslandProgressManager: islas count = " + (response.islas != null ? response.islas.Count : 0));
 
         GameSession.Instance.tutorialCompletado = response.tutorial_completado;
         GameSession.Instance.islasProgreso.Clear();
         if (response.islas != null)
+        {
+            foreach (var isla in response.islas)
+                Debug.Log("  isla: " + isla.isla_id + " desbloqueada: " + isla.desbloqueada);
             GameSession.Instance.islasProgreso.AddRange(response.islas);
+        }
+        
 
         AplicarProgreso(response);
     }

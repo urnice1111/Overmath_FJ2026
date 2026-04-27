@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 //<<<<<<< HEAD
 using System;
 using Unity.Profiling;
@@ -87,10 +86,6 @@ public class ActiveManager : MonoBehaviour
     }
 }
 //=======
-=======
-// using System;
-// using Unity.Profiling;
->>>>>>> Stashed changes
 // using UnityEngine;
 
 // public class ActiveManager : MonoBehaviour
@@ -174,12 +169,8 @@ public class ActiveManager : MonoBehaviour
 //                 break;
 //         }
 //     }
-<<<<<<< Updated upstream
-//>>>>>>> 4b7ff7a (sprites de nosotros)
-=======
 // =======
 // // using UnityEngine;
->>>>>>> Stashed changes
 
 // // public class ActiveManager : MonoBehaviour
 // // {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Text;
+using NUnit.Framework.Constraints;
 
 public class ProgressHandler : MonoBehaviour
 {
@@ -18,15 +19,15 @@ public class ProgressHandler : MonoBehaviour
     [System.Serializable]
     public class PartidaData
     {
-        public int id_jugador;       // viene de GameSession.Instance.userId
+        public int id_cuenta;       // viene de GameSession.Instance.userId
         public int score_max;        // PuntajedePregunta.Instance.PuntosActuales
         public float tiempo_seg;     // TiempoJuego.Instance.TiempoJugado
-        public string fecha_hora;    // System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-        public int nivel;         // DifficultySelector.Instance.NivelActual
+        public string nombreIsla;
+        public string dificultad;
         public List<IntentoPregunta> intentos;
     }
     
-    private string apiUrl = "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/save_progress";
+    private string apiUrl = "http://localhost:8080/save_progress";
 
     public void GuardarPartida(PartidaData partida)
     {
@@ -37,21 +38,18 @@ public class ProgressHandler : MonoBehaviour
 
     IEnumerator PostRequest(string url, string json)
     {
-        var request = new UnityWebRequest(url, "POST");
-        byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
-        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
+        using UnityWebRequest www = UnityWebRequest.Post(url, json, "application/json");
 
-        yield return request.SendWebRequest();
 
-        if (request.result == UnityWebRequest.Result.Success)
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("Progreso guardado correctamente: " + request.downloadHandler.text);
+            Debug.Log("Progreso guardado correctamente: " + www.downloadHandler.text);
         }
         else
         {
-            Debug.LogError("Error al guardar progreso: " + request.error);
+            Debug.LogError("Error al guardar progreso: " + www.error);
         }
     }
 }

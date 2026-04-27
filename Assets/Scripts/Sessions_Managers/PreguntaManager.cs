@@ -13,6 +13,7 @@ public class PreguntaManager : MonoBehaviour
     [System.Serializable]
     public struct Pregunta
     {
+        public int id_pregunta;
         public int respuesta_correcta;
         public string problema;
     }
