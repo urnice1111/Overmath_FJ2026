@@ -1,12 +1,17 @@
 //using System;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 //using DG.Tweening;
 
 namespace Sessions_Managers
 {
+
+    
     public class GameFlowManager : MonoBehaviour
     {
+        [SerializeField] private ProgressHandler progressHandler;
+
         [SerializeField] private GameObject winCanvas; // Pop-up de victoria
         [SerializeField] private GameObject loseCanvas; // Pop-up de derrota
         [SerializeField] private resultadosUI resultadosUI;
@@ -64,7 +69,7 @@ namespace Sessions_Managers
 
             // Pasar datos al panel de resultados
             resultadosUI.MostrarResultados(puntos, tiempo, contestadas, correctas);
-            EnviarProgreso(puntos, tiempo, contestadas, correctas);
+            EnviarProgreso(puntos, tiempo);
         }
 
         private void MostrarDerrota(int puntos, float tiempo, int contestadas, int correctas)
@@ -86,19 +91,19 @@ namespace Sessions_Managers
 
             Time.timeScale = 0f;
             Debug.Log("perdiste nub");
-            EnviarProgreso(puntos, tiempo, contestadas, correctas);
+            EnviarProgreso(puntos, tiempo);
 
         }
         
-        private void EnviarProgreso(int puntos, float tiempo, int contestadas, int correctas)
+        private void EnviarProgreso(int puntos, float tiempo)
         {
             ProgressHandler.PartidaData partida = new ProgressHandler.PartidaData
             {
-                id_jugador = GameSession.Instance.userId,
-                nivel = GameSession.Instance.GetNivel(), // nivel actual
+                id_cuenta = GameSession.Instance.userId,
+                nombreIsla = GameSession.Instance.IslaActual,
+                dificultad = GameSession.Instance.DificultadActual.ToString(),
                 score_max = puntos,
                 tiempo_seg = Mathf.RoundToInt(tiempo),
-                fecha_hora = System.DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"),
                 intentos = new List<ProgressHandler.IntentoPregunta>()
             };
 
@@ -113,7 +118,7 @@ namespace Sessions_Managers
                 });
             }
 
-            FindObjectOfType<ProgressHandler>().GuardarPartida(partida);
+            progressHandler.GuardarPartida(partida);
         }
     }
 };

@@ -131,13 +131,17 @@ public class ExpressionEvaluator : MonoBehaviour
             return;
         }
 
+        int idPregunta = PreguntaManager.Instance != null
+            ? PreguntaManager.Instance.PreguntaActual.id_pregunta
+            : 0;
+
         if (PuntajedePregunta.Instance != null)
-            PuntajedePregunta.Instance.RegistrarResultado(correcto, numerosUsados, operadoresUsados);
+            PuntajedePregunta.Instance.RegistrarResultado(
+                correcto, numerosUsados, operadoresUsados,
+                idPregunta, resultado.ToString());
         
         if (PreguntaManager.Instance != null)
         {
-            int idPregunta = PreguntaManager.Instance.PreguntaIndexActual - 1;
-
             PreguntaManager.Instance.RegistrarIntento(
                 idPregunta,
                 resultado.ToString(),
@@ -163,9 +167,6 @@ public class ExpressionEvaluator : MonoBehaviour
 
         // Move to the position
         cam.position = villianPosition;
-
-        if (PreguntaManager.Instance != null)
-            PreguntaManager.Instance.CargarPreguntaAleatoria();
     }
 
     private int EvaluarExpresion(DropSlot[] slotsOrdenados)
