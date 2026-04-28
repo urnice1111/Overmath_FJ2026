@@ -107,17 +107,17 @@ public class LogInHandler : MonoBehaviour
 
         //https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws
 
-        using UnityWebRequest www = UnityWebRequest.Post("https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws//login", jsonBody, "application/json");
+        using UnityWebRequest www = UnityWebRequest.Post("http://localhost:8080/login", jsonBody, "application/json");
 
 
         yield return www.SendWebRequest();
 
-        // if (www.result != UnityWebRequest.Result.Success)
-        // {
-        //     Debug.LogError("Login request failed: " + www.error);
-        //     ShowMessage("Unable to contact server. Try again later.", Color.red);
-        //     yield break;
-        // }
+        if (www.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.LogError("Login request failed: " + www.error);
+            ShowMessage("Unable to contact server. Try again later.", Color.red);
+            yield break;
+        }
 
         if (www.responseCode == 201)
         {

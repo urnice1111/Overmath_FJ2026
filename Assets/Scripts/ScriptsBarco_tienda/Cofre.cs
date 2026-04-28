@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CofreInteractuable : MonoBehaviour
@@ -16,13 +17,19 @@ public class CofreInteractuable : MonoBehaviour
     public Sprite imagenSkin;
     public string nombreSkin;
     [TextArea]
-    public string descripcion;
     public int precio;
+
+    public int indexOfResponse;
+
+    public string descripcion;
+
 
     void Start()
     {
         botonAbrir.SetActive(false);
         panelSkin.SetActive(false);
+        StartCoroutine(WaitForSkins());
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -62,5 +69,11 @@ public class CofreInteractuable : MonoBehaviour
         // 🎬 ANIMACIÓN CERRAR
         if (animator != null)
             animator.SetTrigger("cerrar");
+    }
+
+    private IEnumerator WaitForSkins()
+    {
+        yield return new WaitUntil(() => StoreManager.Instance != null && StoreManager.Instance.skinsLoaded);
+        descripcion = StoreManager.Instance.skins[indexOfResponse].descripcion;
     }
 }

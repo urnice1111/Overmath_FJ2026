@@ -925,8 +925,9 @@ MonoBehaviour:
   animator: {fileID: 399500984}
   imagenSkin: {fileID: 0}
   nombreSkin: 
-  descripcion: 
   precio: 0
+  indexOfResponse: 0
+  descripcion: 
 --- !u!95 &399500984
 Animator:
   serializedVersion: 7
@@ -1304,8 +1305,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   imagenSkin: {fileID: 0}
   nombreSkin: 
-  descripcion: 
   precio: 0
+  indexOfResponse: 0
+  descripcion: 
 --- !u!1 &734042354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,8 +1730,9 @@ MonoBehaviour:
   animator: {fileID: 907152133}
   imagenSkin: {fileID: -8787423413878853860, guid: 9f46f4ca19fcafd4a8e5107716913ced, type: 3}
   nombreSkin: "\xD1I\xD1I\xD1I"
-  descripcion: "\xF1i\xF1i\xF1i\xF1i"
   precio: 3000
+  indexOfResponse: 0
+  descripcion: "\xF1i\xF1i\xF1i\xF1i"
 --- !u!58 &907152135
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1971,8 +1974,9 @@ MonoBehaviour:
   animator: {fileID: 922283354}
   imagenSkin: {fileID: 0}
   nombreSkin: 
-  descripcion: 
   precio: 0
+  indexOfResponse: 0
+  descripcion: 
 --- !u!95 &922283354
 Animator:
   serializedVersion: 7
@@ -2967,8 +2971,9 @@ MonoBehaviour:
   animator: {fileID: 1376852199}
   imagenSkin: {fileID: 1635626872, guid: f733e7fbe3aa02248ab06fc51f126465, type: 3}
   nombreSkin: Lol
-  descripcion: Esta skin....
   precio: 500
+  indexOfResponse: 1
+  descripcion: Esta skin....
 --- !u!58 &1376852194
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3147,6 +3152,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1436400638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436400639}
+  - component: {fileID: 1436400640}
+  m_Layer: 0
+  m_Name: StoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436400639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436400638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06236, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1436400640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436400638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60fa41baab402457eaf3ba1a68861d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Overmath::StoreManager
 --- !u!1 &1447455876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4031,8 +4080,9 @@ MonoBehaviour:
   animator: {fileID: 2048793380}
   imagenSkin: {fileID: 0}
   nombreSkin: 
-  descripcion: 
   precio: 0
+  indexOfResponse: 0
+  descripcion: 
 --- !u!61 &2048793378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4781,3 +4831,4 @@ SceneRoots:
   - {fileID: 1107623094}
   - {fileID: 1046643860}
   - {fileID: 1057393505}
+  - {fileID: 1436400639}

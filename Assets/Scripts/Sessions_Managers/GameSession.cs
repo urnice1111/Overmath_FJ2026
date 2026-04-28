@@ -48,6 +48,8 @@ public class GameSession : MonoBehaviour
 
     public List<LogInHandler.SkinInfo> availableSkins {get; set;} = new List<LogInHandler.SkinInfo>();
 
+    public List<skinsAvailableInfo> storeSkins { get; set; } = new List<skinsAvailableInfo>();
+
     public bool tutorialCompletado { get; set; }
     public List<IslaProgreso> islasProgreso { get; set; } = new List<IslaProgreso>();
 
