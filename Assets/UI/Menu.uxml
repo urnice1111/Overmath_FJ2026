@@ -1,10 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Menu.uss?fileID=7433441132597879392&amp;guid=3dea1a9a2cc8c48f5bb016b45ceaf4d2&amp;type=3#Menu"/>
     <ui:VisualElement name="Menu" enabled="true" class="menu">
-        <ui:VisualElement name="Botones" style="flex-grow: 1; justify-content: center; align-items: center; padding-right: 0%; padding-left: -130px; margin-left: 680px; padding-bottom: 91px; border-top-width: 185px;">
-            <ui:Label text="OVERMATH" name="Label" style="font-size: 80px; -unity-font-style: bold; color: white; margin-bottom: 40px; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(20, 50, 90); letter-spacing: 4px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
-            <ui:Button text="INGRESAR" name="BtnIngresar" class="my-background-button" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
-            <ui:Button text="REGISTRARSE" name="BtnRegistrarse" class="my-background-button" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
+        <ui:VisualElement name="Botones" style="flex-grow: 1; justify-content: center; align-items: center; padding-right: 0%; padding-left: -130px; margin-left: 871px; padding-bottom: 91px; border-top-width: 185px; margin-top: 31px;">
+            <ui:Label text="OVERMATH" name="Label" style="font-size: 120px; -unity-font-style: bold; color: white; margin-bottom: 40px; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(20, 50, 90); letter-spacing: 4px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); margin-top: -40px;"/>
+            <ui:Button text="INGRESAR" name="BtnIngresar" class="my-background-button buttons"/>
+            <ui:Button text="REGISTRARSE" name="BtnRegistrarse" class="my-background-button buttons"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -41,14 +41,14 @@
 }
 
 .field-label {
-    font-size: 18px;
+    font-size: 20px;
     -unity-font-style: bold;
     color: white;
     margin-bottom: 2px;
     margin-top: 4px;
     -unity-text-outline-width: 1px;
     -unity-text-outline-color: rgb(20, 50, 90);
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
     -unity-text-align: middle-center;
 }
 

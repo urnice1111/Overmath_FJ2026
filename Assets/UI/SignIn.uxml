@@ -3,7 +3,7 @@
     <ui:VisualElement name="SignIn" class="signin-root">
         <ui:VisualElement class="signin-spacer"/>
         <ui:VisualElement name="FormPanel" class="signin-form-panel">
-            <ui:Label text="OVERMATH" class="signin-title"/>
+            <ui:Label text="OVERMATH" class="signin-title" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
             <ui:Label text="CREAR CUENTA" class="signin-subtitle"/>
             <ui:VisualElement class="field-row">
                 <ui:VisualElement class="field-group">
