@@ -23,6 +23,12 @@ namespace Sessions_Managers
         private GameObject tiempoymenu;
         private GameObject villano;
 
+        [Header("Audio de victoria/derrota")]
+        [SerializeField] private AudioSource gameAudioSource;
+        [SerializeField] private AudioClip winSound;
+        [SerializeField] private AudioClip loseSound;
+        [SerializeField, Range(0f, 1f)] private float gameAudioVolume = 1f;
+
         private bool gameEnded;
 
         void Start()
@@ -33,6 +39,15 @@ namespace Sessions_Managers
             tiempoYMenu.SetActive(true);
             Time.timeScale = 1f;
             PuntajedePregunta.Instance.ReiniciarPuntaje();
+
+            if (gameAudioSource == null)
+            {
+                gameAudioSource = GetComponent<AudioSource>();
+                if (gameAudioSource == null)
+                {
+                    Debug.LogWarning($"GameFlowManager: AudioSource NOT found. Win/Lose sounds won't play.");
+                }
+            }
         }
 
         void Update()
@@ -75,6 +90,8 @@ namespace Sessions_Managers
             if (tiempoymenu != null) tiempoymenu.SetActive(false);
             if (villano != null) villano.SetActive(false);
 
+            PlayWinSound();
+
             // Pasar datos al panel de resultados
             resultadosUI.MostrarResultados(puntos, tiempo, contestadas, correctas);
             EnviarProgreso(puntos, tiempo);
@@ -99,6 +116,7 @@ namespace Sessions_Managers
             if (villano != null) villano.SetActive(false);
 
             Time.timeScale = 0f;
+            PlayLoseSound();
             Debug.Log("perdiste nub");
             EnviarProgreso(puntos, tiempo);
 
@@ -128,6 +146,24 @@ namespace Sessions_Managers
             }
 
             progressHandler.GuardarPartida(partida);
+        }
+
+        private void PlayWinSound()
+        {
+            if (gameAudioSource == null || winSound == null)
+            {
+                return;
+            }
+            gameAudioSource.PlayOneShot(winSound, gameAudioVolume);
+        }
+
+        private void PlayLoseSound()
+        {
+            if (gameAudioSource == null || loseSound == null)
+            {
+                return;
+            }
+            gameAudioSource.PlayOneShot(loseSound, gameAudioVolume);
         }
     }
 };
