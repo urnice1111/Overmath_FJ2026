@@ -18,6 +18,12 @@ namespace DialogueSystem
         [SerializeField] private Image imageHolder;
         private Coroutine writingRoutine;
 
+        [Header("Audio de palabras")]
+        [SerializeField] private AudioSource dialogueAudioSource;
+        [SerializeField] private AudioClip lineStartSound;
+        [SerializeField] private AudioClip[] wordSounds = new AudioClip[5];
+        [SerializeField, Range(0f, 1f)] private float audioVolume = 1f;
+
         private void Awake()
         {
             if (textHolder == null)
@@ -29,6 +35,11 @@ namespace DialogueSystem
             if (textHolder == null)
             {
                 textHolder = GetComponentInChildren<TextMeshProUGUI>(true);
+            }
+
+            if (dialogueAudioSource == null)
+            {
+                dialogueAudioSource = GetComponent<AudioSource>();
             }
         }
 
@@ -58,6 +69,12 @@ namespace DialogueSystem
                     StopCoroutine(writingRoutine);
                 }
 
+                // Reproducir sonido de inicio de línea
+                if (dialogueAudioSource != null && lineStartSound != null)
+                {
+                    dialogueAudioSource.PlayOneShot(lineStartSound, audioVolume);
+                }
+
                 writingRoutine = StartCoroutine(WriteTextAndMarkFinished(input, textHolder, textColor, textFont, delay));
             }
         }
@@ -73,7 +90,7 @@ namespace DialogueSystem
 
         private IEnumerator WriteTextAndMarkFinished(string input, TextMeshProUGUI textHolder, Color textColor, TMP_FontAsset textFont, float delay)
         {
-            yield return StartCoroutine(WriteText(input, textHolder, textColor, textFont, delay, delayBetweenLines));
+            yield return StartCoroutine(WriteText(input, textHolder, textColor, textFont, delay, delayBetweenLines, dialogueAudioSource, wordSounds));
             Finished = true;
             writingRoutine = null;
         }
