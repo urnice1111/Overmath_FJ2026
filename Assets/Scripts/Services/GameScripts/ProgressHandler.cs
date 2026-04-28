@@ -27,7 +27,7 @@ public class ProgressHandler : MonoBehaviour
         public List<IntentoPregunta> intentos;
     }
     
-    private string apiUrl = "http://localhost:8080/save_progress";
+    private string apiUrl = "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws//save_progress";
 
     public void GuardarPartida(PartidaData partida)
     {

@@ -320,7 +320,7 @@ public class TutorialManager : MonoBehaviour
         string jsonBody = JsonUtility.ToJson(body);
 
         using UnityWebRequest www = UnityWebRequest.Post(
-            "http://localhost:8080/set_tutorial_completed",
+            "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws//set_tutorial_completed",
             jsonBody,
             "application/json");
 

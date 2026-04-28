@@ -7,7 +7,7 @@ public class IslandProgressManager : MonoBehaviour
     [SerializeField] private TutorialIslandTrigger tutorialIsland;
 
     private const string BaseUrl =
-        "http://127.0.0.1:8080";
+        "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws";
 
     private void Start()
     {
