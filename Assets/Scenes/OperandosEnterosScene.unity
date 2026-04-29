@@ -4735,6 +4735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
   duracionRecorrido: 15
+  porcentajeDesplazamiento: 0.5
 --- !u!1 &1026360604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,6 +6398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
   duracionRecorrido: 15
+  porcentajeDesplazamiento: 0.5
 --- !u!1 &1190751788
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,6 +7030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
   duracionRecorrido: 15
+  porcentajeDesplazamiento: 0.5
 --- !u!1 &1239925940
 GameObject:
   m_ObjectHideFlags: 0
@@ -7133,6 +7136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
   duracionRecorrido: 15
+  porcentajeDesplazamiento: 0.5
 --- !u!1 &1296453375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4572989570882201546, guid: cbbadfa6063519846a8267f3091ae454, type: 3}
@@ -8362,6 +8366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscenaHuerto
   duracionRecorrido: 15
+  porcentajeDesplazamiento: 0.5
 --- !u!212 &1486636917
 SpriteRenderer:
   serializedVersion: 2
@@ -10179,6 +10184,7 @@ Transform:
   - {fileID: 1439254049}
   - {fileID: 111286739}
   - {fileID: 1849665484}
+  - {fileID: 1906348689}
   m_Father: {fileID: 1029730440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1849665483
@@ -10598,7 +10604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1906348689
 Transform:
   m_ObjectHideFlags: 0
