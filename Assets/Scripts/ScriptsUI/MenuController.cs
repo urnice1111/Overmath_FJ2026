@@ -16,6 +16,11 @@ public class MenuController : MonoBehaviour, IPointerDownHandler
 
     private readonly List<Button> menuButtonsWithSound = new List<Button>();
     
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject); // Mantiene el prefab entre escenas
+    }
+    
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;

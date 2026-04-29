@@ -11,9 +11,8 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="SkinSelectorCollapsed" style="position: absolute; right: 20px; top: 20px; width: 120px; height: 120px; -unity-background-scale-mode: stretch-to-fill;">
-            <ui:VisualElement name="SkinSelectorCollapsedInner" style="flex-grow: 1; margin: 12px; -unity-background-scale-mode: scale-to-fit;"/>
+            <ui:VisualElement name="SkinSelectorCollapsedInner" style="flex-grow: 1; margin: 12px; -unity-background-scale-mode: scale-to-fit; margin-left: -100px;"/>
         </ui:VisualElement>
         <ui:VisualElement name="SkinSelectorExpanded" style="position: absolute; right: 20px; top: 150px; display: none; flex-direction: column;"/>
-
     </ui:VisualElement>
 </ui:UXML>
