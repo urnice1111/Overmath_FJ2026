@@ -2423,7 +2423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &443138340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9485,7 +9485,7 @@ MonoBehaviour:
   marcoCongelado: {fileID: 1098317475}
   barTransform: {fileID: 0}
   maxTime: 100
-  decreaseRate: 1
+  decreaseRate: 50
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1754413764
 MonoBehaviour:
