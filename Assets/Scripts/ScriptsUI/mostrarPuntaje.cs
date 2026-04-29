@@ -7,7 +7,7 @@ public class mostrarPuntaje : MonoBehaviour
 
         public void MostrarPuntajee(int puntaje)
         {
-            _puntaje.text = "Puntaje: " + puntaje;        
+            _puntaje.text = "" + puntaje;        
         }
 }
     
