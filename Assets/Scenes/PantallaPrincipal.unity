@@ -767,7 +767,7 @@ MonoBehaviour:
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
   delayBetweenLines: 5
-  characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
+  characterSprite: {fileID: -1959888154, guid: 773f88759c4ca9e478d474f64fa8c73b, type: 3}
   imageHolder: {fileID: 1191357634}
   dialogueAudioSource: {fileID: 1162886484}
   lineStartSound: {fileID: 8300000, guid: 5ba9b9a44a8c4b247a03962f1ca957e8, type: 3}
@@ -3185,7 +3185,7 @@ MonoBehaviour:
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
   delayBetweenLines: 5
-  characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
+  characterSprite: {fileID: -1959888154, guid: 773f88759c4ca9e478d474f64fa8c73b, type: 3}
   imageHolder: {fileID: 1194897539}
   dialogueAudioSource: {fileID: 1162886484}
   lineStartSound: {fileID: 8300000, guid: 965c99cce4714d74b875c4252788db07, type: 3}

@@ -144,7 +144,7 @@ public class LogInHandler : MonoBehaviour
 
             Debug.Log(www.responseCode);
             ShowMessage("Login successful! Loading game...", Color.green);
-            SceneManager.LoadScene("PantallaPrincipal");
+            StartCoroutine(CheckTutorialAndLoadScene());
             // StartCoroutine(RegisterSessionInDB(response.user.id));
         }
         else if (www.responseCode == 401 || www.responseCode == 403)
@@ -178,6 +178,31 @@ public class LogInHandler : MonoBehaviour
     }
     
     
+    private IEnumerator CheckTutorialAndLoadScene()
+    {
+        int userId = GameSession.Instance.userId;
+        string url = $"https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws/get_player_progress/{userId}";
+
+        using UnityWebRequest www = UnityWebRequest.Get(url);
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.Success)
+        {
+            ProgresoResponse progreso = JsonUtility.FromJson<ProgresoResponse>(www.downloadHandler.text);
+            GameSession.Instance.tutorialCompletado = progreso.tutorial_completado;
+        }
+        else
+        {
+            Debug.LogWarning("No se pudo verificar el tutorial, cargando Cutscene por defecto.");
+            GameSession.Instance.tutorialCompletado = false;
+        }
+
+        if (GameSession.Instance.tutorialCompletado)
+            SceneManager.LoadScene("PantallaPrincipal");
+        else
+            SceneManager.LoadScene("Cutscene");
+    }
+
     private void ShowMessage(string text, Color color)
     {
         if (resultMessage != null)
