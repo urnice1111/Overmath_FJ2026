@@ -58,6 +58,9 @@ public class LogInHandler : MonoBehaviour
     
     private Button logInButton;
     private Button goBackButton;
+    
+    private class ErrorResponse {public string error;}
+
 
     void OnEnable()
     {
@@ -150,8 +153,27 @@ public class LogInHandler : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Unexpected login response: " + www.responseCode + " - " + www.downloadHandler.text);
-            ShowMessage("Login failed. Please try again.", Color.red);
+            //Debug.LogWarning("Unexpected login response: " + www.responseCode + " - " + www.downloadHandler.text);
+            //ShowMessage("Login failed. Please try again.", Color.red);
+            string errorResponse = www.downloadHandler.text;
+            Debug.LogWarning("Unexpected login response: " + www.responseCode + " - " + errorResponse);
+
+            string userMessage = errorResponse;
+
+            try
+            {
+                ErrorResponse err = JsonUtility.FromJson<ErrorResponse>(errorResponse);
+                if (!string.IsNullOrEmpty(err.error))
+                {
+                    userMessage = err.error;
+                }
+            }
+            catch
+            {
+                // Si no es JSON válido, se queda el texto crudo
+            }
+
+            ShowMessage(userMessage, Color.red);
         }
     }
     

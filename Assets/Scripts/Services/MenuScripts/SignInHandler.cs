@@ -20,6 +20,8 @@ public class SignInHandler : MonoBehaviour
         public string last_name;
         public string date;
     }
+    
+    private class errorResponse {public string error;}
 
     private TextField emailEntry;
     private TextField usernameEntry;
@@ -133,8 +135,28 @@ public class SignInHandler : MonoBehaviour
             // StartCoroutine(RegisterSessionInDB(response.user.id));
         } else
         {
-            Debug.LogWarning("Unexpected login response: " + www.responseCode + " - " + www.downloadHandler.text);
-            ShowMessage("Login failed. Please try again.", Color.red);
+            //Debug.LogWarning("Unexpected login response: " + www.responseCode + " - " + www.downloadHandler.text);
+            //ShowMessage(www.downloadHandler.text, Color.red);
+            string errorResponse = www.downloadHandler.text;
+
+            Debug.LogWarning("Unexpected login response: " + www.responseCode + " - " + errorResponse);
+
+            string userMessage = errorResponse;
+
+            try
+            {
+                errorResponse err = JsonUtility.FromJson<errorResponse>(errorResponse);
+                if (!string.IsNullOrEmpty(err.error))
+                {
+                    userMessage = err.error;
+                }
+            }
+            catch
+            {
+                // Si no es JSON válido, se queda el texto crudo
+            }
+
+            ShowMessage(userMessage, Color.red);
         }
         
     }

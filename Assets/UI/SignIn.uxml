@@ -50,11 +50,11 @@
                     <ui:IntegerField name="YearField" value="1990" class="date-field"/>
                 </ui:VisualElement>
             </ui:VisualElement>
+            <ui:Label text="" enabled="false" name="Response" style="font-size: 30px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); color: rgb(212, 0, 0);"/>
             <ui:VisualElement class="button-row">
                 <ui:Button text="REGRESAR" name="BtnRegresar" class="scroll-button button-animation" style="font-size: 40px;"/>
                 <ui:Button text="REGISTRAR" name="BtnRegistrar" class="scroll-button button-animation" style="font-size: 40px;"/>
             </ui:VisualElement>
-            <ui:Label text="Label" enabled="false" name="Response" style="font-size: 30px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); color: rgb(212, 0, 0);"/>
             <ui:VisualElement class="register-row">
                 <ui:Label text="¿Ya tienes cuenta?" class="link-label"/>
                 <ui:Label text="Inicia sesión aquí" name="LblIniciarSesion" class="link-highlight"/>
