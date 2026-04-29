@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/SignInStyles.uss?fileID=7433441132597879392&amp;guid=47af9032adb4c46d2adda86ada730e61&amp;type=3#SignInStyles"/>
     <ui:VisualElement name="SignIn" class="signin-root">
         <ui:VisualElement class="signin-spacer"/>
-        <ui:VisualElement name="FormPanel" class="signin-form-panel">
+        <ui:VisualElement name="FormPanel" class="signin-form-panel" style="margin-left: 370px;">
             <ui:Label text="OVERMATH" class="signin-title" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
             <ui:Label text="CREAR CUENTA" class="signin-subtitle"/>
             <ui:VisualElement class="field-row">
@@ -35,26 +35,26 @@
                     <ui:TextField name="LastNameField" class="scroll-textfield"/>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Label text="FECHA DE NACIMIENTO" class="date-section-label"/>
+            <ui:Label text="FECHA DE NACIMIENTO" class="date-section-label" style="padding-bottom: 10px; margin-bottom: -13px;"/>
             <ui:VisualElement class="date-row">
                 <ui:VisualElement class="date-group">
-                    <ui:Label text="DÍA" class="date-label"/>
+                    <ui:Label text="DÍA" class="date-label date-font"/>
                     <ui:IntegerField name="DayField" value="1" class="date-field"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="date-group">
-                    <ui:Label text="MES" class="date-label"/>
+                    <ui:Label text="MES" class="date-label date-font"/>
                     <ui:IntegerField name="MonthField" value="1" class="date-field"/>
                 </ui:VisualElement>
                 <ui:VisualElement class="date-group">
-                    <ui:Label text="AÑO" class="date-label"/>
+                    <ui:Label text="AÑO" class="date-label date-font"/>
                     <ui:IntegerField name="YearField" value="1990" class="date-field"/>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement class="button-row">
-                <ui:Button text="REGRESAR" name="BtnRegresar" class="scroll-button"/>
-                <ui:Button text="REGISTRAR" name="BtnRegistrar" class="scroll-button"/>
+                <ui:Button text="REGRESAR" name="BtnRegresar" class="scroll-button button-animation" style="font-size: 40px;"/>
+                <ui:Button text="REGISTRAR" name="BtnRegistrar" class="scroll-button button-animation" style="font-size: 40px;"/>
             </ui:VisualElement>
-            <ui:Label text="Label" enabled="false" name="Response"/>
+            <ui:Label text="Label" enabled="false" name="Response" style="font-size: 30px; -unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); color: rgb(212, 0, 0);"/>
             <ui:VisualElement class="register-row">
                 <ui:Label text="¿Ya tienes cuenta?" class="link-label"/>
                 <ui:Label text="Inicia sesión aquí" name="LblIniciarSesion" class="link-highlight"/>

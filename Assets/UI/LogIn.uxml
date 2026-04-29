@@ -6,7 +6,7 @@
             <ui:Label text="OVERMATH" class="login-title" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); -unity-font-style: bold;"/>
             <ui:Label text="INICIAR SESIÓN" class="login-subtitle" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);"/>
             <ui:Label text="CORREO ELECTRÓNICO" class="field-label" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); font-size: 40px; -unity-font-style: bold;"/>
-            <ui:TextField name="EmailField" value="ehfheheffiehifhe9fi9efh" class="scroll-textfield datosIngresados"/>
+            <ui:TextField name="EmailField" value="" label="" class="scroll-textfield datosIngresados"/>
             <ui:Label text="CONTRASEÑA" class="field-label" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;); font-size: 40px;"/>
             <ui:TextField name="PasswordField" password="true" label="" class="scroll-textfield datosIngresados"/>
             <ui:VisualElement class="buttons-row" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&amp;guid=1c83ba9c46190e848b7c33e2673b8ccc&amp;type=3#GrapeSoda&quot;);">
