@@ -178,7 +178,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Subir
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4f3da589db0d54cb79a098a36c140eb5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   m_sharedMaterial: {fileID: 7009599150463955070, guid: 4f3da589db0d54cb79a098a36c140eb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -203,8 +203,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &491156
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 63404871}
-  input: Wen ases tus momos en unity cutscene
+  input: 'Yo te ayudare en esta travesia '
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.17735851, g: 0.17501603, b: 0.17501603, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11222,7 +11222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 656960149}
-  input: But ella no te ama :,v
+  input: Primero, encuentra el barco para que puedas avanzar
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
@@ -13346,7 +13346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a49ff0583ecc749a2e7d0a3395c064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSound
-  audioSource: {fileID: 269461675}
   clickSound: {fileID: 8300000, guid: 005f87842f5279a4e82bb6e0b62b5ee2, type: 3}
 --- !u!4 &1193156792
 Transform:
@@ -13432,7 +13431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.076223314, g: 0.025097746, b: 0.8867924, a: 0.9764706}
+  m_Color: {r: 0.95340776, g: 1, b: 0.3150943, a: 0.7764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15350,7 +15349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1755800546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16083,8 +16082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -294.419}
-  m_SizeDelta: {x: 230, y: 70}
+  m_AnchoredPosition: {x: 0, y: -280}
+  m_SizeDelta: {x: 300, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1955638960
 MonoBehaviour:
@@ -16593,8 +16592,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030518, y: 381}
-  m_SizeDelta: {x: 710.4232, y: 123.5388}
+  m_AnchoredPosition: {x: -0.000030517, y: 397}
+  m_SizeDelta: {x: 624.7521, y: 123.5388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1980225124
 MonoBehaviour:
@@ -16618,15 +16617,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Busca el barco! '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
-  m_sharedMaterial: {fileID: -1325551482713556698, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
+  m_sharedMaterial: {fileID: 4604872390602530661, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280295456
+  m_fontColor: {r: 0.12452829, g: 0.12452829, b: 0.12452829, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16643,8 +16642,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

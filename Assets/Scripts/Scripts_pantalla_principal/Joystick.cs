@@ -1,6 +1,7 @@
 // This script manages the joystick and updates barquito position.
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DialogueSystem;
 
 public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
@@ -8,14 +9,42 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
     public RectTransform handle;
 
     private Vector2 input = Vector2.zero;
+    private CanvasGroup canvasGroup;
 
     public Vector2 GetInput()
     {
         return input;
     }
 
+    private void Awake()
+    {
+        if (background != null)
+        {
+            canvasGroup = background.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+                canvasGroup = background.gameObject.AddComponent<CanvasGroup>();
+        }
+    }
+
+    private void Update()
+    {
+        if (canvasGroup == null) return;
+        bool dialog = DialogueHolder.IsDialogueActive;
+        canvasGroup.alpha = dialog ? 0f : 1f;
+        canvasGroup.interactable = !dialog;
+        canvasGroup.blocksRaycasts = !dialog;
+
+        if (dialog)
+        {
+            input = Vector2.zero;
+            if (handle != null)
+                handle.anchoredPosition = Vector2.zero;
+        }
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
+        if (DialogueHolder.IsDialogueActive) return;
         Vector2 pos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             background,
@@ -37,6 +66,7 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointer
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (DialogueHolder.IsDialogueActive) return;
         OnDrag(eventData);
     }
 

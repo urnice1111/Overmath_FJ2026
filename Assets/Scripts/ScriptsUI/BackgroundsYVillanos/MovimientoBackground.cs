@@ -4,6 +4,7 @@ using UnityEngine;
 public class MovimientoBackground : MonoBehaviour
 {
     [SerializeField] private float duracionRecorrido = 10f;
+    [SerializeField] private float porcentajeDesplazamiento = 0.5f; // 0-1: qué porcentaje del máximo usar
 
     private Vector3 posicionInicial;
     private float desplazamientoMaximo;
@@ -44,9 +45,11 @@ public class MovimientoBackground : MonoBehaviour
         float t = Mathf.PingPong(Time.time / duracionRecorrido, 1f);
         t = Mathf.SmoothStep(0f, 1f, t);
 
+        float desplazamientoActual = desplazamientoMaximo * porcentajeDesplazamiento;
+
         float nuevaX = Mathf.Lerp(
-            posicionInicial.x + desplazamientoMaximo,
-            posicionInicial.x - desplazamientoMaximo,
+            posicionInicial.x + desplazamientoActual,
+            posicionInicial.x - desplazamientoActual,
             t
         );
 
