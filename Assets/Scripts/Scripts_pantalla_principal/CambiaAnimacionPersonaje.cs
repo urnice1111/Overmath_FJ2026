@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class CambiaAnimacionPersonaje : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -61,7 +60,6 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
         temporizadorNado = 0f;
         audioSource.Stop();
     }
-
     return;
 }
         else
@@ -74,7 +72,6 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
                 estabaEnAgua = false;
             }
         }
-
         bool estaQuieto = velocidad.sqrMagnitude < 0.01f;
         bool mueveHorizontal = Mathf.Abs(velocidad.x) > 0.1f;
         bool mueveArriba = velocidad.y > 0.1f;
@@ -87,7 +84,6 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
 
         sr.flipX = velocidad.x < -0.1f;
 
-        
         bool estaCaminando = Mathf.Abs(velocidad.x) > 0.1f || Mathf.Abs(velocidad.y) > 0.1f;
 
         if (estaCaminando)
@@ -111,17 +107,18 @@ public class CambiaAnimacionPersonaje : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Water"))
+        if (other.CompareTag("Piso"))
         {
-            isSwimming = true;
+            isSwimming = false;
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Water"))
+        if (other.CompareTag("Piso"))
         {
-            isSwimming = false;
+            isSwimming = true;
         }
     }
 }
+

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class SubirBarco : MonoBehaviour
 {
     public GameObject personaje;
@@ -11,6 +10,7 @@ public class SubirBarco : MonoBehaviour
     public Transform puntoSubida;
 
     public GameObject botonSubir;
+    public TutorialUIManager tutorialUI;
 
     public void Subir()
     {
@@ -25,5 +25,10 @@ public class SubirBarco : MonoBehaviour
         controlBarco.enabled = true;
 
         botonSubir.SetActive(false);
+
+        if(tutorialUI != null)
+        {
+            tutorialUI.MostrarFlecha();
+        }
     }
 }

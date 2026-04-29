@@ -1,10 +1,13 @@
 // The script controls the time bar. 
 using UnityEngine;
+using System.Collections;
 
 public class TiempoJuego : MonoBehaviour
 {
     public static TiempoJuego Instance { get; private set; }
     
+    [SerializeField]
+    private GameObject marcoCongelado;
 
     [SerializeField]
     private Transform barTransform;
@@ -18,6 +21,8 @@ public class TiempoJuego : MonoBehaviour
     public float TiempoJugado { get; private set; }
     
     public float TiempoRestante => currentTime;
+
+    private float savedDecreaseRate;
 
     void Start()
     {
@@ -56,7 +61,24 @@ public class TiempoJuego : MonoBehaviour
     
     public void AjustarTiempo(float cantidad)
     {
-        currentTime += cantidad; // restar o sumar tiempo
+        currentTime += cantidad;
         currentTime = Mathf.Clamp(currentTime, 0, maxTime);
+    }
+
+    public void Pausar(float duracion)
+    {
+        StartCoroutine(PausarCoroutine(duracion));
+    }
+
+    private IEnumerator PausarCoroutine(float duracion)
+    {
+        savedDecreaseRate = decreaseRate;
+        decreaseRate = 0f;
+        if (marcoCongelado != null)
+            marcoCongelado.SetActive(true);
+        yield return new WaitForSeconds(duracion);
+        decreaseRate = savedDecreaseRate;
+        if (marcoCongelado != null)
+            marcoCongelado.SetActive(false);
     }
 }

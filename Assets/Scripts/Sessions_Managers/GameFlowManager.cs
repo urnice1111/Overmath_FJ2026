@@ -3,7 +3,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using UnityEngine.UIElements;
-using Codice.Client.BaseCommands.Differences;
 //using DG.Tweening;
 
 namespace Sessions_Managers
@@ -20,6 +19,7 @@ namespace Sessions_Managers
         [SerializeField] private UIDocument HUD;
         [SerializeField] private GameObject tiempoYMenu;
         [SerializeField] private FrasesCanvaPerdiste frases;
+        [SerializeField] private AudioSource music;
         private GameObject tiempoymenu;
         private GameObject villano;
 
@@ -33,6 +33,7 @@ namespace Sessions_Managers
 
         void Start()
         {
+            music.Play();
             HUD.gameObject.SetActive(true);
             winCanvas.SetActive(false);
             loseCanvas.SetActive(false);
@@ -82,6 +83,7 @@ namespace Sessions_Managers
         private void MostrarVictoria(int puntos, float tiempo, int contestadas, int correctas)
         {
             gameEnded = true;
+            music.Stop();
             HUD.gameObject.SetActive(false);
             winCanvas.SetActive(true);
             tiempoYMenu.SetActive(false);
@@ -104,6 +106,7 @@ namespace Sessions_Managers
             mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
             mesa.Cerrar();*/
             tiempoYMenu.SetActive(false);
+            music.Stop();
             ActiveMesaCreacion mesa = UnityEngine.Object.FindAnyObjectByType<ActiveMesaCreacion>();
             if (mesa != null) mesa.Cerrar();
 
