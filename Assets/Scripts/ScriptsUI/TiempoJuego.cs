@@ -22,7 +22,7 @@ public class TiempoJuego : MonoBehaviour
     
     public float TiempoRestante => currentTime;
 
-    private bool isPaused;
+    private float savedDecreaseRate;
 
     void Start()
     {
@@ -47,11 +47,8 @@ public class TiempoJuego : MonoBehaviour
 
     void Update()
     {
-        if (!isPaused)
-        {
-            currentTime -= decreaseRate * Time.deltaTime;
-            currentTime = Mathf.Clamp(currentTime, 0, maxTime);
-        }
+        currentTime -= decreaseRate * Time.deltaTime;
+        currentTime = Mathf.Clamp(currentTime, 0, maxTime);
 
         float percent = currentTime / maxTime;
         barTransform.localScale = new Vector3(initialScale.x * percent, initialScale.y, initialScale.z);
@@ -75,10 +72,13 @@ public class TiempoJuego : MonoBehaviour
 
     private IEnumerator PausarCoroutine(float duracion)
     {
-        isPaused = true;
-        marcoCongelado.SetActive(true);
+        savedDecreaseRate = decreaseRate;
+        decreaseRate = 0f;
+        if (marcoCongelado != null)
+            marcoCongelado.SetActive(true);
         yield return new WaitForSeconds(duracion);
-        marcoCongelado.SetActive(false);
-        isPaused = false;
+        decreaseRate = savedDecreaseRate;
+        if (marcoCongelado != null)
+            marcoCongelado.SetActive(false);
     }
 }
