@@ -52,7 +52,7 @@ public class StoreManager : MonoBehaviour
     private IEnumerator getSkinsInfo()
     {
         int userId = GameSession.Instance.userId;
-        string url = $"http://localhost:8080/get_skins_for_store/{userId}";
+        string url = $"https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws//get_skins_for_store/{userId}";
 
         using UnityWebRequest www = UnityWebRequest.Get(url);
         yield return www.SendWebRequest();
@@ -90,7 +90,7 @@ public class StoreManager : MonoBehaviour
         };
 
         string json = JsonUtility.ToJson(buySkinData);
-        string url = "http://localhost:8080/buy_skin";
+        string url = "https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws//buy_skin";
 
         using UnityWebRequest www = UnityWebRequest.Post(url, json, "application/json");
 

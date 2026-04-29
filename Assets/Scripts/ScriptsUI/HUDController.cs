@@ -158,7 +158,7 @@ public class HUDController : MonoBehaviour
 
         string jsonBody = JsonUtility.ToJson(skinData);
 
-        using UnityWebRequest www = UnityWebRequest.Post("http://localhost:8080/save_current_skin", jsonBody, "application/json");
+        using UnityWebRequest www = UnityWebRequest.Post("https://udqzin2siulhcshfje2amhkiey0pkadb.lambda-url.us-east-1.on.aws//save_current_skin", jsonBody, "application/json");
         yield return www.SendWebRequest();
 
     }
