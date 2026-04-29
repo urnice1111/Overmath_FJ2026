@@ -9,6 +9,7 @@
 
 .signin-spacer {
     flex-grow: 1;
+    border-left-width: 351px;
 }
 
 .signin-form-panel {
@@ -20,7 +21,7 @@
 }
 
 .signin-title {
-    font-size: 70px;
+    font-size: 100px;
     -unity-font-style: bold;
     color: white;
     margin-bottom: 6px;
@@ -31,20 +32,20 @@
 }
 
 .signin-subtitle {
-    font-size: 32px;
+    font-size: 48px;
     -unity-font-style: bold;
     color: white;
     margin-bottom: 14px;
     -unity-text-outline-width: 2px;
     -unity-text-outline-color: rgb(20, 50, 90);
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
 }
 
 .field-label {
-    font-size: 20px;
+    font-size: 40px;
     -unity-font-style: bold;
     color: white;
-    margin-bottom: 2px;
+    margin-bottom: -10px;
     margin-top: 4px;
     -unity-text-outline-width: 1px;
     -unity-text-outline-color: rgb(20, 50, 90);
@@ -67,37 +68,40 @@
 }
 
 .scroll-textfield {
-    width: 240px;
-    height: 60px;
+    width: 470px;
+    height: 80px;
     background-image: url("project://database/Assets/Images/Untitled%2010.png?fileID=2800000&guid=fa1df9d1569d84a6d8a885b3c0eea7c0&type=3#Untitled 10");
     -unity-background-scale-mode: stretch-to-fill;
     border-width: 0;
     background-color: rgba(0, 0, 0, 0);
     margin-bottom: 2px;
+    border-left-width: 0;
 }
 
 .scroll-textfield > #unity-text-input {
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     color: rgb(36, 36, 36);
-    font-size: 22px;
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    font-size: 38px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
     -unity-text-align: middle-left;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 0;
     padding-bottom: 0;
+    border-left-width: 20px;
+    border-right-width: 20px;
 }
 
 .date-section-label {
-    font-size: 22px;
+    font-size: 40px;
     -unity-font-style: bold;
     color: white;
     margin-top: 10px;
     margin-bottom: 4px;
     -unity-text-outline-width: 1px;
     -unity-text-outline-color: rgb(20, 50, 90);
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
     -unity-text-align: middle-center;
 }
 
@@ -122,25 +126,30 @@
     margin-bottom: 2px;
     -unity-text-outline-width: 1px;
     -unity-text-outline-color: rgb(20, 50, 90);
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
     -unity-text-align: middle-center;
 }
 
 .date-field {
-    width: 120px;
-    height: 55px;
+    width: 130px;
+    height: 70px;
     background-image: url("project://database/Assets/Images/Untitled%2010.png?fileID=2800000&guid=fa1df9d1569d84a6d8a885b3c0eea7c0&type=3#Untitled 10");
     -unity-background-scale-mode: stretch-to-fill;
     border-width: 0;
     background-color: rgba(0, 0, 0, 0);
 }
 
+.date-font {
+    font-size: 38px;
+    margin-bottom: -11px;
+}
+
 .date-field > #unity-text-input {
     background-color: rgba(0, 0, 0, 0);
     border-width: 0;
     color: rgb(36, 36, 36);
-    font-size: 22px;
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    font-size: 38px;
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
     -unity-text-align: middle-center;
     padding-left: 10px;
     padding-right: 10px;
@@ -164,26 +173,26 @@
     background-color: rgba(0, 0, 0, 0);
     padding: 0;
     font-size: 30px;
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
     -unity-font-style: normal;
     color: rgb(36, 36, 36);
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .link-label {
-    font-size: 18px;
+    font-size: 30px;
     color: white;
     margin-top: 4px;
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
 }
 
 .link-highlight {
-    font-size: 18px;
+    font-size: 30px;
     color: rgb(255, 200, 60);
     margin-top: 4px;
     margin-left: 8px;
-    -unity-font-definition: url("project://database/Assets/Font/Daydream%20DEMO.otf?fileID=12800000&guid=4cc08605ed5d34709ad2e2b3e172fa7b&type=3#Daydream DEMO");
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/GrapeSoda.ttf?fileID=12800000&guid=1c83ba9c46190e848b7c33e2673b8ccc&type=3#GrapeSoda");
 }
 
 .register-row {
@@ -191,4 +200,12 @@
     justify-content: center;
     align-items: center;
     margin-top: 2px;
+}
+
+.button-animation {
+    transition-timing-function: ease-in-out-bounce;
+}
+
+.button-animation:hover {
+    scale: 1.1 1.1;
 }

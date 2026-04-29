@@ -462,8 +462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 292849562}
   input: El pentagono de las bermudas es conocido por tener propiedades inexplicables
-  textColor: {r: 0, g: 0, b: 0, a: 1}
-  textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
+  textColor: {r: 1, g: 0, b: 0, a: 1}
+  textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
   delay: 0.03
   delayBetweenLines: 1
   characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
@@ -475,11 +475,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5ba9b9a44a8c4b247a03962f1ca957e8, type: 3}
   - {fileID: 8300000, guid: 965c99cce4714d74b875c4252788db07, type: 3}
   - {fileID: 8300000, guid: d8dcb4b24e572904390419747d94b22d, type: 3}
-  - {fileID: 8300000, guid: 8eadcb0e0a653d34698b5bf7a2739fa6, type: 3}
-  - {fileID: 8300000, guid: 6b8cc484be2edd448b44230938284622, type: 3}
-  - {fileID: 8300000, guid: d02e629dfb18a524e94b1ffe35f6f56c, type: 3}
-  - {fileID: 8300000, guid: 9d2215a9ed43dd24ba05b05cfccd1281, type: 3}
-  - {fileID: 8300000, guid: 962ef25448bc4cb4a9f954d107e4f6ec, type: 3}
+  - {fileID: 8300000, guid: 9b9f1e86eb0d5db4baea763b9de7718d, type: 3}
   audioVolume: 1
 --- !u!114 &292849562
 MonoBehaviour:
@@ -503,15 +499,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
-  m_sharedMaterial: {fileID: 4604872390602530661, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
+  m_sharedMaterial: {fileID: -1325551482713556698, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -528,8 +524,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -709,7 +705,7 @@ GameObject:
   - component: {fileID: 671603353}
   - component: {fileID: 671603352}
   m_Layer: 5
-  m_Name: Dialogues
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6069,8 +6065,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 1315956125}
   input: "Gente reporta haber estado en una versi\xF3n diferente a nuestro mundo"
-  textColor: {r: 0, g: 0, b: 0, a: 1}
-  textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
+  textColor: {r: 1, g: 0, b: 0, a: 1}
+  textFont: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
   delay: 0.03
   delayBetweenLines: 1
   characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
@@ -6082,11 +6078,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5ba9b9a44a8c4b247a03962f1ca957e8, type: 3}
   - {fileID: 8300000, guid: 9b9f1e86eb0d5db4baea763b9de7718d, type: 3}
   - {fileID: 8300000, guid: 965c99cce4714d74b875c4252788db07, type: 3}
-  - {fileID: 8300000, guid: 8eadcb0e0a653d34698b5bf7a2739fa6, type: 3}
-  - {fileID: 8300000, guid: 6b8cc484be2edd448b44230938284622, type: 3}
-  - {fileID: 8300000, guid: d02e629dfb18a524e94b1ffe35f6f56c, type: 3}
-  - {fileID: 8300000, guid: 9d2215a9ed43dd24ba05b05cfccd1281, type: 3}
-  - {fileID: 8300000, guid: 962ef25448bc4cb4a9f954d107e4f6ec, type: 3}
+  - {fileID: 8300000, guid: d8dcb4b24e572904390419747d94b22d, type: 3}
   audioVolume: 1
 --- !u!114 &1315956125
 MonoBehaviour:
@@ -6110,15 +6102,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
-  m_sharedMaterial: {fileID: 4604872390602530661, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
+  m_sharedMaterial: {fileID: -1325551482713556698, guid: 45b365bfed689443b99f315c8060ea56, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6135,8 +6127,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
