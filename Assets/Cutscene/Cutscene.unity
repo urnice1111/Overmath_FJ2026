@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.076223314, g: 0.025097746, b: 0.8867924, a: 0.9764706}
+  m_Color: {r: 0.4590212, g: 0.8862745, b: 0.023529422, a: 0.9764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -542,7 +542,7 @@ MonoBehaviour:
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
   delayBetweenLines: 1
-  characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
+  characterSprite: {fileID: -1959888154, guid: 773f88759c4ca9e478d474f64fa8c73b, type: 3}
   imageHolder: {fileID: 1741108473}
   dialogueAudioSource: {fileID: 184634935}
   lineStartSound: {fileID: 8300000, guid: 9b9f1e86eb0d5db4baea763b9de7718d, type: 3}
@@ -6149,7 +6149,7 @@ MonoBehaviour:
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
   delayBetweenLines: 1
-  characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
+  characterSprite: {fileID: -1959888154, guid: 773f88759c4ca9e478d474f64fa8c73b, type: 3}
   imageHolder: {fileID: 1214674999}
   dialogueAudioSource: {fileID: 184634935}
   lineStartSound: {fileID: 8300000, guid: 9b9f1e86eb0d5db4baea763b9de7718d, type: 3}
@@ -6316,12 +6316,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 1495955483}
-  input: "Gente reporta haber estado en una versi\xF3n diferente a nuestro mundo"
+  input: 
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
   delayBetweenLines: 1
-  characterSprite: {fileID: -303643826, guid: 335bce852b3a2c544b5b7f22a65e7cde, type: 3}
+  characterSprite: {fileID: -1959888154, guid: 773f88759c4ca9e478d474f64fa8c73b, type: 3}
   imageHolder: {fileID: 140026303}
   dialogueAudioSource: {fileID: 184634935}
   lineStartSound: {fileID: 8300000, guid: 9b9f1e86eb0d5db4baea763b9de7718d, type: 3}
