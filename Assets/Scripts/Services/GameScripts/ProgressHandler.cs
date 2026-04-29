@@ -24,6 +24,7 @@ public class ProgressHandler : MonoBehaviour
         public float tiempo_seg;     // TiempoJuego.Instance.TiempoJugado
         public string nombreIsla;
         public string dificultad;
+        public string resultado; // "victoria" o "derrota"
         public List<IntentoPregunta> intentos;
     }
     

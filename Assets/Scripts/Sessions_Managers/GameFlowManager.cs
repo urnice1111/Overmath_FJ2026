@@ -22,6 +22,7 @@ namespace Sessions_Managers
         [SerializeField] private AudioSource music;
         private GameObject tiempoymenu;
         private GameObject villano;
+        private string resultadoo;
 
         [Header("Audio de victoria/derrota")]
         [SerializeField] private AudioSource gameAudioSource;
@@ -94,6 +95,8 @@ namespace Sessions_Managers
 
             PlayWinSound();
 
+            resultadoo = "victoria";
+
             // Pasar datos al panel de resultados
             resultadosUI.MostrarResultados(puntos, tiempo, contestadas, correctas);
             EnviarProgreso(puntos, tiempo);
@@ -120,6 +123,8 @@ namespace Sessions_Managers
 
             Time.timeScale = 0f;
             PlayLoseSound();
+            
+            resultadoo = "derrota";
             Debug.Log("perdiste nub");
             EnviarProgreso(puntos, tiempo);
 
@@ -134,6 +139,7 @@ namespace Sessions_Managers
                 dificultad = GameSession.Instance.DificultadActual.ToString(),
                 score_max = puntos,
                 tiempo_seg = Mathf.RoundToInt(tiempo),
+                resultado = resultadoo,
                 intentos = new List<ProgressHandler.IntentoPregunta>()
             };
 
