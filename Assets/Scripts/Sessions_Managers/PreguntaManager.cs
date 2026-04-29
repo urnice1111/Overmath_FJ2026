@@ -55,9 +55,13 @@ public class PreguntaManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
 
-        if (questionUIDocument != null)
-            questionLabel = questionUIDocument.rootVisualElement.Q<Label>("question-label");
+    private Label GetQuestionLabel()
+    {
+        if (questionLabel == null && questionUIDocument != null)
+            questionLabel = questionUIDocument.rootVisualElement?.Q<Label>("question-label");
+        return questionLabel;
     }
 
     private void Start()
@@ -129,8 +133,9 @@ public class PreguntaManager : MonoBehaviour
         
         tiempoInicioPregunta = Time.time; // ⏱ inicio del cronómetro
 
-        if (questionLabel != null)
-            questionLabel.text = PreguntaActual.respuesta_correcta.ToString();
+        Label lbl = GetQuestionLabel();
+        if (lbl != null)
+            lbl.text = PreguntaActual.respuesta_correcta.ToString();
 
         if (textoPregunta != null)
             textoPregunta.text = PreguntaActual.respuesta_correcta.ToString();
@@ -176,8 +181,9 @@ public class PreguntaManager : MonoBehaviour
         tutorialIndex = Mathf.Clamp(index, 0, preguntasTutorial.Length - 1);
         PreguntaActual = preguntasTutorial[tutorialIndex];
 
-        if (questionLabel != null)
-            questionLabel.text = PreguntaActual.respuesta_correcta.ToString();
+        Label lbl = GetQuestionLabel();
+        if (lbl != null)
+            lbl.text = PreguntaActual.respuesta_correcta.ToString();
 
         if (textoPregunta != null)
             textoPregunta.text = PreguntaActual.respuesta_correcta.ToString();
