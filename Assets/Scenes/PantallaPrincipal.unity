@@ -2819,7 +2819,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a49ff0583ecc749a2e7d0a3395c064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSound
-  audioSource: {fileID: 2110180904}
   clickSound: {fileID: 8300000, guid: 005f87842f5279a4e82bb6e0b62b5ee2, type: 3}
 --- !u!4 &879894561
 Transform:
@@ -3102,7 +3101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4131715823385869301, guid: 74a239ec9729149bfbaa0ca0bdc989a4, type: 3}
+  m_Sprite: {fileID: 338392155, guid: cedcf2451edda6047a7886e2ae4ff8ec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4178,7 +4177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4131715823385869301, guid: 74a239ec9729149bfbaa0ca0bdc989a4, type: 3}
+  m_Sprite: {fileID: 1421100799, guid: 1de021de5ac25476baf75c37b5e84f55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5109,7 +5108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4131715823385869301, guid: 74a239ec9729149bfbaa0ca0bdc989a4, type: 3}
+  m_Sprite: {fileID: 1421100799, guid: 1de021de5ac25476baf75c37b5e84f55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5737,7 +5736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4131715823385869301, guid: 74a239ec9729149bfbaa0ca0bdc989a4, type: 3}
+  m_Sprite: {fileID: 1421100799, guid: 1de021de5ac25476baf75c37b5e84f55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6917,7 +6916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4131715823385869301, guid: 74a239ec9729149bfbaa0ca0bdc989a4, type: 3}
+  m_Sprite: {fileID: 1421100799, guid: 1de021de5ac25476baf75c37b5e84f55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
