@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 63404871}
-  input: Wen ases tus momos en unity cutscene
+  input: 'Yo te ayudare en esta travesia '
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
@@ -11222,7 +11222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::DialogueSystem.DialogueLine
   textHolder: {fileID: 656960149}
-  input: But ella no te ama :,v
+  input: Primero, encuentra el barco para que puedas avanzar
   textColor: {r: 0, g: 0, b: 0, a: 1}
   textFont: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
   delay: 0.03
@@ -15350,7 +15350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1755800546
 MonoBehaviour:
   m_ObjectHideFlags: 0

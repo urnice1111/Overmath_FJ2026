@@ -7960,7 +7960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8223846622572573243, guid: 54bf2b23dcf7fba4f91f8005fad6bc47, type: 3}
       propertyPath: m_Name
-      value: pidos
+      value: Pausa
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8389,7 +8389,7 @@ GameObject:
   - component: {fileID: 2080277771}
   - component: {fileID: 2080277770}
   m_Layer: 5
-  m_Name: pidos
+  m_Name: Pausa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

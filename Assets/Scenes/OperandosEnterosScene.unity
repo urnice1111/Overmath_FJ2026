@@ -7844,7 +7844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ranks_Manager
   streak: 0
-  rank: OverMath
+  rank: D
   escenaResultado: SampleScene
   rankUpAudioSource: {fileID: 2030815733}
   rankUpSound: {fileID: 8300000, guid: 25086c98e912aa54c80f2f9bd8993c00, type: 3}
@@ -9076,7 +9076,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7facbf646e03c8a438bd37bed80879d2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9264,7 +9264,7 @@ MonoBehaviour:
   marcoCongelado: {fileID: 1098317475}
   barTransform: {fileID: 0}
   maxTime: 100
-  decreaseRate: 50
+  decreaseRate: 1
   initialScale: {x: 0, y: 0, z: 0}
 --- !u!114 &1754413764
 MonoBehaviour:
