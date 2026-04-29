@@ -1,14 +1,26 @@
-// This script plays a sound when the button "Jugar" is pressed
+// // This script plays a sound when the button "Jugar" is pressed
+// using UnityEngine;
+
+// public class ButtonSound : MonoBehaviour
+// {
+//     public AudioSource audioSource;
+//     public AudioClip clickSound;
+
+//     public void PlaySound()
+//     {
+//         Debug.Log("CLICK SONIDO");
+//         audioSource.PlayOneShot(clickSound);
+//     }
+// }
+
 using UnityEngine;
 
 public class ButtonSound : MonoBehaviour
 {
-    public AudioSource audioSource;
     public AudioClip clickSound;
 
     public void PlaySound()
     {
-        audioSource.PlayOneShot(clickSound);
+        AudioSource.PlayClipAtPoint(clickSound, Camera.main.transform.position);
     }
 }
-
