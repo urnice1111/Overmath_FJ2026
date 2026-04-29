@@ -177,10 +177,10 @@ public class PreguntaManager : MonoBehaviour
         PreguntaActual = preguntasTutorial[tutorialIndex];
 
         if (questionLabel != null)
-            questionLabel.text = PreguntaActual.problema;
+            questionLabel.text = PreguntaActual.respuesta_correcta.ToString();
 
         if (textoPregunta != null)
-            textoPregunta.text = PreguntaActual.problema;
+            textoPregunta.text = PreguntaActual.respuesta_correcta.ToString();
     }
     
     public void RegistrarIntento(int idPregunta, string respuestaUsuario, bool esCorrecta)
