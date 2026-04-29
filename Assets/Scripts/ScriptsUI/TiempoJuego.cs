@@ -6,6 +6,8 @@ public class TiempoJuego : MonoBehaviour
 {
     public static TiempoJuego Instance { get; private set; }
     
+    [SerializeField]
+    private GameObject marcoCongelado;
 
     [SerializeField]
     private Transform barTransform;
@@ -74,7 +76,9 @@ public class TiempoJuego : MonoBehaviour
     private IEnumerator PausarCoroutine(float duracion)
     {
         isPaused = true;
+        marcoCongelado.SetActive(true);
         yield return new WaitForSeconds(duracion);
+        marcoCongelado.SetActive(false);
         isPaused = false;
     }
 }
