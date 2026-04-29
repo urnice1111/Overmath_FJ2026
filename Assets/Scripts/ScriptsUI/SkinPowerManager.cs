@@ -6,7 +6,8 @@ public class SkinPowerManager : MonoBehaviour
 {
     public static SkinPowerManager Instance { get; private set; }
 
-    [SerializeField] private GameObject powerButton;
+    [SerializeField] private GameObject freezeButton;
+    [SerializeField] private GameObject skipButton;
     [SerializeField] private float freezeDuration = 5f;
 
     private SkinPower activePower = SkinPower.None;
@@ -41,8 +42,10 @@ public class SkinPowerManager : MonoBehaviour
                 break;
         }
 
-        if (powerButton != null)
-            powerButton.SetActive(activePower != SkinPower.None);
+        if (freezeButton != null)
+            freezeButton.SetActive(activePower == SkinPower.CongelarTiempo);
+        if (skipButton != null)
+            skipButton.SetActive(activePower == SkinPower.SkipPregunta);
     }
 
     public void UsarPoder()
@@ -61,8 +64,10 @@ public class SkinPowerManager : MonoBehaviour
                 break;
         }
 
-        if (powerButton != null)
-            powerButton.SetActive(false);
+        if (freezeButton != null)
+            freezeButton.SetActive(false);
+        if (skipButton != null)
+            skipButton.SetActive(false);
     }
 
     private void ActivarCongelarTiempo()
