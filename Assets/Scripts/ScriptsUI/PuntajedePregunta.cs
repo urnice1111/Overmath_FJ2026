@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class PuntajedePregunta : MonoBehaviour
 {
+    [SerializeField] private mostrarPuntaje mostrarPuntajeUI;
     public static PuntajedePregunta Instance { get; private set; }
 
     [SerializeField] private int MinimoDePuntos = 100;
@@ -85,6 +86,13 @@ public class PuntajedePregunta : MonoBehaviour
     {
         PuntosActuales = Mathf.Clamp(PuntosActuales + cantidad, 0, MinimoDePuntos);//Suma los puntos actuales con la cantidad de puntos, asegurándose de que el resultado esté entre 0 y el límite de puntos
         GuardarPuntaje();
+        
+        // Actualizar UI
+        if (mostrarPuntajeUI != null)
+        {
+            mostrarPuntajeUI.MostrarPuntajee(PuntosActuales);
+        }
+        
         Debug.Log("PuntajedePregunta: " + PuntosActuales + "/" + MinimoDePuntos + " (" + PorcentajeActual + "%)");
     }
 
