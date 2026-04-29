@@ -7621,7 +7621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1822174326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7908,11 +7908,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291906565643911130, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 310
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2291906565643911130, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 111.515
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 2291906565643911130, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7982,9 +7982,49 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CambiaEscena, Overmath
       objectReference: {fileID: 0}
+    - target: {fileID: 6399497161809074671, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1421100799, guid: 1de021de5ac25476baf75c37b5e84f55, type: 3}
     - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
       propertyPath: m_text
       value: Entrar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4604872390602530661, guid: 28bcd965ce0a43b4ba7822a79305c57b, type: 2}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280295456
+      objectReference: {fileID: 0}
+    - target: {fileID: 9223003315674283084, guid: e0f2e34043f5a864381a1ad1875bd25b, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9162,6 +9202,10 @@ PrefabInstance:
     - target: {fileID: 1337578247903902172, guid: 7d9eace8fd5a2474f9b4d733dba4694e, type: 3}
       propertyPath: m_Name
       value: JoystickBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337578247903902172, guid: 7d9eace8fd5a2474f9b4d733dba4694e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8524188593958946318, guid: 7d9eace8fd5a2474f9b4d733dba4694e, type: 3}
       propertyPath: m_Pivot.x
