@@ -14,7 +14,7 @@ public class EndCutscene : MonoBehaviour
 
     IEnumerator EndCutsceneCoroutine()
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(13f);
 
         if (!string.IsNullOrWhiteSpace(sceneToLoad))
         {
