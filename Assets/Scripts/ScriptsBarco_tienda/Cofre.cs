@@ -98,7 +98,6 @@ public void AbrirCofre()
 
     public void CerrarCofre()
     {
-        // 🎬 ANIMACIÓN CERRAR
         if (animator != null)
             animator.SetTrigger("cerrar");
     }
