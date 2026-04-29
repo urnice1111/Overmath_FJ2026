@@ -28,7 +28,7 @@ public class SkinUIManager : MonoBehaviour
             descripcionText.text = descripcion;
 
         if (precio > 0)
-            precioText.text = "Precio: " + precio.ToString();
+            precioText.text = precio.ToString();
     }
 
     public void Cerrar()
