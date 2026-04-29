@@ -498,7 +498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &128430214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2637,7 +2637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &686308920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4867,7 +4867,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Overmath::MovimientoBackground
   duracionRecorrido: 15
   porcentajeDesplazamiento: 0.5
-  porcentajeDesplazamiento: 0.5
 --- !u!1 &1026360604
 GameObject:
   m_ObjectHideFlags: 0
@@ -6530,7 +6529,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Overmath::MovimientoBackground
   duracionRecorrido: 15
-  porcentajeDesplazamiento: 0.5
   porcentajeDesplazamiento: 0.5
 --- !u!1 &1190751788
 GameObject:
