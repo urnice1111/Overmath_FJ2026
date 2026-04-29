@@ -1,9 +1,18 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.Networking;
 
 public class HUDController : MonoBehaviour
 {
+
+    public class sendSkinData
+    {
+        public string assetName;
+        public int cuentaId;
+    }
+
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private List<Sprite> coinFrames;
     [SerializeField] private List<Sprite> trophyFrames;
@@ -135,8 +144,24 @@ public class HUDController : MonoBehaviour
         GameSession.Instance.skinSelected = skinName;
         SetCollapsedSkinImage(skinName);
         Debug.Log("[SkinSelector] Skin selected: " + skinName);
+        StartCoroutine(trySaveCurrentSkin());
     }
 
+
+    private IEnumerator trySaveCurrentSkin()
+    {
+        sendSkinData skinData = new sendSkinData
+        {
+            assetName = GameSession.Instance.skinSelected,
+            cuentaId = GameSession.Instance.userId
+        };
+
+        string jsonBody = JsonUtility.ToJson(skinData);
+
+        using UnityWebRequest www = UnityWebRequest.Post("http://localhost:8080/save_current_skin", jsonBody, "application/json");
+        yield return www.SendWebRequest();
+
+    }
     private void ToggleSkinPanel()
     {
         bool isVisible = skinExpanded.resolvedStyle.display == DisplayStyle.Flex;
