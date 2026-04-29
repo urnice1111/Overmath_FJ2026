@@ -1,10 +1,13 @@
 // The script controls the time bar. 
 using UnityEngine;
+using System.Collections;
 
 public class TiempoJuego : MonoBehaviour
 {
     public static TiempoJuego Instance { get; private set; }
     
+    [SerializeField]
+    private GameObject marcoCongelado;
 
     [SerializeField]
     private Transform barTransform;
@@ -18,6 +21,8 @@ public class TiempoJuego : MonoBehaviour
     public float TiempoJugado { get; private set; }
     
     public float TiempoRestante => currentTime;
+
+    private bool isPaused;
 
     void Start()
     {
@@ -42,8 +47,11 @@ public class TiempoJuego : MonoBehaviour
 
     void Update()
     {
-        currentTime -= decreaseRate * Time.deltaTime;
-        currentTime = Mathf.Clamp(currentTime, 0, maxTime);
+        if (!isPaused)
+        {
+            currentTime -= decreaseRate * Time.deltaTime;
+            currentTime = Mathf.Clamp(currentTime, 0, maxTime);
+        }
 
         float percent = currentTime / maxTime;
         barTransform.localScale = new Vector3(initialScale.x * percent, initialScale.y, initialScale.z);
@@ -56,7 +64,21 @@ public class TiempoJuego : MonoBehaviour
     
     public void AjustarTiempo(float cantidad)
     {
-        currentTime += cantidad; // restar o sumar tiempo
+        currentTime += cantidad;
         currentTime = Mathf.Clamp(currentTime, 0, maxTime);
+    }
+
+    public void Pausar(float duracion)
+    {
+        StartCoroutine(PausarCoroutine(duracion));
+    }
+
+    private IEnumerator PausarCoroutine(float duracion)
+    {
+        isPaused = true;
+        marcoCongelado.SetActive(true);
+        yield return new WaitForSeconds(duracion);
+        marcoCongelado.SetActive(false);
+        isPaused = false;
     }
 }
