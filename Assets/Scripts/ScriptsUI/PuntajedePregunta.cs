@@ -88,10 +88,7 @@ public class PuntajedePregunta : MonoBehaviour
         GuardarPuntaje();
         
         // Actualizar UI
-        if (mostrarPuntajeUI != null)
-        {
-            mostrarPuntajeUI.MostrarPuntajee(PuntosActuales);
-        }
+        mostrarPuntajeUI.MostrarPuntajee(PuntosActuales);
         
         Debug.Log("PuntajedePregunta: " + PuntosActuales + "/" + MinimoDePuntos + " (" + PorcentajeActual + "%)");
     }
